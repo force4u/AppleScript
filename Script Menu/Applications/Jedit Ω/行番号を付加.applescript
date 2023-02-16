@@ -83,14 +83,13 @@ end tell
 ########################
 ########ゼロサプレス
 ########################
-on zeroPadding(num, maxNum)
-	set numString to (num as integer) as string
-	set maxDigit to length of (maxNum as string)
-	set digit to length of numString
-	repeat while digit < maxDigit
+on zeroPadding(argNo, argMaxNum)
+	set numString to (argNo as integer) as string
+	set numMaxDigit to length of (argMaxNum as string)
+	set numDigit to length of numString
+	repeat while numDigit < numMaxDigit
 		set numString to "0" & numString
-		set digit to digit + 1
+		set numDigit to numDigit + 1
 	end repeat
 	return numString
 end zeroPadding
-
