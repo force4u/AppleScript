@@ -1,8 +1,8 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #
-#			Jedit用のURLエンコードされている％エンコード文字列を
-#			読める形にデコード
+#	エンコードされている％エンコード文字列を読める形にデコード
+#			
 #
 #                       com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
@@ -26,7 +26,7 @@ end tell
 ##############################
 #### デコード
 ##############################
-set strOutPutText to urlDecode(strInputText) as text
+set strOutPutText to doPercentDecode(strInputText) as text
 ##############################
 #### 戻り値テキストで置き換え
 ##############################
@@ -37,10 +37,9 @@ tell application "CotEditor"
 end tell
 
 
-
-on urlDecode(argInputText)
+on doPercentDecode(argInputText)
 	set ocidRawUrl to refNSString's stringWithString:argInputText
 	set ocidEncodedURL to ocidRawUrl's stringByRemovingPercentEncoding
 	set strDecodedURL to ocidEncodedURL as text
 	return strDecodedURL
-end urlDecode
+end doPercentDecode
