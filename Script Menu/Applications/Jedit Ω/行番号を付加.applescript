@@ -75,7 +75,7 @@ set strOutPutText to ocidOutPutText as text
 ########################
 ####新規ドキュメントを作ってテキストを戻す
 tell application "Jedit Ω"
-	make new document
+	make new document with properties {encoding:"Unicode (UTF-8)", line endings:LF}
 	tell front document
 		set selected text to strOutPutText
 	end tell
