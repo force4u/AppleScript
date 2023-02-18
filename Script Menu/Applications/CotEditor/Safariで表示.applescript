@@ -19,9 +19,7 @@ set strUTI to "com.apple.Safari" as text
 ###APP名
 set strAppName to "Safari" as text
 
-#############################
-####前面書類のファイルパスを取得
-#############################
+
 tell application "CotEditor"
 	set numCntActvDoc to (count of document) as integer
 	if numCntActvDoc = 0 then
@@ -48,9 +46,6 @@ set ocidExtensionNameLC to ocidExtensionName's lowercaseString()
 ####テキストで確定しておく
 set strExtensionName to ocidExtensionNameLC as text
 
-#############################
-####本処理
-#############################
 ####拡張子がHTMLなら
 if strExtensionName is "html" then
 	####UTIからアプリケーションのパスを求める
@@ -79,7 +74,13 @@ if strExtensionName is "html" then
 	ocidOpenConfiguration's setHides:(false as boolean)
 	ocidOpenConfiguration's setRequiresUniversalLinks:(false as boolean)
 	####開く
-	objNSWorkspace's openURLs:ocidOpenURLArray withApplicationAtURL:ocidAppPathURL configuration:ocidOpenConfiguration completionHandler:(missing value)
+	###objNSWorkspace's openURLs:ocidOpenURLArray withApplicationAtURL:ocidAppPathURL configuration:ocidOpenConfiguration completionHandler:(missing value)
+	#####
+	set aliasAppPathURL to ocidAppPathURL as alias
+	set aliasFilePathURL to ocidFilePathURL as alias
+	tell application "Finder"
+		open file aliasFilePathURL using aliasAppPathURL
+	end tell
 	
 end if
 
