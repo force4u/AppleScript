@@ -15,7 +15,7 @@ property refMe : a reference to current application
 property refNSDate : a reference to refMe's NSDate
 property refNSCalendar : a reference to refMe's NSCalendar
 property refNSTimeZone : a reference to refMe's NSTimeZone
-property refNSDateFormatter : a reference to NSDateFormatter
+property refNSDateFormatter : a reference to refMe's NSDateFormatter
 
 ###日付フォーマットは<http://nsdateformatter.com>参照
 set listDateFormat to {"AD yyyyMMdd", "AD yyyy年MM月dd日", "AD yyyy年MM月dd日EEEE", "AD Gyyyy年MM月dd日EEEE", "JE yyMMdd", "JE Gyyyy年MM月dd日", "JE Gyyyy年MM月dd日 EEEE", "MMM.dd,yyyy", "EEEE MMMM dd yyyy"} as list
