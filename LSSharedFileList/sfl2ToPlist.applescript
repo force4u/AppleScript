@@ -1,6 +1,6 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
-##com.cocolog-nifty.quicktimer.icefloe
+## https://quicktimer.cocolog-nifty.com/icefloe/2023/06/post-2c5c04.html
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
 use framework "Foundation"
