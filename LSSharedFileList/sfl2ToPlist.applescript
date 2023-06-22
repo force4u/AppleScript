@@ -81,10 +81,11 @@ repeat with itemsArrayDict in ocidItemsArray
 	set ocidBookMarkURL to item 1 of listResponse
 	####booKmarkデータがあるなら
 	if ocidBookMarkURL is not (missing value) then
-		###パスにして
+		###可読可能なテキストにして
 		set coidAliasStrings to ocidBookMarkURL's absoluteString()
+		###値をセットする
 		if (ocidLocaleID as text) contains "ja" then
-			(ocidAddDictM's setValue:(coidAliasStrings) forKey:("ブックマークのテキスト表示"))
+			(ocidAddDictM's setValue:(coidAliasStrings) forKey:("Bookmarkのテキスト表示"))
 		else
 			(ocidAddDictM's setValue:(coidAliasStrings) forKey:("BookMarkStrings"))
 		end if
@@ -100,12 +101,18 @@ end repeat
 ocidArchveDictM's setObject:(ocidItemsArrayM) forKey:("items")
 
 #######################################
+###　PLIST XML形式にする
+#######################################
+set ocidFromat to refMe's NSPropertyListXMLFormat_v1_0
+set listPlistEditDataArray to refMe's NSPropertyListSerialization's dataWithPropertyList:(ocidArchveDictM) format:(ocidFromat) options:0 |error|:(reference)
+set ocidPlistData to item 1 of listPlistEditDataArray
+
+#######################################
 ###　データを上書き保存する
 #######################################
 ##保存
-set boolDone to ocidArchveDictM's writeToURL:(ocidSaveFilePathURL) atomically:true
+set boolDone to ocidPlistData's writeToURL:(ocidSaveFilePathURL) atomically:true
 log boolDone
-
 
 ###保存したファイル
 set aliasSaveFile to (ocidSaveFilePathURL's absoluteURL()) as alias
@@ -120,4 +127,3 @@ tell application "Finder"
 	activate
 end tell
 
-log ocidArchveDict as record
