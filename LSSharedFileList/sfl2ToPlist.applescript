@@ -4,11 +4,14 @@
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
 use framework "Foundation"
+use framework "AppKIt"
 use scripting additions
 
 property refMe : a reference to current application
 
-
+###実行環境取得
+set ocidLocale to refMe's NSLocale's currentLocale()
+set ocidLocaleID to ocidLocale's localeIdentifier()
 
 ###デフォルトロケーション
 set appFileManager to refMe's NSFileManager's defaultManager()
@@ -43,20 +46,78 @@ set ocidFilePath to ocidFilePathStr's stringByStandardizingPath()
 set ocidFilePathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:false)
 ###保存先
 set ocidSaveFilePathURL to ocidFilePathURL's URLByAppendingPathExtension:"plist"
-##NSdataに読み込み
+#######################################
+###　NSdataをNSKeyedUnarchiverで解凍
+#######################################
+###【１】NSdataにデータを読み込む
 set ocidPlistData to refMe's NSData's dataWithContentsOfURL:(ocidFilePathURL)
-###解凍してDictに
+###【２】解凍してDictに
 set ocidArchveDict to refMe's NSKeyedUnarchiver's unarchiveObjectWithData:(ocidPlistData)
-###保存
-set boolDone to ocidArchveDict's writeToURL:(ocidSaveFilePathURL) atomically:true
+#######################################
+###　ROOT
+#######################################
+###【３】値を追加するために可変Dictを用意
+set ocidArchveDictM to (refMe's NSMutableDictionary's alloc()'s initWithCapacity:0)
+####２の解凍したデータを３の可変Dictにセット
+(ocidArchveDictM's setDictionary:ocidArchveDict)
+#######################################
+###　ITEMS
+#######################################
+###【４】itemsの値を追加するための可変Array
+set ocidItemsArrayM to (refMe's NSMutableArray's alloc()'s initWithCapacity:0)
+###３からitemsのArrayを取り出して
+set ocidItemsArray to ocidArchveDictM's objectForKey:"items"
+
+##################
+###itemsの数だけ繰り返し
+repeat with itemsArrayDict in ocidItemsArray
+	###【５】項目追加用のDict 
+	set ocidAddDictM to (refMe's NSMutableDictionary's alloc()'s initWithCapacity:0)
+	(ocidAddDictM's setDictionary:itemsArrayDict)
+	####BOOKMARKエイリアスの解決
+	set ocidBookMarkData to (ocidAddDictM's objectForKey:("Bookmark"))
+	###エイリアスの解決
+	set listResponse to (refMe's NSURL's URLByResolvingBookmarkData:(ocidBookMarkData) options:11 relativeToURL:(missing value) bookmarkDataIsStale:(true) |error|:(reference))
+	set ocidBookMarkURL to item 1 of listResponse
+	####booKmarkデータがあるなら
+	if ocidBookMarkURL is not (missing value) then
+		###パスにして
+		set coidAliasStrings to ocidBookMarkURL's absoluteString()
+		if (ocidLocaleID as text) contains "ja" then
+			(ocidAddDictM's setValue:(coidAliasStrings) forKey:("ブックマークのテキスト表示"))
+		else
+			(ocidAddDictM's setValue:(coidAliasStrings) forKey:("BookMarkStrings"))
+		end if
+	end if
+	###４の可変Arrayにセット
+	(ocidItemsArrayM's addObject:ocidAddDictM)
+end repeat
+
+#######################################
+###　bookMarkのテキスト入りのArrayを戻す
+#######################################
+###３の可変Dictに可読可能なBookMarkを入れた４のArrayを戻す
+ocidArchveDictM's setObject:(ocidItemsArrayM) forKey:("items")
+
+#######################################
+###　データを上書き保存する
+#######################################
+##保存
+set boolDone to ocidArchveDictM's writeToURL:(ocidSaveFilePathURL) atomically:true
+log boolDone
+
+
 ###保存したファイル
 set aliasSaveFile to (ocidSaveFilePathURL's absoluteURL()) as alias
-
 ###ファインダーで選択
 tell application "Finder"
+	set aliasContainerDir to container of aliasSaveFile as alias
 	set objNewWindow to make new Finder window
+	set target of objNewWindow to aliasContainerDir
 	tell objNewWindow
 		select aliasSaveFile
 	end tell
 	activate
 end tell
+
+log ocidArchveDict as record
