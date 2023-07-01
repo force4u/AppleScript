@@ -19,6 +19,7 @@ tell application id strBundleID to quit
 ###【１】ドキュメントのパスをNSString
 ###旧パス
 set strFilePath to "~/Library/Preferences/com.apple.archiveutility.plist"
+###新パス
 set strFilePath to "~/Library/Containers/com.apple.archiveutility/Data/Library/Preferences/com.apple.archiveutility.plist"
 
 set ocidFilePathStr to refMe's NSString's stringWithString:(strFilePath)
