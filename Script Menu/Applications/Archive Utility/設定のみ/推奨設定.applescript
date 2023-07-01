@@ -13,11 +13,13 @@ property refMe : a reference to current application
 ###UTI
 set strBundleID to "com.apple.archiveutility" as text
 
-	tell application id strBundleID to quit
+tell application id strBundleID to quit
 
 ##########################################
 ###【１】ドキュメントのパスをNSString
+###旧パス
 set strFilePath to "~/Library/Preferences/com.apple.archiveutility.plist"
+set strFilePath to "~/Library/Containers/com.apple.archiveutility/Data/Library/Preferences/com.apple.archiveutility.plist"
 
 set ocidFilePathStr to refMe's NSString's stringWithString:(strFilePath)
 set ocidFilePath to ocidFilePathStr's stringByStandardizingPath()
