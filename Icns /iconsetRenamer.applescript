@@ -1,6 +1,6 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
-#
+# https://quicktimer.cocolog-nifty.com/icefloe/2023/07/post-ee8fbf.html
 #com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.6"
