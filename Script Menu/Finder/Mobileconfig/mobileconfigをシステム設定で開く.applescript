@@ -68,7 +68,7 @@ ocidOpenUrlArray's insertObject:(ocidOpenAppURL) atIndex:1
 ###FinderでファイルとURLを同時に開く
 set ocidOpenConfig to refMe's NSWorkspaceOpenConfiguration's configuration
 ocidOpenConfig's setActivates:(refMe's NSNumber's numberWithBool:true)
-appShardWorkspace's openURLs:({ocidFilePathURL, ocidOpenAppURL}) withApplicationAtURL:(ocidAppPathURL) configuration:(ocidOpenConfig) completionHandler:(missing value)
+appShardWorkspace's openURLs:(ocidOpenUrlArray) withApplicationAtURL:(ocidAppPathURL) configuration:(ocidOpenConfig) completionHandler:(missing value)
 ###システム設定を前面に
 set ocidRunningApp to refMe's NSRunningApplication
 set ocidAppArray to (ocidRunningApp's runningApplicationsWithBundleIdentifier:("com.apple.systempreferences"))
