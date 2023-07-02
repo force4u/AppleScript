@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>PayloadContent</key>
+		<array>
+			<dict>
+				<key>DisableAirDrop</key>
+				<true />
+				<key>PayloadDisplayName</key>
+				<string>AirDrop</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.NetworkBrowser.0E5C29AF-EFA5-427D-89F7-35E5D2F3374C</string>
+				<key>PayloadType</key>
+				<string>com.apple.NetworkBrowser</string>
+				<key>PayloadUUID</key>
+				<string>0E5C29AF-EFA5-427D-89F7-35E5D2F3374C</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+			</dict>
+
+			<dict>
+				<key>allowAirDrop</key>
+				<false />
+				<key>PayloadDisplayName</key>
+				<string>Application Access</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.applicationaccess.B9180107-2014-4007-885C-AFDD1670B7C6</string>
+				<key>PayloadType</key>
+				<string>com.apple.applicationaccess</string>
+				<key>PayloadUUID</key>
+				<string>B9180107-2014-4007-885C-AFDD1670B7C6</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+			</dict>
+
+			<dict>
+				<key>DiscoverableMode</key>
+				<!-- <string>Contacts Only</string>
+				<string>Everyone</string> -->
+				<string>Off</string>
+				<key>PayloadDisplayName</key>
+				<string>AirDrop</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.sharingd.8D5BB204-86F3-4A63-B3D5-E8BAA5F94A35</string>
+				<key>PayloadType</key>
+				<string>com.apple.sharingd</string>
+				<key>PayloadUUID</key>
+				<string>8D5BB204-86F3-4A63-B3D5-E8BAA5F94A35</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+			</dict>
+		</array>
+		<key>ConsentText</key>
+		<dict>
+			<key>default</key>
+			<string>アプリケーションアクセスの設定でAirDropを不可に。ネットワークブラウザの
+				AriDropを利用不可に変更。ディスカバリーモードをOffにする </string>
+		</dict>
+		<key>PayloadDescription</key>
+		<string>com.apple.DisableAirDrop</string>
+		<key>PayloadDisplayName</key>
+		<string>com.apple.DisableAriDrop</string>
+		<key>PayloadIdentifier</key>
+		<string>com.apple.NetworkBrowser.391782F1-6294-4C1B-8938-A7A21FF82E1A</string>
+		<key>PayloadOrganization</key>
+		<string>quicktimer.cocolog-nifty.com</string>
+		<key>PayloadScope</key>
+		<string>User</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>391782F1-6294-4C1B-8938-A7A21FF82E1A</string>
+		<key>PayloadVersion</key>
+		<integer>20230627</integer>
+		<key>TargetDeviceType</key>
+		<integer>5</integer>
+	</dict>
+</plist>
