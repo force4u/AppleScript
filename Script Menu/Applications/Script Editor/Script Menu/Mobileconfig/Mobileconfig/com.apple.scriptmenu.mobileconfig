@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+
+		<key>PayloadContent</key>
+		<array>
+			<!-- com.apple.ScriptMenuApp -->
+			<dict>
+				<key>NSStatusItem Visible com.apple.scriptmenu</key>
+				<true />
+				<key>PayloadDisplayName</key>
+				<string>com.apple.ScriptMenuApp</string>
+				<key>PayloadIdentifier</key>
+				<string>8A67C180-59F5-4EEC-B27F-952ACBDC5CF4</string>
+				<key>PayloadType</key>
+				<string>com.apple.ScriptMenuApp</string>
+				<key>PayloadUUID</key>
+				<string>3083A2E1-AABB-4600-A5E2-336FEC81B79D</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+			</dict>
+			<!-- com.apple.scriptmenu -->
+			<dict>
+				<key>ScriptMenuEnabled</key>
+				<true />
+				<key>PutAppScriptsFirst</key>
+				<true />
+				<key>ShowLibraryScripts</key>
+				<false />
+
+				<key>PayloadDisplayName</key>
+				<string>com.apple.scriptmenu</string>
+				<key>PayloadIdentifier</key>
+				<string>EBCA53F0-23BA-42F5-804E-2BCB7855595C</string>
+				<key>PayloadType</key>
+				<string>com.apple.scriptmenu</string>
+				<key>PayloadUUID</key>
+				<string>A4302839-5623-4128-8F6B-FB91EC185CAD</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+			</dict>
+
+		</array>
+		<key>PayloadDescription</key>
+		<string>スクリプトメニューの設定です</string>
+		<key>PayloadDisplayName</key>
+		<string>com.apple.scriptmenu</string>
+		<key>ConsentText</key>
+		<dict>
+			<key>default</key>
+			<string>日本語の詳しい解説例：スクリプトメニューを有効にします</string>
+			<key>jp</key>
+			<string>日本語の詳しい解説例：スクリプトメニューを有効にします</string>
+		</dict>
+		<key>PayloadIdentifier</key>
+		<string>com.apple.scriptmenu.671145E3-CFD4-4A20-A381-366D53D9447F</string>
+		<key>PayloadOrganization</key>
+		<string>com.cocolog-nifty.quicktimer</string>
+		<key>PayloadRemovalDisallowed</key>
+		<false />
+		<key>PayloadScope</key>
+		<string>User</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>671145E3-CFD4-4A20-A381-366D53D9447F</string>
+		<key>PayloadVersion</key>
+		<integer>20221027</integer>
+		<key>TargetDeviceType</key>
+		<integer>5</integer>
+	</dict>
+</plist>
