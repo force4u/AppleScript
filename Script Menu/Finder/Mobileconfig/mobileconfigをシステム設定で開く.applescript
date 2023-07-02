@@ -16,7 +16,7 @@ tell application "Finder"
 	set aliasDefaultLocation to (path to documents folder from user domain) as alias
 end tell
 
-####UTIリスト PDFのみ
+####UTIリスト mobileconfigのみ
 set listUTI to {"com.apple.mobileconfig"}
 
 set strMes to ("モバイルコンフィグファイルを選んでください") as text
