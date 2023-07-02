@@ -5,6 +5,7 @@
 use AppleScript version "2.8"
 use framework "Foundation"
 use framework "AppKit"
+use framework "UniformTypeIdentifiers"
 use scripting additions
 
 property refMe : a reference to current application
@@ -24,7 +25,7 @@ set ocidPathArray to item 1 of listPathUrlArray
 ####################################
 ##ディレクトリ名を取得
 ####################################
-set listDirName to {"iCloud Drive"} as list
+set listDirName to {"iCloud Drive", "Air Drop"} as list
 
 ##AdobeCC利用中かチェックする
 set ocidHomeDirPathURL to appFileManager's homeDirectoryForCurrentUser()
@@ -89,6 +90,18 @@ repeat with itemResponse in listResponse
 	else if strResponse is "Creative Cloud Files" then
 		###開く
 		(appSharedWorkspace's selectFile:(ocidChkDirPath) inFileViewerRootedAtPath:(ocidChkDirPath))
+	else if strResponse is "Air Drop" then
+		set strBundleID to "com.apple.finder.Open-AirDrop" as text
+		##NSBundleで取得出来なければNSWorkspaceで取得
+		set ocidAppBundle to (refMe's NSBundle's bundleWithIdentifier:(strBundleID))
+		if ocidAppBundle ≠ (missing value) then
+			set ocidAppPathURL to ocidAppBundle's bundleURL()
+		else if ocidAppBundle = (missing value) then
+			set ocidAppPathURL to (appSharedWorkspace's URLForApplicationWithBundleIdentifier:(strBundleID))
+		end if
+		set ocidOpenConfig to refMe's NSWorkspaceOpenConfiguration's configuration
+		(ocidOpenConfig's setActivates:(refMe's NSNumber's numberWithBool:true))
+		(appSharedWorkspace's openApplicationAtURL:(ocidAppPathURL) configuration:(ocidOpenConfig) completionHandler:(missing value))
 	else
 		###URLにしてからパスに戻して
 		set ocidCloudStorageFilePathURL to (ocidCloudStorageURL's URLByAppendingPathComponent:(strResponse))
