@@ -5,21 +5,16 @@
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
 use framework "Foundation"
+use framework "AppKIt"
+use framework "UniformTypeIdentifiers"
 use scripting additions
 
 property refMe : a reference to current application
-
-###設定項目　新規インスタンスで開くか？
-property boolNewInstance : true as boolean
-###開くアプリケーション
 property strBundleID : "com.apple.Preview"
 
+
 on run
-	###デスクトップ
-	set appFileManager to refMe's NSFileManager's defaultManager()
-	set ocidHomeDirURL to appFileManager's homeDirectoryForCurrentUser()
-	set ocidDesktopDirURL to ocidHomeDirURL's URLByAppendingPathComponent:("Desktop") isDirectory:(true)
-	set aliasDefaultLocation to (ocidDesktopDirURL's absoluteURL()) as alias
+	set aliasDefaultLocation to (path to desktop from user domain) as alias
 	set strPromptText to "画像が入ったフォルダをえらんでください"
 	set strMesText to "画像が入ったフォルダをえらんでください"
 	try
@@ -33,41 +28,33 @@ end run
 
 
 on open listFolderPath
-	####################################
-	###フォルダURLのみを格納するリスト
-	####################################
-	set ocidDirURLArray to (refMe's NSMutableArray's alloc()'s initWithCapacity:0)
-	repeat with itemFolderPath in listFolderPath
-		set strDirPath to POSIX path of itemFolderPath as text
-		set ocidDirPathStr to (refMe's NSString's stringWithString:(strDirPath))
-		set ocidDirPath to ocidDirPathStr's stringByStandardizingPath
-		###NSURLに
-		set ocidDirPathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:ocidDirPath)
-		set listResourceValue to (ocidDirPathURL's getResourceValue:(reference) forKey:(refMe's NSURLIsDirectoryKey) |error|:(reference))
-		###ディレクトリ＝フォルダか？確認
-		set boolIsDir to (item 2 of listResourceValue)
-		if boolIsDir = (refMe's NSNumber's numberWithBool:true) then
-			(ocidDirURLArray's addObject:(ocidDirPathURL))
-		end if
-	end repeat
-	####################################
-	###並び替えておく
-	####################################
-	set ocidDescriptor to (refMe's NSSortDescriptor's sortDescriptorWithKey:"absoluteString" ascending:(true) selector:"localizedStandardCompare:")
-	(ocidDirURLArray's sortUsingDescriptors:{ocidDescriptor})
-	(*
-	####################################
-	###プレビューを終了させる
-	####################################
+	tell application "Finder"
+		set strKind to (kind of (item 1 of listFolderPath)) as text
+	end tell
+	if strKind is not "フォルダ" then
+		return "フォルダ以外は処理しない"
+	end if
+	
+	####終了させてから処理させる
+	tell application id strBundleID
+		set numCntWindow to (count of every window) as integer
+	end tell
+	if numCntWindow = 0 then
+		tell application id strBundleID
+			quit
+		end tell
+	else
+		tell application id strBundleID
+			close (every window)
+			quit
+		end tell
+	end if
+	####プレビューの半ゾンビ化対策	
 	set ocidRunningApplication to refMe's NSRunningApplication
 	set ocidAppArray to ocidRunningApplication's runningApplicationsWithBundleIdentifier:(strBundleID)
 	repeat with itemAppArray in ocidAppArray
-		itemAppArray's terminate()
+		itemAppArray's terminate
 	end repeat
-	repeat with itemAppArray in ocidAppArray
-		itemAppArray's forceTerminate()
-	end repeat
-	*)
 	###enumeratorAtURL用のBoolean用
 	set ocidFalse to (refMe's NSNumber's numberWithBool:false)
 	set ocidTrue to (refMe's NSNumber's numberWithBool:true)
@@ -80,9 +67,17 @@ on open listFolderPath
 	###ファイルURLのみを格納するリスト
 	set ocidFilePathURLAllArray to (refMe's NSMutableArray's alloc()'s initWithCapacity:0)
 	###まずは全部のURLをArrayに入れる
-	repeat with itemDirURLArray in ocidDirURLArray
+	repeat with itemFolderPath in listFolderPath
+		######パス フォルダのエイリアス
+		set aliasDirPath to itemFolderPath as alias
+		###UNIXパスにして
+		set strDirPath to POSIX path of aliasDirPath as text
+		###Stringsに
+		set ocidDirPath to (refMe's NSString's stringWithString:strDirPath)
+		###パス確定させて
+		set ocidDirPath to ocidDirPath's stringByStandardizingPath
 		###NSURLに
-		set ocidDirPathURL to itemDirURLArray
+		set ocidDirPathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:ocidDirPath isDirectory:true)
 		##################################
 		##プロパティ
 		set ocidPropertieKey to {refMe's NSURLPathKey, refMe's NSURLIsRegularFileKey, refMe's NSURLContentTypeKey}
@@ -94,10 +89,6 @@ on open listFolderPath
 		set ocidEmuFileURLArray to ocidEmuDict's allObjects()
 		(ocidFilePathURLAllArray's addObjectsFromArray:ocidEmuFileURLArray)
 	end repeat
-	
-	
-	
-	
 	################################
 	####必要なファイルだけのArrayにする
 	################################
@@ -132,8 +123,7 @@ on open listFolderPath
 	################################
 	####ファイルタイプのチェックをする
 	################################
-	set ocidAppPathURL to doGetAppURL(strBundleID)
-	set listUTI to doGetUTI(ocidAppPathURL) as list
+	set listUTI to doGetUTI() as list
 	###ファイルURLのみを格納するリスト
 	set ocidFilePathURLArrayM to (refMe's NSMutableArray's alloc()'s initWithCapacity:0)
 	repeat with itemFilePathURL in ocidFilePathURLArray
@@ -152,56 +142,68 @@ on open listFolderPath
 	##############################
 	##		set ocidSortDescriptor to (refMe's NSSortDescriptor's sortDescriptorWithKey:"absoluteString" ascending:(true) selector:"localizedStandardCompare:")
 	set ocidSortDescriptor to (refMe's NSSortDescriptor's sortDescriptorWithKey:"absoluteString" ascending:(true) selector:"compare:")
+	
 	(ocidFilePathURLArrayM's sortUsingDescriptors:{ocidSortDescriptor})
 	
-	
+	##############################
+	####エリアスリストにして
+	##############################
+	###空のリスト＝プレヴューに渡すため
+	set listAliasPath to {} as list
+	###並び変わったファイルパスを順番に
+	repeat with itemFilePathURL in ocidFilePathURLArrayM
+		###エイリアスにして
+		set aliasFilePath to (itemFilePathURL's absoluteURL()) as alias
+		####リストに格納していく
+		copy aliasFilePath to end of listAliasPath
+	end repeat
+	if listAliasPath is {} then
+		return "Openできる書類はありませんでした"
+	end if
+	##############################
+	####起動
+	##############################
+	try
+		tell application id "com.apple.Preview" to launch
+	on error
+		tell application id "com.apple.Preview" to activate
+	end try
 	##############################
 	####プレビューで開く
 	##############################
-	set appSharedWorkspace to refMe's NSWorkspace's sharedWorkspace()
-	###新規インスタンスで開く設定
-	set ocidConfig to refMe's NSWorkspaceOpenConfiguration's configuration()
-	ocidConfig's setActivates:(true)
-	ocidConfig's setAddsToRecentItems:(false)
-	ocidConfig's setCreatesNewApplicationInstance:(boolNewInstance)
-	###ファイルAを開く
-	appSharedWorkspace's openURLs:(ocidFilePathURLArrayM) withApplicationAtURL:(ocidAppPathURL) configuration:(ocidConfig) completionHandler:(missing value)
+	tell application id "com.apple.Preview"
+		activate
+		set numWindow to count of window
+		if numWindow = 0 then
+			try
+				open listAliasPath
+			on error
+				log "ここでエラー"
+			end try
+		else
+			####新しいウィンドで開く方法がわからん
+			####新しいインスタンス生成すれば良いのかな
+			open listAliasPath
+		end if
+	end tell
+	
 end open
 
-##############################
-####アプリケーションのURLを取得する
-##############################
-to doGetAppURL(arg_strBundleID)
-	set appSharedWorkspace to refMe's NSWorkspace's sharedWorkspace()
-	##バンドルからアプリケーションのURLを取得
-	set ocidAppBundle to (refMe's NSBundle's bundleWithIdentifier:(strBundleID))
-	if ocidAppBundle ≠ (missing value) then
+
+
+
+
+to doGetUTI()
+	###アプリケーションのURLを取得
+	###NSバンドルをUTIから取得
+	set ocidAppBundle to refMe's NSBundle's bundleWithIdentifier:(strBundleID)
+	if ocidAppBundle = (missing value) then
+		###NSバンドル取得できなかった場合
+		set appNSWorkspace to refMe's NSWorkspace's sharedWorkspace()
+		set ocidAppPathURL to appNSWorkspace's URLForApplicationWithBundleIdentifier:(strBundleID)
+	else
 		set ocidAppPathURL to ocidAppBundle's bundleURL()
-	else if ocidAppBundle = (missing value) then
-		set ocidAppPathURL to (appSharedWorkspace's URLForApplicationWithBundleIdentifier:(strBundleID))
 	end if
-	##予備（アプリケーションのURL）
-	if ocidAppPathURL = (missing value) then
-		tell application "Finder"
-			try
-				set aliasAppApth to (application file id strBundleID) as alias
-				set strAppPath to POSIX path of aliasAppApth as text
-				set strAppPathStr to refMe's NSString's stringWithString:(strAppPath)
-				set strAppPath to strAppPathStr's stringByStandardizingPath()
-				set ocidAppPathURL to refMe's NSURL's alloc()'s initFileURLWithPath:(strAppPath) isDirectory:true
-			on error
-				return "アプリケーションが見つかりませんでした"
-			end try
-		end tell
-	end if
-	return ocidAppPathURL
-end doGetAppURL
-##############################
-##アプリケーションが
-##OPEN可能なUTIリストを取得する
-##############################
-to doGetUTI(arg_ocidAppPathURL)
-	set ocidAppPathURL to arg_ocidAppPathURL
 	###Plistのパス
 	set ocidPlistPathURL to ocidAppPathURL's URLByAppendingPathComponent:("Contents/Info.plist") isDirectory:false
 	set ocidPlistDict to refMe's NSMutableDictionary's alloc()'s initWithContentsOfURL:(ocidPlistPathURL)
