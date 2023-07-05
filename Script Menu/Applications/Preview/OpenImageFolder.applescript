@@ -95,29 +95,17 @@ on open listFolderPath
 	set ocidFilePathURLArray to (refMe's NSMutableArray's alloc()'s initWithCapacity:0)
 	####URLの数だけ繰り返し
 	repeat with itemFilePathURL in ocidFilePathURLAllArray
-		###################不要なファイルをゴミ箱に入れちゃう
-		####拡張子取って
-		set ocidExtension to itemFilePathURL's pathExtension()
-		###URLファイル削除
-		if (ocidExtension as text) is "url" then
-			set listResult to (appFileManager's trashItemAtURL:(itemFilePathURL) resultingItemURL:(missing value) |error|:(reference))
-			###WindowのサムネイルDB削除
-		else if (ocidExtension as text) is "db" then
-			set listResult to (appFileManager's trashItemAtURL:(itemFilePathURL) resultingItemURL:(missing value) |error|:(reference))
-			###webloc削除
-		else if (ocidExtension as text) is "webloc" then
-			set listResult to (appFileManager's trashItemAtURL:(itemFilePathURL) resultingItemURL:(missing value) |error|:(reference))
-		else
-			####URLをforKeyで取り出し
-			set listResult to (itemFilePathURL's getResourceValue:(reference) forKey:(refMe's NSURLIsRegularFileKey) |error|:(reference))
-			###リストからNSURLIsRegularFileKeyのBOOLを取り出し
-			set boolIsRegularFileKey to item 2 of listResult
-			####ファイルのみを(ディレクトリやリンボリックリンクは含まない）
-			if boolIsRegularFileKey is ocidTrue then
-				####リストにする
-				(ocidFilePathURLArray's addObject:(itemFilePathURL))
-			end if
+		
+		####URLをforKeyで取り出し
+		set listResult to (itemFilePathURL's getResourceValue:(reference) forKey:(refMe's NSURLIsRegularFileKey) |error|:(reference))
+		###リストからNSURLIsRegularFileKeyのBOOLを取り出し
+		set boolIsRegularFileKey to item 2 of listResult
+		####ファイルのみを(ディレクトリやリンボリックリンクは含まない）
+		if boolIsRegularFileKey is ocidTrue then
+			####リストにする
+			(ocidFilePathURLArray's addObject:(itemFilePathURL))
 		end if
+		
 	end repeat
 	log ocidFilePathURLArray as list
 	################################
