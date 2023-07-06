@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>DefaultPrinter</key>
+			<dict>
+				<key>DeviceURI</key>
+				<string>lpadmin -v 相当の値　file:// ldp:// ipp:// usb:// </string>
+				<key>DisplayName</key>
+				<string>lpadmin -p 相当の値　キュー名</string>
+			</dict>
+			<key>PayloadDisplayName</key>
+			<string>Printing</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.mcxprinting.38F937D9-FDF0-4E5E-85A8-1822D0AE94A0</string>
+			<key>PayloadType</key>
+			<string>com.apple.mcxprinting</string>
+			<key>PayloadUUID</key>
+			<string>38F937D9-FDF0-4E5E-85A8-1822D0AE94A0</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+	</array>
+		<key>ConsentText</key>
+	<dict>
+		<key>default</key>
+		<string>デフォルトのプリンタを設定します。
+設定値と差異がある場合
+自分で設定したい場合はキャンセル、
+削除しても大丈夫です</string>
+	</dict>
+	<key>PayloadDescription</key>
+	<string>デフォルトのプリンタを設定します。
+設定値と差異がある場合
+自分で設定したい場合は
+キャンセル、削除しても大丈夫です</string>
+	<key>PayloadDisplayName</key>
+	<string>com.apple.mcxprinting</string>
+	<key>PayloadIdentifier</key>
+	<string>com.apple.mcxprinting.33154FAE-858F-43DD-A594-189EBAAA08F7</string>
+	<key>PayloadOrganization</key>
+	<string>com.apple.mcxprinting</string>
+	<key>PayloadScope</key>
+	<string>User</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>33154FAE-858F-43DD-A594-189EBAAA08F7</string>
+	<key>TargetDeviceType</key>
+	<integer>5</integer>
+</dict>
+</plist>
