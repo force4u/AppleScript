@@ -5,7 +5,9 @@
 【３】lpoptions -->
 【４】profile  -->
 
-【１】CUPS -->lpadmin
+【１】CUPS
 https://github.com/force4u/AppleScript/blob/main/Script%20Menu/Printers/DefaultPrinter/lpadmin/lpadmin-d.applescript
-【２】OS -->Mobileconfig
+【２】OS
 https://github.com/force4u/AppleScript/blob/main/Script%20Menu/Printers/DefaultPrinter/Mobileconfig/MakeMobileconfig.applescript
+【３】lpoptions
+https://github.com/force4u/AppleScript/blob/main/Script%20Menu/Printers/DefaultPrinter/lpadmin/lpadmin-d.applescript
