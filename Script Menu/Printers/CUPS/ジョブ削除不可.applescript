@@ -11,7 +11,7 @@ property refMe : a reference to current application
 set appFileManager to refMe's NSFileManager's defaultManager()
 
 ######################
-##CUPS プリンタ共有停止
+##CUPS 
 ######################
 set strCommandText to ("/usr/sbin/cupsctl --no-user-cancel-any")
 set ocidAppName to refMe's NSString's stringWithString:strCommandText
