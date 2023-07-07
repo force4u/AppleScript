@@ -73,11 +73,15 @@ appShardWorkspace's openURLs:({ocidFilePathURL}) withApplicationAtURL:(ocidAppPa
 ##保存先を示す
 set boolSelectFileResults to appShardWorkspace's selectFile:(ocidFilePathURL's |path|()) inFileViewerRootedAtPath:(ocidSaveDirPathURL's |path|())
 if boolSelectFileResults = false then
-	####エイリアスにして
 	set aliasFilePath to (ocidFilePathURL's absoluteURL()) as alias
+	set aliasDirPath to (ocidSaveDirPathURL's absoluteURL()) as alias
 	tell application "Finder"
 		set refNewWindow to make new Finder window
-		set target of refNewWindow to aliasFilePath
+		tell refNewWindow
+			set position to {10, 30}
+			set bounds to {10, 30, 720, 480}
+		end tell
+		set target of refNewWindow to aliasDirPath
+		set selection to aliasFilePath
 	end tell
-	
 end if
