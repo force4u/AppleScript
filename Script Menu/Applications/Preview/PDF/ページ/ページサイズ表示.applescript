@@ -112,7 +112,7 @@ if ((item 1 of listTrimOrigin) + (item 2 of listTrimOrigin)) > 0 then
 	set strMes to strMes & "表示外の領域があります（Trimサイズ）\r" as text
 end if
 if ((item 1 of listCropOrigin) + (item 2 of listCropOrigin)) > 0 then
-	set strMes to strMes & "表示外の領域があります（Trimサイズ）\r" as text
+	set strMes to strMes & "表示外の領域があります（Cropサイズ）\r" as text
 end if
 
 
