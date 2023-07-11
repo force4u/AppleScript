@@ -8,7 +8,7 @@
 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/Resources/GenericPostscriptPrinter.icns  
 <img src="GenericPostscriptPrinter.iconset/icon_32x32.png" alt="iconset">  
   
-/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/Resources/GenericScanner.icns 
+/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/Resources/GenericScanner.icns  
 <img src="GenericScanner.iconset/icon_32x32.png" alt="iconset">  
 
 /System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/Resources/PrinterPool.icns  
