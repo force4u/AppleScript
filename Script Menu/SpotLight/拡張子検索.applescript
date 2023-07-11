@@ -3,6 +3,7 @@
 #com.cocolog-nifty.quicktimer.icefloe
 #	留意事項　検索条件は次回起動時に削除されます
 #	前面ウィンドウのパスで拡張子検索
+#	JPEGとJPGはOR検索が可能になっています
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
 use framework "Foundation"
