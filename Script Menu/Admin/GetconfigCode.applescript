@@ -10,6 +10,9 @@ use framework "Foundation"
 use framework "AppKit"
 use scripting additions
 
+set strLocale to "ja_JP"
+
+
 property refMe : a reference to current application
 
 set appFileManager to refMe's NSFileManager's defaultManager()
@@ -59,13 +62,23 @@ set strConfigCode to (ocidDeviceSerialNumber's substringWithRange:(ocidRenge)) a
 set strURL to "https://support-sp.apple.com/sp/product"
 set ocidURLStr to refMe's NSString's stringWithString:(strURL)
 set ocidURL to refMe's NSURL's URLWithString:(ocidURLStr)
-###コンフィグコードでクエリーを設定
-set strQueryItem to ("cc=" & strConfigCode) as text
+####コンポーネント
 set ocidComponents to refMe's NSURLComponents's alloc()'s initWithURL:(ocidURL) resolvingAgainstBaseURL:false
-ocidComponents's setQuery:(strQueryItem)
-###URLにして
+set ocidComponentArray to refMe's NSMutableArray's alloc()'s initWithCapacity:0
+##JSON指定
+set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("cc") value:(strConfigCode)
+ocidComponentArray's addObject:(ocidQueryItem)
+#####アーティスト名から artist idを取得する
+set ocidQueryItem to (refMe's NSURLQueryItem's alloc()'s initWithName:("lang") value:(strLocale))
+(ocidComponentArray's addObject:(ocidQueryItem))
+###検索クエリーとして追加
+(ocidComponents's setQueryItems:(ocidComponentArray))
+####コンポーネントをURLに展開
 set ocidNewURL to ocidComponents's |URL|()
 log ocidNewURL's absoluteString() as text
+
+
+
 ###XML読み込み
 set ocidOption to (refMe's NSXMLDocumentTidyXML)
 set listReadXMLDoc to refMe's NSXMLDocument's alloc()'s initWithContentsOfURL:(ocidNewURL) options:(ocidOption) |error|:(reference)
