@@ -10,9 +10,6 @@ use framework "Foundation"
 use framework "AppKit"
 use scripting additions
 
-set strLocale to "ja_JP"
-
-
 property refMe : a reference to current application
 
 set appFileManager to refMe's NSFileManager's defaultManager()
@@ -65,11 +62,13 @@ set ocidURL to refMe's NSURL's URLWithString:(ocidURLStr)
 ####コンポーネント
 set ocidComponents to refMe's NSURLComponents's alloc()'s initWithURL:(ocidURL) resolvingAgainstBaseURL:false
 set ocidComponentArray to refMe's NSMutableArray's alloc()'s initWithCapacity:0
-##JSON指定
+##
 set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("cc") value:(strConfigCode)
 ocidComponentArray's addObject:(ocidQueryItem)
-#####アーティスト名から artist idを取得する
-set ocidQueryItem to (refMe's NSURLQueryItem's alloc()'s initWithName:("lang") value:(strLocale))
+##
+set ocidLocale to refMe's NSLocale's currentLocale()
+set ocidLocaleID to ocidLocale's localeIdentifier()
+set ocidQueryItem to (refMe's NSURLQueryItem's alloc()'s initWithName:("lang") value:(ocidLocaleID))
 (ocidComponentArray's addObject:(ocidQueryItem))
 ###検索クエリーとして追加
 (ocidComponents's setQueryItems:(ocidComponentArray))
