@@ -1,6 +1,9 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #
+#
+#	
+#
 # com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
@@ -111,6 +114,58 @@ set listPlistEditDataArray to (refMe's NSPropertyListSerialization's dataWithPro
 set ocidPlisSaveData to item 1 of listPlistEditDataArray
 set boolSaveDone to (ocidPlisSaveData's writeToURL:(ocidSaveFilePathURL) options:(refMe's NSDataWritingAtomic) |error|:(reference))
 log boolSaveDone as list
+
+###登録実行
+tell application id "com.apple.systempreferences" to launch
+tell application id "com.apple.systempreferences"
+	activate
+	reveal anchor "Main" of pane id "com.apple.Profiles-Settings.extension"
+end tell
+
+###FinderのURL
+set appShardWorkspace to refMe's NSWorkspace's sharedWorkspace()
+set strBundleID to "com.apple.finder" as text
+set ocidAppBundle to refMe's NSBundle's bundleWithIdentifier:(strBundleID)
+if ocidAppBundle is not (missing value) then
+	set ocidAppPathURL to ocidAppBundle's bundleURL()
+else
+	set ocidAppPathURL to appShardWorkspace's URLForApplicationWithBundleIdentifier:(strBundleID)
+end if
+###パネルのURL
+set ocidURLComponents to refMe's NSURLComponents's alloc()'s init()
+ocidURLComponents's setScheme:("x-apple.systempreferences")
+ocidURLComponents's setPath:("com.apple.preferences.configurationprofiles")
+set ocidOpenAppURL to ocidURLComponents's |URL|
+set strOpenAppURL to ocidOpenAppURL's absoluteString() as text
+###ファイルURLとパネルのURLをArrayにしておく
+set ocidOpenUrlArray to refMe's NSMutableArray's alloc()'s initWithCapacity:0
+ocidOpenUrlArray's insertObject:(ocidSaveFilePathURL) atIndex:0
+ocidOpenUrlArray's insertObject:(ocidOpenAppURL) atIndex:1
+tell current application
+	set strName to name as text
+end tell
+if strName is "osascript" then
+	set theCmdCom to ("open \"" & strFilePath & "\" | open \"" & strOpenAppURL & "\"") as text
+	do shell script theCmdCom
+else
+	###FinderでファイルとURLを同時に開く
+	set ocidOpenConfig to refMe's NSWorkspaceOpenConfiguration's configuration
+	ocidOpenConfig's setActivates:(refMe's NSNumber's numberWithBool:true)
+	appShardWorkspace's openURLs:(ocidOpenUrlArray) withApplicationAtURL:(ocidAppPathURL) configuration:(ocidOpenConfig) completionHandler:(missing value)
+end if
+
+
+###保存ファイル表示
+#選択状態で開く
+set boolDone to appShardWorkspace's selectFile:(ocidSaveFilePathURL's |path|) inFileViewerRootedAtPath:(ocidDocumentDirPathURL's |path|)
+log "【７】" & boolDone
+
+###システム設定を前面に
+set ocidRunningApp to refMe's NSRunningApplication
+set ocidAppArray to (ocidRunningApp's runningApplicationsWithBundleIdentifier:("com.apple.systempreferences"))
+set ocidApp to ocidAppArray's firstObject()
+ocidApp's activateWithOptions:(refMe's NSApplicationActivateAllWindows)
+set boolDone to ocidApp's active
 
 
 
