@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>PayloadContent</key>
+		<array>
+			<dict>
+				<key>style</key>
+				<string>selection</string>
+				<key>last-selection-display</key>
+				<integer>0</integer>
+				<key>last-selection</key>
+				<dict>
+					<key>X</key>
+					<real>-1</real>
+					<key>Height</key>
+					<real>720</real>
+					<key>Y</key>
+					<real>0</real>
+					<key>Width</key>
+					<real>1280</real>
+				</dict>
+				<key>disable-shadow</key>
+				<true />
+				<key>show-thumbnail</key>
+				<false />
+				<key>target</key>
+				<string>file</string>
+				<key>showsClicks</key>
+				<true />
+				<key>showsCursor</key>
+				<true />
+				<key>name</key>
+				<string>screencapture</string>
+				<key>video</key>
+				<false />
+				<key>location</key>
+				<string>/Users/Shared/Pictures/ScreenCapture/</string>
+				<!-- 保存先の設定は変更して利用してください　この値は自分用です　-->
+				<key>PayloadDisplayName</key>
+				<string>Screencapture</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.screencapture.3C43C640-6301-43C1-9BC1-AC25FDA34F7B</string>
+				<key>PayloadType</key>
+				<string>com.apple.screencapture</string>
+				<key>PayloadUUID</key>
+				<string>3C43C640-6301-43C1-9BC1-AC25FDA34F7B</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+			</dict>
+		</array>
+	<key>PayloadDescription</key>
+		<string>com.apple.screencaptureの設定</string>
+		<key>ConsentText</key>
+		<dict>
+			<key>default</key>
+			<string>com.apple.screencaptureの設定をします</string>
+		</dict>
+		<key>PayloadDisplayName</key>
+		<string>com.apple.screencapture</string>
+		<key>PayloadIdentifier</key>
+		<string>com.apple.screencapture.FF6F3330-27A7-45AE-97C8-358693720676</string>
+		<key>PayloadOrganization</key>
+		<string>com.apple.screencapture</string>
+		<key>PayloadScope</key>
+		<string>User</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>FF6F3330-27A7-45AE-97C8-358693720676</string>
+		<key>PayloadVersion</key>
+		<integer>1</integer>
+		<key>TargetDeviceType</key>
+		<integer>5</integer>
+	</dict>
+</plist>
