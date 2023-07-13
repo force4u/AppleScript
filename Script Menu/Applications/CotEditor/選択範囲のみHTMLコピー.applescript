@@ -70,7 +70,8 @@ ocidAttarDict's setObject:(ocidValue) forKey:(ocidKey)
 ###除外リスト
 set ocidKey to (refMe's NSExcludedElementsDocumentAttribute)
 set ocidValue to {"doctype", "xml", "html", "body", "meta", "head", "font"} as list
-ocidAttarDict's setObject:(ocidValue) forKey:(ocidKey)
+##いらんタグを排除したいが、色々不具合あってHTMLにしてから置換が良さそう
+##ocidAttarDict's setObject:(ocidValue) forKey:(ocidKey)
 ###文字数数えて
 set ocidLength to ocidRtfData's |length|()
 set ocidDataRange to refMe's NSMakeRange(0, ocidLength)
