@@ -12,12 +12,10 @@ use scripting additions
 
 property refMe : a reference to current application
 
-####開封パスワード
-property boolOpenPW : true as boolean
 ####所有者パスワード
 property boolOwnerPW : true as boolean
 ####アクアセス権
-property intAllowNo : 0 as integer
+##	property intAllowNo : 0 as integer
 (*
 例：全部OKの場合 255 全部ロックは0
 許可する番号を『足し算』する
@@ -52,6 +50,59 @@ on run
 end run
 
 on open listDropObject
+	
+	set recordOption to {|0開封PW有|:999, |1低解像度印刷|:1, |2高解像度印刷|:2, |4文書に変更|:4, |8内容変更|:8, |16コンテンツコピー|:16, |32補助装置利用可|:32, |64コメント注釈|:64, |128フォーム入力|:128} as record
+	
+	set ocidOptionDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
+	ocidOptionDict's setDictionary:(recordOption)
+	set ocidAllKeys to ocidOptionDict's allKeys()
+	set ocidSortedArray to ocidAllKeys's sortedArrayUsingSelector:("localizedStandardCompare:")
+	set listAllKeys to ocidSortedArray as list
+	
+	##############################
+	###ダイアログを前面に出す
+	tell current application
+		set strName to name as text
+	end tell
+	###スクリプトメニューから実行したら
+	if strName is "osascript" then
+		tell application "Finder" to activate
+	else
+		tell current application to activate
+	end if
+	###
+	set strTitle to "『許可する』オプション選択（複数可）" as text
+	set strPrompt to "『許可』するオプションを選択してください\r何も選択しない＝何も許可しない=見るだけになります\r\r複数選択はコマンド⌘キーを押しながらクリック" as text
+	try
+		set listResponse to (choose from list listAllKeys with title strTitle with prompt strPrompt default items (item 1 of listAllKeys) OK button name "OK" cancel button name "キャンセル" with multiple selections allowed and empty selection allowed) as list
+	on error
+		log "エラーしました"
+		return "エラーしました"
+		error "エラーしました" number -200
+	end try
+	if listResponse = {} then
+		log "何も選択していない"
+		set boolOpenPW to false as boolean
+		set intAllowNo to 0 as integer
+	else if (item 1 of listResponse) is false then
+		return "キャンセルしました"
+		error "キャンセルしました" number -200
+	else
+		set boolOpenPW to false as boolean
+		set intAllowNo to 0 as integer
+		repeat with itemResponse in listResponse
+			set intValue to (ocidOptionDict's valueForKey:(itemResponse)) as integer
+			if intValue = 999 then
+				set boolOpenPW to true as boolean
+			else
+				set intAllowNo to intAllowNo + intValue
+			end if
+		end repeat
+	end if
+	
+	
+	
+	###############################
 	##実際の処理するPDFのURLを格納するリスト
 	set ocidDropPathURLArray to refMe's NSMutableArray's alloc()'s initWithCapacity:(0)
 	###ドロップされたエイリアスの数だけ繰り返し
@@ -146,7 +197,7 @@ on open listDropObject
 		(ocidUUIDString's replaceOccurrencesOfString:("-") withString:("") options:(refMe's NSRegularExpressionSearch) range:ocidUUIDRange)
 		##保存用テキストにする
 		set strUserPassword to ocidUUIDString as text
-		set strTextFile to strTextFile & "利用者用（他者に教える場合はこちら↓）Pw\n" & strUserPassword & "\n" as text
+		set strTextFile to strTextFile & "利用者用Pw（他者に教える場合はこちら↓）\n" & strUserPassword & "\n" as text
 		set ocidPWString to (refMe's NSString's stringWithString:strTextFile)
 		set ocidUUIDData to (ocidPWString's dataUsingEncoding:(refMe's NSUTF8StringEncoding))
 		##PWをテキストで保存する
