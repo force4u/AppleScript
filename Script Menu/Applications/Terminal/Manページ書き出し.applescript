@@ -42,7 +42,7 @@ else
 end if
 set aliasIconPath to (POSIX file "/System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns") as alias
 try
-	set objResponse to (display dialog "man XXXXX | col -b > ~/Desktop/XXXXX.txt" with title "入力してください" default answer strReadString buttons {"OK", "キャンセル"} default button "OK" cancel button "キャンセル" with icon aliasIconPath giving up after 10 without hidden answer)
+	set objResponse to (display dialog "man XXXXX | col -b > ~/Desktop/XXXXX.txt" with title "入力してください" default answer strReadString buttons {"OK", "キャンセル"} default button "OK" cancel button "キャンセル" with icon aliasIconPath giving up after 120 without hidden answer)
 on error
 	log "エラーしました"
 	return "エラーしました"
