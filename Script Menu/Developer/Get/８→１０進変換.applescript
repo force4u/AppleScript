@@ -49,7 +49,7 @@ else
 	error number -128
 end if
 
-set strDem to doOct2Dem(strResponse)
+set strDec to doOct2Dec(strResponse) as text
 
 try
 	###ダイアログを前面に出す
@@ -66,7 +66,7 @@ try
 			activate
 		end tell
 	end if
-	set recordResult to (display alert ("計算結果:" & strDem) buttons {"クリップボードにコピー", "キャンセル", "OK"} default button "OK" cancel button "キャンセル" as informational giving up after 30)
+	set recordResult to (display alert ("計算結果:" & strDec) buttons {"クリップボードにコピー", "キャンセル", "OK"} default button "OK" cancel button "キャンセル" as informational giving up after 30)
 on error
 	log "エラーしました"
 	return
@@ -74,7 +74,7 @@ end try
 
 ###クリップボードコピー
 if button returned of recordResult is "クリップボードにコピー" then
-	set strText to strDem as text
+	set strText to strDec as text
 	####ペーストボード宣言
 	set appPasteboard to refMe's NSPasteboard's generalPasteboard()
 	set ocidText to (refMe's NSString's stringWithString:(strText))
@@ -83,15 +83,16 @@ if button returned of recordResult is "クリップボードにコピー" then
 end if
 
 ###################################
-#####パーミッション　８進→１０進
+##	パーミッション　８進→１０進
+##	Octal to Decimal
 ###################################
 
-to doOct2Dem(argOctNo)
+to doOct2Dec(argOctNo)
 	set strOctalText to argOctNo as text
-	set num3Line to first item of strOctalText as number
-	set num2Line to 2nd item of strOctalText as number
-	set num1Line to last item of strOctalText as number
-	set numDecimal to (num3Line * 64) + (num2Line * 8) + (num1Line * 1)
-	return numDecimal
-end doOct2Dem
+	set num3Line to (first item of strOctalText) as number
+	set num2Line to (2nd item of strOctalText) as number
+	set num1Line to (last item of strOctalText) as number
+	set numDecimal to (num3Line * 64) + (num2Line * 8) + (num1Line * 1) as number
+	return numDecimal as number
+end doOct2Dec
 
