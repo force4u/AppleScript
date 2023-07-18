@@ -49,7 +49,7 @@ else
 	error number -128
 end if
 
-set strOct to doDemi2Oct(strResponse) as text
+set strOct to doDec2Oct(strResponse) as text
 
 try
 	###ダイアログを前面に出す
@@ -82,23 +82,24 @@ if button returned of recordResult is "クリップボードにコピー" then
 	appPasteboard's setString:(ocidText) forType:(refMe's NSPasteboardTypeString)
 end if
 
+
 ###################################
 ##	パーミッション１０進数 →８進数  　
 ##	Decimal to Octal
 ###################################
-to doDemi2Oct(argDemiNo)
-	set numDemiNo to argDemiNo as number
-	set numDiv1 to (numDemiNo div 8) as number
-	set numMod1 to (numDemiNo mod 8) as number
+to doDec2Oct(argDecNo)
+	set numDecNo to argDecNo as number
+	set numDiv1 to (numDecNo div 8) as number
+	set numMod1 to (numDecNo mod 8) as number
 	set numDiv2 to (numDiv1 div 8) as number
 	set numMod2 to (numDiv1 mod 8) as number
 	set numDiv3 to (numDiv2 div 8) as number
 	set numMod3 to (numDiv2 mod 8) as number
+	set strOctal to (numMod3 & numMod2 & numMod1) as text
+	set numOctal to strOctal as number
+	return numOctal as number
 	
-	set strOctNo to (numMod3 & numMod2 & numMod1) as text
-	return strOctNo
-	
-end doDemi2Oct
+end doDec2Oct
 
 
 
