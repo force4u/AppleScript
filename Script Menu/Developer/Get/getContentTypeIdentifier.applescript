@@ -1,0 +1,117 @@
+#!/usr/bin/env osascript
+----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
+#
+#com.cocolog-nifty.quicktimer.icefloe
+----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
+use AppleScript version "2.8"
+use framework "Foundation"
+use framework "UniformTypeIdentifiers"
+use framework "AppKit"
+use scripting additions
+property refMe : a reference to current application
+###初期化
+set appFileManager to refMe's NSFileManager's defaultManager()
+set appShardWorkspace to refMe's NSWorkspace's sharedWorkspace()
+##############################
+###デフォルトロケーション
+set ocidUserDesktopPathArray to (appFileManager's URLsForDirectory:(refMe's NSDesktopDirectory) inDomains:(refMe's NSUserDomainMask))
+set ocidUserDesktopPathURL to ocidUserDesktopPathArray's firstObject()
+set aliasUserDesktopPath to ocidUserDesktopPathURL's absoluteURL() as alias
+##############################
+#####ダイアログを前面に
+tell current application
+	set strName to name as text
+end tell
+####スクリプトメニューから実行したら
+if strName is "osascript" then
+	tell application "Finder" to activate
+else
+	tell current application to activate
+end if
+#####ファイルを選択
+set listUTI to {"public.item"}
+set strPromptText to "ファイルを選んで下さい。" as text
+set strMesText to "UTIを取得します" as text
+
+set aliasFilePath to (choose file strMesText default location aliasUserDesktopPath with prompt strPromptText of type listUTI with invisibles and showing package contents without multiple selections allowed) as alias
+
+
+try
+	set aliasFilePath to result as alias
+on error
+	log "エラーしました"
+	return "エラーしました"
+end try
+if aliasFilePath is false then
+	return "エラーしました"
+end if
+##############################
+#####パス
+set strFilePath to (POSIX path of aliasFilePath) as text
+set ocidFilePathStr to (refMe's NSString's stringWithString:(strFilePath))
+set ocidFilePath to ocidFilePathStr's stringByStandardizingPath
+set ocidFilePathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:true)
+####UTIの取得
+set listResourceValue to (ocidFilePathURL's getResourceValue:(reference) forKey:(refMe's NSURLContentTypeKey) |error|:(reference))
+set ocidContentType to (item 2 of listResourceValue)
+set strUTI to (ocidContentType's identifier) as text
+log strUTI
+###missing value対策
+if strUTI is "" then
+	tell application "Finder"
+		set objInfo to info for aliasFilePath
+		set strUTI to type identifier of objInfo as text
+	end tell
+	log strUTI
+end if
+
+##############################
+#####UTIからデフォルトアプリケーションのアイコンパスを求める
+set listResourceValue to (ocidFilePathURL's getResourceValue:(reference) forKey:(refMe's NSURLContentTypeKey) |error|:(reference))
+set ocidUTType to (item 2 of listResourceValue)
+###選択したファイルのデフォルトのアプリケーションを取得
+set ocidAppPathURL to appShardWorkspace's URLForApplicationToOpenContentType:(ocidUTType)
+###デフォルトのアプリケーションが見つからない場合はファインダーにする
+if ocidAppPathURL = (missing value) then
+	set strFinderPath to "/System/Library/CoreServices/Finder.app"
+	set ocidFinderPathStr to (refMe's NSString's stringWithString:(strFinderPath))
+	set ocidFinderPath to ocidFinderPathStr's stringByStandardizingPath()
+	set ocidAppPathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFinderPath) isDirectory:false)
+else
+	log ocidAppPathURL's absoluteString() as text
+end if
+###アイコン名をPLISTから取得
+set ocidPlistPathURL to ocidAppPathURL's URLByAppendingPathComponent:("Contents/Info.plist") isDirectory:false
+set ocidPlistDict to refMe's NSMutableDictionary's alloc()'s initWithContentsOfURL:(ocidPlistPathURL)
+set strIconFileName to (ocidPlistDict's valueForKey:("CFBundleIconFile")) as text
+###ICONのURLにして
+set strPath to ("Contents/Resources/" & strIconFileName) as text
+set ocidIconFilePathURL to ocidAppPathURL's URLByAppendingPathComponent:(strPath) isDirectory:false
+###拡張子の有無チェック
+set strExtensionName to (ocidIconFilePathURL's pathExtension()) as text
+if strExtensionName is "" then
+	set ocidIconFilePathURL to ocidIconFilePathURL's URLByAppendingPathExtension:"icns"
+end if
+##-->これがアイコンパス
+log ocidIconFilePathURL's absoluteString() as text
+###ICONファイルが実際にあるか？チェック
+set boolExists to appFileManager's fileExistsAtPath:(ocidIconFilePathURL's |path|)
+###ICONがみつかない時用にデフォルトを用意する
+if boolExists is false then
+	set aliasIconPath to POSIX file "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertNoteIcon.icns"
+else
+	set aliasIconPath to ocidIconFilePathURL's absoluteURL() as alias
+end if
+
+###ダイアログ
+set recordResult to (display dialog "type identifier 戻り値です" with title "uniform type identifier" default answer strUTI buttons {"クリップボードにコピー", "キャンセル", "OK"} default button "OK" giving up after 20 with icon aliasIconPath without hidden answer)
+###クリップボードコピー
+if button returned of recordResult is "クリップボードにコピー" then
+	set strText to text returned of recordResult as text
+	####ペーストボード宣言
+	set appPasteboard to refMe's NSPasteboard's generalPasteboard()
+	set ocidText to (refMe's NSString's stringWithString:(strText))
+	appPasteboard's clearContents()
+	appPasteboard's setString:(ocidText) forType:(refMe's NSPasteboardTypeString)
+end if
+
