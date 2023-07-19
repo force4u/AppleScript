@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>PayloadContent</key>
+		<array>
+
+
+			<dict>
+				<key>menuExtras</key>
+				<array>
+					<string>/System/Library/CoreServices/Menu Extras/Eject.menu</string>
+				</array>
+				<key>NSStatusItem Visible com.apple.menuextra.eject</key>
+				<true />
+				<key>PayloadDisplayName</key>
+				<string>Eject.menu</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.systemuiserver.80F215FE-91C9-43CC-AF28-8CDF69429B2F</string>
+				<key>PayloadType</key>
+				<string>com.apple.systemuiserver</string>
+				<key>PayloadUUID</key>
+				<string>B7EE8951-22B3-4D4F-8BB2-82F75BFC65B7</string>
+				<key>PayloadVersion</key>
+				<integer>20230518</integer>
+			</dict>
+
+
+			<dict>
+				<key>ShowRemovableMediaOnDesktop</key>
+				<false />
+				<key>PayloadDisplayName</key>
+				<string>ShowRemovableMediaOnDesktop</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.finder.DFDB0A9D-1F56-4C7B-8CEC-DABA7F651804</string>
+				<key>PayloadType</key>
+				<string>com.apple.finder</string>
+				<key>PayloadUUID</key>
+				<string>DFDB0A9D-1F56-4C7B-8CEC-DABA7F651804</string>
+				<key>PayloadVersion</key>
+				<integer>20230518</integer>
+			</dict>
+
+			<dict>
+				<key>com.apple.digihub.blank.cd.appeared</key>
+				<dict>
+					<key>action</key>
+					<integer>100</integer>
+				</dict>
+
+				<key>com.apple.digihub.blank.dvd.appeared</key>
+				<dict>
+					<key>action</key>
+					<integer>100</integer>
+				</dict>
+
+				<key>com.apple.digihub.cd.music.appeared</key>
+				<dict>
+					<key>action</key>
+					<integer>1</integer>
+				</dict>
+
+				<key>com.apple.digihub.cd.picture.appeared</key>
+				<dict>
+					<key>action</key>
+					<integer>1</integer>
+				</dict>
+
+				<key>com.apple.digihub.dvd.video.appeared</key>
+				<dict>
+					<key>action</key>
+					<integer>1</integer>
+				</dict>
+
+				<key>PayloadDisplayName</key>
+				<string>com.apple.digihub</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.digihub.8B1894B5-61F1-44A5-8EB4-82DB9D4DA0B6</string>
+				<key>PayloadType</key>
+				<string>com.apple.digihub</string>
+				<key>PayloadUUID</key>
+				<string>8B1894B5-61F1-44A5-8EB4-82DB9D4DA0B6</string>
+				<key>PayloadVersion</key>
+				<integer>20230518</integer>
+			</dict>
+
+		</array>
+		<key>PayloadDescription</key>
+		<string>CDとDVDの設定</string>
+		<key>PayloadDisplayName</key>
+		<string>com.apple.digihub</string>
+		<key>PayloadIdentifier</key>
+		<string>com.cocolog-nifty.quicktimer.D837B476-0DBC-4E8F-AE69-FC3958E9D5F9</string>
+		<key>PayloadOrganization</key>
+		<string>com.cocolog-nifty.quicktimer</string>
+		<key>PayloadScope</key>
+		<string>User</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>D837B476-0DBC-4E8F-AE69-FC3958E9D5F9</string>
+		<key>PayloadVersion</key>
+		<integer>20230518</integer>
+		<key>TargetDeviceType</key>
+		<integer>5</integer>
+	</dict>
+</plist>
