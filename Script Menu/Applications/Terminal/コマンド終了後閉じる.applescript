@@ -63,6 +63,8 @@ end if
 ## 実行するコマンド
 set strCommandText to theResponse as text
 ##############################
+tell application "Terminal" to activate
+delay 0.2
 ## 実行中チェック
 tell application "Terminal"
 	set numCntWindow to (count of every window) as integer
@@ -138,7 +140,7 @@ repeat 100 times
 		--->busyなのであと1秒まつ
 	end if
 end repeat
-tell application "Terminal" to activate
+
 
 
 ##############################
