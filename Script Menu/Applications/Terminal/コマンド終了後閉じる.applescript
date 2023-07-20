@@ -37,7 +37,7 @@ else
 		set strReadString to ocidReadString as text
 	else
 		log "テキストなし"
-		set strReadString to "COMMAND" as text
+		set strReadString to "COMMANDを入力" as text
 	end if
 end if
 set aliasIconPath to (POSIX file "/System/Applications/Utilities/Terminal.app/Contents/Resources/Terminal.icns") as alias
@@ -67,6 +67,7 @@ set strCommandText to theResponse as text
 tell application "Terminal"
 	set numCntWindow to (count of every window) as integer
 end tell
+delay 0.5
 if numCntWindow = 0 then
 	log "Windowないので新規で作る"
 	tell application "Terminal"
@@ -94,13 +95,13 @@ else
 		end tell
 	end if
 end if
-
+delay 0.5
 ##############################
 ##　コマンド実行
 tell application "Terminal"
 	do script strCommandText in objNewWindow
 end tell
-
+delay 1
 log "コマンド実行中"
 
 ##############################
@@ -117,7 +118,19 @@ repeat 100 times
 	end tell
 	if boolTabStatus is false then
 		log "コマンド処理終了しました"
-		exit repeat
+		tell application "Terminal"
+			tell front window
+				tell front tab
+					set listProcess to processes as list
+				end tell
+			end tell
+		end tell
+		set numCntProcess to (count of listProcess) as integer
+		if numCntProcess ≤ 2 then
+			exit repeat
+		else
+			delay 1
+		end if
 		--->このリピートを抜けて次の処理へ
 	else if boolTabStatus is true then
 		log "コマンド処理中"
