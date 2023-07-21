@@ -135,8 +135,9 @@ log "PLIST:" & ocidCfbundleversionPlist as text
 set strCfbundleversionXML to ocidCfbundleversionXML as text
 set strCfbundleversionPlist to ocidCfbundleversionPlist as text
 if strCfbundleversionXML is strCfbundleversionPlist then
-	return "最新版を利用中です"
+	
+	return "最新版を利用中です:" & (ocidCfbundleversionXML as text)
 else
-	return "アップデートがありますインストールが必要です"
+	return "アップデートがありますインストールが必要です:\r" & strPkgURL & "\r"
 end if
 
