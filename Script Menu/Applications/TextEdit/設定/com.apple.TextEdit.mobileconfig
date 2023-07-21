@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>ConsentText</key>
+		<dict>
+			<key>default</key>
+			<string>日本語の詳しい解説例：個人用設定 com.apple.TextEditに関する設定です</string>
+		</dict>
+		<key>PayloadContent</key>
+		<array>
+			<dict>
+				<!--  新規テキストに拡張子TXTを追加する   -->
+				<key>AddExtensionToNewPlainTextFiles</key>
+				<true />
+				<!--   スペルチェックする  -->
+				<key>CheckGrammarWithSpelling</key>
+				<false />
+				<!--  スペルのチェックと修正はリッチテキスト書類のみで使用   -->
+				<key>CheckSpellingAsYouTypeEnabledInRichTextOnly</key>
+				<false />
+				<!--  入力中に自動スペルチェック   -->
+				<key>CheckSpellingWhileTyping</key>
+				<false />
+				<!--   スペルを自動的に修正  -->
+				<key>CorrectSpellingAutomatically</key>
+				<false />
+				<!--  データ検出   -->
+				<key>DataDetectors</key>
+				<false />
+				<!--  HTMLのエンコーディング   -->
+				<key>HTMLEncoding</key>
+				<integer>4</integer>
+				<!--
+NSASCIIStringEncoding	1
+NSNEXTSTEPStringEncoding	2
+NSJapaneseEUCStringEncoding	3
+NSUTF8StringEncoding	4
+NSISOLatin1StringEncoding	5
+NSSymbolStringEncoding	6
+NSNonLossyASCIIStringEncoding	7
+NSShiftJISStringEncoding	8
+NSISOLatin2StringEncoding	9
+NSUnicodeStringEncoding	10
+NSWindowsCP1251StringEncoding	11
+NSWindowsCP1252StringEncoding	12
+NSWindowsCP1253StringEncoding	13
+NSWindowsCP1254StringEncoding	14
+NSWindowsCP1250StringEncoding	15
+NSISO2022JPStringEncoding	21
+NSMacOSRomanStringEncoding	30
+NSUTF16StringEncoding	10
+NSUTF16BigEndianStringEncoding	2415919360
+NSUTF16LittleEndianStringEncoding	2483028224
+NSUTF32StringEncoding	2348810496
+NSUTF32BigEndianStringEncoding	2550137088
+NSUTF32LittleEndianStringEncoding	2617245952
+NSProprietaryStringEncoding	65536
+	 -->
+				<!--  新規書類高さ   -->
+				<key>HeightInChars</key>
+				<integer>36</integer>
+				<!--  新規書類幅   -->
+				<key>WidthInChars</key>
+				<integer>72</integer>
+				<!--   HTMLをコードで表示する  -->
+				<key>IgnoreHTML</key>
+				<false />
+				<!--   リッチテキストをコードで表示する  -->
+				<key>IgnoreRichText</key>
+				<false />
+				<!--  先頭大文字に   -->
+				<key>NSAutomaticCapitalizationEnabled</key>
+				<false />
+				<!--  ダッシュ記号   -->
+				<key>NSAutomaticDashSubstitutionEnabled</key>
+				<false />
+				<!--  ピリオド   -->
+				<key>NSAutomaticPeriodSubstitutionEnabled</key>
+				<false />
+				<!--  クオテーション   -->
+				<key>NSAutomaticQuoteSubstitutionEnabled</key>
+				<false />
+				<!--  スペルコレクション   -->
+				<key>NSAutomaticSpellingCorrectionEnabled</key>
+				<false />
+				<!--     -->
+				<key>NSAutomaticTextCompletionCollapsed</key>
+				<false />
+				<!--     -->
+				<key>NSAutomaticTextCompletionEnabled</key>
+				<false />
+				<!--     -->
+				<key>NSDocumentSuppressTempVersionStoreWarning</key>
+				<true />
+				<!--  リッチテキストのフォント   -->
+				<key>NSFixedPitchFont</key>
+				<string>Osaka-Mono</string>
+				<key>NSFixedPitchFontSize</key>
+				<integer>16</integer>
+				<!--  標準テキストのフォント   -->
+				<key>NSFont</key>
+				<string>Osaka-Mono</string>
+				<key>NSFontSize</key>
+				<integer>16</integer>
+				<!--   デフォルトの保存先  -->
+				<key>NSNavLastRootDirectory</key>
+				<string>~/Desktop</string>
+				<!--  保存パネルで拡張子   -->
+				<key>NSNavLastUserSetHideExtensionButtonState</key>
+				<false />
+				<!--  パネルサイズ   -->
+				<key>NSNavPanelExpandedSizeForOpenMode</key>
+				<string>{960, 520}</string>
+				<!-- パネルサイズ    -->
+				<key>NSNavPanelExpandedSizeForSaveMode</key>
+				<string>{960, 520}</string>
+				<!--  保存オプション   -->
+				<key>NSNavPanelExpandedStateForSaveMode</key>
+				<true />
+				<!--  カラーパネル   -->
+				<key>NSToolbar Configuration com.apple.NSColorPanel</key>
+				<dict>
+					<key>TB Is Shown</key>
+					<integer>1</integer>
+					<key>showsAlpha</key>
+					<true />
+				</dict>
+				<!--  スペルと一緒に文法をチェック   -->
+				<key>SCheckGrammarWithSpelling</key>
+				<false />
+				<!--     -->
+				<key>SDataDetectors</key>
+				<false />
+				<!--  「スマートリンク   -->
+				<key>SSmartLinks</key>
+				<false />
+				<!--  改ページ   -->
+				<key>ShowPageBreaks</key>
+				<false />
+				<!--  ルーラを表示   -->
+				<key>ShowRuler</key>
+				<true />
+				<!--  スマートコピー/ペースト   -->
+				<key>SmartCopyPaste</key>
+				<false />
+				<!--  スマートダッシュ記号   -->
+				<key>SmartDashes</key>
+				<false />
+				<!--   スマートリンク  -->
+				<key>SmartLinks</key>
+				<false />
+				<!--  スマート引用符   -->
+				<key>SmartQuotes</key>
+				<false />
+				<!--  スマート引用符とスマートダッシュ記号はリッチテキスト書類のみで使用   -->
+				<key>SmartSubstitutionsEnabledInRichTextOnly</key>
+				<false />
+				<!--   テキストの置換  -->
+				<key>TextReplacement</key>
+				<true />
+				<!--   CSS埋め込み  -->
+				<key>UseEmbeddedCSS</key>
+				<false />
+				<!--  CSSインライン   -->
+				<key>UseInlineCSS</key>
+				<true />
+
+				<!--  作成者：   -->
+				<key>author</key>
+				<string></string>
+				<!--  所属：   -->
+				<key>company</key>
+				<string></string>
+				<!--  著作権：   -->
+				<key>copyright</key>
+				<string>ご相談ください(Ask)</string>
+				<key>PayloadDescription</key>
+				<string>com.apple.TextEdit関連の設定です</string>
+				<key>PayloadDisplayName</key>
+				<string>com.apple.TextEdit</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.TextEdit.EB232AFE-325D-4714-B8EB-9EC987644538</string>
+				<key>PayloadOrganization</key>
+				<string>com.cocolog-nifty.quicktimer</string>
+				<key>PayloadType</key>
+				<string>com.apple.TextEdit</string>
+				<key>PayloadUUID</key>
+				<string>93AC44A6-87B4-4A83-AFDD-D7B0813194DD</string>
+				<key>PayloadVersion</key>
+				<integer>20221026</integer>
+				<key>PlainTextEncoding</key>
+				<integer>4</integer>
+				<key>PlainTextEncodingForWrite</key>
+				<integer>4</integer>
+				<key>PreserveWhitespace</key>
+				<false />
+				<key>RichText</key>
+				<integer>1</integer>
+
+			</dict>
+		</array>
+		<key>PayloadDescription</key>
+		<string>com.apple.TextEdit関連の設定です</string>
+		<key>PayloadDisplayName</key>
+		<string>com.apple.TextEdit</string>
+		<key>PayloadIdentifier</key>
+		<string>com.apple.TextEdit.6C7F094C-6CE6-456F-9F92-916C6B245442</string>
+		<key>PayloadOrganization</key>
+		<string>com.cocolog-nifty.quicktimer</string>
+		<key>PayloadRemovalDisallowed</key>
+		<false />
+		<key>PayloadScope</key>
+		<string>User</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>0E4B97AF-2504-448A-BA1B-B358FCFF5904</string>
+		<key>PayloadVersion</key>
+		<integer>20221026</integer>
+		<key>TargetDeviceType</key>
+		<integer>5</integer>
+	</dict>
+</plist>
