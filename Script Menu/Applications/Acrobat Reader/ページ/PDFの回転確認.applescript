@@ -26,7 +26,7 @@ tell application id "com.adobe.Reader"
 			set numRotation to rotation as number
 		end tell
 	end tell
-	do script ("this.removeThumbnails();")
+##	do script ("this.removeThumbnails();")
 end tell
 if numRotation = 0 then
 	set theResponse to "回転：0\n　OK\n上部が天、下部が地です。" as text
