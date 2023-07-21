@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>PayloadContent</key>
+		<array>
+			<dict>
+				<key>Tier</key>
+				<string>Production</string>
+				<key>TelemetrySafemodeKey</key>
+				<false />
+				<key>com.microsoft.OneDriveUpdaterDaemon</key>
+				<false />
+				<key>PayloadDisplayName</key>
+				<string>Microsoft OneDrive Updater</string>
+				<key>PayloadIdentifier</key>
+				<string>com.microsoft.OneDriveUpdater.547FAADE-60AE-4AEE-BAA8-ECA76F92390E</string>
+				<key>PayloadType</key>
+				<string>com.microsoft.OneDriveUpdater</string>
+				<key>PayloadUUID</key>
+				<string>547FAADE-60AE-4AEE-BAA8-ECA76F92390E</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+			</dict>
+		</array>
+		<key>ConsentText</key>
+		<dict>
+			<key>default</key>
+			<string>com.microsoft.OneDriveUpdater</string>
+		</dict>
+		<key>PayloadDescription</key>
+		<string>com.microsoft.OneDriveUpdater</string>
+		<key>PayloadDisplayName</key>
+		<string>com.microsoft.OneDriveUpdater</string>
+		<key>PayloadIdentifier</key>
+		<string>com.microsoft.OneDriveUpdater.30EAF1EC-2909-4D5C-B63B-1989461A8BBE</string>
+		<key>PayloadOrganization</key>
+		<string>com.microsoft.OneDriveUpdater</string>
+		<key>PayloadRemovalDisallowed</key>
+		<false />
+		<key>HasRemovalPasscode</key>
+		<false />
+		<key>PayloadScope</key>
+		<string>System</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>30EAF1EC-2909-4D5C-B63B-1989461A8BBE</string>
+		<key>PayloadVersion</key>
+		<integer>20230722</integer>
+		<key>TargetDeviceType</key>
+		<integer>5</integer>
+	</dict>
+</plist>
