@@ -16,7 +16,7 @@ property refMe : a reference to current application
 set listExList to {"vectornator", "sketch", "pdf", "jpg", "jpeg", "png", "gif", "ai", "psd", "svg"} as list
 
 ##########################################
-####[2] Get the path of the front Finder window
+####[2] Home directory
 
 set appFileManager to refMe's NSFileManager's defaultManager()
 set ocidHomeDirURL to appFileManager's homeDirectoryForCurrentUser()
