@@ -159,11 +159,15 @@ set ocidPlistEditData to item 1 of listPlistEditDataArray
 ##########################################
 ####【7】保存
 set boolWritetoUrlArray to ocidPlistEditData's writeToURL:(ocidSaveFilePathURL) options:(refMe's NSDataWritingAtomic) |error|:(reference)
-
 ##########################################
 ####【8】場所を示す savedSearchファイルをFinderで開く
-set ocidSharedWorkSpace to refMe's NSWorkspace's sharedWorkspace()
+set aliasFilePath to (ocidSaveFilePathURL's absoluteURL()) as alias
+tell application id "com.apple.finder"
+	open file aliasFilePath
+end tell
 
+(* この方法だとうまくいかない事が多い
+set ocidSharedWorkSpace to refMe's NSWorkspace's sharedWorkspace()
 set strUTI to "com.apple.finder"
 set ocidAppBundle to refMe's NSBundle's bundleWithIdentifier:(strUTI)
 ###FinderのURL
@@ -183,5 +187,5 @@ ocidConfig's setRequiresUniversalLinks:ocidFalse
 ocidConfig's setActivates:ocidTrue
 ##開く
 ocidSharedWorkSpace's openURLs:{ocidSaveFilePathURL} withApplicationAtURL:(ocidAppBundlePathURL) configuration:(ocidConfig) completionHandler:(missing value)
-
+*)
 return "終了"
