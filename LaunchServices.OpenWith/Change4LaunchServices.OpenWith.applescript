@@ -1,8 +1,8 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #
-# ƒtƒ@ƒCƒ‹‚ğŠJ‚­‚ÌƒfƒtƒHƒ‹ƒg‚ÌƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‘—Ş–ˆ‚Éİ’è‚µ‚Ü‚·
-# ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‘I‘ğ
+# ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ãæ™‚ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æ›¸é¡æ¯ã«è¨­å®šã—ã¾ã™
+# ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’é¸æŠ
 # com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
@@ -17,13 +17,13 @@ set appFileManager to refMe's NSFileManager's defaultManager()
 
 
 ###################################
-#####“ü—Íƒ_ƒCƒAƒƒO
+#####å…¥åŠ›ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 ###################################
-#####ƒ_ƒCƒAƒƒO‚ğ‘O–Ê‚É
+#####ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’å‰é¢ã«
 tell current application
 	set strName to name as text
 end tell
-####ƒXƒNƒŠƒvƒgƒƒjƒ…[‚©‚çÀs‚µ‚½‚ç
+####ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‹ã‚‰å®Ÿè¡Œã—ãŸã‚‰
 if strName is "osascript" then
 	tell application "Finder" to activate
 else
@@ -33,19 +33,19 @@ set listUTI to {"public.data"} as list
 set ocidURLsArray to (appFileManager's URLsForDirectory:(refMe's NSDesktopDirectory) inDomains:(refMe's NSUserDomainMask))
 set ocidDesktopDirPathURL to ocidURLsArray's firstObject()
 set aliasDefaultLocation to (ocidDesktopDirPathURL's absoluteURL()) as alias
-set strPromptText to "ƒtƒ@ƒCƒ‹‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢" as text
-set strMesText to "ƒtƒ@ƒCƒ‹‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢" as text
+set strPromptText to "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸ã‚“ã§ãã ã•ã„" as text
+set strMesText to "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸ã‚“ã§ãã ã•ã„" as text
 set listAliasFilePath to (choose file strMesText with prompt strPromptText default location (aliasDefaultLocation) of type listUTI with invisibles and multiple selections allowed without showing package contents) as list
 
 ###################################
-#####ƒ_ƒCƒAƒƒO
+#####ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 ###################################a
-###ƒfƒtƒHƒ‹ƒgƒƒP[ƒVƒ‡ƒ“(ƒ†[ƒU[ƒAƒvƒŠƒP[ƒVƒ‡ƒ“)
+###ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ­ã‚±ãƒ¼ã‚·ãƒ§ãƒ³(ãƒ¦ãƒ¼ã‚¶ãƒ¼ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³)
 set ocidForDirArray to (appFileManager's URLsForDirectory:(refMe's NSApplicationDirectory) inDomains:(refMe's NSUserDomainMask))
 set ocidAppDirPathURL to ocidForDirArray's firstObject()
 set ocidAppDirPath to ocidAppDirPathURL's |path|()
 set boolDirExists to appFileManager's fileExistsAtPath:(ocidAppDirPath) isDirectory:(true)
-##‚È‚¯‚ê‚Îì‚é
+##ãªã‘ã‚Œã°ä½œã‚‹
 if boolDirExists = false then
 	set ocidAttrDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
 	ocidAttrDict's setValue:(493) forKey:(refMe's NSFilePosixPermissions)
@@ -56,14 +56,14 @@ set aliasDefaultLocation to (ocidAppDirPathURL's absoluteURL()) as alias
 
 set listChooseFileUTI to {"com.apple.application-bundle", "com.apple.bundle"}
 
-set strPromptText to "ŠÖ˜A•t‚¯‚éƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢" as text
-set strMesText to "ŠÖ˜A•t‚¯‚éƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢" as text
+set strPromptText to "é–¢é€£ä»˜ã‘ã‚‹ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’é¸ã‚“ã§ãã ã•ã„" as text
+set strMesText to "é–¢é€£ä»˜ã‘ã‚‹ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’é¸ã‚“ã§ãã ã•ã„" as text
 
-#####ƒ_ƒCƒAƒƒO‚ğ‘O–Ê‚É
+#####ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’å‰é¢ã«
 tell current application
 	set strName to name as text
 end tell
-####ƒXƒNƒŠƒvƒgƒƒjƒ…[‚©‚çÀs‚µ‚½‚ç
+####ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‹ã‚‰å®Ÿè¡Œã—ãŸã‚‰
 if strName is "osascript" then
 	tell application "Finder" to activate
 else
@@ -72,29 +72,29 @@ end if
 set aliasAppPath to (choose file strMesText with prompt strPromptText default location (aliasDefaultLocation) of type listChooseFileUTI with invisibles without multiple selections allowed and showing package contents) as alias
 
 ###################################
-#####ƒpƒXˆ—
+#####ãƒ‘ã‚¹å‡¦ç†
 ###################################
 set strAppPath to POSIX path of aliasAppPath as text
 set ocidAppPathstr to refMe's NSString's stringWithString:(strAppPath)
 set ocidAppPath to ocidAppPathstr's stringByStandardizingPath()
 set ocidAppPathURL to refMe's NSURL's alloc()'s initFileURLWithPath:(ocidAppPath) isDirectory:(true)
-###ƒoƒ“ƒhƒ‹IDæ“¾
+###ãƒãƒ³ãƒ‰ãƒ«IDå–å¾—
 set ocidAppBundle to refMe's NSBundle's bundleWithURL:(ocidAppPathURL)
 set ocidBundleID to ocidAppBundle's bundleIdentifier()
 
 ###################################
-#####PLISTì¬
+#####PLISTä½œæˆ
 ###################################
 set ocidPlistDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
 ocidPlistDict's setValue:(ocidBundleID) forKey:("bundleidentifier")
 ocidPlistDict's setValue:(ocidAppPathstr) forKey:("path")
 set ocidVersionNo to (refMe's NSNumber's numberWithInteger:0)
 ocidPlistDict's setValue:(ocidVersionNo) forKey:("version")
-###‘‚«‚İ—p‚ÉƒoƒCƒiƒŠ[ƒf[ƒ^‚É•ÏŠ·
+###æ›¸ãè¾¼ã¿ç”¨ã«ãƒã‚¤ãƒŠãƒªãƒ¼ãƒ‡ãƒ¼ã‚¿ã«å¤‰æ›
 set ocidNSbplist to refMe's NSPropertyListBinaryFormat_v1_0
 set listPlistEditData to refMe's NSPropertyListSerialization's dataWithPropertyList:(ocidPlistDict) format:(ocidNSbplist) options:0 |error|:(reference)
 set ocidPlistEditData to item 1 of listPlistEditData
-###PLIST•Û‘¶æ
+###PLISTä¿å­˜å…ˆ
 tell application "Finder"
 	set aliasPathToMe to (path to me) as alias
 end tell
@@ -103,55 +103,68 @@ set ocidPathToMeStr to refMe's NSString's stringWithString:(strPathToMe)
 set ocidPathToMe to ocidPathToMeStr's stringByStandardizingPath()
 set ocidPathToMeURL to refMe's NSURL's alloc()'s initFileURLWithPath:(ocidPathToMe) isDirectory:(false)
 set ocidContainerDirPathURL to ocidPathToMeURL's URLByDeletingLastPathComponent()
-##PLIST‚ğ•ÛŠÇ‚·‚é‚½‚ß‚ÌƒfƒBƒŒƒNƒgƒŠ
+##PLISTã‚’ä¿ç®¡ã™ã‚‹ãŸã‚ã®ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 set ocidPlistSaveDirPathURL to ocidContainerDirPathURL's URLByAppendingPathComponent:("Plist")
 set ocidPlistSaveDirPath to ocidPlistSaveDirPathURL's |path|()
 set boolDirExists to appFileManager's fileExistsAtPath:(ocidPlistSaveDirPath) isDirectory:(true)
-##‚È‚¯‚ê‚Îì‚é
+##ãªã‘ã‚Œã°ä½œã‚‹
 if boolDirExists = false then
 	set ocidAttrDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
 	ocidAttrDict's setValue:(493) forKey:(refMe's NSFilePosixPermissions)
 	set listBoolMakeDir to appFileManager's createDirectoryAtURL:(ocidPlistSaveDirPathURL) withIntermediateDirectories:true attributes:(ocidAttrDict) |error|:(reference)
 end if
-###•Û‘¶‚·‚éƒtƒ@ƒCƒ‹–¼
+###ä¿å­˜ã™ã‚‹ãƒ•ã‚¡ã‚¤ãƒ«å
 set strFileName to ((ocidBundleID as text) & ".plist") as text
-###PLIST‚ÌƒpƒX
+###PLISTã®ãƒ‘ã‚¹
 set ocidPlistFilePathURL to ocidPlistSaveDirPathURL's URLByAppendingPathComponent:(strFileName)
 set strPlistFilePath to (ocidPlistFilePathURL's |path|()) as text
-###PLIST •Û‘¶
+###PLIST ä¿å­˜
 set ocidOption to (refMe's NSDataWritingAtomic)
 set boolWritetoUrlArray to ocidPlistEditData's writeToURL:(ocidPlistFilePathURL) options:(ocidOption) |error|:(reference)
 log item 1 of boolWritetoUrlArray
 
 ###################################
-#####PLIST‚ÌHEXƒoƒCƒiƒŠ[‚ğæ“¾‚·‚é
+#####PLISTã®HEXãƒã‚¤ãƒŠãƒªãƒ¼ã‚’å–å¾—ã™ã‚‹
 ###################################
-set strCommandText to ("/usr/bin/xxd  -pc €"" & strPlistFilePath & "€"") as text
+set strCommandText to ("/usr/bin/xxd -p -c 0  \"" & strPlistFilePath & "\"") as text
 set strHexPlistData to (do shell script strCommandText)
 
 ###################################
-#####ƒtƒ@ƒCƒ‹‚Ì”‚¾‚¯ŒJ‚è•Ô‚·
+#####ãƒ•ã‚¡ã‚¤ãƒ«ã®æ•°ã ã‘ç¹°ã‚Šè¿”ã™
 ###################################
 repeat with itemFilePath in listAliasFilePath
 	set aliasFilePath to itemFilePath as alias
 	set strAppendAttrFilePath to (POSIX path of aliasFilePath) as text
-	
-	set strCommandText to ("/usr/bin/xattr -d com.apple.LaunchServices.OpenWith €"" & strAppendAttrFilePath & "€"") as text
-	try
-		(do shell script strCommandText)
-		delay 0.25
+		try
+		set strCommandText to ("/usr/bin/touch -a  \"" & strAppendAttrFilePath & "\"") as text
+		do shell script strCommandText
+		delay 0.2
+		set strCommandText to ("/usr/bin/xattr -d com.apple.LaunchServices.OpenWith \"" & strAppendAttrFilePath & "\"") as text
+		do shell script strCommandText
+		delay 0.2
 	on error
 		try
-			set strCommandText to ("/usr/bin/xattr -c com.apple.LaunchServices.OpenWith €"" & strAppendAttrFilePath & "€"") as text
-			(do shell script strCommandText)
+			set strCommandText to ("/usr/bin/touch -a  \"" & strAppendAttrFilePath & "\"") as text
+			do shell script strCommandText
+			delay 0.2
+			set strCommandText to ("/usr/bin/xattr -c com.apple.LaunchServices.OpenWith \"" & strAppendAttrFilePath & "\"") as text
+			do shell script strCommandText
+			delay 0.2
+			set strCommandText to ("/usr/bin/xattr -w -x com.apple.LaunchServices.OpenWith nil \"" & strAppendAttrFilePath & "\"") as text
+			do shell script strCommandText
+			delay 0.2
 		end try
 	end try
-	set strCommandText to ("/usr/bin/xattr  -w -x  com.apple.LaunchServices.OpenWith €"" & strHexPlistData & "€" €"" & strAppendAttrFilePath & "€"") as text
-	(do shell script strCommandText)
-	delay 0.25
-	set strCommandText to ("/usr/bin/xattr  -w -x com.apple.quarantine nil €"" & strAppendAttrFilePath & "€"") as text
-	(do shell script strCommandText)
-	delay 0.25
+	####
+	set strCommandText to ("/usr/bin/xattr  -w -x  com.apple.LaunchServices.OpenWith \"" & strHexPlistData & "\" \"" & strAppendAttrFilePath & "\"") as text
+	do shell script strCommandText
+	delay 0.2
+	set strCommandText to ("/usr/bin/touch -a  \"" & strAppendAttrFilePath & "\"") as text
+	do shell script strCommandText
+	delay 0.2
+	set strCommandText to ("/usr/bin/xattr  -w -x com.apple.quarantine nil \"" & strAppendAttrFilePath & "\"") as text
+	do shell script strCommandText
+	delay 0.2
 end repeat
 
 
