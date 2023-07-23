@@ -1,8 +1,8 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #
-# ƒtƒ@ƒCƒ‹‚ğŠJ‚­‚ÌƒfƒtƒHƒ‹ƒg‚ÌƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‘—Ş–ˆ‚Éİ’è‚µ‚Ü‚·
-# ƒAƒvƒŠƒP[ƒVƒ‡ƒ“‚ğ‘I‘ğ
+# ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é–‹ãæ™‚ã®ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã®ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’æ›¸é¡æ¯ã«è¨­å®šã—ã¾ã™
+# PLISTãƒ•ã‚¡ã‚¤ãƒ«ã‚’æŒ‡å®šã™ã‚‹æ–¹å¼
 # com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
@@ -16,12 +16,12 @@ property refMe : a reference to current application
 set appFileManager to refMe's NSFileManager's defaultManager()
 
 ###################################
-#####İ’è€–Ú
+#####è¨­å®šé …ç›®
 ###################################
 
-###ƒtƒ‹ƒpƒXw’è‚©
+###ãƒ•ãƒ«ãƒ‘ã‚¹æŒ‡å®šã‹
 set strPlistPath to ("/Users/XXXXXXX/XXXXXX/XXXXXX/Plist/com.apple.TextEdit.plist") as text
-###path to me ‚©‚ç‹tZ‚©
+###path to me ã‹ã‚‰é€†ç®—ã‹
 set strPlistName to ("com.apple.TextEdit.plist") as text
 tell application "Finder"
 	set aliasPathToMe to (path to me) as alias
@@ -31,13 +31,13 @@ end tell
 set strPlistPath to (POSIX path of aliasPlistFilePath) as text
 
 ###################################
-#####“ü—Íƒ_ƒCƒAƒƒO
+#####å…¥åŠ›ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 ###################################
-#####ƒ_ƒCƒAƒƒO‚ğ‘O–Ê‚É
+#####ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’å‰é¢ã«
 tell current application
 	set strName to name as text
 end tell
-####ƒXƒNƒŠƒvƒgƒƒjƒ…[‚©‚çÀs‚µ‚½‚ç
+####ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‹ã‚‰å®Ÿè¡Œã—ãŸã‚‰
 if strName is "osascript" then
 	tell application "Finder" to activate
 else
@@ -47,45 +47,45 @@ set listUTI to {"public.data"} as list
 set ocidURLsArray to (appFileManager's URLsForDirectory:(refMe's NSDesktopDirectory) inDomains:(refMe's NSUserDomainMask))
 set ocidDesktopDirPathURL to ocidURLsArray's firstObject()
 set aliasDefaultLocation to (ocidDesktopDirPathURL's absoluteURL()) as alias
-set strPromptText to "ƒtƒ@ƒCƒ‹‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢" as text
-set strMesText to "ƒtƒ@ƒCƒ‹‚ğ‘I‚ñ‚Å‚­‚¾‚³‚¢" as text
+set strPromptText to "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸ã‚“ã§ãã ã•ã„" as text
+set strMesText to "ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸ã‚“ã§ãã ã•ã„" as text
 set listAliasFilePath to (choose file strMesText with prompt strPromptText default location (aliasDefaultLocation) of type listUTI with invisibles and multiple selections allowed without showing package contents) as list
 
 
 ###################################
-#####PLIST‚ÌHEXƒoƒCƒiƒŠ[‚ğæ“¾‚·‚é
+#####PLISTã®HEXãƒã‚¤ãƒŠãƒªãƒ¼ã‚’å–å¾—ã™ã‚‹
 ###################################
-set strCommandText to ("/usr/bin/xxd  -pc €"" & strPlistPath & "€"") as text
+set strCommandText to ("/usr/bin/xxd  -pc \"" & strPlistPath & "\"") as text
 set strHexPlistData to (do shell script strCommandText)
 
 ###################################
-#####ƒtƒ@ƒCƒ‹‚Ì”‚¾‚¯ŒJ‚è•Ô‚·
+#####ãƒ•ã‚¡ã‚¤ãƒ«ã®æ•°ã ã‘ç¹°ã‚Šè¿”ã™
 ###################################
 repeat with itemFilePath in listAliasFilePath
 	set aliasFilePath to itemFilePath as alias
 	set strAppendAttrFilePath to (POSIX path of aliasFilePath) as text
-	###ƒRƒ}ƒ“ƒh®Œ`
-	set strCommandText to ("/usr/bin/xattr -d com.apple.LaunchServices.OpenWith €"" & strAppendAttrFilePath & "€"") as text
+	###ã‚³ãƒãƒ³ãƒ‰æ•´å½¢
+	set strCommandText to ("/usr/bin/xattr -d com.apple.LaunchServices.OpenWith \"" & strAppendAttrFilePath & "\"") as text
 	try
 		(do shell script strCommandText)
 		delay 0.25
 	on error
 		try
-			###ƒRƒ}ƒ“ƒh®Œ`
-			set strCommandText to ("/usr/bin/xattr -c com.apple.LaunchServices.OpenWith €"" & strAppendAttrFilePath & "€"") as text
+			###ã‚³ãƒãƒ³ãƒ‰æ•´å½¢
+			set strCommandText to ("/usr/bin/xattr -c com.apple.LaunchServices.OpenWith \"" & strAppendAttrFilePath & "\"") as text
 			(do shell script strCommandText)
 		end try
 	end try
-	###ƒRƒ}ƒ“ƒh®Œ`
-	set strCommandText to ("/usr/bin/xattr  -w -x  com.apple.LaunchServices.OpenWith €"" & strHexPlistData & "€" €"" & strAppendAttrFilePath & "€"") as text
+	###ã‚³ãƒãƒ³ãƒ‰æ•´å½¢
+	set strCommandText to ("/usr/bin/xattr  -w -x  com.apple.LaunchServices.OpenWith \"" & strHexPlistData & "\" \"" & strAppendAttrFilePath & "\"") as text
 	(do shell script strCommandText)
 	delay 0.25
-	###ƒRƒ}ƒ“ƒh®Œ`
-	set strCommandText to ("/usr/bin/xattr  -w -x com.apple.quarantine nil €"" & strAppendAttrFilePath & "€"") as text
+	###ã‚³ãƒãƒ³ãƒ‰æ•´å½¢
+	set strCommandText to ("/usr/bin/xattr  -w -x com.apple.quarantine nil \"" & strAppendAttrFilePath & "\"") as text
 	(do shell script strCommandText)
 	delay 0.25
 end repeat
 
-return "ˆ—I—¹"
+return "å‡¦ç†çµ‚äº†"
 
 
