@@ -91,6 +91,7 @@ else
 		tell application "Terminal"
 			set objNewWindow to (do script "\n")
 		end tell
+		###前面のタブにプロセスが無い場合=exit済みの場合は新規Window作る
 	else if listProcess = {} then
 		tell application "Terminal"
 			set objNewWindow to (do script "\n")
@@ -140,8 +141,20 @@ repeat 100 times
 		--->busyなのであと1秒まつ
 	end if
 end repeat
-
-
+##############################
+## control Cを送る
+tell application "System Events"
+	tell process "Terminal"
+		keystroke "c" using {control down}
+	end tell
+end tell
+##############################
+## control Cを送る
+tell application "System Events"
+	tell process "Terminal"
+		keystroke "c" using {control down}
+	end tell
+end tell
 
 ##############################
 ## exit打って終了
