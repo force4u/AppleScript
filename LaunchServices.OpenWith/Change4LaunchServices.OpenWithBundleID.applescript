@@ -118,22 +118,36 @@ repeat with itemFilePath in listAliasFilePath
 	set aliasFilePath to itemFilePath as alias
 	set strAppendAttrFilePath to (POSIX path of aliasFilePath) as text
 	
-	set strCommandText to ("/usr/bin/xattr -d com.apple.LaunchServices.OpenWith \"" & strAppendAttrFilePath & "\"") as text
 	try
-		(do shell script strCommandText)
-		delay 0.25
+		set strCommandText to ("/usr/bin/touch -a  \"" & strAppendAttrFilePath & "\"") as text
+		do shell script strCommandText
+		delay 0.2
+		set strCommandText to ("/usr/bin/xattr -d com.apple.LaunchServices.OpenWith \"" & strAppendAttrFilePath & "\"") as text
+		do shell script strCommandText
+		delay 0.2
 	on error
 		try
+			set strCommandText to ("/usr/bin/touch -a  \"" & strAppendAttrFilePath & "\"") as text
+			do shell script strCommandText
+			delay 0.2
 			set strCommandText to ("/usr/bin/xattr -c com.apple.LaunchServices.OpenWith \"" & strAppendAttrFilePath & "\"") as text
-			(do shell script strCommandText)
+			do shell script strCommandText
+			delay 0.2
+			set strCommandText to ("/usr/bin/xattr -w -x com.apple.LaunchServices.OpenWith nil \"" & strAppendAttrFilePath & "\"") as text
+			do shell script strCommandText
+			delay 0.2
 		end try
 	end try
+	####
 	set strCommandText to ("/usr/bin/xattr  -w -x  com.apple.LaunchServices.OpenWith \"" & strHexPlistData & "\" \"" & strAppendAttrFilePath & "\"") as text
-	(do shell script strCommandText)
-	delay 0.25
+	do shell script strCommandText
+	delay 0.2
+	set strCommandText to ("/usr/bin/touch -a  \"" & strAppendAttrFilePath & "\"") as text
+	do shell script strCommandText
+	delay 0.2
 	set strCommandText to ("/usr/bin/xattr  -w -x com.apple.quarantine nil \"" & strAppendAttrFilePath & "\"") as text
-	(do shell script strCommandText)
-	delay 0.25
+	do shell script strCommandText
+	delay 0.2
 end repeat
 
 
