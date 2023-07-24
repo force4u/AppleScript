@@ -62,20 +62,61 @@ set strCfbundleversionPlist to ocidCfbundleversionPlist as text
 log strCfbundleversionPlist
 
 if strLocation contains strCfbundleversionPlist then
-	return "最新版を利用中です:" & (strCfbundleversionPlist as text) & "\r" & strLocation & "\r"
+	set strTitle to "最新版を利用中です" as text
+	set strMes to "最新版を利用中です:" & (strCfbundleversionPlist as text) & "\r" & strLocation & "\r"
 else
-	return "アップデートがありますインストールが必要です:\r" & strLocation & "\r"
+	set strTitle to "アップデートがあります" as text
+	set strMes to "アップデートがありますインストールが必要です:\r" & strLocation & "\r"
 end if
 
 ################################################
-###### 置換
+###### ダイアログ
 ################################################
-to doReplace(argOrignalText, argSearchText, argReplaceText)
-	set strDelim to AppleScript's text item delimiters
-	set AppleScript's text item delimiters to argSearchText
-	set listDelim to every text item of argOrignalText
-	set AppleScript's text item delimiters to argReplaceText
-	set strReturn to listDelim as text
-	set AppleScript's text item delimiters to strDelim
-	return strReturn
-end doReplace
+set appFileManager to refMe's NSFileManager's defaultManager()
+
+####ダイアログに指定アプリのアイコンを表示する
+###アイコン名をPLISTから取得
+set strIconFileName to (ocidPlistDict's valueForKey:("CFBundleIconFile")) as text
+
+###ICONのURLにして
+set strPath to ("Contents/Resources/" & strIconFileName) as text
+set ocidIconFilePathURL to ocidAppPathURL's URLByAppendingPathComponent:(strPath) isDirectory:false
+###拡張子の有無チェック
+set strExtensionName to (ocidIconFilePathURL's pathExtension()) as text
+if strExtensionName is "" then
+	set ocidIconFilePathURL to ocidIconFilePathURL's URLByAppendingPathExtension:"icns"
+end if
+##-->これがアイコンパス
+log ocidIconFilePathURL's absoluteString() as text
+###ICONファイルが実際にあるか？チェック
+set boolExists to appFileManager's fileExistsAtPath:(ocidIconFilePathURL's |path|)
+###ICONがみつかない時用にデフォルトを用意する
+if boolExists is false then
+	set aliasIconPath to POSIX file "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertNoteIcon.icns"
+else
+	set aliasIconPath to ocidIconFilePathURL's absoluteURL() as alias
+	set strIconPath to ocidIconFilePathURL's |path|() as text
+end if
+
+
+set recordResult to (display dialog strTitle with title strTitle default answer strMes buttons {"クリップボードにコピー", "終了", "ダウンロード"} default button "ダウンロード" cancel button "終了" giving up after 20 with icon aliasIconPath without hidden answer)
+
+if button returned of recordResult is "ダウンロード" then
+	tell application "Finder"
+		open location strLocation
+	end tell
+end if
+if button returned of recordResult is "クリップボードにコピー" then
+	try
+		set strText to text returned of recordResult as text
+		####ペーストボード宣言
+		set appPasteboard to refMe's NSPasteboard's generalPasteboard()
+		set ocidText to (refMe's NSString's stringWithString:(strText))
+		appPasteboard's clearContents()
+		appPasteboard's setString:(ocidText) forType:(refMe's NSPasteboardTypeString)
+	on error
+		tell application "Finder"
+			set the clipboard to strTitle as text
+		end tell
+	end try
+end if
