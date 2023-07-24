@@ -17,26 +17,11 @@ set strBundleID to "com.skype.skype"
 set strURL to "https://get.skype.com/go/getskype-skypeformac" as text
 ###コマンド実行してサーバーレスポンスからファイル名を取得する
 try
-	set strCommandText to ("/usr/bin/curl -sLv -w '%{url_effective}' " & strURL & " --max-time 2 --connect-timeout 10") as text
-	set strFileName to (do shell script strCommandText) as text
+	set strCommandText to ("/usr/bin/curl -s -L -I -o /dev/null -w '%{url_effective}' " & strURL & "") as text
+	set strLocation to (do shell script strCommandText) as text
 on error strErrorMes number errorNumber
-	log errorNumber
+	return "ファイル名の取得に失敗しまし"
 end try
-
-set AppleScript's text item delimiters to "\r"
-set listErrorMes to every text item of strErrorMes
-set AppleScript's text item delimiters to ""
-repeat with itemErrorMes in listErrorMes
-	if itemErrorMes contains "Location:" then
-		set strLocation to itemErrorMes
-		set AppleScript's text item delimiters to "/"
-		set listItemErrorMes to every text item of itemErrorMes
-		set AppleScript's text item delimiters to ""
-	end if
-end repeat
-set strFileName to (last item of listItemErrorMes)
-log strLocation
-set strLocation to doReplace(strLocation, "< Location: ", "")
 
 ################################################
 ###### インストール済みのパージョン
@@ -76,8 +61,7 @@ log "PLIST:" & ocidCfbundleversionPlist as text
 set strCfbundleversionPlist to ocidCfbundleversionPlist as text
 log strCfbundleversionPlist
 
-if strFileName contains strCfbundleversionPlist then
-	
+if strLocation contains strCfbundleversionPlist then
 	return "最新版を利用中です:" & (strCfbundleversionPlist as text) & "\r" & strLocation & "\r"
 else
 	return "アップデートがありますインストールが必要です:\r" & strLocation & "\r"
