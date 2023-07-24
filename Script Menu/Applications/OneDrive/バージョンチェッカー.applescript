@@ -6,11 +6,11 @@ com.cocolog-nifty.quicktimer.icefloe
 *)
 #
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
-##自分環境がos12なので2.8にしているだけです
 use AppleScript version "2.8"
 use framework "Foundation"
+use framework "UniformTypeIdentifiers"
+use framework "AppKit"
 use scripting additions
-
 property refMe : a reference to current application
 
 ###アプリケーションのバンドルID
@@ -83,20 +83,24 @@ set ocidPackageArray to ocidRootElement's elementsForName:"package"
 repeat with itemackageArray in ocidPackageArray
 	set ocidElementID to (itemackageArray's childAtIndex:0)'s stringValue()
 	log ocidElementID as text
+	
 end repeat
+
 
 ################################################
 ###### 対象アプリ最新のバージョン
 ################################################
+
 set ocidPackageArray to ocidRootElement's elementsForName:"package"
 repeat with itemackageArray in ocidPackageArray
+	set numCntChild to itemackageArray's childCount() as integer
 	set ocidElementID to (itemackageArray's childAtIndex:0)'s stringValue()
 	if (ocidElementID as text) is strGetBundleID then
 		set ocidCfbundleversionXML to (itemackageArray's childAtIndex:8)'s stringValue()
-		set strPkgURL to (itemackageArray's childAtIndex:17)'s stringValue() as text
+		set ocidDownloadURL to (itemackageArray's childAtIndex:(numCntChild - 1))'s stringValue()
 	end if
 end repeat
-log "RSS:" & ocidCfbundleversionXML as text
+
 ################################################
 ###### インストール済みのパージョン
 ################################################
@@ -128,16 +132,75 @@ set ocidPlistDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
 set listReadPlistData to refMe's NSMutableDictionary's dictionaryWithContentsOfURL:ocidFilePathURL |error|:(reference)
 set ocidPlistDict to item 1 of listReadPlistData
 set ocidCfbundleversionPlist to ocidPlistDict's valueForKey:"CFBundleVersion"
-log "PLIST:" & ocidCfbundleversionPlist as text
+################################################
+###### リンク解決
+################################################
+set strDownloadURL to ocidDownloadURL as text
+set strCommandText to ("/usr/bin/curl -Lvs -I -o /dev/null -w '%{url_effective}' " & strDownloadURL & "") as text
+set strLocation to (do shell script strCommandText) as text
+
 ################################################
 ###### チェック
 ################################################
 set strCfbundleversionXML to ocidCfbundleversionXML as text
 set strCfbundleversionPlist to ocidCfbundleversionPlist as text
+
 if strCfbundleversionXML is strCfbundleversionPlist then
-	
-	return "最新版を利用中です:" & (ocidCfbundleversionXML as text)
+	set strTitle to "最新版を利用中です" as text
+	set strMes to (strTitle & "\rRSS:" & strCfbundleversionXML & "\r PLIST:" & strCfbundleversionPlist & "\rLink:" & strDownloadURL & "\rLocation:" & strLocation) as text
 else
-	return "アップデートがありますインストールが必要です:\r" & strPkgURL & "\r"
+	set strTitle to "アップデートがあります" as text
+	set strMes to (strTitle & "\rRSS:" & strCfbundleversionXML & "\r PLIST:" & strCfbundleversionPlist & "\rLink:" & strDownloadURL & "\rLocation:" & strLocation) as text
 end if
 
+################################################
+###### ダイアログ
+################################################
+set appFileManager to refMe's NSFileManager's defaultManager()
+
+####ダイアログに指定アプリのアイコンを表示する
+###アイコン名をPLISTから取得
+set strIconFileName to (ocidPlistDict's valueForKey:("CFBundleIconFile")) as text
+
+###ICONのURLにして
+set strPath to ("Contents/Resources/" & strIconFileName) as text
+set ocidIconFilePathURL to ocidAppPathURL's URLByAppendingPathComponent:(strPath) isDirectory:false
+###拡張子の有無チェック
+set strExtensionName to (ocidIconFilePathURL's pathExtension()) as text
+if strExtensionName is "" then
+	set ocidIconFilePathURL to ocidIconFilePathURL's URLByAppendingPathExtension:"icns"
+end if
+##-->これがアイコンパス
+log ocidIconFilePathURL's absoluteString() as text
+###ICONファイルが実際にあるか？チェック
+set boolExists to appFileManager's fileExistsAtPath:(ocidIconFilePathURL's |path|)
+###ICONがみつかない時用にデフォルトを用意する
+if boolExists is false then
+	set aliasIconPath to POSIX file "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertNoteIcon.icns"
+else
+	set aliasIconPath to ocidIconFilePathURL's absoluteURL() as alias
+	set strIconPath to ocidIconFilePathURL's |path|() as text
+end if
+
+
+set recordResult to (display dialog strTitle with title strTitle default answer strMes buttons {"クリップボードにコピー", "終了", "ダウンロード"} default button "ダウンロード" cancel button "終了" giving up after 20 with icon aliasIconPath without hidden answer)
+
+if button returned of recordResult is "ダウンロード" then
+	tell application "Finder"
+		open location strLocation
+	end tell
+end if
+if button returned of recordResult is "クリップボードにコピー" then
+	try
+		set strText to text returned of recordResult as text
+		####ペーストボード宣言
+		set appPasteboard to refMe's NSPasteboard's generalPasteboard()
+		set ocidText to (refMe's NSString's stringWithString:(strText))
+		appPasteboard's clearContents()
+		appPasteboard's setString:(ocidText) forType:(refMe's NSPasteboardTypeString)
+	on error
+		tell application "Finder"
+			set the clipboard to strTitle as text
+		end tell
+	end try
+end if
