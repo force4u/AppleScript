@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>DisableSkypeMeeting</key>
+			<false/>
+
+			<key>PayloadDisplayName</key>
+			<string>Microsoft Outlook</string>
+			<key>PayloadIdentifier</key>
+			<string>com.microsoft.Outlook.FB97A090-C289-442C-A666-BF90BA43832E</string>
+			<key>PayloadType</key>
+			<string>com.microsoft.Outlook</string>
+			<key>PayloadUUID</key>
+			<string>FB97A090-C289-442C-A666-BF90BA43832E</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+		</dict>
+		<dict>
+			<key>SKAllowStealthUpgrade</key>
+			<false/>
+			<key>SKSilentUpgradeNoticeShown</key>
+			<false/>
+			<key>NSTreatUnknownArgumentsAsOpen</key>
+			<false/>
+			<key>enable_spellchecking</key>
+			<false/>
+			<key>use_spelling_service</key>
+			<false/>
+			<key>calling.enablePluginlessStackByDefault</key>
+			<false/>
+			<key>app.shouldSendOptionalTelemetry</key>
+			<false/>
+
+			<key>NSFullScreenMenuItemEverywhere</key>
+			<true/>
+
+			<key>PayloadDisplayName</key>
+			<string>Skype</string>
+			<key>PayloadIdentifier</key>
+			<string>com.skype.skype.6DB39227-858B-4590-8E62-3DD5F96FB6AE</string>
+			<key>PayloadType</key>
+			<string>com.skype.skype</string>
+			<key>PayloadUUID</key>
+			<string>6DB39227-858B-4590-8E62-3DD5F96FB6AE</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+
+		</dict>
+	</array>
+	<key>ConsentText</key>
+	<dict>
+		<key>default</key>
+		<string>com.skype.skypeの基本設定　削除可</string>
+	</dict>
+	<key>HasRemovalPasscode</key>
+	<false/>
+	<key>PayloadDescription</key>
+	<string>com.skype.skype基本設定</string>
+	<key>PayloadDisplayName</key>
+	<string>com.skype.skype</string>
+	<key>PayloadIdentifier</key>
+	<string>com.skype.skype.CD1B6F66-7FFC-403C-80A9-A968CD3B1753</string>
+	<key>PayloadOrganization</key>
+	<string>com.skype.skype</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadScope</key>
+	<string>User</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>481E4F3B-429F-4E57-A70A-8995CF5605DD</string>
+	<key>PayloadVersion</key>
+	<integer>1</integer>
+	<key>TargetDeviceType</key>
+	<integer>5</integer>
+</dict>
+</plist>
