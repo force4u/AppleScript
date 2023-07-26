@@ -1,709 +1,709 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
-	<dict>
-		<key>PayloadContent</key>
-		<array>
-			<dict>
-				<key>PayloadContent</key>
-				<dict>
-					<key>com.microsoft.edge</key>
-					<dict>
-						<key>Forced</key>
-						<array>
-							<dict>
-								<key>mcx_preference_settings</key>
-								<dict>
-									<key>ProfilePickerOnStartupAvailability</key>
-									<integer>2</integer>
-									<key>RestoreOnStartup</key>
-									<integer>4</integer>
-									<key>RestoreOnStartupURLs</key>
-									<array>
-										<string>https://www.office.com/</string>
-										<string>edge://settings/help</string>
-										<string>https://www.google.com/</string>
-										<string>edge://apps/</string>
-									</array>
-									<key>ShowHomeButton</key>
-									<true />
-									<key>HomepageIsNewTabPage</key>
-									<false />
-									<key>ImportHomepage</key>
-									<true />
-									<key>HomepageLocation</key>
-									<string>https://www.google.com/advanced_search</string>
-									<key>NewTabPageLocation</key>
-									<string>about:blank</string>
-									<key>ManagedFavorites</key>
-									<array>
-										<dict>
-											<key>toplevel_name</key>
-											<string>Manage</string>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>Apps</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://mail.nifty.com/mailer/</string>
-													<key>name</key>
-													<string>Niftyメール</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://mail.google.com/</string>
-													<key>name</key>
-													<string>Gメール</string>
-												</dict>
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>Photo</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://www.aflo.com/ja</string>
-													<key>name</key>
-													<string>アフロ</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>http://amanaimages.com/custom/index.aspx</string>
-													<key>name</key>
-													<string>アマナ</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.gettyimages.co.jp/</string>
-													<key>name</key>
-													<string>Getty</string>
-												</dict>
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>Slcak</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://app.slack.com/client/T02G880JV46/C02GF0VQ6LB/</string>
-													<key>name</key>
-													<string>Gneral</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://app.slack.com/client/T02G880JV46/all-dms</string>
-													<key>name</key>
-													<string>DM</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://app.slack.com/client/T02G880JV46/threads</string>
-													<key>name</key>
-													<string>スレッド</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://app.slack.com/client/T02G880JV46/activity-page</string>
-													<key>name</key>
-													<string>メンション</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://status.slack.com/</string>
-													<key>name</key>
-													<string>Status</string>
-												</dict>
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>BOX</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://app.box.com/folder/0</string>
-													<key>name</key>
-													<string>すべてのファイル</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://app.box.com/files/favorites</string>
-													<key>name</key>
-													<string>お気に入り</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://status.box.com/</string>
-													<key>name</key>
-													<string>Status</string>
-												</dict>
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>Drop Box</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://www.dropbox.com/home</string>
-													<key>name</key>
-													<string>すべてのファイル</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.dropbox.com/starred</string>
-													<key>name</key>
-													<string>お気に入り</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.dropbox.com/requests</string>
-													<key>name</key>
-													<string>ファイルリクエスト</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.dropbox.com/transfer/manage</string>
-													<key>name</key>
-													<string>転送</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.dropbox.com/paper</string>
-													<key>name</key>
-													<string>ペーパー</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://status.dropbox.com/</string>
-													<key>name</key>
-													<string>Status</string>
-												</dict>
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>Apple</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://www.icloud.com/</string>
-													<key>name</key>
-													<string>iCloud</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://appleid.apple.com/account/manage</string>
-													<key>name</key>
-													<string>Apple ID</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.apple.com/support/systemstatus/</string>
-													<key>name</key>
-													<string>Status</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://developer.apple.com/documentation/devicemanagement?language=objc</string>
-													<key>name</key>
-													<string>Devicemanagement</string>
-												</dict>
+<dict>
+<key>PayloadContent</key>
+<array>
+<dict>
+<key>PayloadContent</key>
+<dict>
+<key>com.microsoft.edge</key>
+<dict>
+<key>Forced</key>
+<array>
+<dict>
+<key>mcx_preference_settings</key>
+<dict>
+<key>ProfilePickerOnStartupAvailability</key>
+<integer>2</integer>
+<key>RestoreOnStartup</key>
+<integer>4</integer>
+<key>RestoreOnStartupURLs</key>
+<array>
+<string>https://www.office.com/</string>
+<string>edge://settings/help</string>
+<string>https://www.google.com/</string>
+<string>edge://apps/</string>
+</array>
+<key>ShowHomeButton</key>
+<true />
+<key>HomepageIsNewTabPage</key>
+<false />
+<key>ImportHomepage</key>
+<true />
+<key>HomepageLocation</key>
+<string>https://www.google.com/advanced_search</string>
+<key>NewTabPageLocation</key>
+<string>about:blank</string>
+<key>ManagedFavorites</key>
+<array>
+<dict>
+<key>toplevel_name</key>
+<string>Manage</string>
+</dict>
+<dict>
+<key>name</key>
+<string>Apps</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://mail.nifty.com/mailer/</string>
+<key>name</key>
+<string>Niftyメール</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://mail.google.com/</string>
+<key>name</key>
+<string>Gメール</string>
+</dict>
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>Photo</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://www.aflo.com/ja</string>
+<key>name</key>
+<string>アフロ</string>
+</dict>
+<dict>
+<key>url</key>
+<string>http://amanaimages.com/custom/index.aspx</string>
+<key>name</key>
+<string>アマナ</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.gettyimages.co.jp/</string>
+<key>name</key>
+<string>Getty</string>
+</dict>
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>Slcak</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://app.slack.com/client/T02G880JV46/C02GF0VQ6LB/</string>
+<key>name</key>
+<string>Gneral</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://app.slack.com/client/T02G880JV46/all-dms</string>
+<key>name</key>
+<string>DM</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://app.slack.com/client/T02G880JV46/threads</string>
+<key>name</key>
+<string>スレッド</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://app.slack.com/client/T02G880JV46/activity-page</string>
+<key>name</key>
+<string>メンション</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://status.slack.com/</string>
+<key>name</key>
+<string>Status</string>
+</dict>
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>BOX</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://app.box.com/folder/0</string>
+<key>name</key>
+<string>すべてのファイル</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://app.box.com/files/favorites</string>
+<key>name</key>
+<string>お気に入り</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://status.box.com/</string>
+<key>name</key>
+<string>Status</string>
+</dict>
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>Drop Box</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://www.dropbox.com/home</string>
+<key>name</key>
+<string>すべてのファイル</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.dropbox.com/starred</string>
+<key>name</key>
+<string>お気に入り</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.dropbox.com/requests</string>
+<key>name</key>
+<string>ファイルリクエスト</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.dropbox.com/transfer/manage</string>
+<key>name</key>
+<string>転送</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.dropbox.com/paper</string>
+<key>name</key>
+<string>ペーパー</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://status.dropbox.com/</string>
+<key>name</key>
+<string>Status</string>
+</dict>
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>Apple</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://www.icloud.com/</string>
+<key>name</key>
+<string>iCloud</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://appleid.apple.com/account/manage</string>
+<key>name</key>
+<string>Apple ID</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.apple.com/support/systemstatus/</string>
+<key>name</key>
+<string>Status</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://developer.apple.com/documentation/devicemanagement?language=objc</string>
+<key>name</key>
+<string>Devicemanagement</string>
+</dict>
 
 
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>Adobe</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://www.adobe.com/jp/</string>
-													<key>name</key>
-													<string>ホーム</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://fonts.adobe.com/?locale=ja-JP</string>
-													<key>name</key>
-													<string>Fonts</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://assets.adobe.com/files</string>
-													<key>name</key>
-													<string>Files</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://assets.adobe.com/libraries</string>
-													<key>name</key>
-													<string>Libraries</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://assets.adobe.com/mobilecreations</string>
-													<key>name</key>
-													<string>XD MobileCreations</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://documentcloud.adobe.com/link/home/</string>
-													<key>name</key>
-													<string>Document Cloud</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://indd.adobe.com/dashboard</string>
-													<key>name</key>
-													<string>Publish Online</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://lightroom.adobe.com/home</string>
-													<key>name</key>
-													<string>Lightroom Online</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>http://status.adobe.com/</string>
-													<key>name</key>
-													<string>Status</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://developer.adobe.com/console</string>
-													<key>name</key>
-													<string>Dev</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.adobe.com/devnet-docs/acrobatetk/tools/ReleaseNotesDC/index.html</string>
-													<key>name</key>
-													<string>AcrDev</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://adminconsole.adobe.com/</string>
-													<key>name</key>
-													<string>AdminConsole</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://community.adobe.com/</string>
-													<key>name</key>
-													<string>community</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://opensource.adobe.com/</string>
-													<key>name</key>
-													<string>opensource</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://github.com/adobe-fonts/</string>
-													<key>name</key>
-													<string>Github Font</string>
-												</dict>
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>Adobe</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://www.adobe.com/jp/</string>
+<key>name</key>
+<string>ホーム</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://fonts.adobe.com/?locale=ja-JP</string>
+<key>name</key>
+<string>Fonts</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://assets.adobe.com/files</string>
+<key>name</key>
+<string>Files</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://assets.adobe.com/libraries</string>
+<key>name</key>
+<string>Libraries</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://assets.adobe.com/mobilecreations</string>
+<key>name</key>
+<string>XD MobileCreations</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://documentcloud.adobe.com/link/home/</string>
+<key>name</key>
+<string>Document Cloud</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://indd.adobe.com/dashboard</string>
+<key>name</key>
+<string>Publish Online</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://lightroom.adobe.com/home</string>
+<key>name</key>
+<string>Lightroom Online</string>
+</dict>
+<dict>
+<key>url</key>
+<string>http://status.adobe.com/</string>
+<key>name</key>
+<string>Status</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://developer.adobe.com/console</string>
+<key>name</key>
+<string>Dev</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.adobe.com/devnet-docs/acrobatetk/tools/ReleaseNotesDC/index.html</string>
+<key>name</key>
+<string>AcrDev</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://adminconsole.adobe.com/</string>
+<key>name</key>
+<string>AdminConsole</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://community.adobe.com/</string>
+<key>name</key>
+<string>community</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://opensource.adobe.com/</string>
+<key>name</key>
+<string>opensource</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://github.com/adobe-fonts/</string>
+<key>name</key>
+<string>Github Font</string>
+</dict>
 
 
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>Google</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://www.google.com/</string>
-													<key>name</key>
-													<string>Google</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.google.com/advanced_search</string>
-													<key>name</key>
-													<string>Advanced</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://mail.google.com/</string>
-													<key>name</key>
-													<string>Mail</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://calendar.google.com/</string>
-													<key>name</key>
-													<string>Calendar </string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://translate.google.com/</string>
-													<key>name</key>
-													<string>Translate</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://drive.google.com/</string>
-													<key>name</key>
-													<string>Drive</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://maps.google.co.jp/</string>
-													<key>name</key>
-													<string>Map</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>youtube.com</string>
-													<key>name</key>
-													<string>Youtube</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.google.com/appsstatus/dashboard/</string>
-													<key>name</key>
-													<string>Status</string>
-												</dict>
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>Edge</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>edge://downloads/</string>
-													<key>name</key>
-													<string>Downloads</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>edge://bookmarks/</string>
-													<key>name</key>
-													<string>Bookmarks</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>edge://history/</string>
-													<key>name</key>
-													<string>History</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>edge://extensions/</string>
-													<key>name</key>
-													<string>Extensions</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>edge://about/</string>
-													<key>name</key>
-													<string>About</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://docs.microsoft.com/ja-jp/DeployEdge/microsoft-edge-policies</string>
-													<key>name</key>
-													<string>PoliciesDocs</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>edge://policy/</string>
-													<key>name</key>
-													<string>PoliciesList</string>
-												</dict>
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>Microsoft</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://www.office.com/</string>
-													<key>name</key>
-													<string>Office</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://office.live.com/start/Outlook.aspx</string>
-													<key>name</key>
-													<string>Outlook</string>
-												</dict>
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>Google</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://www.google.com/</string>
+<key>name</key>
+<string>Google</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.google.com/advanced_search</string>
+<key>name</key>
+<string>Advanced</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://mail.google.com/</string>
+<key>name</key>
+<string>Mail</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://calendar.google.com/</string>
+<key>name</key>
+<string>Calendar </string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://translate.google.com/</string>
+<key>name</key>
+<string>Translate</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://drive.google.com/</string>
+<key>name</key>
+<string>Drive</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://maps.google.co.jp/</string>
+<key>name</key>
+<string>Map</string>
+</dict>
+<dict>
+<key>url</key>
+<string>youtube.com</string>
+<key>name</key>
+<string>Youtube</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.google.com/appsstatus/dashboard/</string>
+<key>name</key>
+<string>Status</string>
+</dict>
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>Edge</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>edge://downloads/</string>
+<key>name</key>
+<string>Downloads</string>
+</dict>
+<dict>
+<key>url</key>
+<string>edge://bookmarks/</string>
+<key>name</key>
+<string>Bookmarks</string>
+</dict>
+<dict>
+<key>url</key>
+<string>edge://history/</string>
+<key>name</key>
+<string>History</string>
+</dict>
+<dict>
+<key>url</key>
+<string>edge://extensions/</string>
+<key>name</key>
+<string>Extensions</string>
+</dict>
+<dict>
+<key>url</key>
+<string>edge://about/</string>
+<key>name</key>
+<string>About</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://docs.microsoft.com/ja-jp/DeployEdge/microsoft-edge-policies</string>
+<key>name</key>
+<string>PoliciesDocs</string>
+</dict>
+<dict>
+<key>url</key>
+<string>edge://policy/</string>
+<key>name</key>
+<string>PoliciesList</string>
+</dict>
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>Microsoft</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://www.office.com/</string>
+<key>name</key>
+<string>Office</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://office.live.com/start/Outlook.aspx</string>
+<key>name</key>
+<string>Outlook</string>
+</dict>
 
-												<dict>
-													<key>url</key>
-													<string>https://teams.microsoft.com/</string>
-													<key>name</key>
-													<string>Teams</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://onedrive.live.com/</string>
-													<key>name</key>
-													<string>OneDrive</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.office.com/launch/word</string>
-													<key>name</key>
-													<string>Word</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.office.com/launch/excel</string>
-													<key>name</key>
-													<string>Excel</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.office.com/launch/powerpoint</string>
-													<key>name</key>
-													<string>Powerpoint</string>
-												</dict>
-
-
-												<dict>
-													<key>url</key>
-													<string>https://templates.office.com/</string>
-													<key>name</key>
-													<string>Templates</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://portal.office.com/servicestatus</string>
-													<key>name</key>
-													<string>Status</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://macadmins.software/</string>
-													<key>name</key>
-													<string>MacAdmin</string>
-												</dict>
+<dict>
+<key>url</key>
+<string>https://teams.microsoft.com/</string>
+<key>name</key>
+<string>Teams</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://onedrive.live.com/</string>
+<key>name</key>
+<string>OneDrive</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.office.com/launch/word</string>
+<key>name</key>
+<string>Word</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.office.com/launch/excel</string>
+<key>name</key>
+<string>Excel</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.office.com/launch/powerpoint</string>
+<key>name</key>
+<string>Powerpoint</string>
+</dict>
 
 
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>zoom</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://zoom.us/start/videomeeting</string>
-													<key>name</key>
-													<string>ビデオ有</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://zoom.us/start/webmeeting</string>
-													<key>name</key>
-													<string>ビデオ無</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://zoom.us/profile</string>
-													<key>name</key>
-													<string>プロフィール</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://zoom.us/recording</string>
-													<key>name</key>
-													<string>録画</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://status.zoom.us/</string>
-													<key>name</key>
-													<string>Status</string>
-												</dict>
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>DevAdmin</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://app.jamfnow.com/devices</string>
-													<key>name</key>
-													<string>jamfnow</string>
-												</dict>
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>交通</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://traininfo.jreast.co.jp/train_info/</string>
-													<key>name</key>
-													<string>JR東日本</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.jreast-timetable.jp/timetable/list0877.html</string>
-													<key>name</key>
-													<string>新橋</string>
-												</dict>
-								
+<dict>
+<key>url</key>
+<string>https://templates.office.com/</string>
+<key>name</key>
+<string>Templates</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://portal.office.com/servicestatus</string>
+<key>name</key>
+<string>Status</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://macadmins.software/</string>
+<key>name</key>
+<string>MacAdmin</string>
+</dict>
 
-												<dict>
-													<key>url</key>
-													<string>https://norikae.keikyu.co.jp/transit/norikae/T5?dir=44&amp;USR=PC&amp;dw=0&amp;slCode=250-1&amp;d=2</string>
-													<key>name</key>
-													<string>品川</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.sotetsu.co.jp/train/stations/yokohama/</string>
-													<key>name</key>
-													<string>横浜</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.sotetsu.co.jp/train/stations/ebina/</string>
-													<key>name</key>
-													<string>相鉄</string>
-												</dict>
 
-												<dict>
-													<key>url</key>
-													<string>https://yokohama-kojintaxi.or.jp/call</string>
-													<key>name</key>
-													<string>タクシー</string>
-												</dict>
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>zoom</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://zoom.us/start/videomeeting</string>
+<key>name</key>
+<string>ビデオ有</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://zoom.us/start/webmeeting</string>
+<key>name</key>
+<string>ビデオ無</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://zoom.us/profile</string>
+<key>name</key>
+<string>プロフィール</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://zoom.us/recording</string>
+<key>name</key>
+<string>録画</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://status.zoom.us/</string>
+<key>name</key>
+<string>Status</string>
+</dict>
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>DevAdmin</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://app.jamfnow.com/devices</string>
+<key>name</key>
+<string>jamfnow</string>
+</dict>
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>交通</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://traininfo.jreast.co.jp/train_info/</string>
+<key>name</key>
+<string>JR東日本</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.jreast-timetable.jp/timetable/list0877.html</string>
+<key>name</key>
+<string>新橋</string>
+</dict>
 
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>Print</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://networkprint.ne.jp/</string>
-													<key>name</key>
-													<string>【L・F】NetworkPrin</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.printing.ne.jp/</string>
-													<key>name</key>
-													<string>【7】netprint</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>http://localhost:631/</string>
-													<key>name</key>
-													<string>CupsLocal</string>
-												</dict>
-											</array>
-										</dict>
-										<dict>
-											<key>name</key>
-											<string>荷物：郵便</string>
-											<key>children</key>
-											<array>
-												<dict>
-													<key>url</key>
-													<string>https://www.t-serv.co.jp/order/index.php?PAGE=Login</string>
-													<key>name</key>
-													<string>Tサーブ</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.sokuhai-web.jp/form1.html</string>
-													<key>name</key>
-													<string>ソクハイ</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://bmypage.kuronekoyamato.co.jp/</string>
-													<key>name</key>
-													<string>ヤマトビジネス</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.kuronekoyamato.co.jp/ytc/customer/redelivery/</string>
-													<key>name</key>
-													<string>ヤマト：再配達</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://trackings.post.japanpost.jp/delivery/deli/</string>
-													<key>name</key>
-													<string>郵便：再配達</string>
-												</dict>
-												<dict>
-													<key>url</key>
-													<string>https://www.sagawa-exp.co.jp/send/redeliver.html</string>
-													<key>name</key>
-													<string>佐川：再配達</string>
-												</dict>
-											</array>
-										</dict>
-									</array>
-								</dict>
-							</dict>
-						</array>
-					</dict>
-				</dict>
-				<key>PayloadEnabled</key>
-				<true />
-				<key>PayloadIdentifier</key>
-				<string>CF89D7B7-D85A-453C-AFCB-A3F48ADB77FE</string>
-				<key>PayloadType</key>
-				<string>com.apple.ManagedClient.preferences</string>
-				<key>PayloadUUID</key>
-				<string>10D58815-5A9B-476B-B890-77A2D098031B</string>
-				<key>PayloadVersion</key>
-				<integer>1</integer>
-			</dict>
-		</array>
-		<key>PayloadDescription</key>
-		<string>自分用設定</string>
-		<key>PayloadDisplayName</key>
-		<string>com.microsoft.edgemac.ManagedFavorites</string>
-		<key>PayloadIdentifier</key>
-		<string>com.microsoft.edgemac.ManagedFavorites</string>
-		<key>PayloadOrganization</key>
-		<string>force4u.cocolog-nifty.com</string>
-		<key>PayloadRemovalDisallowed</key>
-		<true />
-		<key>PayloadScope</key>
-		<string>User</string>
-		<key>PayloadType</key>
-		<string>Configuration</string>
-		<key>PayloadUUID</key>
-		<string>A69C2A5D-A074-48F7-8632-A7D14EF23005</string>
-		<key>PayloadVersion</key>
-		<integer>1</integer>
-	</dict>
+
+<dict>
+<key>url</key>
+<string>https://norikae.keikyu.co.jp/transit/norikae/T5?dir=44&amp;USR=PC&amp;dw=0&amp;slCode=250-1&amp;d=2</string>
+<key>name</key>
+<string>品川</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.sotetsu.co.jp/train/stations/yokohama/</string>
+<key>name</key>
+<string>横浜</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.sotetsu.co.jp/train/stations/ebina/</string>
+<key>name</key>
+<string>相鉄</string>
+</dict>
+
+<dict>
+<key>url</key>
+<string>https://yokohama-kojintaxi.or.jp/call</string>
+<key>name</key>
+<string>タクシー</string>
+</dict>
+
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>Print</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://networkprint.ne.jp/</string>
+<key>name</key>
+<string>【L・F】NetworkPrin</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.printing.ne.jp/</string>
+<key>name</key>
+<string>【7】netprint</string>
+</dict>
+<dict>
+<key>url</key>
+<string>http://localhost:631/</string>
+<key>name</key>
+<string>CupsLocal</string>
+</dict>
+</array>
+</dict>
+<dict>
+<key>name</key>
+<string>荷物：郵便</string>
+<key>children</key>
+<array>
+<dict>
+<key>url</key>
+<string>https://www.t-serv.co.jp/order/index.php?PAGE=Login</string>
+<key>name</key>
+<string>Tサーブ</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.sokuhai-web.jp/form1.html</string>
+<key>name</key>
+<string>ソクハイ</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://bmypage.kuronekoyamato.co.jp/</string>
+<key>name</key>
+<string>ヤマトビジネス</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.kuronekoyamato.co.jp/ytc/customer/redelivery/</string>
+<key>name</key>
+<string>ヤマト：再配達</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://trackings.post.japanpost.jp/delivery/deli/</string>
+<key>name</key>
+<string>郵便：再配達</string>
+</dict>
+<dict>
+<key>url</key>
+<string>https://www.sagawa-exp.co.jp/send/redeliver.html</string>
+<key>name</key>
+<string>佐川：再配達</string>
+</dict>
+</array>
+</dict>
+</array>
+</dict>
+</dict>
+</array>
+</dict>
+</dict>
+<key>PayloadEnabled</key>
+<true />
+<key>PayloadIdentifier</key>
+<string>CF89D7B7-D85A-453C-AFCB-A3F48ADB77FE</string>
+<key>PayloadType</key>
+<string>com.apple.ManagedClient.preferences</string>
+<key>PayloadUUID</key>
+<string>10D58815-5A9B-476B-B890-77A2D098031B</string>
+<key>PayloadVersion</key>
+<integer>1</integer>
+</dict>
+</array>
+<key>PayloadDescription</key>
+<string>自分用設定</string>
+<key>PayloadDisplayName</key>
+<string>com.microsoft.edgemac.ManagedFavorites</string>
+<key>PayloadIdentifier</key>
+<string>com.microsoft.edgemac.ManagedFavorites</string>
+<key>PayloadOrganization</key>
+<string>force4u.cocolog-nifty.com</string>
+<key>PayloadRemovalDisallowed</key>
+<true />
+<key>PayloadScope</key>
+<string>User</string>
+<key>PayloadType</key>
+<string>Configuration</string>
+<key>PayloadUUID</key>
+<string>A69C2A5D-A074-48F7-8632-A7D14EF23005</string>
+<key>PayloadVersion</key>
+<integer>1</integer>
+</dict>
 </plist>
