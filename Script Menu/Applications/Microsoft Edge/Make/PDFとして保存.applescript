@@ -53,10 +53,24 @@ if numTitleLength ≤ 13 then
 else
 	set ocidRange to refMe's NSMakeRange(0, 14)
 	set ocidBaseFileName to ocidTITLE's substringWithRange:(ocidRange)
-	set strBaseFileName to ocidBaseFileName as text
+	
 end if
+##########################################
+### ファイル名の置換
+set recordSubstitutionDict to {|"|:"＂", |*|:"＊", |:|:"：", |<|:"＜", |>|:"＞", |?|:"？", |/|:"／", |\\|:"＼", |\||:"｜"} as record
+set ocidSubstitutionDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
+ocidSubstitutionDict's setDictionary:(recordSubstitutionDict)
+set ocidSubstKeysArray to ocidSubstitutionDict's allKeys()
+
+repeat with itemSubstKeys in ocidSubstKeysArray
+	set ocidRepString to (ocidSubstitutionDict's valueForKey:(itemSubstKeys))
+	set ocidBaseFileName to (ocidBaseFileName's stringByReplacingOccurrencesOfString:(itemSubstKeys) withString:(ocidRepString))
+end repeat
+set strBaseFileName to ocidBaseFileName as text
+log strBaseFileName
 ###ファイル名
 set strSaveFileName to (strBaseFileName & ".pdf") as text
+
 ##########################################
 #### アプリケーションのパス
 ##########################################
