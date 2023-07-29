@@ -1,6 +1,6 @@
 <div id="bordertable">
 
-<table><caption>Plist情報：prefsmapping.plist.html</caption>
+<table><caption>com.apple.helpviewer Plist情報：prefsmapping.plist.html</caption>
 
 <thead title="表の項目について">
 
