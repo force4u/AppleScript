@@ -85,6 +85,8 @@ repeat with itemAliasFilePath in listAliasFilePath
 	set strWidth to (ocidJsonDict's valueForKeyPath:("frame.width"))
 	set strHeight to (ocidJsonDict's valueForKeyPath:("frame.height"))
 	###新しいファイル名
+	###vectornatorを廃止
+	set strExtensionName to "curve" as text
 	set strNewFileName to (strBaseFileName & "." & strWidth & "x" & strHeight & "." & strExtensionName) as text
 	###新しいURL
 	set ocidNewFilePathURL to (ocidContainerDirPathURL's URLByAppendingPathComponent:(strNewFileName))
