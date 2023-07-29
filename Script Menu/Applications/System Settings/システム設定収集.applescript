@@ -1,6 +1,7 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #com.cocolog-nifty.quicktimer.icefloe
+#ファイルを保存するように変更した
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
 use framework "Foundation"
@@ -132,7 +133,7 @@ tell application id "com.apple.systempreferences"
 end tell
 
 ###コピー用のスクリプトテキスト
-set strScript to "tell application id \"com.apple.systempreferences\"\r\tlaunch\r\tactivate\r\treveal anchor  \"" & strAnchorName & "\" of pane id  \"" & strPaneId & "\"\rend tell"
+set strScript to "#!/usr/bin/env osascript\r----+----1----+----2----+-----3----+----4----+----5----+----6----+----7\r#com.cocolog-nifty.quicktimer.icefloe\r# ロック画面\r----+----1----+----2----+-----3----+----4----+----5----+----6----+----7\ruse AppleScript version \"2.8\"\ruse scripting additions\rtell application id \"com.apple.systempreferences\"\r\tlaunch\r\tactivate\r\treveal anchor \"" & strAnchorName & "\" of pane id \"" & strPaneId & "\"\rend tell\rtell application id \"com.apple.finder\"\r\topen location \"x-apple.systempreferences:" & strPaneId & "?" & strAnchorName & "\"\rend tell\r"
 
 ####ダイアログを前面に
 tell current application
@@ -158,15 +159,37 @@ if button returned of recordResult is "クリップボードにコピー" then
 end if
 ###OK押したらスクリプト生成
 if button returned of recordResult is "スクリプトエディタで開く" then
-	set ocidChrSet to refMe's NSCharacterSet's URLQueryAllowedCharacterSet
+	set strFileName to (strAnchorName & "." & strPaneId & ".applescript") as text
+	
+	set appFileManager to refMe's NSFileManager's defaultManager()
+	set ocidURLsArray to (appFileManager's URLsForDirectory:(refMe's NSLibraryDirectory) inDomains:(refMe's NSUserDomainMask))
+	set ocidLibraryDIrURL to ocidURLsArray's firstObject()
+	set ocidScriptDirPathURL to ocidLibraryDIrURL's URLByAppendingPathComponent:("Scripts/Applications/System Settings/Open")
+	set ocidAttrDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
+	ocidAttrDict's setValue:(493) forKey:(refMe's NSFilePosixPermissions)
+	set listBoolMakeDir to appFileManager's createDirectoryAtURL:(ocidScriptDirPathURL) withIntermediateDirectories:true attributes:(ocidAttrDict) |error|:(reference)
+	set ocidSaveFilePathURL to ocidScriptDirPathURL's URLByAppendingPathComponent:(strFileName)
+	set ocidScript to refMe's NSString's stringWithString:(strScript)
+	set listDone to ocidScript's writeToURL:(ocidSaveFilePathURL) atomically:(true) encoding:(refMe's NSUTF16LittleEndianStringEncoding) |error|:(reference)
+	delay 0.5
+	set aliasSaveFilePath to (ocidSaveFilePathURL's absoluteURL()) as alias
+	
+	tell application "Script Editor"
+		open aliasSaveFilePath
+	end tell
+	
+	(*
+	###set ocidChrSet to refMe's NSCharacterSet's URLQueryAllowedCharacterSet
 	set ocidEncodedText to refMe's NSMutableString's alloc()'s initWithCapacity:0
 	set ocidScript to refMe's NSString's stringWithString:(strScript)
 	ocidEncodedText's setString:(ocidScript)
 	########   置換　％エンコードの追加処理
+	
 	###置換レコード
 	set recordPercentMap to {|+|:"%2B", |=|:"%3D", |&|:"%26", |$|:"%24"} as record
+	##set recordPercentMap to {|=|:"%3D", |&|:"%26", |$|:"%24"} as record
 	###ディクショナリにして
-	set ocidPercentMap to refMe's NSDictionary's alloc()'s initWithDictionary:recordPercentMap
+	set ocidPercentMap to refMe's NSDictionary's alloc()'s initWithDictionary:(recordPercentMap)
 	###キーの一覧を取り出します
 	set ocidAllKeys to ocidPercentMap's allKeys()
 	
@@ -179,11 +202,16 @@ if button returned of recordResult is "スクリプトエディタで開く" the
 		##次の変換に備える
 		set ocidTextToEncode to ocidEncodedText
 	end repeat
+	
 	###URLになるのでロケーションとしてOPENする
 	set strEncodedText to ocidTextToEncode as text
+	##	set strEncodedText to ocidEncodedText as text
 	set strURL to "applescript://com.apple.scripteditor?action=new&name=" & strPaneId & "&script=" & strEncodedText & ""
+
 	tell application "Finder"
 		open location strURL
 	end tell
+	
+	*)
 end if
 
