@@ -1,1285 +1,609 @@
-<span style="font-kerning: none">**Plist**</span><span style="font: 12.0px 'Hiragino Mincho ProN'; font-kerning: none">**情報：**</span><span style="font-kerning: none">**prefsmapping.plist.html**</span>
+<div id="bordertable">
 
-<table cellspacing="0" cellpadding="0" style="border-collapse: collapse">
+<table><caption>Plist情報：prefsmapping.plist.html</caption>
 
-<tbody>
+<thead title="表の項目について">
 
 <tr>
 
-<td valign="middle" style="width: 18.0px; height: 28.2px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353">
+<th title="項目の番号が最初" style="width: 36px;">項番</th>
 
-<span style="font-kerning: none">**項番**</span>
+<th title="キーの名前が２番目">キーの名前</th>
 
-</td>
+<th title="キーの値は３番目になっています">キーの値</th>
 
-<td valign="middle" style="width: 355.0px; height: 28.2px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353">
+</tr>
 
-<span style="font-kerning: none">**キーの名前**</span>
+</thead>
 
-</td>
+<tbody title="表の始まりです">
 
-<td valign="middle" style="width: 317.6px; height: 28.2px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353">
+<tr>
 
-<span style="font-kerning: none">**キーの値**</span>
+<td title="項番：1">1</td>
 
-</td>
+<td title="キー：com.apple.preferences.walletについて">com.apple.preferences.wallet</td>
+
+<td title="キー：com.apple.preferences.walletの値">com.apple.WalletSettingsExtension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：2">2</td>
 
-<span style="font-kerning: none">1</span>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Accessibility_Shortcutについて">com.apple.preference.universalaccess&anchorId=Accessibility_Shortcut</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preferences.wallet</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.WalletSettingsExtension</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Accessibility_Shortcutの値">com.apple.Accessibility-Settings.extension?Accessibility_Shortcut</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：3">3</td>
 
-<span style="font-kerning: none">2</span>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Siriについて">com.apple.preference.universalaccess&anchorId=Siri</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess&anchorId=Accessibility_Shortcut</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension?Accessibility_Shortcut</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Siriの値">com.apple.Accessibility-Settings.extension?Siri</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：4">4</td>
 
-<span style="font-kerning: none">3</span>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=TextToSpeechについて">com.apple.preference.universalaccess&anchorId=TextToSpeech</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess&anchorId=Siri</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension?Siri</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=TextToSpeechの値">com.apple.Accessibility-Settings.extension?TextToSpeech</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：5">5</td>
 
-<span style="font-kerning: none">4</span>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Seeing_Zoomについて">com.apple.preference.universalaccess&anchorId=Seeing_Zoom</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess&anchorId=TextToSpeech</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension?TextToSpeech</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Seeing_Zoomの値">com.apple.Accessibility-Settings.extension?Seeing_Zoom</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：6">6</td>
 
-<span style="font-kerning: none">5</span>
+<td title="キー：com.apple.preference.trackpadについて">com.apple.preference.trackpad</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess&anchorId=Seeing_Zoom</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension?Seeing_Zoom</span>
-
-</td>
+<td title="キー：com.apple.preference.trackpadの値">com.apple.Trackpad-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：7">7</td>
 
-<span style="font-kerning: none">6</span>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Seeing_VoiceOverについて">com.apple.preference.universalaccess&anchorId=Seeing_VoiceOver</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.trackpad</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Trackpad-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Seeing_VoiceOverの値">com.apple.Accessibility-Settings.extension?Seeing_VoiceOver</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：8">8</td>
 
-<span style="font-kerning: none">7</span>
+<td title="キー：com.apple.preference.securityについて">com.apple.preference.security</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess&anchorId=Seeing_VoiceOver</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension?Seeing_VoiceOver</span>
-
-</td>
+<td title="キー：com.apple.preference.securityの値">com.apple.settings.PrivacySecurity.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：9">9</td>
 
-<span style="font-kerning: none">8</span>
+<td title="キー：com.apple.preference.screentimeについて">com.apple.preference.screentime</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.security</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.settings.PrivacySecurity.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.screentimeの値">com.apple.Screen-Time-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：10">10</td>
 
-<span style="font-kerning: none">9</span>
+<td title="キー：com.apple.preferences.FamilySharingPrefPaneについて">com.apple.preferences.FamilySharingPrefPane</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.screentime</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Screen-Time-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preferences.FamilySharingPrefPaneの値">com.apple.Family-Settings.extension*Family</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：11">11</td>
 
-<span style="font-kerning: none">10</span>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Media_Descriptionsについて">com.apple.preference.universalaccess&anchorId=Media_Descriptions</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preferences.FamilySharingPrefPane</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Family-Settings.extension*Family</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Media_Descriptionsの値">com.apple.Accessibility-Settings.extension?Media_Descriptions</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：12">12</td>
 
-<span style="font-kerning: none">11</span>
+<td title="キー：com.apple.preference.universalaccessについて">com.apple.preference.universalaccess</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess&anchorId=Media_Descriptions</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension?Media_Descriptions</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccessの値">com.apple.Accessibility-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：13">13</td>
 
-<span style="font-kerning: none">12</span>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=Downtimeについて">com.apple.preference.screentime&anchorId=Downtime</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=Downtimeの値">com.apple.Screen-Time-Settings.extension?path=downtime</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：14">14</td>
 
-<span style="font-kerning: none">13</span>
+<td title="キー：com.apple.preferences.Bluetoothについて">com.apple.preferences.Bluetooth</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.screentime&anchorId=Downtime</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Screen-Time-Settings.extension?path=downtime</span>
-
-</td>
+<td title="キー：com.apple.preferences.Bluetoothの値">com.apple.BluetoothSettings</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：15">15</td>
 
-<span style="font-kerning: none">14</span>
+<td title="キー：com.apple.preferences.softwareupdateについて">com.apple.preferences.softwareupdate</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preferences.Bluetooth</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.BluetoothSettings</span>
-
-</td>
+<td title="キー：com.apple.preferences.softwareupdateの値">com.apple.Software-Update-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：16">16</td>
 
-<span style="font-kerning: none">15</span>
+<td title="キー：com.apple.preference.desktopscreeneffectについて">com.apple.preference.desktopscreeneffect</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preferences.softwareupdate</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Software-Update-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.desktopscreeneffectの値">com.apple.Wallpaper-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：17">17</td>
 
-<span style="font-kerning: none">16</span>
+<td title="キー：com.apple.prefs.backupについて">com.apple.prefs.backup</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.desktopscreeneffect</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Wallpaper-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.prefs.backupの値">com.apple.Time-Machine-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：18">18</td>
 
-<span style="font-kerning: none">17</span>
+<td title="キー：com.apple.preference.batteryについて">com.apple.preference.battery</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.prefs.backup</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Time-Machine-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.batteryの値">com.apple.Battery-Settings.extension*BatteryPreferences</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：19">19</td>
 
-<span style="font-kerning: none">18</span>
+<td title="キー：com.apple.preference.networkについて">com.apple.preference.network</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.battery</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Battery-Settings.extension*BatteryPreferences</span>
-
-</td>
+<td title="キー：com.apple.preference.networkの値">com.apple.Network-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：20">20</td>
 
-<span style="font-kerning: none">19</span>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=AlwaysAllowedについて">com.apple.preference.screentime&anchorId=AlwaysAllowed</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.network</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Network-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=AlwaysAllowedの値">com.apple.Screen-Time-Settings.extension?path=always-allowed</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：21">21</td>
 
-<span style="font-kerning: none">20</span>
+<td title="キー：com.apple.preferences.configurationprofilesについて">com.apple.preferences.configurationprofiles</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.screentime&anchorId=AlwaysAllowed</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Screen-Time-Settings.extension?path=always-allowed</span>
-
-</td>
+<td title="キー：com.apple.preferences.configurationprofilesの値">com.apple.Profiles-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：22">22</td>
 
-<span style="font-kerning: none">21</span>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=DailyUsageについて">com.apple.preference.screentime&anchorId=DailyUsage</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preferences.configurationprofiles</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Profiles-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=DailyUsageの値">com.apple.Screen-Time-Settings.extension?path=app-usage</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：23">23</td>
 
-<span style="font-kerning: none">22</span>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Mouseについて">com.apple.preference.universalaccess&anchorId=Mouse</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.screentime&anchorId=DailyUsage</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Screen-Time-Settings.extension?path=app-usage</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Mouseの値">com.apple.Accessibility-Settings.extension?Mouse</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：24">24</td>
 
-<span style="font-kerning: none">23</span>
+<td title="キー：com.apple.preferences.AppleIDPrefPaneについて">com.apple.preferences.AppleIDPrefPane</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess&anchorId=Mouse</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension?Mouse</span>
-
-</td>
+<td title="キー：com.apple.preferences.AppleIDPrefPaneの値">com.apple.systempreferences.AppleIDSettings*AppleIDSettings</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：25">25</td>
 
-<span style="font-kerning: none">24</span>
+<td title="キー：com.apple.preferences.extensionsについて">com.apple.preferences.extensions</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preferences.AppleIDPrefPane</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.systempreferences.AppleIDSettings*AppleIDSettings</span>
-
-</td>
+<td title="キー：com.apple.preferences.extensionsの値">com.apple.ExtensionsPreferences</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：26">26</td>
 
-<span style="font-kerning: none">25</span>
+<td title="キー：com.apple.preference.notificationsについて">com.apple.preference.notifications</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preferences.extensions</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.ExtensionsPreferences</span>
-
-</td>
+<td title="キー：com.apple.preference.notificationsの値">com.apple.Notifications-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：27">27</td>
 
-<span style="font-kerning: none">26</span>
+<td title="キー：com.apple.preference.keyboardについて">com.apple.preference.keyboard</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.notifications</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Notifications-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.keyboardの値">com.apple.Keyboard-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：28">28</td>
 
-<span style="font-kerning: none">27</span>
+<td title="キー：com.apple.preference.dockについて">com.apple.preference.dock</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.keyboard</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Keyboard-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.dockの値">com.apple.Desktop-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：29">29</td>
 
-<span style="font-kerning: none">28</span>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=ViewUsageLimitについて">com.apple.preference.screentime&anchorId=ViewUsageLimit</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.dock</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Desktop-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=ViewUsageLimitの値">com.apple.Screen-Time-Settings.extension?path=app-limits</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：30">30</td>
 
-<span style="font-kerning: none">29</span>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=ContentAndPrivacyについて">com.apple.preference.screentime&anchorId=ContentAndPrivacy</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.screentime&anchorId=ViewUsageLimit</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Screen-Time-Settings.extension?path=app-limits</span>
-
-</td>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=ContentAndPrivacyの値">com.apple.Screen-Time-Settings.extension?path=content-and-privacy</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：31">31</td>
 
-<span style="font-kerning: none">30</span>
+<td title="キー：com.apple.preference.spotlightについて">com.apple.preference.spotlight</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.screentime&anchorId=ContentAndPrivacy</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Screen-Time-Settings.extension?path=content-and-privacy</span>
-
-</td>
+<td title="キー：com.apple.preference.spotlightの値">com.apple.Siri-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：32">32</td>
 
-<span style="font-kerning: none">31</span>
+<td title="キー：com.apple.preference.digihub.discsについて">com.apple.preference.digihub.discs</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.spotlight</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Siri-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.digihub.discsの値">com.apple.CD-DVD-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：33">33</td>
 
-<span style="font-kerning: none">32</span>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Switchについて">com.apple.preference.universalaccess&anchorId=Switch</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.digihub.discs</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.CD-DVD-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Switchの値">com.apple.Accessibility-Settings.extension?Switch</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：34">34</td>
 
-<span style="font-kerning: none">33</span>
+<td title="キー：com.apple.preferences.passwordについて">com.apple.preferences.password</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess&anchorId=Switch</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension?Switch</span>
-
-</td>
+<td title="キー：com.apple.preferences.passwordの値">com.apple.Touch-ID-Settings.extension*TouchIDPasswordPrefs</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：35">35</td>
 
-<span style="font-kerning: none">34</span>
+<td title="キー：com.apple.Localizationについて">com.apple.Localization</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preferences.password</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Touch-ID-Settings.extension*TouchIDPasswordPrefs</span>
-
-</td>
+<td title="キー：com.apple.Localizationの値">com.apple.Localization-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：36">36</td>
 
-<span style="font-kerning: none">35</span>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Seeing_Displayについて">com.apple.preference.universalaccess&anchorId=Seeing_Display</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Localization</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Localization-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Seeing_Displayの値">com.apple.Accessibility-Settings.extension?Seeing_Display</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：37">37</td>
 
-<span style="font-kerning: none">36</span>
+<td title="キー：com.apple.preference.startupdiskについて">com.apple.preference.startupdisk</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess&anchorId=Seeing_Display</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension?Seeing_Display</span>
-
-</td>
+<td title="キー：com.apple.preference.startupdiskの値">com.apple.Startup-Disk-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：38">38</td>
 
-<span style="font-kerning: none">37</span>
+<td title="キー：com.apple.preference.speechについて">com.apple.preference.speech</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.startupdisk</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Startup-Disk-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.speechの値">com.apple.Siri-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：39">39</td>
 
-<span style="font-kerning: none">38</span>
+<td title="キー：com.apple.preference.datetimeについて">com.apple.preference.datetime</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.speech</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Siri-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.datetimeの値">com.apple.Date-Time-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：40">40</td>
 
-<span style="font-kerning: none">39</span>
+<td title="キー：com.apple.preference.displaysについて">com.apple.preference.displays</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.datetime</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Date-Time-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.displaysの値">com.apple.Displays-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：41">41</td>
 
-<span style="font-kerning: none">40</span>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Hearingについて">com.apple.preference.universalaccess&anchorId=Hearing</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.displays</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Displays-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Hearingの値">com.apple.Accessibility-Settings.extension?Hearing</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：42">42</td>
 
-<span style="font-kerning: none">41</span>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=DailyPickupsについて">com.apple.preference.screentime&anchorId=DailyPickups</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess&anchorId=Hearing</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension?Hearing</span>
-
-</td>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=DailyPickupsの値">com.apple.Screen-Time-Settings.extension?path=pickups</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：43">43</td>
 
-<span style="font-kerning: none">42</span>
+<td title="キー：com.apple.preferences.ClassKitPreferencePaneについて">com.apple.preferences.ClassKitPreferencePane</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.screentime&anchorId=DailyPickups</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Screen-Time-Settings.extension?path=pickups</span>
-
-</td>
+<td title="キー：com.apple.preferences.ClassKitPreferencePaneの値">com.apple.ClassKit-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：44">44</td>
 
-<span style="font-kerning: none">43</span>
+<td title="キー：com.apple.preference.mouseについて">com.apple.preference.mouse</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preferences.ClassKitPreferencePane</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.ClassKit-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.mouseの値">com.apple.Mouse-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：45">45</td>
 
-<span style="font-kerning: none">44</span>
+<td title="キー：com.apple.preferences.EnergySaverPrefPaneについて">com.apple.preferences.EnergySaverPrefPane</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.mouse</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Mouse-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preferences.EnergySaverPrefPaneの値">com.apple.Battery-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：46">46</td>
 
-<span style="font-kerning: none">45</span>
+<td title="キー：com.apple.preferences.internetaccountsについて">com.apple.preferences.internetaccounts</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preferences.EnergySaverPrefPane</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Battery-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preferences.internetaccountsの値">com.apple.Internet-Accounts-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：47">47</td>
 
-<span style="font-kerning: none">46</span>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=CommunicationLimitについて">com.apple.preference.screentime&anchorId=CommunicationLimit</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preferences.internetaccounts</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Internet-Accounts-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=CommunicationLimitの値">com.apple.Screen-Time-Settings.extension?path=communication-limits</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：48">48</td>
 
-<span style="font-kerning: none">47</span>
+<td title="キー：com.apple.preferences.sharingについて">com.apple.preferences.sharing</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.screentime&anchorId=CommunicationLimit</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Screen-Time-Settings.extension?path=communication-limits</span>
-
-</td>
+<td title="キー：com.apple.preferences.sharingの値">com.apple.Sharing-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：49">49</td>
 
-<span style="font-kerning: none">48</span>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Captioningについて">com.apple.preference.universalaccess&anchorId=Captioning</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preferences.sharing</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Sharing-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Captioningの値">com.apple.Accessibility-Settings.extension?Captioning</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：50">50</td>
 
-<span style="font-kerning: none">49</span>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Dictationについて">com.apple.preference.universalaccess&anchorId=Dictation</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess&anchorId=Captioning</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension?Captioning</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Dictationの値">com.apple.Accessibility-Settings.extension?Dictation</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：51">51</td>
 
-<span style="font-kerning: none">50</span>
+<td title="キー：com.apple.preference.printfaxについて">com.apple.preference.printfax</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess&anchorId=Dictation</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension?Dictation</span>
-
-</td>
+<td title="キー：com.apple.preference.printfaxの値">com.apple.Print-Scan-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：52">52</td>
 
-<span style="font-kerning: none">51</span>
+<td title="キー：com.apple.preference.generalについて">com.apple.preference.general</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.printfax</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Print-Scan-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.generalの値">com.apple.Appearance-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：53">53</td>
 
-<span style="font-kerning: none">52</span>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=DailyNotificationsについて">com.apple.preference.screentime&anchorId=DailyNotifications</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.general</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Appearance-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.screentime&amp;anchorId=DailyNotificationsの値">com.apple.Screen-Time-Settings.extension?path=notifications</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：54">54</td>
 
-<span style="font-kerning: none">53</span>
+<td title="キー：com.apple.preference.soundについて">com.apple.preference.sound</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.screentime&anchorId=DailyNotifications</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Screen-Time-Settings.extension?path=notifications</span>
-
-</td>
+<td title="キー：com.apple.preference.soundの値">com.apple.Sound-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：55">55</td>
 
-<span style="font-kerning: none">54</span>
+<td title="キー：com.apple.preferences.usersについて">com.apple.preferences.users</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.sound</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Sound-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preferences.usersの値">com.apple.Users-Groups-Settings.extension</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：56">56</td>
 
-<span style="font-kerning: none">55</span>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Keyboardについて">com.apple.preference.universalaccess&anchorId=Keyboard</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preferences.users</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Users-Groups-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.preference.universalaccess&amp;anchorId=Keyboardの値">com.apple.Accessibility-Settings.extension?Keyboard</td>
 
 </tr>
 
 <tr>
 
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
+<td title="項番：57">57</td>
 
-<span style="font-kerning: none">56</span>
+<td title="キー：com.apple.Passwordsについて">com.apple.Passwords</td>
 
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.preference.universalaccess&anchorId=Keyboard</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Accessibility-Settings.extension?Keyboard</span>
-
-</td>
-
-</tr>
-
-<tr>
-
-<td valign="middle" style="width: 12.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">57</span>
-
-</td>
-
-<td valign="middle" style="width: 349.0px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Passwords</span>
-
-</td>
-
-<td valign="middle" style="width: 311.6px; border-style: solid; border-width: 1.0px 1.0px 1.0px 1.0px; border-color: #535353 #535353 #535353 #535353; padding: 3.0px 3.0px 3.0px 3.0px">
-
-<span style="font-kerning: none">com.apple.Passwords-Settings.extension</span>
-
-</td>
+<td title="キー：com.apple.Passwordsの値">com.apple.Passwords-Settings.extension</td>
 
 </tr>
 
 </tbody>
 
+<tfoot title="フッター">
+
+<tr>
+
+<td title="表の終わりです"></td>
+
+<td title="フッター">合計57項目</td>
+
+<td title="表の終わりです "></td>
+
+</tr>
+
+</tfoot>
+
 </table>
+
+</div>
