@@ -162,7 +162,7 @@ end if
 ###ダイアログ
 set strIconPath to "/System/Library/CoreServices/Finder.app/Contents/Resources/Finder.icns"
 set aliasIconPath to POSIX file strIconPath as alias
-set recordResult to (display dialog "スクリプト戻り値です" with title "スクリプト" default answer strScript buttons {"クリップボードにコピー", "キャンセル", "スクリプトエディタで開く"} default button "スクリプトエディタで開く" giving up after 20 with icon aliasIconPath without hidden answer)
+set recordResult to (display dialog "スクリプト戻り値です" with title "スクリプト" default answer strScript buttons {"クリップボードにコピー", "キャンセル", "スクリプトエディタで開く"} default button "スクリプトエディタで開く" cancel button "キャンセル" giving up after 20 with icon aliasIconPath without hidden answer)
 ###クリップボードにコピー
 if button returned of recordResult is "クリップボードにコピー" then
 	set strText to text returned of recordResult as text
