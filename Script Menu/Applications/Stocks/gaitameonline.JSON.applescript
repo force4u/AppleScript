@@ -31,7 +31,7 @@ set ocidJsonData to item 1 of listJSONSerialization
 set strDateNo to doGetDateNo("yyyy/MM/dd-hh:mm:ss")
 
 ##########################################
-####【５】レコードに格納 (実際はここで色々処理したりデータ取得したりします)
+####【５】レコードに格納
 set ocidJsonDict to refMe's NSDictionary's alloc()'s initWithDictionary:(ocidJsonData)
 set ocidAllKeys to ocidJsonDict's allKeys()
 --> quotes
@@ -99,7 +99,7 @@ repeat with itemJsonArrayM in ocidJsonArrayM
 	set ocidQuotesDict to (refMe's NSMutableDictionary's alloc()'s initWithCapacity:0)
 	(ocidQuotesDict's setDictionary:(itemJsonArrayM))
 	set ocidAllKeys to ocidQuotesDict's allKeys()
-	###ペアコードを格納する
+	###ダイアログで選んだペアコードから各種値を取り出す
 	set strPairCode to (ocidQuotesDict's valueForKey:("currencyPairCode")) as text
 	if strPairCode is strResponse then
 		set strlow to (ocidQuotesDict's valueForKey:("low"))
