@@ -1,7 +1,7 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #com.cocolog-nifty.quicktimer.icefloe
-#ファイルを保存するように変更した
+# ファイルを保存するように変更
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
 use framework "Foundation"
@@ -133,7 +133,7 @@ tell application id "com.apple.systempreferences"
 end tell
 
 ###コピー用のスクリプトテキスト
-set strScript to "#!/usr/bin/env osascript\r----+----1----+----2----+-----3----+----4----+----5----+----6----+----7\r#com.cocolog-nifty.quicktimer.icefloe\r# ロック画面\r----+----1----+----2----+-----3----+----4----+----5----+----6----+----7\ruse AppleScript version \"2.8\"\ruse scripting additions\rtell application id \"com.apple.systempreferences\"\r\tlaunch\r\tactivate\r\treveal anchor \"" & strAnchorName & "\" of pane id \"" & strPaneId & "\"\rend tell\rtell application id \"com.apple.finder\"\r\topen location \"x-apple.systempreferences:" & strPaneId & "?" & strAnchorName & "\"\rend tell\r"
+set strScript to "#!/usr/bin/env osascript\r----+----1----+----2----+-----3----+----4----+----5----+----6----+----7\r#com.cocolog-nifty.quicktimer.icefloe\r#" & strAnchorName & ":" & strPaneId & "\r----+----1----+----2----+-----3----+----4----+----5----+----6----+----7\ruse AppleScript version \"2.8\"\ruse scripting additions\rtell application id \"com.apple.systempreferences\"\r\tlaunch\r\tactivate\r\treveal anchor \"" & strAnchorName & "\" of pane id \"" & strPaneId & "\"\rend tell\rtell application id \"com.apple.finder\"\r\topen location \"x-apple.systempreferences:" & strPaneId & "?" & strAnchorName & "\"\rend tell\r"
 
 ####ダイアログを前面に
 tell current application
@@ -177,41 +177,5 @@ if button returned of recordResult is "スクリプトエディタで開く" the
 	tell application "Script Editor"
 		open aliasSaveFilePath
 	end tell
-	
-	(*
-	###set ocidChrSet to refMe's NSCharacterSet's URLQueryAllowedCharacterSet
-	set ocidEncodedText to refMe's NSMutableString's alloc()'s initWithCapacity:0
-	set ocidScript to refMe's NSString's stringWithString:(strScript)
-	ocidEncodedText's setString:(ocidScript)
-	########   置換　％エンコードの追加処理
-	
-	###置換レコード
-	set recordPercentMap to {|+|:"%2B", |=|:"%3D", |&|:"%26", |$|:"%24"} as record
-	##set recordPercentMap to {|=|:"%3D", |&|:"%26", |$|:"%24"} as record
-	###ディクショナリにして
-	set ocidPercentMap to refMe's NSDictionary's alloc()'s initWithDictionary:(recordPercentMap)
-	###キーの一覧を取り出します
-	set ocidAllKeys to ocidPercentMap's allKeys()
-	
-	###取り出したキー一覧を順番に処理
-	repeat with itemAllKey in ocidAllKeys
-		##キーの値を取り出して
-		set ocidMapValue to (ocidPercentMap's valueForKey:itemAllKey)
-		##置換
-		set ocidEncodedText to (ocidEncodedText's stringByReplacingOccurrencesOfString:(itemAllKey) withString:(ocidMapValue))
-		##次の変換に備える
-		set ocidTextToEncode to ocidEncodedText
-	end repeat
-	
-	###URLになるのでロケーションとしてOPENする
-	set strEncodedText to ocidTextToEncode as text
-	##	set strEncodedText to ocidEncodedText as text
-	set strURL to "applescript://com.apple.scripteditor?action=new&name=" & strPaneId & "&script=" & strEncodedText & ""
-
-	tell application "Finder"
-		open location strURL
-	end tell
-	
-	*)
 end if
 
