@@ -21,24 +21,30 @@
 			<integer>1</integer>
 		</dict>
 		<dict>
-			<key>SKAllowStealthUpgrade</key>
-			<false/>
-			<key>SKSilentUpgradeNoticeShown</key>
-			<false/>
-			<key>NSTreatUnknownArgumentsAsOpen</key>
-			<false/>
+
 			<key>enable_spellchecking</key>
 			<false/>
 			<key>use_spelling_service</key>
 			<false/>
-			<key>calling.enablePluginlessStackByDefault</key>
+
+			<key>SKAllowStealthUpgrade</key>
 			<false/>
+			<key>SKSilentUpgradeNoticeShown</key>
+			<false/>
+<!-- 
+この値が設定されていると起動できなくなる
+<key>NSTreatUnknownArgumentsAsOpen</key>
+<true/>
+-->
+			<key>calling.enablePluginlessStackByDefault</key>
+			<true/>
 			<key>app.shouldSendOptionalTelemetry</key>
 			<false/>
 
 			<key>NSFullScreenMenuItemEverywhere</key>
 			<true/>
 
+			
 			<key>PayloadDisplayName</key>
 			<string>Skype</string>
 			<key>PayloadIdentifier</key>
