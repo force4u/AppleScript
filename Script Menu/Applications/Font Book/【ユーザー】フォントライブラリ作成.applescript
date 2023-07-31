@@ -3,9 +3,9 @@
 # com.cocolog-nifty.quicktimer.icefloe
 #留意事項　常に　上書きされます
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
-##自分環境がos12なので2.8にしているだけです
 use AppleScript version "2.8"
 use framework "Foundation"
+use framework "AppKit"
 use scripting additions
 
 property refMe : a reference to current application
