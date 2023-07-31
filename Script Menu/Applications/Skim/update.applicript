@@ -1,0 +1,245 @@
+#!/usr/bin/env osascript
+----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
+#
+#	com.cocolog-nifty.quicktimer.icefloe
+#
+----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
+use AppleScript version "2.8"
+use framework "Foundation"
+use framework "AppKit"
+use scripting additions
+
+property refMe : a reference to current application
+
+###アプリケーションのバンドルID
+set strBundleID to "net.sourceforge.skim-app.skim"
+
+##RSSのURL
+set strURL to "https://sourceforge.net/projects/skim-app/rss?path=/Skim" as text
+
+set coidBaseURLStr to refMe's NSString's stringWithString:(strURL)
+set ocidBaseURL to refMe's NSURL's URLWithString:(coidBaseURLStr)
+
+
+set appFileManager to refMe's NSFileManager's defaultManager()
+set appSharedWorkspace to refMe's NSWorkspace's sharedWorkspace()
+
+#######################################
+###ユーザーアプリケーションディレクトリ生成
+#######################################
+###フォルダ名のリスト
+set listMakeDirName to {"Pictures", "Developer", "Movies", "Music", "Sites", "Downloads", "Library", "Utilities", "System", "Users", "Documents", "Shared", "Public", "Groups", "Favorites"} as list
+
+set recordDirIcon to {|Desktop|:"DesktopFolderIcon.icns", |Pictures|:"PicturesFolderIcon.icns", |Developer|:"DeveloperFolderIcon.icns", |Movies|:"MovieFolderIcon.icns", |Music|:"MusicFolderIcon.icns", |Sites|:"SitesFolderIcon.icns", |Downloads|:"DownloadsFolder.icns", |Library|:"LibraryFolderIcon.icns", |Utilities|:"UtilitiesFolder.icns", |System|:"SystemFolderIcon.icns", |Users|:"UsersFolderIcon.icns", |Documents|:"DocumentsFolderIcon.icns", |Shared|:"GenericSharepoint.icns", |Public|:"PublicFolderIcon.icns", |Groups|:"GroupFolder.icns", |Favorites|:"ServerApplicationsFolderIcon.icns"} as record
+
+###キー一覧を取り出す
+set ocidDirIconDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
+ocidDirIconDict's setDictionary:(recordDirIcon)
+set ocidAllKeys to ocidDirIconDict's allKeys()
+###パスURLにしておく
+set ocidURLsArray to (appFileManager's URLsForDirectory:(refMe's NSCoreServiceDirectory) inDomains:(refMe's NSSystemDomainMask))
+set ocidCoreServiceDirURL to ocidURLsArray's firstObject()
+set ocidCoreTypesPathURL to ocidCoreServiceDirURL's URLByAppendingPathComponent:("CoreTypes.bundle/Contents/Resources")
+
+
+#######################################
+###ユーザーアプリケーションディレクトリ
+#######################################
+set ocidURLsArray to (appFileManager's URLsForDirectory:(refMe's NSApplicationDirectory) inDomains:(refMe's NSUserDomainMask))
+set ocidApplicationDirPathURL to ocidURLsArray's firstObject()
+###
+set appFileManager to refMe's NSFileManager's defaultManager()
+set ocidAttrDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
+###　700--> 448必須
+ocidAttrDict's setValue:(448) forKey:(refMe's NSFilePosixPermissions)
+set listBoolMakeDir to appFileManager's createDirectoryAtURL:(ocidApplicationDirPathURL) withIntermediateDirectories:true attributes:(ocidAttrDict) |error|:(reference)
+###
+set ocidLocalizedFilePathURL to ocidApplicationDirPathURL's URLByAppendingPathComponent:(".localized") isDirectory:(false)
+set ocidNullString to refMe's NSString's alloc()'s initWithString:("")
+set listDone to ocidNullString's writeToURL:(ocidLocalizedFilePathURL) atomically:(true) encoding:(refMe's NSUTF8StringEncoding) |error|:(reference)
+###
+set ocidSymbolicLinkAtPathURL to (ocidApplicationDirPathURL's URLByAppendingPathComponent:("Applications") isDirectory:(false))
+###
+set strDestinationPath to "/Applications" as text
+set ocidDestinationPathStr to refMe's NSString's stringWithString:(strDestinationPath)
+set ocidDestinationPath to ocidDestinationPathStr's stringByStandardizingPath()
+set ocidDestinationURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidDestinationPath) isDirectory:(true))
+####シンボリックリンクを作る
+set listResults to appFileManager's createSymbolicLinkAtURL:(ocidSymbolicLinkAtPathURL) withDestinationURL:(ocidDestinationURL) |error|:(reference)
+
+
+
+#######################################
+###ユーザーアプリケーションディレクトリ 子要素
+#######################################
+
+repeat with itemKey in ocidAllKeys
+	set strKeyName to itemKey as text
+	set strValue to (ocidDirIconDict's valueForKey:(strKeyName)) as text
+	set ocidIconPathURL to (ocidCoreTypesPathURL's URLByAppendingPathComponent:(strValue))
+	##アイコン用のイメージデータ取得
+	set ocidImageData to (refMe's NSImage's alloc()'s initWithContentsOfURL:(ocidIconPathURL))
+	###
+	set ocidNamedAppDirPathURL to (ocidApplicationDirPathURL's URLByAppendingPathComponent:(strKeyName) isDirectory:(true))
+	set ocidNamedAppDirPath to ocidNamedAppDirPathURL's |path|()
+	set ocidAttrDict to (refMe's NSMutableDictionary's alloc()'s initWithCapacity:0)
+	(ocidAttrDict's setValue:(493) forKey:(refMe's NSFilePosixPermissions))
+	set listBoolMakeDir to (appFileManager's createDirectoryAtURL:(ocidNamedAppDirPathURL) withIntermediateDirectories:true attributes:(ocidAttrDict) |error|:(reference))
+	###
+	set ocidLocalizedFilePathURL to (ocidNamedAppDirPathURL's URLByAppendingPathComponent:(".localized") isDirectory:(false))
+	set ocidNullString to (refMe's NSString's alloc()'s initWithString:(""))
+	set listDone to (ocidNullString's writeToURL:(ocidLocalizedFilePathURL) atomically:(true) encoding:(refMe's NSUTF8StringEncoding) |error|:(reference))
+	###アイコン付与
+	set boolAddIcon to (appSharedWorkspace's setIcon:(ocidImageData) forFile:(ocidNamedAppDirPath) options:(refMe's NSExclude10_4ElementsIconCreationOption))
+end repeat
+
+
+#######################################
+###ユーザー ユーティリティ　ディレクトリ
+#######################################
+set ocidUtilitiesDirPathURL to (ocidApplicationDirPathURL's URLByAppendingPathComponent:("Utilities") isDirectory:(true))
+###
+set ocidSymbolicLinkAtPathURL to (ocidUtilitiesDirPathURL's URLByAppendingPathComponent:("Finder Libraries") isDirectory:(false))
+###
+set strDestinationPath to "/System/Library/CoreServices/Finder.app/Contents/Resources/MyLibraries" as text
+set ocidDestinationPathStr to refMe's NSString's stringWithString:(strDestinationPath)
+set ocidDestinationPath to ocidDestinationPathStr's stringByStandardizingPath()
+set ocidDestinationURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidDestinationPath) isDirectory:(true))
+####シンボリックリンクを作る
+set listResults to appFileManager's createSymbolicLinkAtURL:(ocidSymbolicLinkAtPathURL) withDestinationURL:(ocidDestinationURL) |error|:(reference)
+
+###
+set ocidSymbolicLinkAtPathURL to (ocidUtilitiesDirPathURL's URLByAppendingPathComponent:("Finder Applications") isDirectory:(false))
+###
+set strDestinationPath to "/System/Library/CoreServices/Finder.app/Contents/Applications" as text
+set ocidDestinationPathStr to refMe's NSString's stringWithString:(strDestinationPath)
+set ocidDestinationPath to ocidDestinationPathStr's stringByStandardizingPath()
+set ocidDestinationURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidDestinationPath) isDirectory:(true))
+####シンボリックリンクを作る
+set listResults to appFileManager's createSymbolicLinkAtURL:(ocidSymbolicLinkAtPathURL) withDestinationURL:(ocidDestinationURL) |error|:(reference)
+
+
+###
+set ocidSymbolicLinkAtPathURL to (ocidUtilitiesDirPathURL's URLByAppendingPathComponent:("System Utilities") isDirectory:(false))
+###
+set strDestinationPath to "/Applications/Utilities" as text
+set ocidDestinationPathStr to refMe's NSString's stringWithString:(strDestinationPath)
+set ocidDestinationPath to ocidDestinationPathStr's stringByStandardizingPath()
+set ocidDestinationURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidDestinationPath) isDirectory:(true))
+####シンボリックリンクを作る
+set listResults to appFileManager's createSymbolicLinkAtURL:(ocidSymbolicLinkAtPathURL) withDestinationURL:(ocidDestinationURL) |error|:(reference)
+
+###
+set ocidSymbolicLinkAtPathURL to (ocidUtilitiesDirPathURL's URLByAppendingPathComponent:("System Applications") isDirectory:(false))
+###
+set strDestinationPath to "/System/Library/CoreServices/Applications" as text
+set ocidDestinationPathStr to refMe's NSString's stringWithString:(strDestinationPath)
+set ocidDestinationPath to ocidDestinationPathStr's stringByStandardizingPath()
+set ocidDestinationURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidDestinationPath) isDirectory:(true))
+####シンボリックリンクを作る
+set listResults to appFileManager's createSymbolicLinkAtURL:(ocidSymbolicLinkAtPathURL) withDestinationURL:(ocidDestinationURL) |error|:(reference)
+
+
+
+################################################
+###### URLRequest部分
+################################################
+set ocidURLRequest to refMe's NSMutableURLRequest's alloc()'s init()
+ocidURLRequest's setHTTPMethod:"GET"
+ocidURLRequest's setURL:(ocidBaseURL)
+ocidURLRequest's addValue:"application/xml" forHTTPHeaderField:"Content-Type"
+###ポストするデータは空
+ocidURLRequest's setHTTPBody:(missing value)
+
+################################################
+###### データ取得
+################################################
+set ocidServerResponse to refMe's NSURLConnection's sendSynchronousRequest:(ocidURLRequest) returningResponse:(missing value) |error|:(reference)
+###取得
+set ocidXMLData to (item 1 of ocidServerResponse)
+set listXMLDoc to refMe's NSXMLDocument's alloc()'s initWithData:ocidXMLData options:(refMe's NSXMLDocumentTidyXML) |error|:(reference)
+###ITEMの最初の項目を取得する
+set ocidXMLDoc to item 1 of listXMLDoc
+set ocidRootElement to ocidXMLDoc's rootElement()
+set ocidClidArray to ocidRootElement's children()
+set ocidChild to ocidClidArray's firstObject()
+set ocidItemArray to (ocidChild's elementsForName:("item"))
+set ocidItemElement to ocidItemArray's firstObject()
+set ocidElementID to (ocidItemElement's childAtIndex:0)'s stringValue()
+set strElementID to ocidElementID as text
+
+################################################
+###### データ取得
+################################################
+set strBaseURL to ("https://nchc.dl.sourceforge.net/project/skim-app/") as text
+set ocidURLString to refMe's NSString's stringWithString:(strBaseURL)
+set ocidBaseURL to refMe's NSURL's alloc()'s initWithString:(ocidURLString)
+set ocidFileURL to ocidBaseURL's URLByAppendingPathComponent:(strElementID)
+set ocidFileName to ocidFileURL's lastPathComponent()
+
+###P保存先 ディレクトリ
+set appFileManager to refMe's NSFileManager's defaultManager()
+set ocidTempDirURL to appFileManager's temporaryDirectory()
+set ocidUUID to refMe's NSUUID's alloc()'s init()
+set ocidUUIDString to ocidUUID's UUIDString
+set ocidSaveDirPathURL to ocidTempDirURL's URLByAppendingPathComponent:(ocidUUIDString) isDirectory:true
+
+set ocidAttrDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
+# 777-->511 755-->493 700-->448 766-->502 
+ocidAttrDict's setValue:(448) forKey:(refMe's NSFilePosixPermissions)
+set listBoolMakeDir to appFileManager's createDirectoryAtURL:(ocidSaveDirPathURL) withIntermediateDirectories:true attributes:(ocidAttrDict) |error|:(reference)
+set ocidSaveFilePathURL to ocidSaveDirPathURL's URLByAppendingPathComponent:(ocidFileName) isDirectory:false
+
+
+set strURL to ocidFileURL's absoluteString() as text
+set strSaveFilePathURL to ocidSaveFilePathURL's |path|() as text
+
+set strCommandText to ("/usr/bin/curl -Ls \"" & strURL & "\" -o \"" & strSaveFilePathURL & "\"  --connect-timeout 20") as text
+
+do shell script strCommandText
+
+
+
+set strCommandText to ("/usr/bin/hdiutil attach \"" & strSaveFilePathURL & "\" -noverify -nobrowse -noautoopen") as text
+do shell script strCommandText
+
+
+################################################
+###### 旧ファイルをゴミ箱に
+################################################
+
+set ocidAppBundle to (refMe's NSBundle's bundleWithIdentifier:(strBundleID))
+if ocidAppBundle ≠ (missing value) then
+	set ocidAppPathURL to ocidAppBundle's bundleURL()
+else if ocidAppBundle = (missing value) then
+	set ocidAppPathURL to (appSharedWorkspace's URLForApplicationWithBundleIdentifier:(strBundleID))
+end if
+if ocidAppPathURL = (missing value) then
+	tell application "Finder"
+		try
+			set aliasAppApth to (application file id strBundleID) as alias
+		on error
+			set strAppPath to ("~/Applications/Pictures/Skim.app") as text
+			set strAppPathStr to refMe's NSString's stringWithString:(strAppPath)
+			set strAppPath to strAppPathStr's stringByStandardizingPath()
+			set ocidAppPathURL to refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:true
+		end try
+	end tell
+	set strAppPath to POSIX path of aliasAppApth as text
+	set strAppPathStr to refMe's NSString's stringWithString:(strAppPath)
+	set strAppPath to strAppPathStr's stringByStandardizingPath()
+	set ocidAppPathURL to refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:true
+end if
+
+set listResult to (appFileManager's trashItemAtURL:(ocidAppPathURL) resultingItemURL:(missing value) |error|:(reference))
+
+set strAppDistPath to (ocidAppPathURL's |path|()) as text
+
+
+set strCommandText to ("/usr/bin/ditto \"/Volumes/Skim/Skim.app\"  \"" & strAppDistPath & "\"") as text
+do shell script strCommandText
+
+
+set strCommandText to ("/usr/bin/hdiutil detach /Volumes/Skim -force") as text
+do shell script strCommandText
+
