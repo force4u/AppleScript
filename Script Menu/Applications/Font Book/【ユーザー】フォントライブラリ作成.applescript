@@ -10,21 +10,19 @@ use scripting additions
 
 property refMe : a reference to current application
 
+set strBundleID to ("com.apple.FontBook") as text
+##############################
 ###フォントブックを終了
-tell application id "com.apple.FontBook"
-	quit
-end tell
+tell application id "com.apple.FontBook" to quit
+####プレビューの半ゾンビ化対策	
+set ocidRunningApplication to refMe's NSRunningApplication
+set ocidAppArray to ocidRunningApplication's runningApplicationsWithBundleIdentifier:(strBundleID)
+repeat with itemAppArray in ocidAppArray
+	itemAppArray's terminate
+end repeat
 
 ##############################
-###ライブラリ名を指定 ダイアログ
-set appFileManager to refMe's NSFileManager's defaultManager()
-###FontCollectionsのフォルダパス
-set ocidUserLibraryPathArray to (appFileManager's URLsForDirectory:(refMe's NSLibraryDirectory) inDomains:(refMe's NSUserDomainMask))
-set ocidUserLibraryPath to ocidUserLibraryPathArray's firstObject()
-set ocidFontCollectionsURL to ocidUserLibraryPath's URLByAppendingPathComponent:("FontCollections") isDirectory:(true)
-set aliasFontCollectionsURL to ocidFontCollectionsURL's absoluteURL() as alias
-##############################
-#####ダイアログを前面に
+###ダイアログを前面に
 tell current application
 	set strName to name as text
 end tell
@@ -35,8 +33,39 @@ else
 	tell current application to activate
 end if
 ##############################
+###　フォルダ選択　
+set appFileManager to refMe's NSFileManager's defaultManager()
+###（選択したフォルダの最下層までフォントを取得する）
+set ocidUserDesktopPathArray to (appFileManager's URLsForDirectory:(refMe's NSDocumentDirectory) inDomains:(refMe's NSUserDomainMask))
+set ocidDocumentDirPathURL to ocidUserDesktopPathArray's firstObject()
 ###ダイアログ
-set strDefaultName to "名称未設定.library" as text
+set aliasFontCollectionsURL to ocidDocumentDirPathURL's absoluteURL() as alias
+set strMes to "フォルダを選んでください"
+set strPrompt to "フォントをライブラリに登録するフォルダ（フォントが入っているフォルダ）を選んでください"
+set aliasFolderPath to (choose folder strMes with prompt strPrompt default location aliasFontCollectionsURL with invisibles and showing package contents without multiple selections allowed) as alias
+##############################
+###読み込むフォントのパス
+set strFontsDirPath to (POSIX path of aliasFolderPath) as text
+set ocidFontsDirPathStr to refMe's NSString's stringWithString:(strFontsDirPath)
+set ocidFontsDirPath to ocidFontsDirPathStr's stringByStandardizingPath()
+set ocidFontsDirPathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFontsDirPath) isDirectory:true)
+set strDirName to (ocidFontsDirPathURL's lastPathComponent()) as text
+###ユーザードメイン内専用
+if strFontsDirPath does not contain "/Users/" then
+	display alert "ユーザードメイン（ユーザーのホームディレクトリ内）専用です"
+	return "ユーザードメイン（ユーザーのホームディレクトリ内）専用です"
+end if
+##############################
+###ライブラリ名を指定 ダイアログ
+###FontCollectionsのフォルダパス
+set ocidUserLibraryPathArray to (appFileManager's URLsForDirectory:(refMe's NSLibraryDirectory) inDomains:(refMe's NSUserDomainMask))
+set ocidUserLibraryPath to ocidUserLibraryPathArray's firstObject()
+set ocidFontCollectionsURL to ocidUserLibraryPath's URLByAppendingPathComponent:("FontCollections") isDirectory:(true)
+set aliasFontCollectionsURL to ocidFontCollectionsURL's absoluteURL() as alias
+
+##############################
+###ダイアログ
+set strDefaultName to (strDirName & ".library") as text
 set strExtension to "library"
 set strPromptText to "フォントライブラリの名前を決めてください" as text
 set strMesText to "フォントライブラリの名前を決めてください" as text
@@ -57,22 +86,8 @@ if ocidExtensionName = ocidEmptyString then
 	set ocidFilePathURL to ocidFilePathURL's URLByAppendingPathExtension:(strExtension)
 end if
 
-##############################
-###　フォルダ選択　
-###（選択したフォルダの最下層までフォントを取得する）
-set ocidUserDesktopPathArray to (appFileManager's URLsForDirectory:(refMe's NSDesktopDirectory) inDomains:(refMe's NSUserDomainMask))
-set ocidUserDesktopPath to ocidUserDesktopPathArray's firstObject()
-###ダイアログ
-set aliasFontCollectionsURL to ocidUserDesktopPath's absoluteURL() as alias
-set strMes to "フォルダを選んでください"
-set strPrompt to "フォントをライブラリに登録するフォルダ（フォントが入っているフォルダ）を選んでください"
-set aliasFolderPath to (choose folder strMes with prompt strPrompt default location aliasFontCollectionsURL with invisibles and showing package contents without multiple selections allowed)
-##############################
-###読み込むフォントのパス
-set strFontsDirPath to POSIX path of aliasFolderPath as text
-set ocidFontsDirPathStr to refMe's NSString's stringWithString:(strFontsDirPath)
-set ocidFontsDirPath to ocidFontsDirPathStr's stringByStandardizingPath()
-set ocidFontsDirPathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFontsDirPath) isDirectory:true)
+
+
 ##############################
 ##### ユーザー ドメイン専用
 if strFontsDirPath starts with "/Users" then
