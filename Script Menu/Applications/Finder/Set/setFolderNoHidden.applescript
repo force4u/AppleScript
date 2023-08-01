@@ -51,7 +51,7 @@ set strFilePath to (ocidFilePathURL's |path|()) as text
 
 set strLine3 to ("/usr/bin/chflags nohidden \"" & strFilePath & "\"") as text
 set strLine1 to ("/usr/bin/xattr -c \"" & strFilePath & "\"") as text
-set strLine2 to ("/usr/bin/SetFile -a V  \"" & strFilePath & "\"") as text
+set strLine2 to ("/usr/bin/SetFile -a v  \"" & strFilePath & "\"") as text
 
 set strMes to (strLine1 & "\r" & strLine2 & "\r" & strLine3) as text
 
