@@ -29,7 +29,7 @@ else
 end if
 
 
-set strPromptText to "ファイルを選んで下さい。" as text
+set strPromptText to "フォルダを選んで下さい。" as text
 set strMesText to "不可視属性を解除します" as text
 set aliasFilePath to (choose folder strMesText default location aliasDesktopDirPath with prompt strPromptText with invisibles without multiple selections allowed and showing package contents) as alias
 try
