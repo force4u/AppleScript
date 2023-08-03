@@ -20,5 +20,4 @@ wvous-bl-corner
 14 = Quick Note クイックメモ  
 ---
 
-![alt text](https://github.com/force4u/AppleScript/blob/main/Script%20Menu/Applications/Dock/images/wvous-corner.png?raw=true)
-
+<img width="599" alt="IconFoundation Assets" src="https://github.com/force4u/AppleScript/assets/11995768/d0ecbd2f-bb03-437f-beff-319575ce91b7">
