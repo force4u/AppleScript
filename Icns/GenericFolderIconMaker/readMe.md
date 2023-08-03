@@ -1,4 +1,4 @@
-## 初回りリース 
+## デフォルトアイコンに選んだアイコンの画像を合成してフォルダを生成
 https://github.com/force4u/AppleScript/blob/main/Icns/GenericFolderIconMaker/release.zip  
 ---
 
