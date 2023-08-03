@@ -1,4 +1,5 @@
 ## デフォルトアイコンに選んだアイコンの画像を合成してフォルダを生成
+release.zipをダウンロードしてください   
 https://github.com/force4u/AppleScript/blob/main/Icns/GenericFolderIconMaker/release.zip  
 ---
 
