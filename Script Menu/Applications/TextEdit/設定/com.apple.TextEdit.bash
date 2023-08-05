@@ -51,6 +51,17 @@ CURRENT_USER=$(/bin/echo "$HOME" | /usr/bin/awk -F'/' '{print $NF}')
 /usr/bin/defaults write com.apple.TextEdit AddExtensionToNewPlainTextFiles -boolean TRUE
 /usr/bin/defaults write com.apple.TextEdit ShowRuler -boolean TRUE
 
+/usr/bin/defaults write "/Users/$USER_WHOAMI/Library/com.apple.TextEdit.plist" UseInlineCSS -boolean TRUE
+/usr/bin/defaults write "/Users/$USER_WHOAMI/Library/com.apple.TextEdit.plist" UseEmbeddedCSS -boolean FALSE
+/usr/bin/defaults write "/Users/$USER_WHOAMI/Library/com.apple.TextEdit.plist" IgnoreHTML -boolean FALSE
+/usr/bin/defaults write "/Users/$USER_WHOAMI/Library/com.apple.TextEdit.plist" NSFixedPitchFont -string "Osaka-Mono"
+/usr/bin/defaults write "/Users/$USER_WHOAMI/Library/com.apple.TextEdit.plist" NSFixedPitchFontSize -string "16"
+/usr/bin/defaults write "/Users/$USER_WHOAMI/Library/com.apple.TextEdit.plist" NSFont -string "Osaka-Mono"
+/usr/bin/defaults write "/Users/$USER_WHOAMI/Library/com.apple.TextEdit.plist" NSFontSize -string "16"
+/usr/bin/defaults write "/Users/$USER_WHOAMI/Library/com.apple.TextEdit.plist" IgnoreRichTex -boolean FALSE
+/usr/bin/defaults write "/Users/$USER_WHOAMI/Library/com.apple.TextEdit.plist" AddExtensionToNewPlainTextFiles -boolean TRUE
+/usr/bin/defaults write "/Users/$USER_WHOAMI/Library/com.apple.TextEdit.plist" ShowRuler -boolean TRUE
+
 /bin/echo "Done 設定"
 
 /usr/bin/defaults read com.apple.TextEdit UseInlineCSS
