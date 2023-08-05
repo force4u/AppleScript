@@ -11,46 +11,46 @@ use scripting additions
 property refMe : a reference to current application
 
 ##############################
-###ƒfƒtƒHƒ‹ƒgƒƒP[ƒVƒ‡ƒ“
+###ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆãƒ­ã‚±ãƒ¼ã‚·ãƒ§ãƒ³
 set appFileManager to refMe's NSFileManager's defaultManager()
 set ocidUserApplicationDirPathArray to (appFileManager's URLsForDirectory:(refMe's NSApplicationDirectory) inDomains:(refMe's NSUserDomainMask))
 set ocidUserApplicationDirPathURL to ocidUserApplicationDirPathArray's firstObject()
 set aliasApplicationDirPath to ocidUserApplicationDirPathURL's absoluteURL() as alias
 ##############################
-#####ƒ_ƒCƒAƒƒO‚ğ‘O–Ê‚É
+#####ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’å‰é¢ã«
 tell current application
 	set strName to name as text
 end tell
-####ƒXƒNƒŠƒvƒgƒƒjƒ…[‚©‚çÀs‚µ‚½‚ç
+####ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‹ã‚‰å®Ÿè¡Œã—ãŸã‚‰
 if strName is "osascript" then
 	tell application "Finder" to activate
 else
 	tell current application to activate
 end if
-#####ƒtƒ@ƒCƒ‹‚ğ‘I‘ğ
+#####ãƒ•ã‚¡ã‚¤ãƒ«ã‚’é¸æŠ
 set listUTI to {"com.apple.application-bundle"}
-set strPromptText to "ƒtƒ@ƒCƒ‹‚ğ‘I‚ñ‚Å‰º‚³‚¢B" as text
-set strMesText to "bundle identifier‚ğæ“¾‚µ‚Ü‚·" as text
+set strPromptText to "ã‚¢ãƒ—ãƒªã‚±ãƒ¼ã‚·ãƒ§ãƒ³ã‚’é¸ã‚“ã§ä¸‹ã•ã„ã€‚" as text
+set strMesText to "bundle identifierã‚’å–å¾—ã—ã¾ã™" as text
 set aliasFilePath to (choose file strMesText default location aliasApplicationDirPath with prompt strPromptText of type listUTI with invisibles without multiple selections allowed and showing package contents) as alias
 try
 	set aliasFilePath to result as alias
 on error
-	log "ƒGƒ‰[‚µ‚Ü‚µ‚½"
-	return "ƒGƒ‰[‚µ‚Ü‚µ‚½"
+	log "ã‚¨ãƒ©ãƒ¼ã—ã¾ã—ãŸ"
+	return "ã‚¨ãƒ©ãƒ¼ã—ã¾ã—ãŸ"
 end try
 if aliasFilePath is false then
-	return "ƒGƒ‰[‚µ‚Ü‚µ‚½"
+	return "ã‚¨ãƒ©ãƒ¼ã—ã¾ã—ãŸ"
 end if
 
 set strFilePath to (POSIX path of aliasFilePath) as text
 set ocidFilePathStr to (refMe's NSString's stringWithString:(strFilePath))
 set ocidFilePath to ocidFilePathStr's stringByStandardizingPath
 set ocidFilePathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:true)
-####UTI‚Ìæ“¾
+####UTIã®å–å¾—
 set ocidBunndle to refMe's NSBundle's bundleWithURL:(ocidFilePathURL)
 set ocidBunndleID to ocidBunndle's bundleIdentifier()
 set strBunndleID to (ocidBunndleID) as text
-###missing value‘Îô
+###missing valueå¯¾ç­–
 if strBunndleID is "" then
 	tell application "Finder"
 		set objInfo to info for aliasFilePath
@@ -58,24 +58,24 @@ if strBunndleID is "" then
 	end tell
 end if
 
-####ƒ_ƒCƒAƒƒO‚Éw’èƒAƒvƒŠ‚ÌƒAƒCƒRƒ“‚ğ•\¦‚·‚é
-###ƒAƒCƒRƒ“–¼‚ğPLIST‚©‚çæ“¾
+####ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã«æŒ‡å®šã‚¢ãƒ—ãƒªã®ã‚¢ã‚¤ã‚³ãƒ³ã‚’è¡¨ç¤ºã™ã‚‹
+###ã‚¢ã‚¤ã‚³ãƒ³åã‚’PLISTã‹ã‚‰å–å¾—
 set ocidPlistPathURL to ocidFilePathURL's URLByAppendingPathComponent:("Contents/Info.plist") isDirectory:false
 set ocidPlistDict to refMe's NSMutableDictionary's alloc()'s initWithContentsOfURL:(ocidPlistPathURL)
 set strIconFileName to (ocidPlistDict's valueForKey:("CFBundleIconFile")) as text
-###ICON‚ÌURL‚É‚µ‚Ä
+###ICONã®URLã«ã—ã¦
 set strPath to ("Contents/Resources/" & strIconFileName) as text
 set ocidIconFilePathURL to ocidFilePathURL's URLByAppendingPathComponent:(strPath) isDirectory:false
-###Šg’£q‚Ì—L–³ƒ`ƒFƒbƒN
+###æ‹¡å¼µå­ã®æœ‰ç„¡ãƒã‚§ãƒƒã‚¯
 set strExtensionName to (ocidIconFilePathURL's pathExtension()) as text
 if strExtensionName is "" then
 	set ocidIconFilePathURL to ocidIconFilePathURL's URLByAppendingPathExtension:"icns"
 end if
-##-->‚±‚ê‚ªƒAƒCƒRƒ“ƒpƒX
+##-->ã“ã‚ŒãŒã‚¢ã‚¤ã‚³ãƒ³ãƒ‘ã‚¹
 log ocidIconFilePathURL's absoluteString() as text
-###ICONƒtƒ@ƒCƒ‹‚ªÀÛ‚É‚ ‚é‚©Hƒ`ƒFƒbƒN
+###ICONãƒ•ã‚¡ã‚¤ãƒ«ãŒå®Ÿéš›ã«ã‚ã‚‹ã‹ï¼Ÿãƒã‚§ãƒƒã‚¯
 set boolExists to appFileManager's fileExistsAtPath:(ocidIconFilePathURL's |path|)
-###ICON‚ª‚İ‚Â‚©‚È‚¢—p‚ÉƒfƒtƒHƒ‹ƒg‚ğ—pˆÓ‚·‚é
+###ICONãŒã¿ã¤ã‹ãªã„æ™‚ç”¨ã«ãƒ‡ãƒ•ã‚©ãƒ«ãƒˆã‚’ç”¨æ„ã™ã‚‹
 if boolExists is false then
 	set aliasIconPath to POSIX file "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AlertNoteIcon.icns"
 else
@@ -83,14 +83,14 @@ else
 	set strIconPath to ocidIconFilePathURL's |path|() as text
 end if
 
-set strMes to ("bundle identifier –ß‚è’l‚Å‚·€rIconPath€r" & strIconPath) as text
+set strMes to ("bundle identifier æˆ»ã‚Šå€¤ã§ã™rIconPathr" & strIconPath) as text
 
-set recordResult to (display dialog strMes with title "bundle identifier" default answer strBunndleID buttons {"ƒNƒŠƒbƒvƒ{[ƒh‚ÉƒRƒs[", "ƒLƒƒƒ“ƒZƒ‹", "OK"} default button "OK" giving up after 20 with icon aliasIconPath without hidden answer)
+set recordResult to (display dialog strMes with title "bundle identifier" default answer strBunndleID buttons {"ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚³ãƒ”ãƒ¼", "ã‚­ãƒ£ãƒ³ã‚»ãƒ«", "OK"} default button "OK" giving up after 20 with icon aliasIconPath without hidden answer)
 
-if button returned of recordResult is "ƒNƒŠƒbƒvƒ{[ƒh‚ÉƒRƒs[" then
+if button returned of recordResult is "ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã«ã‚³ãƒ”ãƒ¼" then
 	try
 		set strText to text returned of recordResult as text
-		####ƒy[ƒXƒgƒ{[ƒhéŒ¾
+		####ãƒšãƒ¼ã‚¹ãƒˆãƒœãƒ¼ãƒ‰å®£è¨€
 		set appPasteboard to refMe's NSPasteboard's generalPasteboard()
 		set ocidText to (refMe's NSString's stringWithString:(strText))
 		appPasteboard's clearContents()
