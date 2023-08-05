@@ -1,9 +1,6 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #
-# Acrobat PPD は
-# https://quicktimer.cocolog-nifty.com/icefloe/2023/05/post-3e373c.html
-# からどうぞ
 # Base script 
 # https://scriptingosx.com/2022/11/on-viewing-man-pages-ventura-update/
 #
@@ -15,10 +12,6 @@ use framework "AppKit"
 use scripting additions
 
 property refMe : a reference to current application
-
-set strPPDsFilePath to ("/System/Library/Frameworks/ApplicationServices.framework/Versions/A/Frameworks/PrintCore.framework/Versions/A/Resources/Generic.ppd") as text
-
-## set strPPDsFilePath to ("/Users/Shared/Library/Printers/PPDs/Contents/Resources/Acrobat/ADPDF9J.PPD") as text
 
 
 ##############################
@@ -72,7 +65,7 @@ else
 end if
 
 ##############################
-##  Save PS dir URL
+##  Save PS dir URL 
 set appFileManager to refMe's NSFileManager's defaultManager()
 set ocidTempDirURL to appFileManager's temporaryDirectory()
 set ocidUUID to refMe's NSUUID's alloc()'s init()
@@ -92,7 +85,7 @@ set strPdfFilePath to ocidPdfFilePathURL's |path|() as text
 set strCommandText to ("/usr/bin/mandoc -T pdf \"$(/usr/bin/man -w " & theResponse & ")\" >  \"" & strPdfFilePath & "\"") as text
 do shell script strCommandText
 
-
+##プレビューで開く
 set aliasPdfFilePath to (ocidPdfFilePathURL's absoluteURL()) as alias
 tell application id "com.apple.Preview"
 	activate
