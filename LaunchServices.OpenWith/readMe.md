@@ -1,4 +1,4 @@
-りリース
+リリース
 https://github.com/force4u/AppleScript/raw/main/LaunchServices.OpenWith/release.zip
 ---
 書類を開く時のデフォルトのアプリケーションを変更します。 
