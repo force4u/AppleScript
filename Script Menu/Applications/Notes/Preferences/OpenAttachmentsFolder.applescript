@@ -25,4 +25,3 @@ set boolDone to appSharedWorkspace's selectFile:(ocidPrefDirPath) inFileViewerRo
 
 
 
-#Containers/com.apple.Notes/Data/Library/CoreData/Attachments
