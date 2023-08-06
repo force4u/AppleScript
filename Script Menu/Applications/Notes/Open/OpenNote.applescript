@@ -25,6 +25,9 @@ tell application "Notes"
 	end repeat
 end tell
 
+if listAccount is {} then
+	return "アカウントがありません"
+end if
 
 #####ダイアログを前面に
 tell current application
@@ -56,7 +59,9 @@ tell application "Notes"
 		set listFolderName to name of every folder
 	end tell
 end tell
-
+if listFolderName is {} then
+	return "フォルダがありません"
+end if
 #####ダイアログを前面に
 tell current application
 	set strName to name as text
@@ -78,7 +83,7 @@ if objResponse is false then
 	return
 end if
 set strFolderName to objResponse as text
-
+(*
 tell application "Notes"
 	##	show account strAccount with separately
 	tell account strAccount
@@ -89,7 +94,7 @@ tell application "Notes"
 		end tell
 	end tell
 end tell
-
+*)
 
 tell application "Notes"
 	##	show account strAccount with separately
@@ -99,6 +104,10 @@ tell application "Notes"
 		end tell
 	end tell
 end tell
+
+if listNoteName is {} then
+	return "ノートがありません"
+end if
 
 #####ダイアログを前面に
 tell current application
@@ -125,15 +134,16 @@ set strNoteName to objResponse as text
 
 
 tell application "Notes"
-	##	show account strAccount with separately
+	show account strAccount with separately
 	tell account strAccount
+		show with separately
 		tell folder strFolderName
-			show  note strNoteName with separately
-
+			show with separately
+			##	show note strNoteName with separately
+			tell note strNoteName
+				#		show with separately
+				##	show
+			end tell
 		end tell
 	end tell
 end tell
-
-
-return
-
