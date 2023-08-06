@@ -13,6 +13,7 @@ property refMe : a reference to current application
 set strBundleID to "com.microsoft.edgemac"
 
 #########################
+## ウィンドウがあるか？確認
 tell application id strBundleID
 	set numCntWindow to (count of every window) as integer
 end tell
@@ -52,23 +53,32 @@ if numCntWindow < 1 then
 	end if
 	if "OK" is equal to (button returned of recordResponse) then
 		set strResponse to (text returned of recordResponse) as text
+		tell application id strBundleID
+			make new window
+		end tell
+		repeat 10 times
+			tell application id strBundleID
+				set numCntWindow to (count of every window) as integer
+			end tell
+			if numCntWindow = 0 then
+				delay 0.2
+				tell application id strBundleID to activate
+			else
+				exit repeat
+			end if
+		end repeat
+		tell application "Microsoft Edge"
+			activate
+			tell front window
+				tell active tab
+					set URL to strResponse as text
+				end tell
+			end tell
+		end tell
 	else
 		log "キャンセルしました"
 		return "キャンセルしました"
 	end if
-	tell application "Microsoft Edge"
-		open location strResponse
-		####タイトル　と　URLを取得
-		every document
-		set numWindowID to id of front window
-		tell window id numWindowID
-			set objCurrentTab to active tab
-			tell objCurrentTab
-				set strURL to URL
-				set strName to title
-			end tell
-		end tell
-	end tell
 else
 	tell application "Microsoft Edge"
 		tell front window
@@ -79,6 +89,10 @@ else
 			end tell
 		end tell
 	end tell
+end if
+
+if strURL = "" then
+	return "アドレス取得失敗"
 end if
 #########################
 ##URL
@@ -102,18 +116,34 @@ set listBoolMakeDir to appFileManager's createDirectoryAtURL:(ocidSaveDirPathURL
 set aliasSaveDirPathURL to (ocidSaveDirPathURL's absoluteURL()) as alias
 #########################
 ##保存ファイル名
-set ocidTitleStr to refMe's NSString's stringWithString:(strTITLE)
+if strTITLE = "" then
+	##URLはあるけどタイトルが無い場合 日付連番
+	set strDateno to doGetDateNo("yyyyMMdd")
+	set ocidTitleStr to refMe's NSString's stringWithString:(strDateno)
+else
+	set ocidTitleStr to refMe's NSString's stringWithString:(strTITLE)
+end if
 
+#################################
+###ファイル名に使えない文字を全角に置換
+#################################
 set ocidTitle to refMe's NSMutableString's alloc()'s initWithCapacity:(0)
 ocidTitle's setString:(ocidTitleStr)
 set ocidLength to ocidTitle's |length|()
 set ocidRange to refMe's NSMakeRange(0, ocidLength)
 set ocidOption to (refMe's NSCaseInsensitiveSearch)
-##コロンは全角に
-ocidTitle's replaceOccurrencesOfString:(":") withString:("：") options:(ocidOption) range:(ocidRange)
-##スラッシュ　は　コロンに
-ocidTitle's replaceOccurrencesOfString:("/") withString:(":") options:(ocidOption) range:(ocidRange)
 ###
+set recordProhibit to {|\\|:"￥", |<|:"＜", |>|:"＞", |*|:"＊", |?|:"？", |"|:"＂", |\||:"｜", |/|:"／", |:|:"："} as record
+set ocidProhibitDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
+ocidProhibitDict's setDictionary:(recordProhibit)
+set ocidKeyArray to ocidProhibitDict's allKeys()
+repeat with itemKey in ocidKeyArray
+	set strKey to itemKey as text
+	set strValue to (ocidProhibitDict's valueForKey:(itemKey)) as text
+	(ocidTitle's replaceOccurrencesOfString:(strKey) withString:(strValue) options:(ocidOption) range:(ocidRange))
+end repeat
+
+###ファイル名は最大１２８文字
 set numCntTitle to (ocidTitle's |length|()) as integer
 if numCntTitle < 128 then
 	set ocidSubstRange to refMe's NSMakeRange(0, numCntTitle)
