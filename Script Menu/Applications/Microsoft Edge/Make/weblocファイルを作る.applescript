@@ -147,7 +147,11 @@ set boolDone to ocidShortCutFileString's writeToURL:(ocidUrlFilePathURL) atomica
 #########################
 ####保存先を開く
 tell application "Finder"
+try
 	set aliasSaveFile to (file strWeblocFileName of folder aliasSaveDirPathURL) as alias
+	on error
+		set aliasSaveFile to (folder aliasSaveDirPathURL) as alias
+		end try
 	set refNewWindow to make new Finder window
 	tell refNewWindow
 		set position to {10, 30}
