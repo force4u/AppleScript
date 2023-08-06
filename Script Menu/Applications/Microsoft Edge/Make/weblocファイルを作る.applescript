@@ -86,6 +86,7 @@ set strURL to strURL as text
 set ocidURLString to refMe's NSString's stringWithString:(strURL)
 set ocidURL to refMe's NSURL's alloc()'s initWithString:(ocidURLString)
 set ocidHostName to ocidURL's |host|()
+##これで%エンコードされたURLになる
 set strURL to ocidURL's absoluteString() as text
 ##保存先
 set appFileManager to refMe's NSFileManager's defaultManager()
@@ -101,13 +102,29 @@ set listBoolMakeDir to appFileManager's createDirectoryAtURL:(ocidSaveDirPathURL
 set aliasSaveDirPathURL to (ocidSaveDirPathURL's absoluteURL()) as alias
 #########################
 ##保存ファイル名
-try
-	####WEBページのタイトルを１０文字で取得
-	set strFileName to (text from character 1 to character 30) of strTITLE
-on error
-	####１０文字以下の場合はホスト名にする
-	set strFileName to ocidHostName as text
-end try
+set ocidTitleStr to refMe's NSString's stringWithString:(strTITLE)
+
+set ocidTitle to refMe's NSMutableString's alloc()'s initWithCapacity:(0)
+ocidTitle's setString:(ocidTitleStr)
+set ocidLength to ocidTitle's |length|()
+set ocidRange to refMe's NSMakeRange(0, ocidLength)
+set ocidOption to (refMe's NSCaseInsensitiveSearch)
+##コロンは全角に
+ocidTitle's replaceOccurrencesOfString:(":") withString:("：") options:(ocidOption) range:(ocidRange)
+##スラッシュ　は　コロンに
+ocidTitle's replaceOccurrencesOfString:("/") withString:(":") options:(ocidOption) range:(ocidRange)
+###
+set numCntTitle to (ocidTitle's |length|()) as integer
+if numCntTitle < 128 then
+	set ocidSubstRange to refMe's NSMakeRange(0, numCntTitle)
+	set ocidFileName to ocidTitle's substringWithRange:(ocidSubstRange)
+else
+	set ocidSubstRange to refMe's NSMakeRange(0, 128)
+	set ocidFileName to ocidTitle's substringWithRange:(ocidSubstRange)
+end if
+set strFileName to ocidFileName as text
+
+
 set strWeblocFileName to (strFileName & ".webloc") as text
 set strUrlFileName to (strFileName & ".url") as text
 #########################
@@ -131,6 +148,7 @@ set ocidFromat to refMe's NSPropertyListXMLFormat_v1_0
 set listPlistEditDataArray to refMe's NSPropertyListSerialization's dataWithPropertyList:(ocidPlistDict) format:(ocidFromat) options:0 |error|:(reference)
 set ocidPlistEditData to item 1 of listPlistEditDataArray
 set boolWritetoUrlArray to ocidPlistEditData's writeToURL:(ocidWeblocFilePathURL) options:0 |error|:(reference)
+log item 1 of boolWritetoUrlArray
 (*
 tell application "Finder"
 	make new internet location file to strURL at aliasSaveDirPathURL with properties {name:"" & strName & "", creator type:"MACS", stationery:false, location:strURL}
@@ -147,11 +165,11 @@ set boolDone to ocidShortCutFileString's writeToURL:(ocidUrlFilePathURL) atomica
 #########################
 ####保存先を開く
 tell application "Finder"
-try
-	set aliasSaveFile to (file strWeblocFileName of folder aliasSaveDirPathURL) as alias
+	try
+		set aliasSaveFile to (file strWeblocFileName of folder aliasSaveDirPathURL) as alias
 	on error
 		set aliasSaveFile to (folder aliasSaveDirPathURL) as alias
-		end try
+	end try
 	set refNewWindow to make new Finder window
 	tell refNewWindow
 		set position to {10, 30}
