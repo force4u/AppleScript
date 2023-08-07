@@ -31,7 +31,7 @@ else
 end if
 set listAliasFile to (choose file "ファイルを選んでください" with prompt "ファイルを選んでください" default location (path to desktop folder from user domain) of type {"com.apple.quicktime-movie", "public.movie"} with invisibles, showing package contents and multiple selections allowed) as list
 
-repeat with objAliasFile in listAliasFile
+repeat with itemAliasFile in listAliasFile
 	set aliasFile to itemAliasFile as alias
 	set strFilePath to (POSIX path of aliasFile) as text
 	set ocidFilePathStr to (refMe's NSString's stringWithString:(strFilePath))
