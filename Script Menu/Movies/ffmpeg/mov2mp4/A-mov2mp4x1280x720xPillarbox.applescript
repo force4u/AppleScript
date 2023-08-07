@@ -39,7 +39,7 @@ repeat with objAliasFile in listAliasFile
 	set ocidFilePathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:false)
 	set ocidBaseFilePathURL to ocidFilePathURL's URLByDeletingPathExtension()
 	set ocidSaveFilePathURL to (ocidBaseFilePathURL's URLByAppendingPathExtension:("mp4"))
-	set strSaveFilePath to ocidFilePathURL's |path| as text
+	set strSaveFilePath to ocidSaveFilePathURL's |path| as text
 	(* 
 ################ ビデオ
 ### bitrate
