@@ -15,7 +15,7 @@ property refMe : a reference to current application
 set strPathToFFMPEG to "/bin/echo $HOME/bin/ffmpeg/ffmpeg" as text
 set strPathToFFMPEG to (do shell script strPathToFFMPEG)
 
-set strPathToFFMPEG to "echo /usr/local/bin/ffmpeg" as text
+set strPathToFFMPEG to "/usr/local/bin/ffmpeg" as text
 
 
 ################################
