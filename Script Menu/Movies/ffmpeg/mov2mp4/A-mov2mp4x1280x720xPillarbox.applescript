@@ -37,8 +37,17 @@ repeat with itemAliasFile in listAliasFile
 	set ocidFilePathStr to (refMe's NSString's stringWithString:(strFilePath))
 	set ocidFilePath to ocidFilePathStr's stringByStandardizingPath()
 	set ocidFilePathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:false)
+	##コンテナ
+	set ocidContainerDirPathURL to ocidFilePathURL's URLByDeletingLastPathComponent()
+	##拡張子をとったファイル名
 	set ocidBaseFilePathURL to ocidFilePathURL's URLByDeletingPathExtension()
-	set ocidSaveFilePathURL to (ocidBaseFilePathURL's URLByAppendingPathExtension:("mp4"))
+	set strBaeFileFileName to (ocidBaseFilePathURL's lastPathComponent()) as text
+	##上書き防止に日付連番
+	set strDateNo to (doGetDateNo({"yyyyMMdd", 1})) as text
+	##保存ファイル名
+	set strSaveFileName to (strBaeFileFileName & "." & strDateNo & ".mp4") as text
+	##保存URL
+	set ocidSaveFilePathURL to (ocidContainerDirPathURL's URLByAppendingPathComponent:(strSaveFileName))
 	set strSaveFilePath to ocidSaveFilePathURL's |path| as text
 	(* 
 ################ ビデオ
@@ -137,3 +146,45 @@ repeat with itemAliasFile in listAliasFile
 	
 	
 end repeat
+
+################################
+# 日付 doGetDateNo(argDateFormat,argCalendarNO)
+# argCalendarNO 1 NSCalendarIdentifierGregorian 西暦
+# argCalendarNO 2 NSCalendarIdentifierJapanese 和暦
+################################
+to doGetDateNo({argDateFormat, argCalendarNO})
+	##渡された値をテキストで確定させて
+	set strDateFormat to argDateFormat as text
+	set intCalendarNO to argCalendarNO as integer
+	###日付情報の取得
+	set ocidDate to current application's NSDate's |date|()
+	###日付のフォーマットを定義（日本語）
+	set ocidFormatterJP to current application's NSDateFormatter's alloc()'s init()
+	###和暦　西暦　カレンダー分岐
+	if intCalendarNO = 1 then
+		set ocidCalendarID to (current application's NSCalendarIdentifierGregorian)
+	else if intCalendarNO = 2 then
+		set ocidCalendarID to (current application's NSCalendarIdentifierJapanese)
+	else
+		set ocidCalendarID to (current application's NSCalendarIdentifierISO8601)
+	end if
+	set ocidCalendarJP to current application's NSCalendar's alloc()'s initWithCalendarIdentifier:(ocidCalendarID)
+	set ocidTimezoneJP to current application's NSTimeZone's alloc()'s initWithName:("Asia/Tokyo")
+	set ocidLocaleJP to current application's NSLocale's alloc()'s initWithLocaleIdentifier:("ja_JP_POSIX")
+	###設定
+	ocidFormatterJP's setTimeZone:(ocidTimezoneJP)
+	ocidFormatterJP's setLocale:(ocidLocaleJP)
+	ocidFormatterJP's setCalendar:(ocidCalendarJP)
+	#	ocidFormatterJP's setDateStyle:(current application's NSDateFormatterNoStyle)
+	#	ocidFormatterJP's setDateStyle:(current application's NSDateFormatterShortStyle)
+	#	ocidFormatterJP's setDateStyle:(current application's NSDateFormatterMediumStyle)
+	#	ocidFormatterJP's setDateStyle:(current application's NSDateFormatterLongStyle)
+	ocidFormatterJP's setDateStyle:(current application's NSDateFormatterFullStyle)
+	###渡された値でフォーマット定義
+	ocidFormatterJP's setDateFormat:(strDateFormat)
+	###フォーマット適応
+	set ocidDateAndTime to ocidFormatterJP's stringFromDate:(ocidDate)
+	###テキストで戻す
+	set strDateAndTime to ocidDateAndTime as text
+	return strDateAndTime
+end doGetDateNo
