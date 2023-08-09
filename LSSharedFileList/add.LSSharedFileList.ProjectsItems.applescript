@@ -10,7 +10,7 @@ use framework "AppKit"
 use scripting additions
 
 property refMe : a reference to current application
-set appFileManager to refMe's NSFileManager's defaultManager()
+
 
 #############################################
 ###設定項目
@@ -33,6 +33,7 @@ set numLabelNo to (5) as integer
 #######################################
 ##NSdataに読み込み　Keyを解凍する
 #######################################
+set appFileManager to refMe's NSFileManager's defaultManager()
 ###処理するファイル名
 set strFileName to "com.apple.LSSharedFileList.ProjectsItems.sfl2" as text
 ###URLに
@@ -42,9 +43,9 @@ set ocidContainerPathURL to (ocidAppSuppDirPathURL's URLByAppendingPathComponent
 set ocidSharedFileListURL to (ocidContainerPathURL's URLByAppendingPathComponent:(strFileName) isDirectory:false)
 ###NSDATAに読み込みます
 set ocidPlistData to (refMe's NSData's dataWithContentsOfURL:(ocidSharedFileListURL))
-###【１】解凍してDictに　Flozenなので値を変更するために　可変に変えます
+###	解凍してDictに　Flozenなので値を変更するために　可変に変えます
 set ocidArchveDict to (refMe's NSKeyedUnarchiver's unarchiveObjectWithData:(ocidPlistData))
-###【２】可変Dictにセット
+###	可変Dictにセット
 set ocidArchveDictM to (refMe's NSMutableDictionary's alloc()'s initWithCapacity:0)
 (ocidArchveDictM's setDictionary:ocidArchveDict)
 
@@ -69,10 +70,10 @@ repeat with itemsArrayDict in ocidItemsArrayM
 		###値があった場合
 		set boolChkTagName to true as boolean
 	else
+		###なかった場合
 		set boolChkTagName to false as boolean
 	end if
 end repeat
-
 #######################################
 ###　本処理項目の追加
 #######################################
@@ -97,7 +98,9 @@ if boolChkTagName is false then
 	ocidURLComponents's setScheme:("x-apple-findertag")
 	ocidURLComponents's setPath:(strName)
 	set ocidTagURL to ocidURLComponents's |URL|()
-	ocidAddProkectDict's setObject:(ocidTagURL) forKey:("Bookmark")
+	set listBookMarkData to (ocidTagURL's bookmarkDataWithOptions:(11) includingResourceValuesForKeys:({missing value}) relativeToURL:(missing value) |error|:(reference))
+	set ocidBookMarkData to item 1 of listBookMarkData
+	ocidAddProkectDict's setObject:(ocidBookMarkData) forKey:("Bookmark")
 	##
 	set ocidTagName to refMe's NSString's stringWithString:(strName)
 	ocidAddProkectDict's setObject:(ocidTagName) forKey:("Name")
