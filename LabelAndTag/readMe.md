@@ -13,7 +13,7 @@
 【３】色ラベル有りタグ  
 【４】複数色ラベルタグ（ラベルの３ラベル複数色と同じ）  
   
-### 【Ｄ】サイドパネル  
+### 【Ｄ】サイドパネル LSSharedFileList.ProjectsItems  
 【１】表示する  
 【２】表示しない  
 <img width="594" alt="d" src="https://github.com/force4u/AppleScript/assets/11995768/3564eb35-04be-478e-bbc1-e943612a227b">  
