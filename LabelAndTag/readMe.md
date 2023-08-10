@@ -4,14 +4,21 @@
 
 ### 【Ｂ】ラベル  
 【１】ラベル無し  
+<img width="404" alt="b1" src="https://github.com/force4u/AppleScript/assets/11995768/2ea2ef1b-9b4a-43b5-9400-f0f08b36b449">  
 【２】ラベル単色  
-【３】ラベル複数色＝ラベル単色＋色ラベルタグ×複数  
+<img width="398" alt="b2" src="https://github.com/force4u/AppleScript/assets/11995768/e95ff77b-c547-4880-9ade-0ee7a493efa2">  
+【３】ラベル複数色＝ラベル単色＋色ラベルタグ×複数=複数色指定のラベルはタグになる  
+<img width="394" alt="b3" src="https://github.com/force4u/AppleScript/assets/11995768/0dfab833-9f9c-4ccf-8072-8972cdbc56f1">  
   
 ### 【Ｃ】タグ  
 【１】タグ無し  
+<img width="404" alt="b1" src="https://github.com/force4u/AppleScript/assets/11995768/2ea2ef1b-9b4a-43b5-9400-f0f08b36b449">  
 【２】色ラベル無しタグ  
+<img width="626" alt="c-2" src="https://github.com/force4u/AppleScript/assets/11995768/56a3651a-800c-4a15-8b91-a603d3294898">  
 【３】色ラベル有りタグ  
+<img width="637" alt="c-3" src="https://github.com/force4u/AppleScript/assets/11995768/9ba1c62a-271c-4067-8356-cbddfa741113">  
 【４】複数色ラベルタグ（ラベルの３ラベル複数色と同じ）  
+<img width="394" alt="b3" src="https://github.com/force4u/AppleScript/assets/11995768/0dfab833-9f9c-4ccf-8072-8972cdbc56f1">  
   
 ### 【Ｄ】サイドパネル LSSharedFileList.ProjectsItems  
 【１】表示する  
