@@ -15,7 +15,9 @@
   
 ### 【Ｄ】サイドパネル  
 【１】表示する  
-【２】表示しない  
+【２】表示しない
+<img width="594" alt="d" src="https://github.com/force4u/AppleScript/assets/11995768/3564eb35-04be-478e-bbc1-e943612a227b">  
+
   
 ### 【E】Spotlight検索ビュー  
 【１】ラベル（ラベルはあくまでも単色）  
