@@ -16,6 +16,10 @@
 ### 【Ｄ】サイドパネル  
 【１】表示する  
 【２】表示しない  
-
+  
+### 【E】Spotlight検索ビュー  
+【１】ラベル（ラベルはあくまでも単色）  
+【２】タグ（複数指定時はスペースかタブ）  
+<img width="455" alt="Spotlight" src="https://github.com/force4u/AppleScript/assets/11995768/5594c5a7-56da-4537-90bd-a2badbd7d3a7">  
 
 
