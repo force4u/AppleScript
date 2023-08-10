@@ -21,6 +21,7 @@
 <img width="394" alt="b3" src="https://github.com/force4u/AppleScript/assets/11995768/0dfab833-9f9c-4ccf-8072-8972cdbc56f1">  
   
 ### 【Ｄ】サイドパネル LSSharedFileList.ProjectsItems  
+https://github.com/force4u/AppleScript/tree/main/LabelAndTag/LSSharedFileList  
 【１】表示する  
 【２】表示しない  
 <img width="594" alt="d" src="https://github.com/force4u/AppleScript/assets/11995768/3564eb35-04be-478e-bbc1-e943612a227b">  
