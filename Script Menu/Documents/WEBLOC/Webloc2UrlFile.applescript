@@ -2,6 +2,7 @@
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #com.cocolog-nifty.quicktimer.icefloe
 #weblocファイルをWindow用のurlファイルに変換します
+#URLファイルのファイル名をWINDOW互換ファイル名になるように変更
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
 use framework "Foundation"
@@ -45,8 +46,34 @@ repeat with itemFilePath in listAliasFilePath
 	set ocidFilePathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:false)
 	###保存先URL　拡張子取って
 	set ocidBaseFilePathURL to ocidFilePathURL's URLByDeletingPathExtension()
-	###拡張子　つける
-	set ocidURLFilePathURL to (ocidBaseFilePathURL's URLByAppendingPathExtension:("url"))
+	###コンテナディレクトリ
+	set ocidContainerDirPathURL to ocidFilePathURL's URLByDeletingLastPathComponent()
+	###拡張子をとったベースファイル名
+	set strBaseFileName to (ocidBaseFilePathURL's lastPathComponent()) as text
+	
+	#################################
+	###ファイル名に使えない文字を全角に置換
+	#################################
+	set ocidBaseFileName to (refMe's NSMutableString's alloc()'s initWithCapacity:(0))
+	(ocidBaseFileName's setString:(strBaseFileName))
+	set ocidLength to ocidBaseFileName's |length|()
+	set ocidRange to refMe's NSMakeRange(0, ocidLength)
+	set ocidOption to (refMe's NSCaseInsensitiveSearch)
+	###
+	##set recordProhibit to {|\\|:"￥", |<|:"＜", |>|:"＞", |*|:"＊", |?|:"？", |"|:"＂", |\||:"｜", |/|:"／", |:|:"："} as record
+	set recordProhibit to {|\\|:"￥", |<|:"＜", |>|:"＞", |*|:"＊", |?|:"？", |"|:"＂", |\||:"｜", |/|:"／", |:|:"／"} as record
+	set ocidProhibitDict to (refMe's NSMutableDictionary's alloc()'s initWithCapacity:0)
+	(ocidProhibitDict's setDictionary:(recordProhibit))
+	set ocidKeyArray to ocidProhibitDict's allKeys()
+	repeat with itemKey in ocidKeyArray
+		set strKey to itemKey as text
+		set strValue to (ocidProhibitDict's valueForKey:(itemKey)) as text
+		(ocidBaseFileName's replaceOccurrencesOfString:(strKey) withString:(strValue) options:(ocidOption) range:(ocidRange))
+	end repeat
+	
+	set strNewFileName to ((ocidBaseFileName as text) & (".url")) as text
+	###保存先URL
+	set ocidURLFilePathURL to (ocidContainerDirPathURL's URLByAppendingPathComponent:(strNewFileName))
 	###リンク先URLを取得
 	set ocidPlistDict to (refMe's NSMutableDictionary's alloc()'s initWithContentsOfURL:(ocidFilePathURL))
 	set strValueURL to (ocidPlistDict's valueForKey:("URL")) as text
