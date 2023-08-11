@@ -108,12 +108,29 @@ on error
 	####１０文字以下の場合はホスト名にする
 	set strFileName to ocidHostName as text
 end try
-set strWeblocFileName to (strFileName & ".webloc") as text
-set strUrlFileName to (strFileName & ".url") as text
+#########################
+##
+set ocidWeblocFileName to refMe's NSMutableString's alloc()'s initWithCapacity:(0)
+ocidWeblocFileName's setString:(strFileName)
+set ocidLength to ocidWeblocFileName's |length|()
+set ocidRange to refMe's NSMakeRange(0, ocidLength)
+set ocidOption to (refMe's NSCaseInsensitiveSearch)
+set recordProhibit to {|\\|:"￥", |:|:"：", |/|:"／"} as record
+
+set ocidProhibitDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
+ocidProhibitDict's setDictionary:(recordProhibit)
+set ocidKeyArray to ocidProhibitDict's allKeys()
+repeat with itemKey in ocidKeyArray
+	set strKey to itemKey as text
+	set strValue to (ocidProhibitDict's valueForKey:(itemKey)) as text
+	(ocidWeblocFileName's replaceOccurrencesOfString:(strKey) withString:(strValue) options:(ocidOption) range:(ocidRange))
+end repeat
+set strWeblocFileName to ocidWeblocFileName as text
+set strWeblocFileName to (strWeblocFileName & ".webloc") as text
 #########################
 ##保存先パス
 set ocidWeblocFilePathURL to ocidSaveDirPathURL's URLByAppendingPathComponent:(strWeblocFileName)
-set ocidUrlFilePathURL to ocidSaveDirPathURL's URLByAppendingPathComponent:(strUrlFileName)
+
 #########################
 ##WEBLOC　内容
 set ocidPlistDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
@@ -126,17 +143,39 @@ ocidPlistDict's setValue:(strDateno) forKey:("productVersion")
 ocidPlistDict's setValue:(strDateno) forKey:("kMDItemFSCreationDate")
 
 #########################
+log (ocidWeblocFilePathURL's |path|()) as text
+
 ####weblocファイルを作る
 set ocidFromat to refMe's NSPropertyListXMLFormat_v1_0
 set listPlistEditDataArray to refMe's NSPropertyListSerialization's dataWithPropertyList:(ocidPlistDict) format:(ocidFromat) options:0 |error|:(reference)
 set ocidPlistEditData to item 1 of listPlistEditDataArray
 set boolWritetoUrlArray to ocidPlistEditData's writeToURL:(ocidWeblocFilePathURL) options:0 |error|:(reference)
+
+
 (*
 tell application "Finder"
 	make new internet location file to strURL at aliasSaveDirPathURL with properties {name:"" & strName & "", creator type:"MACS", stationery:false, location:strURL}
 end tell
 *)
 #########################
+set ocidFileName to refMe's NSMutableString's alloc()'s initWithCapacity:(0)
+ocidFileName's setString:(strFileName)
+set ocidLength to ocidFileName's |length|()
+set ocidRange to refMe's NSMakeRange(0, ocidLength)
+set ocidOption to (refMe's NSCaseInsensitiveSearch)
+###
+set recordProhibit to {|\\|:"￥", |<|:"＜", |>|:"＞", |*|:"＊", |?|:"？", |"|:"＂", |\||:"｜", |/|:"／", |:|:"："} as record
+set ocidProhibitDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
+ocidProhibitDict's setDictionary:(recordProhibit)
+set ocidKeyArray to ocidProhibitDict's allKeys()
+repeat with itemKey in ocidKeyArray
+	set strKey to itemKey as text
+	set strValue to (ocidProhibitDict's valueForKey:(itemKey)) as text
+	(ocidFileName's replaceOccurrencesOfString:(strKey) withString:(strValue) options:(ocidOption) range:(ocidRange))
+end repeat
+set strFileName to ocidFileName as text
+set strUrlFileName to (strFileName & ".url") as text
+set ocidUrlFilePathURL to ocidSaveDirPathURL's URLByAppendingPathComponent:(strUrlFileName)
 ####URLファイルを作る
 set strShortCutFileString to ("[InternetShortcut]\r\nURL=" & strURL & "\r\n") as text
 set ocidShortCutFileString to refMe's NSMutableString's alloc()'s initWithCapacity:0
@@ -145,6 +184,7 @@ ocidShortCutFileString's setString:(strShortCutFileString)
 set boolDone to ocidShortCutFileString's writeToURL:(ocidUrlFilePathURL) atomically:(true) encoding:(refMe's NSUTF8StringEncoding) |error|:(reference)
 
 #########################
+
 ####保存先を開く
 tell application "Finder"
 	set aliasSaveFile to (file strWeblocFileName of folder aliasSaveDirPathURL) as alias
@@ -170,3 +210,7 @@ to doGetDateNo(strDateFormat)
 	set strDateAndTime to ocidDateAndTime as text
 	return strDateAndTime
 end doGetDateNo
+
+
+
+
