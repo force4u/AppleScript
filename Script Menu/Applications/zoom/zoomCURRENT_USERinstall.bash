@@ -8,23 +8,37 @@
 CHK_APP_PATH="/Applications/zoom.us.app"
 if [ -e "$CHK_APP_PATH" ]; then
 	/bin/echo "【エラー】$CHK_APP_PATHが存在します以下のコマンドをターミナルで実行してください"
-	/bin/echo "/usr/bin/sudo /bin/mv \"/Applications/zoom.us.app\" \"$HOME/.Trash\""
+	/bin/echo "/usr/bin/sudo /bin/mv \"$CHK_APP_PATH\" \"$HOME/.Trash\""
 	exit 1
 fi
 CHK_APP_PATH="/Applications/ZoomOutlookPlugin"
+if [ -e "$CHK_APP_PATH" ]; then
 TRASH_DIR=$(/usr/bin/mktemp -d "$HOME/.Trash/ZOOM.XXXXXXXX")
 /bin/chmod 777 "$TRASH_DIR"
 /bin/mv "$CHK_APP_PATH" "$TRASH_DIR"
-
+fi
 if [ -e "$CHK_APP_PATH" ]; then
 	/bin/echo "【エラー】$CHK_APP_PATHが存在します以下のコマンドをターミナルで実行してください"
-	/bin/echo "/usr/bin/sudo /bin/mv \"/Applications/ZoomOutlookPlugin\" \"$HOME/.Trash\""
+	/bin/echo "/usr/bin/sudo /bin/mv \"$CHK_APP_PATH\" \"$HOME/.Trash\""
 	exit 1
 fi
 CHK_APP_PATH="/Library/Application Support/zoom.us"
 if [ -e "$CHK_APP_PATH" ]; then
 	/bin/echo "【エラー】$CHK_APP_PATHが存在します以下のコマンドをターミナルで実行してください"
-	/bin/echo "/usr/bin/sudo /bin/mv \"/Library/Application Support/zoom.us\" \"$HOME/.Trash\""
+	/bin/echo "/usr/bin/sudo /bin/mv \"$CHK_APP_PATH\" \"$HOME/.Trash\""
+	exit 1
+fi
+
+CHK_APP_PATH="/Library/PrivilegedHelperTools/us.zoom.ZoomDaemon"
+if [ -e "$CHK_APP_PATH" ]; then
+	/bin/echo "【エラー】$CHK_APP_PATHが存在します以下のコマンドをターミナルで実行してください"
+	/bin/echo "/usr/bin/sudo /bin/mv \"$CHK_APP_PATH\" \"$HOME/.Trash\""
+	exit 1
+fi
+CHK_APP_PATH="/Library/LaunchDaemons/us.zoom.ZoomDaemon.plist"
+if [ -e "$CHK_APP_PATH" ]; then
+	/bin/echo "【エラー】$CHK_APP_PATHが存在します以下のコマンドをターミナルで実行してください"
+	/bin/echo "/usr/bin/sudo /bin/mv \"$CHK_APP_PATH\" \"$HOME/.Trash\""
 	exit 1
 fi
 
