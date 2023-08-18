@@ -52,7 +52,7 @@ else
 	end tell
 end if
 try
-	set listResponse to (choose from list listAllKyesArray with title "選んでください" with prompt "削除する項目を選んでください" default items (item 1 of listAllKyesArray) OK button name "OK" cancel button name "キャンセル" with multiple selections allowed without empty selection allowed) as list
+	set listResponse to (choose from list listAllKyesArray with title "選んでください" with prompt "有効にする項目を選んでください" default items (item 1 of listAllKyesArray) OK button name "OK" cancel button name "キャンセル" with multiple selections allowed without empty selection allowed) as list
 on error
 	log "エラーしました"
 	return "エラーしました"
@@ -67,7 +67,7 @@ end if
 ####################################
 repeat with itemResponse in listResponse
 	set strItemKey to itemResponse as text
-	(ocidPlistDict's setValue:(refMe's NSNumber's numberWithBool: false) forKey:(strItemKey))
+	(ocidPlistDict's setValue:(refMe's NSNumber's numberWithBool:false) forKey:(strItemKey))
 	
 end repeat
 
