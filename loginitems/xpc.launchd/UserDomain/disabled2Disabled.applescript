@@ -52,7 +52,7 @@ else
 	end tell
 end if
 try
-	set listResponse to (choose from list listAllKyesArray with title "選んでください" with prompt "削除する項目を選んでください" default items (item 1 of listAllKyesArray) OK button name "OK" cancel button name "キャンセル" with multiple selections allowed without empty selection allowed) as list
+	set listResponse to (choose from list listAllKyesArray with title "選んでください" with prompt "停止する項目を選んでください" default items (item 1 of listAllKyesArray) OK button name "OK" cancel button name "キャンセル" with multiple selections allowed without empty selection allowed) as list
 on error
 	log "エラーしました"
 	return "エラーしました"
