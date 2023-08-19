@@ -31,6 +31,10 @@ STR_MAJOR_VERSION="${STR_OS_VER%%.*}"
 STR_MINOR_VERSION="${STR_OS_VER#*.}"
 /bin/echo "STR_MINOR_VERSION ：" "$STR_MINOR_VERSION"
 
+########################################
+###ダウンロード起動時に削除する項目
+USER_TEMP_DIR=$(/usr/bin/sudo -u "$SUDO_USER" /usr/bin/mktemp -d)
+/bin/echo "起動時に削除されるディレクトリ：" "$USER_TEMP_DIR"
 
 ########################################
 ##デバイス
@@ -40,10 +44,7 @@ STR_MINOR_VERSION="${STR_OS_VER#*.}"
 STARTUPDISK_NAME=$(/usr/bin/sudo -u "$SUDO_USER" /usr/bin/defaults read "$USER_TEMP_DIR/diskutil.plist" VolumeName)
 /bin/echo "ボリューム名：" "$STARTUPDISK_NAME"
 
-########################################
-###ダウンロード起動時に削除する項目
-USER_TEMP_DIR=$(/usr/bin/sudo -u "$SUDO_USER" /usr/bin/mktemp -d)
-/bin/echo "起動時に削除されるディレクトリ：" "$USER_TEMP_DIR"
+
 
 ########################################
 ###ダウンロード>>起動時に削除する項目
