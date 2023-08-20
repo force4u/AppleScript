@@ -29,6 +29,6 @@ https://github.com/force4u/AppleScript/tree/main/LabelAndTag/LSSharedFileList
 ### 【E】Spotlight検索ビュー  
 【１】ラベル（ラベルはあくまでも単色）  
 【２】タグ（複数指定時はスペースかタブ）  
-<img width="455" alt="Spotlight" src="https://github.com/force4u/AppleScript/assets/11995768/5594c5a7-56da-4537-90bd-a2badbd7d3a7">  
+<img width="455" alt="259674152-5594c5a7-56da-4537-90bd-a2badbd7d3a7-2" src="https://github.com/force4u/AppleScript/assets/11995768/a9b26ec9-c0b9-4a21-8744-894c21a5df84">
 
 
