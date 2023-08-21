@@ -25,17 +25,17 @@ on error
 end try
 
 ###PoweStatur 1on 0off
-set theComandText to ("€"" & theBinPath & "€" -p") as text
+set theComandText to ("â‚¬"" & theBinPath & "â‚¬" -p") as text
 set numBlueStatus to (do shell script theComandText) as text
 
-### OFF ‚¾‚Á‚½‚çON
+### OFF â€šÂ¾â€šÃâ€šÂ½â€šÃ§ON
 if numBlueStatus is "0" then
-	set theComandText to ("€"" & theBinPath & "€" -p 1") as text
+	set theComandText to ("â‚¬"" & theBinPath & "â‚¬" -p 1") as text
 	do shell script theComandText
 else
-	### ON ‚¾‚Á‚½‚ç ON
-	set theComandText to ("€"" & theBinPath & "€" -p 1") as text
-	#set theComandText to ("€"" & theBinPath & "€" -p 0") as text
+	### ON â€šÂ¾â€šÃâ€šÂ½â€šÃ§ ON
+	set theComandText to ("â‚¬"" & theBinPath & "â‚¬" -p 1") as text
+	#set theComandText to ("â‚¬"" & theBinPath & "â‚¬" -p 0") as text
 	do shell script theComandText
 end if
 
