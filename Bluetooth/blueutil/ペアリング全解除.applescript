@@ -25,14 +25,14 @@ on error
 end try
 
 ###PoweStatur 1on 0off
-set theComandText to ("€"" & theBinPath & "€" --paired") as text
+set theComandText to ("â‚¬"" & theBinPath & "â‚¬" --paired") as text
 set thePaiedDevices to (do shell script theComandText) as text
-set AppleScript's text item delimiters to "€r"
+set AppleScript's text item delimiters to "â‚¬r"
 set listPaiedDevices to every text item of thePaiedDevices
 set AppleScript's text item delimiters to ""
 
 
-### OFF ‚¾‚Á‚½‚çON
+### OFF â€šÂ¾â€šÃâ€šÂ½â€šÃ§ON
 repeat with objDevices in listPaiedDevices
 	set AppleScript's text item delimiters to ","
 	set listDevicesInfo to every text item of objDevices
@@ -41,10 +41,10 @@ repeat with objDevices in listPaiedDevices
 	set AppleScript's text item delimiters to "address: "
 	set theDevicesAdd to text item 2 of theDevicesAddInfo
 	try
-		set theComandText to ("€"" & theBinPath & "€" --unpair €"" & theDevicesAdd & "€"") as text
+		set theComandText to ("â‚¬"" & theBinPath & "â‚¬" --unpair â‚¬"" & theDevicesAdd & "â‚¬"") as text
 		do shell script theComandText
 	on error
-		log "unpairƒGƒ‰["
+		log "unpairÆ’GÆ’â€°Â["
 	end try
 end repeat
 
