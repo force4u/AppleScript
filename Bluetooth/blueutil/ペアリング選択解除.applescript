@@ -24,22 +24,22 @@ on error
 	set theBinPath to ocidFilePath as text
 end try
 
-set StrCommandText to "€"" & theBinPath & "€" --paired"
+set StrCommandText to "â‚¬"" & theBinPath & "â‚¬" --paired"
 set strResponcet to (do shell script StrCommandText) as text
 
-set AppleScript's text item delimiters to "€r"
+set AppleScript's text item delimiters to "â‚¬r"
 set tmpResponcet to every text item of strResponcet
 set AppleScript's text item delimiters to ""
 
 if tmpResponcet is {} then
-	return "ƒyƒAƒŠƒ“ƒOÏ‚İƒfƒoƒCƒX‚ª‚ ‚è‚Ü‚¹‚ñ"
+	return "Æ’yÆ’AÆ’Å Æ’â€œÆ’OÂÃâ€šÃÆ’fÆ’oÆ’CÆ’Xâ€šÂªâ€šÂ â€šÃ¨â€šÃœâ€šÂ¹â€šÃ±"
 end if
 
 try
-	set objResponse to (choose from list tmpResponcet with title "’Z‚ß" with prompt "’·‚ß" default items (item 1 of tmpResponcet) OK button name "OK" cancel button name "ƒLƒƒƒ“ƒZƒ‹" with multiple selections allowed without empty selection allowed)
+	set objResponse to (choose from list tmpResponcet with title "â€™Zâ€šÃŸ" with prompt "â€™Â·â€šÃŸ" default items (item 1 of tmpResponcet) OK button name "OK" cancel button name "Æ’LÆ’Æ’Æ’â€œÆ’ZÆ’â€¹" with multiple selections allowed without empty selection allowed)
 on error
-	log "ƒGƒ‰[‚µ‚Ü‚µ‚½"
-	return "ƒGƒ‰[‚µ‚Ü‚µ‚½"
+	log "Æ’GÆ’â€°Â[â€šÂµâ€šÃœâ€šÂµâ€šÂ½"
+	return "Æ’GÆ’â€°Â[â€šÂµâ€šÃœâ€šÂµâ€šÂ½"
 end try
 if objResponse is false then
 	return
@@ -56,10 +56,10 @@ set strID to doReplace(strID, " ", "")
 
 
 try
-	set theComandText to ("€"" & theBinPath & "€" --unpair €"" & strID & "€"") as text
+	set theComandText to ("â‚¬"" & theBinPath & "â‚¬" --unpair â‚¬"" & strID & "â‚¬"") as text
 	do shell script theComandText
 on error
-	log "unpairƒGƒ‰["
+	log "unpairÆ’GÆ’â€°Â["
 end try
 
 
