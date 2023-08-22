@@ -11,7 +11,7 @@ if [ "$USER_WHOAMI" != "root" ]; then
 	### path to me
 	##	SCRIPT_PATH="${BASH_SOURCE[0]}"
 	SCRIPT_PATH="${(%):-%N}"
-	/bin/echo "/usr/bin/sudo \"$SCRIPT_PATH\""
+	/bin/echo "/bin/chmod 755 \"$SCRIPT_PATH\" | /usr/bin/sudo \"$SCRIPT_PATH\""
 	/bin/echo "↑を実行してください"
 	exit 1
 else
@@ -49,9 +49,10 @@ NUM_RESULT=$?
 if [[ $NUM_RESULT -eq 0 ]]; then
     echo "コマンドは成功しました"
 else
-    echo "コマンドは失敗しました"
-echo "システム設定＞一般＞ソフトウェアアップデートを起動します"
-		open "x-apple.systempreferences:com.apple.Software-Update-Settings.extension?SoftwareUpdate"
+	echo "コマンドは失敗しました"
+	echo "システム設定＞一般＞ソフトウェアアップデートを起動します"
+	open "x-apple.systempreferences:com.apple.Software-Update-Settings.extension?SoftwareUpdate"
+	exit 1
 fi
 
 exit 0 
