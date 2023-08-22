@@ -41,7 +41,7 @@ else
 end if
 set aliasIconPath to POSIX file "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/BookmarkIcon.icns" as alias
 try
-	set recordResponse to (display dialog "詳しく" with title "入力してください" default answer strResponse buttons {"クリップボードにコピー", "OK", "キャンセル"} default button "OK" cancel button "キャンセル" with icon aliasIconPath giving up after 20 without hidden answer)
+	set recordResponse to (display dialog "このMacのSMB設定内容です" with title "設定内容です" default answer strResponse buttons {"クリップボードにコピー", "OK", "キャンセル"} default button "OK" cancel button "キャンセル" with icon aliasIconPath giving up after 20 without hidden answer)
 	
 on error
 	log "エラーしました"
