@@ -73,6 +73,5 @@ end if
 
 
 
-log ocidResponseHalfwidth as text
 
 
