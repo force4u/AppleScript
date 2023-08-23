@@ -1,5 +1,5 @@
 #!/bin/zsh
-#
+#Vs Codeのコンソールで実行すると文字化けする
 # テスト中　何か違う気もする
 ########################################
 ###管理者インストールしているか？チェック
@@ -10,6 +10,8 @@ if [ "$USER_WHOAMI" != "root" ]; then
   /bin/echo "sudo で実行してください"
   ### path to me
 	SCRIPT_PATH="${(%):-%N}"
+	##SCRIPT_CONTEINER_DIR_PATH=$(print -r -- ${(%)PWD})
+
   /bin/echo "/usr/bin/sudo \"$SCRIPT_PATH\""
   /bin/echo "↑を実行してください"
   exit 1
@@ -18,12 +20,7 @@ else
   SUDO_USER=$(/bin/echo "$HOME" | /usr/bin/awk -F'/' '{print $NF}')
   /bin/echo "実行ユーザー：" "$SUDO_USER"
 fi
-
 STR_ARMMF_URL="https://armmf.adobe.com/arm-manifests/mac/AcrobatDC/acrobat/current_version.txt"
-
-STR_DC_URL="https://ardownload2.adobe.com/pub/adobe/acrobat/mac/AcrobatDC/2300320269/AcrobatDCUpd2300320269.dmg"
-STR_RD_URL="https://ardownload2.adobe.com/pub/adobe/reader/mac/AcrobatDC/2300320269/AcroRdrDCUpd2300320269_MUI.dmg"
-
 
 STR_DC_PLIST="/Applications/Adobe Acrobat DC/Adobe Acrobat.app/Contents/Info.plist"
 STR_RD_PLIST="/Applications/Adobe Acrobat Reader.app/Contents/Info.plist"
@@ -53,12 +50,20 @@ BOOL_RD_INSTALL="true"
 fi
 else
 /bin/echo "RD未インストール"
-BOOL_RD_INSTALL="false"
+if [ "$BOOL_DC_INSTALL" = "false" ]; then
+exit 1
 fi
-if [[ "BOOL_RD_INSTALL" -eq "false" && "BOOL_DC_INSTALL" -eq "false" ]]; then
-/bin/echo "最新版を利用中です"
-exit 0
 fi
+
+
+########################################
+###
+STR_VERSION=$(/bin/echo "$STR_ARMMF_VERSION" | /usr/bin/tr -d '.')
+/bin/echo "識別番号: $STR_VERSION"
+STR_DC_URL="https://ardownload2.adobe.com/pub/adobe/acrobat/mac/AcrobatDC/"$STR_VERSION"/AcrobatDCUpd"$STR_VERSIO"N.dmg"
+STR_RD_URL="https://ardownload2.adobe.com/pub/adobe/reader/mac/AcrobatDC/"$STR_VERSION"/AcroRdrDCUpd"$STR_VERSION"_MUI.dmg"
+//bin/echo $STR_DC_URL
+//bin/echo $STR_RD_URL
 
 ########################################
 ###ダウンロード起動時に削除する項目
