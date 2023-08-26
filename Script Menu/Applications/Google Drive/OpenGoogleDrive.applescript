@@ -41,10 +41,14 @@ set listAccount to {} as list
 set ocidAccountArray to (ocidJsonData's valueForKeyPath:("per_account_preferences"))
 ###アカウントの数だけ繰り返し
 repeat with itemAccountArray in ocidAccountArray
+	###OS12以降は
 	set ocidDirPath to (itemAccountArray's valueForKeyPath:("value.mount_point_path"))
 	set ocidDirName to ocidDirPath's lastPathComponent()
-	###リストにフォルダ名＝アカウント名を取得する
 	set end of listAccount to (ocidDirName as text)
+	###OS12以前の場合はこちら
+	set end of listAccount to (ocidDirPath as text)
+	###リストにフォルダ名＝アカウント名を取得する
+	
 end repeat
 ##########################################
 ### 【６】ダイアログ
@@ -74,9 +78,17 @@ set strDirName to (item 1 of listResponse) as text
 
 ##########################################
 ### 【７】開く
-###NSURLにしておいて
-set strCoreStoragePath to ("CloudStorage/" & strDirName) as text
-set ocidGoogleDriveDirPathURL to ocidLibraryDirURL's URLByAppendingPathComponent:(strCoreStoragePath)
+###
+if strDirName contains "/" then
+	set strCoreStoragePath to (strDirName) as text
+	set ocidGoogleDriveDirPathStr to refMe's NSString's stringWithString:(strCoreStoragePath)
+	set ocidGoogleDriveDirPath to ocidGoogleDriveDirPathStr's stringByStandardizingPath()
+	set ocidGoogleDriveDirPathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidGoogleDriveDirPath) isDirectory:false)
+else
+	set strCoreStoragePath to ("CloudStorage/" & strDirName) as text
+	###NSURLにしておいて
+	set ocidGoogleDriveDirPathURL to ocidLibraryDirURL's URLByAppendingPathComponent:(strCoreStoragePath)
+end if
 ##パスにして
 set ocidGoogleDriveDirPath to ocidGoogleDriveDirPathURL's |path|()
 ###パスの有無を確認
