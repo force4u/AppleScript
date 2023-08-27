@@ -1,0 +1,41 @@
+#!/bin/bash
+#com.cocolog-nifty.quicktimer.icefloe
+#################################################
+###管理者インストールしているか？チェック
+USER_WHOAMI=$(/usr/bin/whoami)
+/bin/echo "実行ユーザー(whoami): $USER_WHOAMI"
+###実行しているユーザー名
+CONSOLE_USER=$(/bin/echo "show State:/Users/ConsoleUser" | /usr/sbin/scutil | /usr/bin/awk '/Name :/ { print $3 }')
+/bin/echo "コンソールユーザー(scutil): $CONSOLE_USER"
+###カレントユーザーのUID
+NUM_UID=$(/usr/bin/dsmemberutil getid -U "$CONSOLE_USER" | /usr/bin/awk '/:/ { print $2 }')
+/bin/echo "カレントユーザーのUID: $NUM_UID"
+###カレントユーザーのUUID
+STR_USER_UUID=$(/usr/bin/dscl localhost -list /Local/Default/Users GeneratedUID | grep "$CONSOLE_USER" | awk '{print $2}')
+/bin/echo "カレントユーザーのUUID: $STR_USER_UUID"
+###実行しているユーザー名
+HOME_USER=$(/bin/echo "$HOME" | /usr/bin/awk -F'/' '{print $NF}')
+/bin/echo "実行ユーザー(HOME): $HOME_USER"
+###logname
+LOGIN_NAME=$(/usr/bin/logname)
+/bin/echo "ログイン名(logname): $LOGIN_NAME"
+###UID
+USER_NAME=$(/usr/bin/id -un)
+/bin/echo "ユーザー名(id): $USER_NAME"
+########################################
+###起動ディスクの名前を取得する
+/usr/bin/touch "$USER_TEMP_DIR/diskutil.plist"
+/usr/sbin/diskutil info -plist / >"$USER_TEMP_DIR/diskutil.plist"
+STARTUPDISK_NAME=$(/usr/bin/defaults read "$USER_TEMP_DIR/diskutil.plist" VolumeName)
+/bin/echo "ボリューム名：" "$STARTUPDISK_NAME"
+###デバイスUUID
+STR_DEVICE_UUID=$(/usr/sbin/system_profiler SPHardwareDataType | grep "Hardware UUID"| /usr/bin/awk '{ print $3 }')
+/bin/echo "デバイスUUID：" "$STR_DEVICE_UUID"
+########################################
+###ダウンロード起動時に削除する項目
+USER_TEMP_DIR=$(/usr/bin/mktemp -d)
+/bin/echo "起動時に削除されるディレクトリ：" "$USER_TEMP_DIR"
+
+
+
+exit 0
