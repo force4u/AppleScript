@@ -134,6 +134,8 @@ set ocidAppBundle to refMe's NSBundle's bundleWithURL:(ocidAppPathURL)
 set strOpenBundleID to (ocidAppBundle's bundleIdentifier()) as text
 tell application id strOpenBundleID to launch
 tell application id strOpenBundleID to activate
+
+
 tell application id strOpenBundleID
 	open location strURL
 end tell
@@ -265,37 +267,12 @@ to doCopyMap()
 		end tell
 	on error
 		try
-			tell application "System Events"
-				tell process "Maps"
-					get every menu bar
-					tell menu bar 1
-						get every menu bar item
-						tell menu bar item "編集"
-							get every menu bar item
-							tell menu "編集"
-								get every menu item
-								tell menu item "コピー"
-									click
-								end tell
-							end tell
-						end tell
-					end tell
-				end tell
-			end tell
-			tell application "System Events"
-				tell process "Maps"
-					get every menu bar
-					tell menu bar 1
-						get every menu bar item
-						tell menu bar item "編集"
-							get every menu bar item
-							tell menu "編集"
-								get every menu item
-								tell menu item "コピー"
-									click
-								end tell
-							end tell
-						end tell
+			tell application id "com.apple.Maps"
+				activate
+				tell application "System Events"
+					tell process "Maps"
+						activate
+						click menu item "リンクをコピー" of menu 1 of menu bar item "編集" of menu bar 1
 					end tell
 				end tell
 			end tell
