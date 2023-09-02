@@ -48,11 +48,11 @@ tell application "Terminal"
 	end tell
 	
 	tell window id numWidowID
-		set size to {697, 305}
+		set size to {520, 500}
 		set position to {0, 321}
 		set origin to {0, 80}
-		set frame to {0, 80, 580, 580}
-		set bounds to {0, 321, 580, 820}
+		set frame to {0, 80, 520, 579}
+		set bounds to {0, 321, 520, 820}
 	end tell
 	tell objTabWindows
 		activate
@@ -60,3 +60,29 @@ tell application "Terminal"
 	end tell
 end tell
 
+##### airport -I
+set strCommandText to "while x=1; do /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep CtlRSSI; sleep 0.5; done"
+tell application "Terminal"
+	launch
+	activate
+	set objTabWindows to do script "\n\n"
+	tell objTabWindows
+		activate
+	end tell
+	tell front window
+		activate
+		set numWidowID to id as integer
+	end tell
+	
+	tell window id numWidowID
+		set size to {459, 499}
+		set position to {521, 321}
+		set origin to {521, 80}
+		set frame to {521, 80, 980, 579}
+		set bounds to {521, 321, 980, 820}
+	end tell
+	tell objTabWindows
+		activate
+		do script strCommandText in objTabWindows
+	end tell
+end tell
