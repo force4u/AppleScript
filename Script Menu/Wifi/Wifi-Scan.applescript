@@ -1,6 +1,11 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #
+(*	RSSI値の目安　劣化、遅延なしが０->これはあり得ない
+良好な信号品質: -30 dBm 以上
+中程度の信号品質: -50 dBm 前後
+悪い信号品質: -70 dBm 未満
+*)
 # com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
@@ -32,6 +37,12 @@ tell application "Terminal"
 		activate
 		do script strCommandText in objTabWindows
 	end tell
+	delay 3
+	set strCommandText to "/bin/echo \"RSSIの値　良:-30 中:-50 不良：-70\""
+	tell objTabWindows
+		activate
+		do script strCommandText in objTabWindows
+	end tell
 end tell
 ##### airport -I
 set strCommandText to "/System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I"
@@ -58,6 +69,12 @@ tell application "Terminal"
 		activate
 		do script strCommandText in objTabWindows
 	end tell
+	delay 1
+	set strCommandText to "/usr/bin/printf \"RSSIの値　良:-30 中:-50 不良：-70\""
+	tell objTabWindows
+		activate
+		do script strCommandText in objTabWindows
+	end tell
 end tell
 
 ##### airport -I
@@ -69,6 +86,7 @@ tell application "Terminal"
 	tell objTabWindows
 		activate
 	end tell
+	
 	tell front window
 		activate
 		set numWidowID to id as integer
