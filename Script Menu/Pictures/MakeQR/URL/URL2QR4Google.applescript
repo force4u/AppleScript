@@ -79,12 +79,22 @@ if strText starts with "http" then
 		set strURLText to doUrlEncode(strText) as text
 		set ocidURL to refMe's NSURL's alloc()'s initWithString:(ocidText)
 	end if
+	###ファイル名にURLのホスト名を利用
+	set strHostName to ocidURL's |host|() as text
+	set strLastPass to ocidURL's lastPathComponent() as text
+else if strText starts with "mailto" then
+	set ocidURL to refMe's NSURL's alloc()'s initWithString:(ocidTextM)
+	if ocidURL is (missing value) then
+		set strURLText to doUrlEncode(strText) as text
+		set ocidURL to refMe's NSURL's alloc()'s initWithString:(ocidText)
+	end if
+	set ocidComponent to refMe's NSURLComponents's componentsWithURL:(ocidURL) resolvingAgainstBaseURL:(false)
+	###ファイル名にURLのホスト名を利用
+	set strHostName to ocidComponent's |path|() as text
+	set strLastPass to "mailto" as text
 else
 	return "URL以外は処理しません"
 end if
-###ファイル名にURLのホスト名を利用
-set strHostName to ocidURL's |host|() as text
-set strLastPass to ocidURL's lastPathComponent() as text
 
 ###これでURLエンコードも済んでいる
 set strURL to ocidURL's absoluteString() as text
