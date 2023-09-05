@@ -60,10 +60,20 @@ if "OK" is equal to (button returned of objResponse) then
 else
 	return "キャンセル"
 end if
-set strQRContents to strText as text
+if strText starts with "http" then
+	set strQRContents to strText as text
+	set ocidURL to refMe's NSURL's alloc()'s initWithString:(strQRContents)
+	set strHostName to ocidURL's |host|() as text
+else if strText starts with "mailto" then
+	set strQRContents to strText as text
+	set ocidURL to refMe's NSURL's alloc()'s initWithString:(strQRContents)
+	set ocidComponent to refMe's NSURLComponents's componentsWithURL:(ocidURL) resolvingAgainstBaseURL:(false)
+	set strHostName to ocidComponent's |path|() as text
+else
+	return "【エラー】URL以外処理しません"
+end if
 ##############################
-set ocidURL to refMe's NSURL's alloc()'s initWithString:(strQRContents)
-set strHostName to ocidURL's |host|() as text
+
 
 ###保存ファイル名
 set strDateNo to doGetDateNo({"yyyyMMddhhmmss", 1})
@@ -304,7 +314,7 @@ set numFontSize to (round of (24 * (40 / numCntChar)) rounding down) as integer
 渡されたURLの文字数からフォントサイズを推定　小数点以下は切り捨て
 *)
 if numFontSize > 24 then
-set numFontSize to 24 as integer
+	set numFontSize to 24 as integer
 end if
 
 set ocidText to (refMe's NSString's stringWithString:(strQRContents))
