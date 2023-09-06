@@ -98,7 +98,7 @@ STR_BUNDLE_ID=$(/usr/bin/defaults read "$STR_PLIST_PATH" CFBundleIdentifier)
 #################################
 	function DO_MOVE_TO_TRASH() {
 		if [ -e "$1" ]; then
-			TRASH_DIR=$(/usr/bin/sudo -u "$SUDO_USER" /usr/bin/mktemp -d "/var/folders/TemporaryItems/XXXXXXXX")
+			TRASH_DIR=$(/usr/bin/sudo -u "$SUDO_USER" /usr/bin/mktemp -d "/Users/$SUDO_USER/.Trash/DropBoxXXXXXX")
 			/usr/bin/sudo /bin/chmod 777 "$TRASH_DIR"
 			/usr/bin/sudo /bin/mv "$1" "$TRASH_DIR"
 			##削除
