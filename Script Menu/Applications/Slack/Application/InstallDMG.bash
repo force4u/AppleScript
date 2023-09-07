@@ -2,6 +2,11 @@
 #com.cocolog-nifty.quicktimer.icefloe
 #ユーザードメインにインストール
 
+########################################
+##実行パス
+SCRIPT_PATH="${BASH_SOURCE[0]}"
+/bin/echo "実行中のスクリプト"
+/bin/echo "\"$SCRIPT_PATH\""
 
 ########################################
 ##ローカルにインストールされたものをゴミ箱に
@@ -15,7 +20,6 @@ if [ -e "$CHK_APP_PATH" ]; then
 	/bin/echo "/usr/bin/sudo /bin/mv \"/Applications/Slack.app\" \"$HOME/.Trash\""
 	exit 1
 fi
-
 
 ########################################
 ##OS
@@ -41,20 +45,20 @@ USER_TEMP_DIR=$(/usr/bin/mktemp -d)
 
 ########################################
 ##デバイス
-USER_TEMP_DIR=$(/usr/bin/mktemp -d)
-/bin/echo "起動時に削除されるディレクトリ：" "$USER_TEMP_DIR"
 #起動ディスクの名前を取得する
 /usr/bin/touch "$USER_TEMP_DIR/diskutil.plist"
 /usr/sbin/diskutil info -plist / >"$USER_TEMP_DIR/diskutil.plist"
 STARTUPDISK_NAME=$(/usr/bin/defaults read "$USER_TEMP_DIR/diskutil.plist" VolumeName)
 /bin/echo "ボリューム名：" "$STARTUPDISK_NAME"
 
+STR_DEVICE_UUID=$(/usr/sbin/ioreg -c IOPlatformExpertDevice | grep IOPlatformUUID | awk -F'"' '{print $4}')
+/bin/echo "デバイスUUID: " "$STR_DEVICE_UUID"
+
 ############################################################
 ##基本メンテナンス
 ##ライブラリの不可視属性を解除
 /usr/bin/chflags nohidden "/Users/$CURRENT_USER/Library"
 /usr/bin/SetFile -a v "/Users/$CURRENT_USER/Library"
-
 ##　Managed Itemsフォルダを作る
 /bin/mkdir -p "/Users/$CURRENT_USER/Library/Managed Items"
 /bin/chmod 755 "/Users/$CURRENT_USER/Library/Managed Items"
@@ -62,56 +66,102 @@ STARTUPDISK_NAME=$(/usr/bin/defaults read "$USER_TEMP_DIR/diskutil.plist" Volume
 /usr/bin/touch "/Users/$CURRENT_USER/Library/Managed Items/.localized"
 
 ########################################
-###アクアセス権　修正
-STR_USER_DIR="/Users/$CURRENT_USER"
-
-LIST_SUB_DIR_NAME=("Desktop" "Developer" "Documents" "Downloads" "Groups" "Library" "Movies" "Music" "Pictures" "jpki" "bin" "Creative Cloud Files")
-
-for ITEM_DIR_NAME in "${LIST_SUB_DIR_NAME[@]}"; do
-	/bin/chmod 700 "$STR_USER_DIR/${ITEM_DIR_NAME}"
-done
-/bin/chmod 755 "$STR_USER_DIR/Public"
-/bin/chmod 755 "$STR_USER_DIR/Sites"
-/bin/chmod 755 "$STR_USER_DIR/Library/Caches"
+##　HOME
+########################################
+##	Developer
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Developer"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+##	bin
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/bin"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+##アクセス権チェック
+/bin/chmod 700 "/Users/$CURRENT_USER/Library"
+/bin/chmod 700 "/Users/$CURRENT_USER/Movies"
+/bin/chmod 700 /"Users/$CURRENT_USER/Music"
+/bin/chmod 700 "/Users/$CURRENT_USER/Pictures"
+/bin/chmod 700 "/Users/$CURRENT_USER/Downloads"
+/bin/chmod 700 "/Users/$CURRENT_USER/Documents"
+/bin/chmod 700 "/Users/$CURRENT_USER/Desktop"
+##全ローカルユーザーに対して実施したい処理があれば追加する
+/bin/echo "ユーザーディレクトリチェックDONE"
+########################################
+##	Public
+########################################
+/bin/chmod 755 "/Users/$CURRENT_USER/Public"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Drop Box"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 733 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf nobody "$STR_CHECK_DIR_PATH"
+##########
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Documents"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf admin "$STR_CHECK_DIR_PATH"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Downloads"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf admin "$STR_CHECK_DIR_PATH"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Favorites"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf admin "$STR_CHECK_DIR_PATH"
+##########
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Groups"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 770 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf staff "$STR_CHECK_DIR_PATH"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Shared"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 750 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf staff "$STR_CHECK_DIR_PATH"
+##########
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Guest"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 777 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf nobody "$STR_CHECK_DIR_PATH"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Shared Items"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 775 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf nobody "$STR_CHECK_DIR_PATH"
 
 ########################################
-##ユーザーアプリケーションフォルダを作る
-STR_USER_APP_DIR="/Users/$CURRENT_USER/Applications"
-/bin/mkdir -p "$STR_USER_APP_DIR"
-/bin/chmod 700 "$STR_USER_APP_DIR"
-/usr/bin/touch "$STR_USER_APP_DIR/.localized"
-
+##	Applications
 ########################################
-##サブフォルダを作る Applications
+##	Applications
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Applications"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+##サブフォルダを作る
 LIST_SUB_DIR_NAME=("Demos" "Desktop" "Developer" "Documents" "Downloads" "Favorites" "Groups" "Library" "Movies" "Music" "Pictures" "Public" "Shared" "Sites" "System" "Users" "Utilities")
-STR_USER_APP_DIR="/Users/$CURRENT_USER/Applications"
+##リストの数だけ処理
 for ITEM_DIR_NAME in "${LIST_SUB_DIR_NAME[@]}"; do
-	/bin/mkdir -p "$STR_USER_APP_DIR/${ITEM_DIR_NAME}"
-	/bin/chmod 755 "$STR_USER_APP_DIR/${ITEM_DIR_NAME}"
-	/usr/bin/touch "$STR_USER_APP_DIR/${ITEM_DIR_NAME}/.localized"
+	/bin/mkdir -p "$STR_CHECK_DIR_PATH/${ITEM_DIR_NAME}"
+	/bin/chmod 700 "$STR_CHECK_DIR_PATH/${ITEM_DIR_NAME}"
+	/usr/bin/touch "$STR_CHECK_DIR_PATH/${ITEM_DIR_NAME}/.localized"
 done
-########################################
-##サブフォルダを作る Public
-LIST_SUB_DIR_NAME=("Documents" "Groups" "Shared Items" "Shared" "Favorites" "Drop Box")
-STR_USER_PUB_DIR="/Users/$CURRENT_USER/Public"
-for ITEM_DIR_NAME in "${LIST_SUB_DIR_NAME[@]}"; do
-	/bin/mkdir -p "$STR_USER_PUB_DIR/${ITEM_DIR_NAME}"
-	/bin/chmod 755 "$STR_USER_PUB_DIR/${ITEM_DIR_NAME}"
-	/usr/bin/touch "$STR_USER_PUB_DIR/${ITEM_DIR_NAME}/.localized"
-done
-/bin/chmod 755 "$STR_USER_PUB_DIR/Documents"
-/bin/chmod 770 "$STR_USER_PUB_DIR/Groups"
-/bin/chmod 775 "$STR_USER_PUB_DIR/Shared Items"
-/bin/chmod 777 "$STR_USER_PUB_DIR/Shared"
-/bin/chmod 750 "$STR_USER_PUB_DIR/Favorites"
-/bin/chmod 733 "$STR_USER_PUB_DIR/Drop Box"
-
 ########################################
 ##シンボリックリンクを作る
 if [[ ! -e "/Users/$CURRENT_USER/Applications/Applications" ]]; then
 	/bin/ln -s "/Applications" "/Users/$CURRENT_USER/Applications/Applications"
 fi
-if [[ ! -e "/Users/$CURRENT_USER//Applications/Utilities/Finder Applications" ]]; then
+if [[ ! -e "/Users/$CURRENT_USER/Applications/Utilities/Finder Applications" ]]; then
 	/bin/ln -s "/System/Library/CoreServices/Finder.app/Contents/Applications" "/Users/$CURRENT_USER/Applications/Utilities/Finder Applications"
 fi
 if [[ ! -e "/Users/$CURRENT_USER/Applications/Utilities/Finder Libraries" ]]; then
@@ -122,9 +172,6 @@ if [[ ! -e "/Users/$CURRENT_USER/Applications/Utilities/System Applications" ]];
 fi
 if [[ ! -e "/Users/$CURRENT_USER/Applications/Utilities/System Utilities" ]]; then
 	/bin/ln -s "/Applications/Utilities" "/Users/$CURRENT_USER/Applications/Utilities/System Utilities"
-fi
-if [[ ! -e "/Users/$CURRENT_USER/Library/Managed Items/My Applications" ]]; then
-	/bin/ln -s "/Users/$CURRENT_USER/Applications" "/Users/$CURRENT_USER/Library/Managed Items/My Applications"
 fi
 
 ########################################
@@ -256,7 +303,6 @@ sleep 2
 sleep 2
 ###ディスクをアンマウント
 /usr/bin/hdiutil detach /Volumes/Slack -force
-
 
 ################################################
 ###設定項目
