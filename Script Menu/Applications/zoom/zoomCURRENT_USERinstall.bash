@@ -1,6 +1,12 @@
 #!/bin/bash
 #com.cocolog-nifty.quicktimer.icefloe
 #ユーザードメインにインストール
+########################################
+##実行パス
+SCRIPT_PATH="${BASH_SOURCE[0]}"
+/bin/echo "実行中のスクリプト"
+/bin/echo "\"$SCRIPT_PATH\""
+
 
 ########################################
 ##事前チェック
@@ -68,20 +74,18 @@ USER_TEMP_DIR=$(/usr/bin/mktemp -d)
 
 ########################################
 ##デバイス
-USER_TEMP_DIR=$(/usr/bin/mktemp -d)
-/bin/echo "起動時に削除されるディレクトリ：" "$USER_TEMP_DIR"
 #起動ディスクの名前を取得する
 /usr/bin/touch "$USER_TEMP_DIR/diskutil.plist"
 /usr/sbin/diskutil info -plist / >"$USER_TEMP_DIR/diskutil.plist"
 STARTUPDISK_NAME=$(/usr/bin/defaults read "$USER_TEMP_DIR/diskutil.plist" VolumeName)
 /bin/echo "ボリューム名：" "$STARTUPDISK_NAME"
-
+STR_DEVICE_UUID=$(/usr/sbin/ioreg -c IOPlatformExpertDevice | grep IOPlatformUUID | awk -F'"' '{print $4}')
+/bin/echo "デバイスUUID: " "$STR_DEVICE_UUID"
 ############################################################
 ##基本メンテナンス
 ##ライブラリの不可視属性を解除
 /usr/bin/chflags nohidden "/Users/$CURRENT_USER/Library"
 /usr/bin/SetFile -a v "/Users/$CURRENT_USER/Library"
-
 ##　Managed Itemsフォルダを作る
 /bin/mkdir -p "/Users/$CURRENT_USER/Library/Managed Items"
 /bin/chmod 755 "/Users/$CURRENT_USER/Library/Managed Items"
@@ -89,56 +93,102 @@ STARTUPDISK_NAME=$(/usr/bin/defaults read "$USER_TEMP_DIR/diskutil.plist" Volume
 /usr/bin/touch "/Users/$CURRENT_USER/Library/Managed Items/.localized"
 
 ########################################
-###アクアセス権　修正
-STR_USER_DIR="/Users/$CURRENT_USER"
-
-LIST_SUB_DIR_NAME=("Desktop" "Developer" "Documents" "Downloads" "Groups" "Library" "Movies" "Music" "Pictures" "jpki" "bin" "Creative Cloud Files")
-
-for ITEM_DIR_NAME in "${LIST_SUB_DIR_NAME[@]}"; do
-	/bin/chmod 700 "$STR_USER_DIR/${ITEM_DIR_NAME}"
-done
-/bin/chmod 755 "$STR_USER_DIR/Public"
-/bin/chmod 755 "$STR_USER_DIR/Sites"
-/bin/chmod 777 "$STR_USER_DIR/Library/Caches"
+##　HOME
+########################################
+##	Developer
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Developer"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+##	bin
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/bin"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+##アクセス権チェック
+/bin/chmod 700 "/Users/$CURRENT_USER/Library"
+/bin/chmod 700 "/Users/$CURRENT_USER/Movies"
+/bin/chmod 700 /"Users/$CURRENT_USER/Music"
+/bin/chmod 700 "/Users/$CURRENT_USER/Pictures"
+/bin/chmod 700 "/Users/$CURRENT_USER/Downloads"
+/bin/chmod 700 "/Users/$CURRENT_USER/Documents"
+/bin/chmod 700 "/Users/$CURRENT_USER/Desktop"
+##全ローカルユーザーに対して実施したい処理があれば追加する
+/bin/echo "ユーザーディレクトリチェックDONE"
+########################################
+##	Public
+########################################
+/bin/chmod 755 "/Users/$CURRENT_USER/Public"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Drop Box"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 733 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf nobody "$STR_CHECK_DIR_PATH"
+##########
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Documents"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf admin "$STR_CHECK_DIR_PATH"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Downloads"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf admin "$STR_CHECK_DIR_PATH"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Favorites"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf admin "$STR_CHECK_DIR_PATH"
+##########
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Groups"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 770 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf staff "$STR_CHECK_DIR_PATH"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Shared"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 750 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf staff "$STR_CHECK_DIR_PATH"
+##########
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Guest"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 777 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf nobody "$STR_CHECK_DIR_PATH"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Shared Items"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 775 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf nobody "$STR_CHECK_DIR_PATH"
 
 ########################################
-##ユーザーアプリケーションフォルダを作る
-STR_USER_APP_DIR="/Users/$CURRENT_USER/Applications"
-/bin/mkdir -p "$STR_USER_APP_DIR"
-/bin/chmod 700 "$STR_USER_APP_DIR"
-/usr/bin/touch "$STR_USER_APP_DIR/.localized"
-
+##	Applications
 ########################################
-##サブフォルダを作る Applications
+##	Applications
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Applications"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+##サブフォルダを作る
 LIST_SUB_DIR_NAME=("Demos" "Desktop" "Developer" "Documents" "Downloads" "Favorites" "Groups" "Library" "Movies" "Music" "Pictures" "Public" "Shared" "Sites" "System" "Users" "Utilities")
-STR_USER_APP_DIR="/Users/$CURRENT_USER/Applications"
+##リストの数だけ処理
 for ITEM_DIR_NAME in "${LIST_SUB_DIR_NAME[@]}"; do
-	/bin/mkdir -p "$STR_USER_APP_DIR/${ITEM_DIR_NAME}"
-	/bin/chmod 755 "$STR_USER_APP_DIR/${ITEM_DIR_NAME}"
-	/usr/bin/touch "$STR_USER_APP_DIR/${ITEM_DIR_NAME}/.localized"
+	/bin/mkdir -p "$STR_CHECK_DIR_PATH/${ITEM_DIR_NAME}"
+	/bin/chmod 700 "$STR_CHECK_DIR_PATH/${ITEM_DIR_NAME}"
+	/usr/bin/touch "$STR_CHECK_DIR_PATH/${ITEM_DIR_NAME}/.localized"
 done
-########################################
-##サブフォルダを作る Public
-LIST_SUB_DIR_NAME=("Documents" "Groups" "Shared Items" "Shared" "Favorites" "Drop Box")
-STR_USER_PUB_DIR="/Users/$CURRENT_USER/Public"
-for ITEM_DIR_NAME in "${LIST_SUB_DIR_NAME[@]}"; do
-	/bin/mkdir -p "$STR_USER_PUB_DIR/${ITEM_DIR_NAME}"
-	/bin/chmod 755 "$STR_USER_PUB_DIR/${ITEM_DIR_NAME}"
-	/usr/bin/touch "$STR_USER_PUB_DIR/${ITEM_DIR_NAME}/.localized"
-done
-/bin/chmod 755 "$STR_USER_PUB_DIR/Documents"
-/bin/chmod 770 "$STR_USER_PUB_DIR/Groups"
-/bin/chmod 775 "$STR_USER_PUB_DIR/Shared Items"
-/bin/chmod 777 "$STR_USER_PUB_DIR/Shared"
-/bin/chmod 750 "$STR_USER_PUB_DIR/Favorites"
-/bin/chmod 733 "$STR_USER_PUB_DIR/Drop Box"
-
 ########################################
 ##シンボリックリンクを作る
 if [[ ! -e "/Users/$CURRENT_USER/Applications/Applications" ]]; then
 	/bin/ln -s "/Applications" "/Users/$CURRENT_USER/Applications/Applications"
 fi
-if [[ ! -e "/Users/$CURRENT_USER//Applications/Utilities/Finder Applications" ]]; then
+if [[ ! -e "/Users/$CURRENT_USER/Applications/Utilities/Finder Applications" ]]; then
 	/bin/ln -s "/System/Library/CoreServices/Finder.app/Contents/Applications" "/Users/$CURRENT_USER/Applications/Utilities/Finder Applications"
 fi
 if [[ ! -e "/Users/$CURRENT_USER/Applications/Utilities/Finder Libraries" ]]; then
@@ -150,12 +200,41 @@ fi
 if [[ ! -e "/Users/$CURRENT_USER/Applications/Utilities/System Utilities" ]]; then
 	/bin/ln -s "/Applications/Utilities" "/Users/$CURRENT_USER/Applications/Utilities/System Utilities"
 fi
-if [[ ! -e "/Users/$CURRENT_USER/Library/Managed Items/My Applications" ]]; then
-	/bin/ln -s "/Users/$CURRENT_USER/Applications" "/Users/$CURRENT_USER/Library/Managed Items/My Applications"
-fi
+
 
 ##全ローカルユーザーに対して実施したい処理があれば追加する
 /bin/echo "ユーザーディレクトリチェックDONE"
+################################################
+###設定項目
+STR_BUNDLEID="us.zoom.xos"
+STR_APP_PATH="$HOME/Applications/zoom.us.app"
+###アプリケーション名を取得
+STR_APP_NAME=$(/usr/bin/defaults read "$STR_APP_PATH/Contents/Info.plist" CFBundleDisplayName)
+if [ -z "$STR_APP_NAME" ]; then
+	STR_APP_NAME=$(/usr/bin/defaults read "$STR_APP_PATH/Contents/Info.plist" CFBundleName)
+fi
+/bin/echo "アプリケーション名：$STR_APP_NAME"
+#######################################
+### DOCKに登録済みかゴミ箱に入れる前に調べておく
+##	Dockの登録数を調べる
+JSON_PERSISENT_APPS=$(/usr/bin/defaults read com.apple.dock persistent-apps)
+NUN_CNT_ITEM=$(/bin/echo "$JSON_PERSISENT_APPS" | grep -o "tile-data" | wc -l)
+/bin/echo "Dock登録数：$NUN_CNT_ITEM"
+##Dockの登録数だけ繰り返し
+NUM_CNT=0           #カウンタ初期化
+NUM_POSITION="NULL" #ポジション番号にNULL文字を入れる
+###対象のバンドルIDがDockに登録されているか順番に調べる
+while [ $NUM_CNT -lt "$NUN_CNT_ITEM" ]; do
+	##順番にバンドルIDを取得して
+	STR_CHK_BUNDLEID=$(/usr/libexec/PlistBuddy -c "Print:persistent-apps:$NUM_CNT:tile-data:bundle-identifier" "$HOME/Library/Preferences/com.apple.dock.plist")
+	##対象のバンドルIDだったら
+	if [ "$STR_CHK_BUNDLEID" = "$STR_BUNDLEID" ]; then
+		/bin/echo "DockのポジションNO: $NUM_CNT バンドルID：$STR_CHK_BUNDLEID"
+		##位置情報ポジションを記憶しておく
+		NUM_POSITION=$NUM_CNT
+	fi
+	NUM_CNT=$((NUM_CNT + 1))
+done
 
 #######################################
 ##	本処理　ダウンロードディレクトリ
@@ -257,39 +336,10 @@ else
 
 fi
 
-################################################
-###設定項目
-STR_BUNDLEID="us.zoom.xos"
-STR_APP_PATH="$HOME/Applications/zoom.us.app"
-###アプリケーション名を取得
-STR_APP_NAME=$(/usr/bin/defaults read "$STR_APP_PATH/Contents/Info.plist" CFBundleDisplayName)
-if [ -z "$STR_APP_NAME" ]; then
-	STR_APP_NAME=$(/usr/bin/defaults read "$STR_APP_PATH/Contents/Info.plist" CFBundleName)
-fi
-/bin/echo "アプリケーション名：$STR_APP_NAME"
-################################################
-### DOCKに登録済みかゴミ箱に入れる前に調べておく
-##Dockの登録数を調べる
-JSON_PERSISENT_APPS=$(/usr/bin/defaults read com.apple.dock persistent-apps)
-NUN_CNT_ITEM=$(/bin/echo "$JSON_PERSISENT_APPS" | grep -o "tile-data" | wc -l)
-/bin/echo "Dock登録数：$NUN_CNT_ITEM"
-##Dockの登録数だけ繰り返し
-NUM_CNT=0           #カウンタ初期化
-NUM_POSITION="NULL" #ポジション番号にNULL文字を入れる
-###対象のバンドルIDがDockに登録されているか順番に調べる
-while [ $NUM_CNT -lt "$NUN_CNT_ITEM" ]; do
-	##順番にバンドルIDを取得して
-	STR_CHK_BUNDLEID=$(/usr/libexec/PlistBuddy -c "Print:persistent-apps:$NUM_CNT:tile-data:bundle-identifier" "$HOME/Library/Preferences/com.apple.dock.plist")
-	##対象のバンドルIDだったら
-	if [ "$STR_CHK_BUNDLEID" = "$STR_BUNDLEID" ]; then
-		/bin/echo "DockのポジションNO: $NUM_CNT バンドルID：$STR_CHK_BUNDLEID"
-		##位置情報ポジションを記憶しておく
-		NUM_POSITION=$NUM_CNT
-	fi
-	NUM_CNT=$((NUM_CNT + 1))
-done
 
+#######################################
 ##結果　対象のバンドルIDが無ければ
+	/bin/echo "DockのポジションNO: $NUM_POSITION"
 if [ "$NUM_POSITION" = "NULL" ]; then
 	/bin/echo "Dockに未登録です"
 	PLIST_DICT="<dict><key>tile-data</key><dict><key>file-data</key><dict><key>_CFURLString</key><string>$STR_APP_PATH</string><key>_CFURLStringType</key><integer>0</integer></dict></dict></dict>"
@@ -298,10 +348,11 @@ else
 	##すでに登録済みの場合は一旦削除
 	/bin/echo "Dockの$NUM_POSITION に登録済み　削除してから同じ場所に登録しなおします"
 	##削除して
-	/usr/libexec/PlistBuddy -c "Delete:persistent-apps:$NUM_POSITION" "$HOME/Library/Preferences/com.apple.dock.plist"
+##/usr/libexec/PlistBuddy -c "Delete:persistent-apps:$NUM_POSITION" "$HOME/Library/Preferences/com.apple.dock.plist"
 	##保存
-	/usr/libexec/PlistBuddy -c "Save" "$HOME/Library/Preferences/com.apple.dock.plist"
+##/usr/libexec/PlistBuddy -c "Save" "$HOME/Library/Preferences/com.apple.dock.plist"
 	###同じ内容を作成する
+##/usr/libexec/PlistBuddy -c "Revert" "$HOME/Library/Preferences/com.apple.dock.plist"
 	/usr/libexec/PlistBuddy -c "add:persistent-apps:$NUM_POSITION dict" "$HOME/Library/Preferences/com.apple.dock.plist"
 	/usr/libexec/PlistBuddy -c "add:persistent-apps:$NUM_POSITION:GUID integer $RANDOM$RANDOM" "$HOME/Library/Preferences/com.apple.dock.plist"
 	## 想定値 file-tile directory-tile
@@ -325,6 +376,9 @@ else
 	##保存
 	/usr/libexec/PlistBuddy -c "Save" "$HOME/Library/Preferences/com.apple.dock.plist"
 fi
+/usr/bin/killall "cfprefsd"
+
+sleep 1
 ###
 /bin/echo "処理終了 DOCKを再起動します"
 /usr/bin/killall "Dock"
