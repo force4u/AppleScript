@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>defaultBorder</key>
+	<integer>0</integer>
+	<key>defaultImageHigh</key>
+	<integer>415</integer>
+	<key>defaultImageWide</key>
+	<integer>290</integer>
+	<key>dontOpenPDF</key>
+	<integer>0</integer>
+	<key>imagesGetCropped</key>
+	<integer>1</integer>
+	<key>layoutName</key>
+	<string>A3横8up</string>
+	<key>pageHeight</key>
+	<integer>842</integer>
+	<key>pageWidth</key>
+	<integer>1191</integer>
+	<key>screenRes</key>
+	<integer>0</integer>
+	<key>showsUI</key>
+	<integer>0</integer>
+	<key>version</key>
+	<integer>2</integer>
+</dict>
+</plist>
