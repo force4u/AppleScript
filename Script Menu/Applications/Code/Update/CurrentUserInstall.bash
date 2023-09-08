@@ -1,6 +1,12 @@
 #!/bin/bash
 #com.cocolog-nifty.quicktimer.icefloe
 #ユーザードメインにインストール
+
+########################################
+##実行パス
+SCRIPT_PATH="${BASH_SOURCE[0]}"
+/bin/echo "実行中のスクリプト"
+/bin/echo "\"$SCRIPT_PATH\""
 ########################################
 ##OS
 PLIST_PATH="/System/Library/CoreServices/SystemVersion.plist"
@@ -10,34 +16,44 @@ STR_MAJOR_VERSION="${STR_OS_VER%%.*}"
 /bin/echo "STR_MAJOR_VERSION ：" "$STR_MAJOR_VERSION"
 STR_MINOR_VERSION="${STR_OS_VER#*.}"
 /bin/echo "STR_MINOR_VERSION ：" "$STR_MINOR_VERSION"
-#	STR_MAJOR_VERSION=$(/usr/bin/sw_vers -productVersion | /usr/bin/cut -d '.' -f 1,1)
-#	STR_MINOR_VERSION=$(/usr/bin/sw_vers -productVersion | /usr/bin/cut -d '.' -f 2,2)
 
 ########################################
 ##ユーザー
 USER_WHOAMI=$(/usr/bin/whoami)
 /bin/echo "実行したユーザーは：$USER_WHOAMI"
 CURRENT_USER=$(/bin/echo "$HOME" | /usr/bin/awk -F'/' '{print $NF}')
-/bin/echo "実行中ユーザー：" "$CURRENT_USER"
-
-########################################
-###ダウンロード起動時に削除する項目
-USER_TEMP_DIR=$(/usr/bin/mktemp -d)
-/bin/echo "起動時に削除されるディレクトリ：" "$USER_TEMP_DIR"
+/bin/echo "実行ユーザー：" "$CURRENT_USER"
 
 ########################################
 ##デバイス
-USER_TEMP_DIR=$(/usr/bin/mktemp -d)
-/bin/echo "起動時に削除されるディレクトリ：" "$USER_TEMP_DIR"
 #起動ディスクの名前を取得する
 /usr/bin/touch "$USER_TEMP_DIR/diskutil.plist"
 /usr/sbin/diskutil info -plist / >"$USER_TEMP_DIR/diskutil.plist"
 STARTUPDISK_NAME=$(/usr/bin/defaults read "$USER_TEMP_DIR/diskutil.plist" VolumeName)
 /bin/echo "ボリューム名：" "$STARTUPDISK_NAME"
 
+STR_DEVICE_UUID=$(/usr/sbin/ioreg -c IOPlatformExpertDevice | grep IOPlatformUUID | awk -F'"' '{print $4}')
+/bin/echo "デバイスUUID: " "$STR_DEVICE_UUID"
 
 ########################################
 ###ダウンロード起動時に削除する項目
+USER_TEMP_DIR=$(/usr/bin/mktemp -d)
+/bin/echo "起動時に削除されるディレクトリ：" "$USER_TEMP_DIR"
+
+
+########################################
+## RSSから最新のバージョンを取得する
+STR_RSS_URL="https://code.visualstudio.com/feed.xml"
+XML_RSS_DATA=$(/usr/bin/curl -s "$STR_RSS_URL" | /usr/bin/xmllint --format -)
+STR_UPDATE_URL=$(echo "$XML_RSS_DATA" | /usr/bin/xmllint --xpath "///text()" -| /usr/bin/grep "updates/v" | /usr/bin/grep -v "href")
+#STR_TITLE=$(echo "$XML_RSS_DATA" | /usr/bin/xmllint --xpath "//entry/id/text()" -)
+IFS=$'\n' read -r -d '' -a LIST_URL <<<"$STR_UPDATE_URL"
+for ITEM_URL in "${LIST_URL[@]}"; do
+  /bin/echo "$ITEM_URL"
+done
+STR_NEWER_VER="${LIST_URL[0]}"
+/bin/echo "$STR_NEWER_VER"
+
 
 ###CPUタイプでの分岐
 ARCHITEC=$(/usr/bin/arch)
@@ -99,7 +115,6 @@ fi
 ##ライブラリの不可視属性を解除
 /usr/bin/chflags nohidden "/Users/$CURRENT_USER/Library"
 /usr/bin/SetFile -a v "/Users/$CURRENT_USER/Library"
-
 ##　Managed Itemsフォルダを作る
 /bin/mkdir -p "/Users/$CURRENT_USER/Library/Managed Items"
 /bin/chmod 755 "/Users/$CURRENT_USER/Library/Managed Items"
@@ -107,56 +122,102 @@ fi
 /usr/bin/touch "/Users/$CURRENT_USER/Library/Managed Items/.localized"
 
 ########################################
-###アクアセス権　修正
-STR_USER_DIR="/Users/$CURRENT_USER"
-
-LIST_SUB_DIR_NAME=("Desktop" "Developer" "Documents" "Downloads" "Groups" "Library" "Movies" "Music" "Pictures" "jpki" "bin" "Creative Cloud Files")
-
-for ITEM_DIR_NAME in "${LIST_SUB_DIR_NAME[@]}"; do
-	/bin/chmod 700 "$STR_USER_DIR/${ITEM_DIR_NAME}"
-done
-/bin/chmod 755 "$STR_USER_DIR/Public"
-/bin/chmod 755 "$STR_USER_DIR/Sites"
-/bin/chmod 755 "$STR_USER_DIR/Library/Caches"
+##　HOME
+########################################
+##	Developer
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Developer"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+##	bin
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/bin"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+##アクセス権チェック
+/bin/chmod 700 "/Users/$CURRENT_USER/Library"
+/bin/chmod 700 "/Users/$CURRENT_USER/Movies"
+/bin/chmod 700 /"Users/$CURRENT_USER/Music"
+/bin/chmod 700 "/Users/$CURRENT_USER/Pictures"
+/bin/chmod 700 "/Users/$CURRENT_USER/Downloads"
+/bin/chmod 700 "/Users/$CURRENT_USER/Documents"
+/bin/chmod 700 "/Users/$CURRENT_USER/Desktop"
+##全ローカルユーザーに対して実施したい処理があれば追加する
+/bin/echo "ユーザーディレクトリチェックDONE"
+########################################
+##	Public
+########################################
+/bin/chmod 755 "/Users/$CURRENT_USER/Public"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Drop Box"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 733 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf nobody "$STR_CHECK_DIR_PATH"
+##########
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Documents"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf admin "$STR_CHECK_DIR_PATH"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Downloads"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf admin "$STR_CHECK_DIR_PATH"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Favorites"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf admin "$STR_CHECK_DIR_PATH"
+##########
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Groups"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 770 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf staff "$STR_CHECK_DIR_PATH"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Shared"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 750 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf staff "$STR_CHECK_DIR_PATH"
+##########
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Guest"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 777 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf nobody "$STR_CHECK_DIR_PATH"
+##
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Public/Shared Items"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 775 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+/usr/bin/chgrp -Rf nobody "$STR_CHECK_DIR_PATH"
 
 ########################################
-##ユーザーアプリケーションフォルダを作る
-STR_USER_APP_DIR="/Users/$CURRENT_USER/Applications"
-/bin/mkdir -p "$STR_USER_APP_DIR"
-/bin/chmod 700 "$STR_USER_APP_DIR"
-/usr/bin/touch "$STR_USER_APP_DIR/.localized"
-
+##	Applications
 ########################################
-##サブフォルダを作る Applications
+##	Applications
+STR_CHECK_DIR_PATH="/Users/$CURRENT_USER/Applications"
+/bin/mkdir -p "$STR_CHECK_DIR_PATH"
+/bin/chmod 700 "$STR_CHECK_DIR_PATH"
+/usr/bin/touch "$STR_CHECK_DIR_PATH/.localized"
+##サブフォルダを作る
 LIST_SUB_DIR_NAME=("Demos" "Desktop" "Developer" "Documents" "Downloads" "Favorites" "Groups" "Library" "Movies" "Music" "Pictures" "Public" "Shared" "Sites" "System" "Users" "Utilities")
-STR_USER_APP_DIR="/Users/$CURRENT_USER/Applications"
+##リストの数だけ処理
 for ITEM_DIR_NAME in "${LIST_SUB_DIR_NAME[@]}"; do
-	/bin/mkdir -p "$STR_USER_APP_DIR/${ITEM_DIR_NAME}"
-	/bin/chmod 755 "$STR_USER_APP_DIR/${ITEM_DIR_NAME}"
-	/usr/bin/touch "$STR_USER_APP_DIR/${ITEM_DIR_NAME}/.localized"
+	/bin/mkdir -p "$STR_CHECK_DIR_PATH/${ITEM_DIR_NAME}"
+	/bin/chmod 700 "$STR_CHECK_DIR_PATH/${ITEM_DIR_NAME}"
+	/usr/bin/touch "$STR_CHECK_DIR_PATH/${ITEM_DIR_NAME}/.localized"
 done
-########################################
-##サブフォルダを作る Public
-LIST_SUB_DIR_NAME=("Documents" "Groups" "Shared Items" "Shared" "Favorites" "Drop Box")
-STR_USER_PUB_DIR="/Users/$CURRENT_USER/Public"
-for ITEM_DIR_NAME in "${LIST_SUB_DIR_NAME[@]}"; do
-	/bin/mkdir -p "$STR_USER_PUB_DIR/${ITEM_DIR_NAME}"
-	/bin/chmod 755 "$STR_USER_PUB_DIR/${ITEM_DIR_NAME}"
-	/usr/bin/touch "$STR_USER_PUB_DIR/${ITEM_DIR_NAME}/.localized"
-done
-/bin/chmod 755 "$STR_USER_PUB_DIR/Documents"
-/bin/chmod 770 "$STR_USER_PUB_DIR/Groups"
-/bin/chmod 775 "$STR_USER_PUB_DIR/Shared Items"
-/bin/chmod 777 "$STR_USER_PUB_DIR/Shared"
-/bin/chmod 750 "$STR_USER_PUB_DIR/Favorites"
-/bin/chmod 733 "$STR_USER_PUB_DIR/Drop Box"
-
 ########################################
 ##シンボリックリンクを作る
 if [[ ! -e "/Users/$CURRENT_USER/Applications/Applications" ]]; then
 	/bin/ln -s "/Applications" "/Users/$CURRENT_USER/Applications/Applications"
 fi
-if [[ ! -e "/Users/$CURRENT_USER//Applications/Utilities/Finder Applications" ]]; then
+if [[ ! -e "/Users/$CURRENT_USER/Applications/Utilities/Finder Applications" ]]; then
 	/bin/ln -s "/System/Library/CoreServices/Finder.app/Contents/Applications" "/Users/$CURRENT_USER/Applications/Utilities/Finder Applications"
 fi
 if [[ ! -e "/Users/$CURRENT_USER/Applications/Utilities/Finder Libraries" ]]; then
@@ -167,9 +228,6 @@ if [[ ! -e "/Users/$CURRENT_USER/Applications/Utilities/System Applications" ]];
 fi
 if [[ ! -e "/Users/$CURRENT_USER/Applications/Utilities/System Utilities" ]]; then
 	/bin/ln -s "/Applications/Utilities" "/Users/$CURRENT_USER/Applications/Utilities/System Utilities"
-fi
-if [[ ! -e "/Users/$CURRENT_USER/Library/Managed Items/My Applications" ]]; then
-	/bin/ln -s "/Users/$CURRENT_USER/Applications" "/Users/$CURRENT_USER/Library/Managed Items/My Applications"
 fi
 ##全ローカルユーザーに対して実施したい処理があれば追加する
 /bin/echo "ユーザーディレクトリチェックDONE"
@@ -228,16 +286,14 @@ DO_MOVE_TO_TRASH_T "$TEMP_DIR_T/Visual Studio Code Helper (Renderer)"
 DO_MOVE_TO_TRASH_T "$TEMP_DIR_T/Visual Studio Code Helper-(GPU)"
 DO_MOVE_TO_TRASH_T "$TEMP_DIR_T/Visual Studio Code Helper-(Renderer)"
 
-
-
 # ディレクトリを再帰的に検索し、パターンに一致するものを処理する
 TMP_T_TYPESCRIPT_DIR=$(/bin/ls "$TEMP_DIR_T" | /usr/bin/grep "vscode-typescript")
 IFS=$'\n'
 read -d '\n' -r -a LIST_TYPESCRIPT_DIR <<<"$TMP_T_TYPESCRIPT_DIR"
 IFS=''
 for ITEM_LIST_TYPESCRIPT_DIR in "${LIST_TYPESCRIPT_DIR[@]}"; do
-  /bin/echo "$ITEM_LIST_TYPESCRIPT_DIR"
-  /bin/mv "$TEMP_DIR_T/$ITEM_LIST_TYPESCRIPT_DIR" "$TRASH_DIR"
+	/bin/echo "$ITEM_LIST_TYPESCRIPT_DIR"
+	/bin/mv "$TEMP_DIR_T/$ITEM_LIST_TYPESCRIPT_DIR" "$TRASH_DIR"
 done
 
 # ディレクトリを再帰的に検索し、パターンに一致するものを処理する
@@ -246,13 +302,9 @@ IFS=$'\n'
 read -d '\n' -r -a LIST_TYPESCRIPT_DIR <<<"$TMP_T_TYPESCRIPT_DIR"
 IFS=''
 for ITEM_LIST_TYPESCRIPT_DIR in "${LIST_TYPESCRIPT_DIR[@]}"; do
-  /bin/echo "$ITEM_LIST_TYPESCRIPT_DIR"
-  /bin/mv "$TEMP_DIR_T/$ITEM_LIST_TYPESCRIPT_DIR" "$TRASH_DIR"
+	/bin/echo "$ITEM_LIST_TYPESCRIPT_DIR"
+	/bin/mv "$TEMP_DIR_T/$ITEM_LIST_TYPESCRIPT_DIR" "$TRASH_DIR"
 done
-
-
-
-
 
 /bin/echo "ユーザーキャッシュT DONE"
 
@@ -323,7 +375,7 @@ else
 	###同じ内容を作成する
 	/usr/libexec/PlistBuddy -c "add:persistent-apps:$NUM_POSITION dict" "$HOME/Library/Preferences/com.apple.dock.plist"
 	/usr/libexec/PlistBuddy -c "add:persistent-apps:$NUM_POSITION:GUID integer $RANDOM$RANDOM" "$HOME/Library/Preferences/com.apple.dock.plist"
-	## 想定値 file-tile directory-tile 
+	## 想定値 file-tile directory-tile
 	/usr/libexec/PlistBuddy -c "add:persistent-apps:$NUM_POSITION:tile-type string file-tile" "$HOME/Library/Preferences/com.apple.dock.plist"
 	###↑この親Dictに子要素としてtile-dataをDictで追加
 	/usr/libexec/PlistBuddy -c "add:persistent-apps:$NUM_POSITION:tile-data dict" "$HOME/Library/Preferences/com.apple.dock.plist"
@@ -341,7 +393,7 @@ else
 	###値を入れていく
 	/usr/libexec/PlistBuddy -c "add:persistent-apps:$NUM_POSITION:tile-data:file-data:_CFURLStringType integer 15" "$HOME/Library/Preferences/com.apple.dock.plist"
 	/usr/libexec/PlistBuddy -c "add:persistent-apps:$NUM_POSITION:tile-data:file-data:_CFURLString string file://$STR_APP_PATH" "$HOME/Library/Preferences/com.apple.dock.plist"
-##保存
+	##保存
 	/usr/libexec/PlistBuddy -c "Save" "$HOME/Library/Preferences/com.apple.dock.plist"
 fi
 ###
