@@ -54,7 +54,7 @@ on error
 	log "エラーしました"
 	return "エラーしました"
 end try
-if listResponse is false then
+if (item 1 of listResponse) is false then
 	return "キャンセルしました"
 end if
 set strResponse to (item 1 of listResponse) as text
