@@ -9,6 +9,7 @@
 ##自分環境がos12なので2.8にしているだけです
 use AppleScript version "2.8"
 use framework "Foundation"
+use framework "AppKIt"
 use scripting additions
 
 property refMe : a reference to current application
