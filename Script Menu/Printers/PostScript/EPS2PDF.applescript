@@ -10,6 +10,20 @@ use scripting additions
 property refMe : a reference to current application
 
 
+#######
+###
+(*　pstopdfは
+初回実行時に時間がかかる事から
+事前に起動時に削除される形式で実行しておく
+*)
+set strInputPath to ("/System/Library/Frameworks/Tk.framework/Versions/8.5/Resources/Scripts/images/logo.eps") as text
+set strOutPutPath to ("/tmp/logo.eps.pdf") as text
+####コマンドパス	
+set strBinPath to "/usr/bin/pstopdf"
+#####コマンド整形
+set strCommandText to ("\"" & strBinPath & "\"  \"" & strInputPath & "\" -o \"" & strOutPutPath & "\"") as text
+do shell script strCommandText
+
 #############################
 #####ファイル選択ダイアログ
 #############################
