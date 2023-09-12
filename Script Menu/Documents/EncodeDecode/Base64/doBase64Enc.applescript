@@ -106,7 +106,7 @@ if button returned of recordResult is "クリップボードにコピー" then
 end if
 
 ################################
-######
+######エンコード
 ################################
 
 on doEncodeBase64(argText)
