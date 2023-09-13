@@ -8,10 +8,9 @@ USER_WHOAMI=$(/usr/bin/whoami)
 if [ "$USER_WHOAMI" != "root" ]; then
   /bin/echo "このスクリプトを実行するには管理者権限が必要です。"
   /bin/echo "sudo で実行してください"
-  ### path to me
+  ### path to me (VS CODEコンソールだと文字化けする)
 	SCRIPT_PATH="${(%):-%N}"
 	##SCRIPT_CONTEINER_DIR_PATH=$(print -r -- ${(%)PWD})
-
   /bin/echo "/usr/bin/sudo \"$SCRIPT_PATH\""
   /bin/echo "↑を実行してください"
   exit 1
@@ -60,8 +59,8 @@ fi
 ###
 STR_VERSION=$(/bin/echo "$STR_ARMMF_VERSION" | /usr/bin/tr -d '.')
 /bin/echo "識別番号: $STR_VERSION"
-STR_DC_URL="https://ardownload2.adobe.com/pub/adobe/acrobat/mac/AcrobatDC/"$STR_VERSION"/AcrobatDCUpd"$STR_VERSIO"N.dmg"
-STR_RD_URL="https://ardownload2.adobe.com/pub/adobe/reader/mac/AcrobatDC/"$STR_VERSION"/AcroRdrDCUpd"$STR_VERSION"_MUI.dmg"
+STR_DC_URL="https://ardownload2.adobe.com/pub/adobe/acrobat/mac/AcrobatDC/$STR_VERSION/AcrobatDCUpd"$STR_VERSION".dmg"
+STR_RD_URL="https://ardownload2.adobe.com/pub/adobe/reader/mac/AcrobatDC/$STR_VERSION/AcroRdrDCUpd"$STR_VERSION"_MUI.dmg"
 //bin/echo $STR_DC_URL
 //bin/echo $STR_RD_URL
 
