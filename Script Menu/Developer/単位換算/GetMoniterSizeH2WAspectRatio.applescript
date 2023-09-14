@@ -134,7 +134,7 @@ repeat with itemAllKeys in ocidAllKeys
 	set numRealW to ((strResponse * numRatioW) / numRatioH) as integer
 	#	log numRealW
 	set strAspectRatio to (numRatioW & "x" & numRatioH) as text
-	set strHTML to (strHTML & "<tr><td title=€"‘ã•\“I‚ÈŒÄÌ€">" & strAllKeys & "</td><td title=€"Aspect Ratio€">" & strAspectRatio & "</td><td title=€"‰¡€">" & numRealW & "</td><td title=€"c€">" & strResponse & "</td></tr>") as text
+	set strHTML to (strHTML & "<tr><th title=€"‘ã•\“I‚ÈŒÄÌ€"  scope=€"row€">" & strAllKeys & "</th><td title=€"Aspect Ratio€">" & strAspectRatio & "</td><td title=€"‰¡€">" & numRealW & "</td><td title=€"c€">" & strResponse & "</td></tr>") as text
 end repeat
 
 set strHTML to (strHTML & "</tbody><tfoot></tfoot></table></div>") as text
