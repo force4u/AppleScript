@@ -27,8 +27,7 @@ set aliasHomeDir to path to home folder from user domain as alias
 set strHomeDirPath to POSIX path of aliasHomeDir as text
 
 
-set theCommandText to ("/bin/mkdir -pm 700  \"" & strHomeDirPath & "bin/ffmpeg.6.0\"") as text
-do shell script theCommandText
+
 
 set theCommandText to ("/bin/mkdir -pm 700  \"/tmp/" & theDate & "\"") as text
 do shell script theCommandText
@@ -44,17 +43,55 @@ do shell script theCommandText
 set theCommandText to ("/usr/bin/curl -L -o    \"/tmp/" & theDate & "/ffplay.zip\" \"" & strFfplayURL & "\" --connect-timeout 20") as text
 do shell script theCommandText
 
+set theCommandText to ("/bin/mkdir -p  \"" & strHomeDirPath & "bin/ffmpeg.6\"") as text
+do shell script theCommandText
+
+set theCommandText to ("/bin/chmod 700  \"" & strHomeDirPath & "bin/ffmpeg.6\"") as text
+do shell script theCommandText
+
 try
-	set theCommandText to ("/usr/bin/unzip    \"/tmp/" & theDate & "/ffmpeg.zip\" -d $HOME/bin/ffmpeg.6.0") as text
+	set theCommandText to ("/usr/bin/touch $HOME/bin/ffmpeg.6/ffmpeg") as text
+	do shell script theCommandText
+	set theCommandText to ("/bin/rm -f $HOME/bin/ffmpeg.6/ffmpeg") as text
+	do shell script theCommandText
+	set theCommandText to ("/usr/bin/unzip    \"/tmp/" & theDate & "/ffmpeg.zip\" -d $HOME/bin/ffmpeg.6") as text
 	do shell script theCommandText
 end try
 try
-	set theCommandText to ("/usr/bin/unzip    \"/tmp/" & theDate & "/ffprobe.zip\" -d $HOME/bin/ffmpeg.6.0") as text
+	set theCommandText to ("/usr/bin/touch $HOME/bin/ffmpeg.6/ffprobe") as text
+	do shell script theCommandText
+	set theCommandText to ("/bin/rm -f $HOME/bin/ffmpeg.6/ffprobe") as text
+	do shell script theCommandText
+	set theCommandText to ("/usr/bin/unzip    \"/tmp/" & theDate & "/ffprobe.zip\" -d $HOME/bin/ffmpeg.6") as text
 	do shell script theCommandText
 end try
 try
-	set theCommandText to ("/usr/bin/unzip    \"/tmp/" & theDate & "/ffplay.zip\" -d $HOME/bin/ffmpeg.6.0") as text
+	set theCommandText to ("/usr/bin/touch $HOME/bin/ffmpeg.6/ffplay") as text
+	do shell script theCommandText
+	set theCommandText to ("/bin/rm -f $HOME/bin/ffmpeg.6/ffplay") as text
+	do shell script theCommandText
+	set theCommandText to ("/usr/bin/unzip    \"/tmp/" & theDate & "/ffplay.zip\" -d $HOME/bin/ffmpeg.6") as text
 	do shell script theCommandText
 end try
+
+
+### $HOME/bin/ffmpeg にシンボリックリンク
+
+try
+	set theCommandText to ("/bin/rm -f  $HOME/bin/ffmpeg") as text
+	do shell script theCommandText
+end try
+
+
+try
+	set theCommandText to ("/bin/ln -s $HOME/bin/ffmpeg.6 $HOME/bin/ffmpeg") as text
+	do shell script theCommandText
+end try
+set strBinDir to (do shell script "/bin/echo $HOME/bin/ffmpeg") as text
+set aliasDirPath to (POSIX file strBinDir) as alias
+tell application "Finder"
+	
+	open aliasDirPath
+end tell
 
 return
