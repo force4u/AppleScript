@@ -74,7 +74,7 @@ done
 ########################################
 ###アクアセス権　修正
 STR_USER_DIR="/Users/$CONSOLE_USER"
-LIST_SUB_DIR_NAME=("Desktop" "Developer" "Documents" "Downloads" "Groups" "Library" "Movies" "Music" "Pictures" "jpki" "bin" "Creative Cloud Files")
+LIST_SUB_DIR_NAME=("Desktop" "Developer" "Documents" "Downloads" "Library" "Movies" "Music" "Pictures" "jpki" "bin" "Creative Cloud Files")
 ###LIST_SUB_DIR_NAMEリストの数だけ繰り返し
 for ITEM_DIR_NAME in "${LIST_SUB_DIR_NAME[@]}"; do
 	/bin/chmod 700 "$STR_USER_DIR/${ITEM_DIR_NAME}"
@@ -173,4 +173,7 @@ sleep 2
 /usr/bin/ditto "$USER_TEMP_DIR/usr/local/bin" "/Users/$CONSOLE_USER/bin/exiftool"
 ####終了
 /bin/echo "インストール終了:" "$CONSOLE_USER"
+
+STR_DONE_VER=$("/Users/$CONSOLE_USER/bin/exiftool/exiftool" -ver)
+/bin/echo "INSTALL-VERSION:$STR_DONE_VER"
 exit 0
