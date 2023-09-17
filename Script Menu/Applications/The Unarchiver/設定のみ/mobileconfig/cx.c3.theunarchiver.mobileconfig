@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>PayloadContent</key>
+		<array>
+			<dict>
+				<key>OnboardingUserViewedWelcomeSlide</key>
+				<true />
+				<key>SUEnableAutomaticChecks</key>
+				<true />
+				<key>userAgreedToNewTOSAndPrivacy</key>
+				<true />
+				<key>createFolder</key>
+				<integer>2</integer>
+				<key>extractionDestination</key>
+				<integer>1</integer>
+				<key>folderModifiedDate</key>
+				<integer>2</integer>
+				<key>LaunchCount</key>
+				<integer>0</integer>
+				<key>filenameEncoding</key>
+				<integer>8</integer>
+				<key>TUConfigInformationBannerViewedCount</key>
+				<integer>0</integer>
+				<key>isFreshInstall</key>
+				<true />
+				<key>TUConfigInformationBannerOpened</key>
+				<true />
+				<key>deleteExtractedArchive</key>
+				<true />
+				<key>openExtractedFolder</key>
+				<true />
+				<key>deleteExtractedArchive</key>
+				<true />
+				<key>PayloadDisplayName</key>
+				<string>The Unarchiver (Mac App Store)</string>
+				<key>PayloadIdentifier</key>
+				<string>cx.c3.theunarchiver.74560DE9-DCDC-4055-AE56-840FA33522E3</string>
+				<key>PayloadType</key>
+				<string>cx.c3.theunarchiver</string>
+				<key>PayloadUUID</key>
+				<string>74560DE9-DCDC-4055-AE56-840FA33522E3</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+			</dict>
+			<dict>
+			<key>PayloadDisplayName</key>
+			<string>The Unarchiver (Standalone)</string>
+			<key>PayloadIdentifier</key>
+			<string>com.macpaw.site.theunarchiver.43802191-3549-415C-A3B0-DF617CB41B00</string>
+			<key>PayloadType</key>
+			<string>com.macpaw.site.theunarchiver</string>
+			<key>PayloadUUID</key>
+			<string>43802191-3549-415C-A3B0-DF617CB41B00</string>
+			<key>PayloadVersion</key>
+			<integer>1</integer>
+			<key>OnboardingUserViewedWelcomeSlide</key>
+			<true />
+			<key>SUEnableAutomaticChecks</key>
+			<true />
+			<key>userAgreedToNewTOSAndPrivacy</key>
+			<true />
+			<key>createFolder</key>
+			<integer>2</integer>
+			<key>extractionDestination</key>
+			<integer>1</integer>
+			<key>folderModifiedDate</key>
+			<integer>2</integer>
+			<key>LaunchCount</key>
+			<integer>0</integer>
+			<key>filenameEncoding</key>
+			<integer>8</integer>
+			<key>TUConfigInformationBannerViewedCount</key>
+			<integer>0</integer>
+			<key>isFreshInstall</key>
+			<true />
+			<key>TUConfigInformationBannerOpened</key>
+			<true />
+			<key>deleteExtractedArchive</key>
+			<true />
+			<key>openExtractedFolder</key>
+			<true />
+			<key>deleteExtractedArchive</key>
+			<true />
+		</dict>
+		</array>
+		<key>ConsentText</key>
+		<dict>
+			<key>default</key>
+			<string>Unarchiver初期設定</string>
+		</dict>
+		<key>PayloadDescription</key>
+		<string>Unarchiver Preferences</string>
+		<key>PayloadDisplayName</key>
+		<string>Unarchiver Preferences</string>
+		<key>PayloadIdentifier</key>
+		<string>com.cocolog-nifty.quicktimer.AD3DB6E5-C921-4D41-80E0-975CF1182919</string>
+		<key>PayloadOrganization</key>
+		<string>com.cocolog-nifty.quicktimer</string>
+		<key>PayloadScope</key>
+		<string>User</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>4BC0B8BD-DB2A-44AE-B5F0-DB44F73129D4</string>
+		<key>PayloadVersion</key>
+		<integer>1</integer>
+		<key>TargetDeviceType</key>
+		<integer>5</integer>
+	</dict>
+</plist>
