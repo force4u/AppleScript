@@ -15,11 +15,11 @@ property refMe : a reference to current application
 set strBundleID to ("com.adobe.photodownloader") as text
 
 ###################################
-#####èµ·å‹•
+#####‹N“®
 set ocidRunAppArray to refMe's NSRunningApplication's runningApplicationsWithBundleIdentifier:(strBundleID)
-if (count of ocidRunAppArray) â‰  0 then
+if (count of ocidRunAppArray) ‚ 0 then
 	log ocidRunApp's localizedName as text
-	log "èµ·å‹•ä¸­ã§ã™"
+	log "‹N“®’†‚Å‚·"
 else
 	tell application id strBundleID to launch
 	tell application id strBundleID to activate
