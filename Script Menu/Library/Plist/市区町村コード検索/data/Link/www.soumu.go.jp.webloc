@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>URL</key>
+	<string>https://www.soumu.go.jp/denshijiti/code.html</string>
+	<key>kMDItemFSCreationDate</key>
+	<string>20230923</string>
+	<key>productVersion</key>
+	<string>20230923</string>
+	<key>title</key>
+	<string>総務省｜地方行政のデジタル化｜全国地方公共団体コード</string>
+	<key>version</key>
+	<string>20230923</string>
+</dict>
+</plist>
