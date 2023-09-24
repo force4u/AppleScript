@@ -4,7 +4,7 @@
 #
 # com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
-##©•ªŠÂ‹«‚ªos12‚È‚Ì‚Å2.8‚É‚µ‚Ä‚¢‚é‚¾‚¯‚Å‚·
+##è‡ªåˆ†ç’°å¢ƒãŒos12ãªã®ã§2.8ã«ã—ã¦ã„ã‚‹ã ã‘ã§ã™
 use AppleScript version "2.8"
 use framework "Foundation"
 use framework "AppKit"
@@ -15,7 +15,7 @@ property refNSNotFound : a reference to 9.22337203685477E+18 + 5807
 
 
 #############################
-###DBƒtƒ@ƒCƒ‹‚Ö‚ÌƒpƒX
+###DBãƒ•ã‚¡ã‚¤ãƒ«ã¸ã®ãƒ‘ã‚¹
 tell application "Finder"
 	set aliasPathToMe to (path to me) as alias
 	set aliasContainerDirPath to (container of aliasPathToMe) as alias
@@ -26,35 +26,40 @@ set ocidContainerDirPath to ocidContainerDirPathStr's stringByStandardizingPath(
 set ocidContainerDirPathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidContainerDirPath) isDirectory:true)
 set ocidDBFilePathURL to ocidContainerDirPathURL's URLByAppendingPathComponent:("data/postno.db")
 set strDbFilePathURL to (ocidDBFilePathURL's |path|()) as text
+
+
 #############################
-### ƒNƒŠƒbƒvƒ{[ƒh‚Ì’†gæ‚èo‚µ
-###‰Šú‰»
+### ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã®ä¸­èº«å–ã‚Šå‡ºã—
+###åˆæœŸåŒ–
 set ocidPasteboard to refMe's NSPasteboard's generalPasteboard()
 set ocidPastBoardTypeArray to ocidPasteboard's types
-###ƒeƒLƒXƒg‚ª‚ ‚ê‚Î
+###ãƒ†ã‚­ã‚¹ãƒˆãŒã‚ã‚Œã°
 set boolContain to ocidPastBoardTypeArray's containsObject:"public.utf8-plain-text"
 if boolContain = true then
-	###’l‚ğŠi”[‚·‚é
+	###å€¤ã‚’æ ¼ç´ã™ã‚‹
 	tell application "Finder"
 		set strReadString to (the clipboard as text) as text
 	end tell
-	###Finder‚ÅƒGƒ‰[‚µ‚½‚ç
+	###Finderã§ã‚¨ãƒ©ãƒ¼ã—ãŸã‚‰
 else
 	set boolContain to ocidPastBoardTypeArray's containsObject:"NSStringPboardType"
 	if boolContain = true then
 		set ocidReadString to ocidPasteboard's readObjectsForClasses:({refMe's NSString}) options:(missing value)
 		set strReadString to ocidReadString as text
 	else
-		log "ƒeƒLƒXƒg‚È‚µ"
+		log "ãƒ†ã‚­ã‚¹ãƒˆãªã—"
 		set strReadString to "" as text
 	end if
 end if
+set strMes to ("ä½æ‰€ã§æ¤œç´¢ã€€ä¸€éƒ¨åˆ†ã§ã‚‚å¯\rç¥å¥ˆå·ã¨ã‹ã§æŒ‡å®šã™ã‚‹ã¨æ¤œç´¢çµæœãŒå¤šããªã‚Šã¾ã™") as text
+set strQueryText to strReadString as text
+
 ##############################
-###ƒ_ƒCƒAƒƒO
+###ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
 tell current application
 	set strName to name as text
 end tell
-####ƒXƒNƒŠƒvƒgƒƒjƒ…[‚©‚çÀs‚µ‚½‚ç
+####ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‹ã‚‰å®Ÿè¡Œã—ãŸã‚‰
 if strName is "osascript" then
 	tell application "Finder"
 		activate
@@ -64,59 +69,102 @@ else
 		activate
 	end tell
 end if
-set strMes to ("ZŠ‚ÅŒŸõ@ˆê•”•ª‚Å‚à‰Â€r_“Şì‚Æ‚©‚Åw’è‚·‚é‚ÆŒŸõŒ‹‰Ê‚ª‘½‚­‚È‚è‚Ü‚·")
+
 set aliasIconPath to POSIX file "/System/Applications/Calculator.app/Contents/Resources/AppIcon.icns" as alias
 try
-	set recordResult to (display dialog strMes with title "—X•Ö”Ô†ŒŸõ" default answer strReadString buttons {"OK", "ƒLƒƒƒ“ƒZƒ‹"} default button "OK" with icon aliasIconPath giving up after 20 without hidden answer) as record
+	set recordResult to (display dialog strMes with title "éƒµä¾¿ç•ªå·æ¤œç´¢" default answer strQueryText buttons {"OK", "ã‚­ãƒ£ãƒ³ã‚»ãƒ«"} default button "OK" with icon aliasIconPath giving up after 20 without hidden answer) as record
 on error
-	log "ƒGƒ‰[‚µ‚Ü‚µ‚½"
+	log "ã‚¨ãƒ©ãƒ¼ã—ã¾ã—ãŸ"
 	return
 end try
 
 if "OK" is equal to (button returned of recordResult) then
 	set strReturnedText to (text returned of recordResult) as text
 else if (gave up of recordResult) is true then
-	return "ŠÔØ‚ê‚Å‚·"
+	return "æ™‚é–“åˆ‡ã‚Œã§ã™"
 else
-	return "ƒLƒƒƒ“ƒZƒ‹"
+	return "ã‚­ãƒ£ãƒ³ã‚»ãƒ«"
 end if
+
 ##############################
-###–ß‚è’l®Œ`
+###æˆ»ã‚Šå€¤æ•´å½¢
 set ocidResponseText to (refMe's NSString's stringWithString:(strReturnedText))
-###ƒ^ƒu‚Æ‰üs‚ğœ‹‚µ‚Ä‚¨‚­
+###ã‚¿ãƒ–ã¨æ”¹è¡Œã‚’é™¤å»ã—ã¦ãŠã
 set ocidTextM to refMe's NSMutableString's alloc()'s initWithCapacity:(0)
 ocidTextM's appendString:(ocidResponseText)
-##‰üsœ‹
-set ocidTextM to ocidTextM's stringByReplacingOccurrencesOfString:("€n") withString:("")
-set ocidTextM to ocidTextM's stringByReplacingOccurrencesOfString:("€r") withString:("")
-##ƒ^ƒuœ‹
-set ocidTextM to ocidTextM's stringByReplacingOccurrencesOfString:("€t") withString:("")
+##æ”¹è¡Œé™¤å»
+set ocidTextM to ocidTextM's stringByReplacingOccurrencesOfString:("\n") withString:("")
+set ocidTextM to ocidTextM's stringByReplacingOccurrencesOfString:("\r") withString:("")
+##ã‚¿ãƒ–é™¤å»
+set ocidTextM to ocidTextM's stringByReplacingOccurrencesOfString:("\t") withString:("")
 ##############################
-###‚Ğ‚ç‚ª‚È‚Ì‚İ‚Ìê‡‚ÍƒJƒ^ƒJƒi‚É
-set listRegex to refMe's NSRegularExpression's regularExpressionWithPattern:("^[‚Ÿ-‚ñ[]+$") options:(0) |error|:(reference)
+###ã²ã‚‰ãŒãªã®ã¿ã®å ´åˆã¯ã‚«ã‚¿ã‚«ãƒŠã«
+set listRegex to refMe's NSRegularExpression's regularExpressionWithPattern:("^[ã-ã‚“ãƒ¼]+$") options:(0) |error|:(reference)
 set ocidRegex to (item 1 of listRegex)
 set ocidTextRange to refMe's NSMakeRange(0, (ocidTextM's |length|()))
 log ocidTextRange
-set numPach to ocidRegex's numberOfMatchesInString:(ocidTextM) options:0 range:(ocidTextRange)
-if (numPach as integer) = 1 then
+set numMach to ocidRegex's numberOfMatchesInString:(ocidTextM) options:0 range:(ocidTextRange)
+if (numMach as integer) = 1 then
 	set ocidTransform to (refMe's NSStringTransformHiraganaToKatakana)
 	set ocidTextM to (ocidTextM's stringByApplyingTransform:(ocidTransform) |reverse|:false)
 end if
-###”š‚ª‚È‚¯‚ê‚Î‘SŠp‚É
+###æ•°å­—ãŒãªã‘ã‚Œã°å…¨è§’ã«
 set ocidTransform to (refMe's NSStringTransformFullwidthToHalfwidth)
 set ocidTextM to (ocidTextM's stringByApplyingTransform:(ocidTransform) |reverse|:true)
-########################################
-##ƒJƒ^ƒJƒi‚ÆŠ¿š¬İ‚ÅŒŸõ•û–@‚ªˆÙ‚È‚é
-set listRegex to refMe's NSRegularExpression's regularExpressionWithPattern:("^[ƒ@-ƒ–[]+$") options:(0) |error|:(reference)
+##############################
+##ã‚«ã‚¿ã‚«ãƒŠã¨æ¼¢å­—æ··åœ¨ã§æ¤œç´¢æ–¹æ³•ãŒç•°ãªã‚‹
+set listRegex to refMe's NSRegularExpression's regularExpressionWithPattern:("^[ã‚¡-ãƒ¶ãƒ¼]+$") options:(0) |error|:(reference)
 set ocidRegex to (item 1 of listRegex)
 set ocidTextRange to refMe's NSMakeRange(0, (ocidTextM's |length|()))
-set numPach to ocidRegex's numberOfMatchesInString:(ocidTextM) options:0 range:(ocidTextRange)
+set numMach to ocidRegex's numberOfMatchesInString:(ocidTextM) options:0 range:(ocidTextRange)
 set strSearchText to ocidTextM as text
-if (numPach as integer) = 1 then
-	set strCommandText to ("/usr/bin/sqlite3 €"" & strDbFilePathURL & "€" -tabs €"SELECT * FROM postalcode WHERE prefecture_kana LIKE '%" & strSearchText & "%' OR city_kana LIKE  '%" & strSearchText & "%' OR town_kana LIKE  '%" & strSearchText & "%';€"") as text
+if (numMach as integer) = 1 then
+	set strCommandText to ("/usr/bin/sqlite3 \"" & strDbFilePathURL & "\" -tabs \"SELECT COUNT(*)  FROM postalcode WHERE prefecture_kana LIKE '%" & strSearchText & "%' OR city_kana LIKE  '%" & strSearchText & "%' OR town_kana LIKE  '%" & strSearchText & "%';\"") as text
 	log strCommandText
 else
-	set strCommandText to ("/usr/bin/sqlite3 €"" & strDbFilePathURL & "€" -tabs €"SELECT * FROM postalcode WHERE prefecture LIKE '%" & strSearchText & "%' OR city LIKE  '%" & strSearchText & "%' OR town LIKE  '%" & strSearchText & "%';€"") as text
+	set strCommandText to ("/usr/bin/sqlite3 \"" & strDbFilePathURL & "\" -tabs \"SELECT COUNT(*)  FROM postalcode WHERE prefecture LIKE '%" & strSearchText & "%' OR city LIKE  '%" & strSearchText & "%' OR town LIKE  '%" & strSearchText & "%';\"") as text
+	log strCommandText
+end if
+set numQueryCnt to (do shell script strCommandText) as integer
+##############################
+###
+if numQueryCnt > 100 then
+	log "æ¤œç´¢çµæœï¼‘ï¼ï¼ä»¶è¶…ã§ã™"
+	###ãƒ€ã‚¤ã‚¢ãƒ­ã‚°ã‚’å‰é¢ã«å‡ºã™
+	tell current application
+		set strName to name as text
+	end tell
+	####ã‚¹ã‚¯ãƒªãƒ—ãƒˆãƒ¡ãƒ‹ãƒ¥ãƒ¼ã‹ã‚‰å®Ÿè¡Œã—ãŸã‚‰
+	if strName is "osascript" then
+		tell application "Finder"
+			activate
+		end tell
+	else
+		tell current application
+			activate
+		end tell
+	end if
+	set numMin to (0.03 * numQueryCnt) as integer
+	set strAlertMes to "æ¤œç´¢çµæœï¼‘ï¼ï¼ä»¶è¶…ã§ã™ï¼ˆ" & numQueryCnt & "ä»¶ï¼‰\rç¶™ç¶šã™ã‚‹ã¨çµæœè¡¨ç¤ºã¾ã§ç´„ï¼š" & numMin & "ç§’ã‹ã‹ã‚Šã¾ã™" as text
+	try
+		set recordResponse to (display alert ("ã€é¸ã‚“ã§ãã ã•ã„ã€‘\r" & strAlertMes) buttons {"ç¶™ç¶š", "çµ‚äº†"} default button "ç¶™ç¶š" cancel button "çµ‚äº†" as informational giving up after 10) as record
+	on error
+		log "ã‚¨ãƒ©ãƒ¼ã—ã¾ã—ãŸ"
+		return "ã‚­ãƒ£ãƒ³ã‚»ãƒ«ã—ã¾ã—ãŸã€‚å‡¦ç†ã‚’ä¸­æ­¢ã—ã¾ã™ã€‚å†åº¦å®Ÿè¡Œã—ã¦ãã ã•ã„"
+	end try
+	if true is equal to (gave up of recordResponse) then
+		return "æ™‚é–“åˆ‡ã‚Œã§ã™ã€‚å‡¦ç†ã‚’ä¸­æ­¢ã—ã¾ã™ã€‚å†åº¦å®Ÿè¡Œã—ã¦ãã ã•ã„"
+	end if
+else if numQueryCnt = 0 then
+	log "æ¤œç´¢çµæœï¼ä»¶ã§ã™"
+end if
+
+
+if (numMach as integer) = 1 then
+	set strCommandText to ("/usr/bin/sqlite3 \"" & strDbFilePathURL & "\" -tabs \"SELECT * FROM postalcode WHERE prefecture_kana LIKE '%" & strSearchText & "%' OR city_kana LIKE  '%" & strSearchText & "%' OR town_kana LIKE  '%" & strSearchText & "%';\"") as text
+	log strCommandText
+else
+	set strCommandText to ("/usr/bin/sqlite3 \"" & strDbFilePathURL & "\" -tabs \"SELECT * FROM postalcode WHERE prefecture LIKE '%" & strSearchText & "%' OR city LIKE  '%" & strSearchText & "%' OR town LIKE  '%" & strSearchText & "%';\"") as text
 	log strCommandText
 end if
 set strResponse to (do shell script strCommandText) as text
@@ -124,31 +172,31 @@ set strResponse to (do shell script strCommandText) as text
 
 ########################################
 ##
-set AppleScript's text item delimiters to "€r"
+set AppleScript's text item delimiters to "\r"
 set listResponse to every text item of strResponse
 set AppleScript's text item delimiters to ""
 
 ########################################
-##HTML Šî–{\‘¢
-###ƒXƒ^ƒCƒ‹
+##HTML åŸºæœ¬æ§‹é€ 
+###ã‚¹ã‚¿ã‚¤ãƒ«
 set strStylle to "<style>#bordertable {padding: 10px;width: 100%;margin: 0;border-collapse: collapse;border-spacing: 0;word-wrap: break-word;} #bordertable table { width: 80%;margin: 0px;padding: 0px;border: 0px;border-spacing:0px;border-collapse: collapse;} #bordertable caption { font-weight: 900;} #bordertable thead { font-weight: 600;border-spacing:0px;} #bordertable td {border: solid 1px #666666;padding: 5px;margin: 0px;word-wrap: break-word;border-spacing:0px;} #bordertable tr {border: solid 1px #666666;padding: 0px;margin: 0px;border-spacing:0px;} #bordertable th {border: solid 1px #666666;padding: 0px;margin: 0px;border-spacing:0px;}</style>"
-###ƒwƒbƒ_[•”
-set strHead to "<!DOCTYPE html><html lang=€"en€"><head><meta charset=€"utf-8€"><title>[ŒŸõŒê‹å]" & strSearchText & "</title>" & strStylle & "</head><body>"
-###ƒ{ƒfƒB
+###ãƒ˜ãƒƒãƒ€ãƒ¼éƒ¨
+set strHead to "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>[æ¤œç´¢èªå¥]" & strSearchText & "</title>" & strStylle & "</head><body>"
+###ãƒœãƒ‡ã‚£
 set strBody to ""
-###ÅŒã
+###æœ€å¾Œ
 set strHtmlEndBody to "</body></html>"
-###HTML‘‚«o‚µ—p‚ÌƒeƒLƒXƒg‰Šú‰»
+###HTMLæ›¸ãå‡ºã—ç”¨ã®ãƒ†ã‚­ã‚¹ãƒˆåˆæœŸåŒ–
 set ocidHTMLString to refMe's NSMutableString's alloc()'s initWithCapacity:0
 ####
 (ocidHTMLString's appendString:strHead)
 #########
-###ƒe[ƒuƒ‹‚ÌŠJn•”
-set strHTML to ("<div id=€"bordertable€"><table><caption title=€"ƒ^ƒCƒgƒ‹€">ŒŸõŒ‹‰Ê:" & strReturnedText & "</caption>") as text
-set strHTML to (strHTML & "<thead title=€"€–Ú–¼Ì€"><tr><th title=€"€–Ú‚P€" scope=€"row€" > ˜A”Ô </th><th title=€"€–Ú‚Q€" scope=€"col€"> —X•Ö”Ô† </th><th title=€"€–Ú‚R€" scope=€"col€"> ZŠ </th><th title=€"€–Ú‚S€"  scope=€"col€"> “Ç‚İ </th><th title=€"€–Ú‚T€"  scope=€"col€">’c‘ÌƒR[ƒh</th><th title=€"€–Ú‚U€"  scope=€"col€">ƒŠƒ“ƒN</th></tr></thead><tbody title=€"ŒŸõŒ‹‰Êˆê——€" >") as text
+###ãƒ†ãƒ¼ãƒ–ãƒ«ã®é–‹å§‹éƒ¨
+set strHTML to ("<div id=\"bordertable\"><table><caption title=\"ã‚¿ã‚¤ãƒˆãƒ«\">æ¤œç´¢çµæœ:" & strReturnedText & "</caption>") as text
+set strHTML to (strHTML & "<thead title=\"é …ç›®åç§°\"><tr><th title=\"é …ç›®ï¼‘\" scope=\"row\" > é€£ç•ª </th><th title=\"é …ç›®ï¼’\" scope=\"col\"> éƒµä¾¿ç•ªå· </th><th title=\"é …ç›®ï¼“\" scope=\"col\"> ä½æ‰€ </th><th title=\"é …ç›®ï¼”\"  scope=\"col\"> èª­ã¿ </th><th title=\"é …ç›®ï¼•\"  scope=\"col\">å›£ä½“ã‚³ãƒ¼ãƒ‰</th><th title=\"é …ç›®ï¼–\"  scope=\"col\">ãƒªãƒ³ã‚¯</th></tr></thead><tbody title=\"æ¤œç´¢çµæœä¸€è¦§\" >") as text
 set numLineNo to 1 as integer
 repeat with itemLine in listResponse
-	set AppleScript's text item delimiters to "€t"
+	set AppleScript's text item delimiters to "\t"
 	set listLineText to every text item of itemLine
 	set AppleScript's text item delimiters to ""
 	
@@ -158,23 +206,23 @@ repeat with itemLine in listResponse
 	set strKana to ((item 4 of listLineText) & (item 5 of listLineText) & (item 6 of listLineText)) as text
 	
 	set strLinkURL to ("https://www.post.japanpost.jp/cgi-zip/zipcode.php?zip=" & strPostNo & "")
-	set strMapURL to ("https://www.google.com/maps/search/—X•Ö”Ô†+" & strPostNo & "")
-	set strMapAppURL to ("http://maps.apple.com/?q=—X•Ö”Ô†+" & strPostNo & "")
-	set strLINK to "<a href=€"" & strLinkURL & "€" target=€"_blank€">—X­</a>&nbsp;|&nbsp;<a href=€"" & strMapURL & "€" target=€"_blank€">Google</a>&nbsp;|&nbsp;<a href=€"" & strMapAppURL & "€" target=€"_blank€">Map</a>"
+	set strMapURL to ("https://www.google.com/maps/search/éƒµä¾¿ç•ªå·+" & strPostNo & "")
+	set strMapAppURL to ("http://maps.apple.com/?q=éƒµä¾¿ç•ªå·+" & strPostNo & "")
+	set strLINK to "<a href=\"" & strLinkURL & "\" target=\"_blank\">éƒµæ”¿</a>&nbsp;|&nbsp;<a href=\"" & strMapURL & "\" target=\"_blank\">Google</a>&nbsp;|&nbsp;<a href=\"" & strMapAppURL & "\" target=\"_blank\">Map</a>"
 	
-	set strHTML to (strHTML & "<tr><th title=€"€”Ô‚P€"  scope=€"row€">" & numLineNo & "</th><td title=€"€–Ú‚Q€"><b>" & strPostNo & "</b></td><td title=€"€–Ú‚R€">" & strAddText & "</td><td title=€"€–Ú‚S€"><small>" & strKana & "</small></td><td title=€"€–Ú‚T€">" & strCityCode & "</td><td title=€"€–Ú‚U€">" & strLINK & "</td></tr>") as text
+	set strHTML to (strHTML & "<tr><th title=\"é …ç•ªï¼‘\"  scope=\"row\">" & numLineNo & "</th><td title=\"é …ç›®ï¼’\"><b>" & strPostNo & "</b></td><td title=\"é …ç›®ï¼“\">" & strAddText & "</td><td title=\"é …ç›®ï¼”\"><small>" & strKana & "</small></td><td title=\"é …ç›®ï¼•\">" & strCityCode & "</td><td title=\"é …ç›®ï¼–\">" & strLINK & "</td></tr>") as text
 	
 	set numLineNo to numLineNo + 1 as integer
 end repeat
 
 
-set strHTML to (strHTML & "</tbody><tfoot><tr><th colspan=€"6€" title=€"ƒtƒbƒ^[•\‚ÌI‚í‚è€"  scope=€"row€">post.japanpost.jp</th></tr></tfoot></table></div>") as text
-####ƒe[ƒuƒ‹‚Ü‚Å‚ğ’Ç‰Á
+set strHTML to (strHTML & "</tbody><tfoot><tr><th colspan=\"6\" title=\"ãƒ•ãƒƒã‚¿ãƒ¼è¡¨ã®çµ‚ã‚ã‚Š\"  scope=\"row\">post.japanpost.jp</th></tr></tfoot></table></div>") as text
+####ãƒ†ãƒ¼ãƒ–ãƒ«ã¾ã§ã‚’è¿½åŠ 
 (ocidHTMLString's appendString:(strHTML))
-####I—¹•”‚ğ’Ç‰Á
+####çµ‚äº†éƒ¨ã‚’è¿½åŠ 
 (ocidHTMLString's appendString:(strHtmlEndBody))
 
-###ƒfƒBƒŒƒNƒgƒŠ
+###ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 set appFileManager to refMe's NSFileManager's defaultManager()
 set ocidTempDirURL to appFileManager's temporaryDirectory()
 set ocidUUID to refMe's NSUUID's alloc()'s init()
@@ -184,13 +232,13 @@ set ocidAttrDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
 # 777-->511 755-->493 700-->448 766-->502 
 ocidAttrDict's setValue:(511) forKey:(refMe's NSFilePosixPermissions)
 set listBoolMakeDir to appFileManager's createDirectoryAtURL:(ocidSaveDirPathURL) withIntermediateDirectories:true attributes:(ocidAttrDict) |error|:(reference)
-###ƒpƒX
+###ãƒ‘ã‚¹
 
 set strFileName to (strSearchText & ".html") as text
 set ocidSaveFilePathURL to ocidSaveDirPathURL's URLByAppendingPathComponent:(strFileName) isDirectory:false
-###ƒtƒ@ƒCƒ‹‚É‘‚«o‚µ
+###ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãå‡ºã—
 set listDone to ocidHTMLString's writeToURL:(ocidSaveFilePathURL) atomically:(true) encoding:(refMe's NSUTF8StringEncoding) |error|:(reference)
-####ƒeƒLƒXƒgƒGƒfƒBƒ^‚ÅŠJ‚­
+####ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ã§é–‹ã
 set aliasFilePath to (ocidSaveFilePathURL's absoluteURL()) as alias
 (*
 tell application "TextEdit"
@@ -202,3 +250,7 @@ tell application "Safari"
 	activate
 	open file aliasFilePath
 end tell
+
+
+
+
