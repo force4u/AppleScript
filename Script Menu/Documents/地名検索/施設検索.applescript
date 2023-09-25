@@ -51,7 +51,7 @@ else
 end if
 ##############################
 ###ダイアログ
-set strMes to ("住所で検索\r完全一致が必要です\rあいまい検索が出来ないので役に立ちません") as text
+set strMes to ("住所で検索\r完全一致が必要です\rあいまい検索が出来ないので、あまり役に立ちません\r警察署→横浜市中区警察署といった具合の検索語句が必要") as text
 set strQueryText to strReadString as text
 ###前面に
 set strName to (name of current application) as text
@@ -149,7 +149,7 @@ set numChild to (count of ocidCandidateArray) as integer
 #########
 ###テーブルの開始部
 set strHTML to ("<div id=\"bordertable\"><table><caption title=\"タイトル\">検索語句：" & ocidTextM & " 検索結果:" & numChild & "件</caption>") as text
-set strHTML to (strHTML & "<thead title=\"項目名称\"><tr><th title=\"項目１\" scope=\"row\" >連番</th><th title=\"項目２\" scope=\"col\">地名</th><th title=\"項目３\" scope=\"col\">リンク１</th><th title=\"項目４\"  scope=\"col\">リンク２</th><th title=\"項目５\"  scope=\"col\"> >リンク３</th><th title=\"項目６\"  scope=\"col\">リンク４</th><th title=\"項目６\"  scope=\"col\">リンク５</th><th title=\"項目７\"  scope=\"col\">iLvl</th></tr></thead><tbody title=\"検索結果一覧\" >") as text
+set strHTML to (strHTML & "<thead title=\"項目名称\"><tr><th title=\"項目１\" scope=\"row\" >連番</th><th title=\"項目２\" scope=\"col\">地名</th><th title=\"項目３\" scope=\"col\">リンク１</th><th title=\"項目４\"  scope=\"col\">リンク２</th><th title=\"項目５\"  scope=\"col\"> リンク３</th><th title=\"項目６\"  scope=\"col\">リンク４</th><th title=\"項目６\"  scope=\"col\">リンク５</th><th title=\"項目７\"  scope=\"col\">iLvl</th></tr></thead><tbody title=\"検索結果一覧\" >") as text
 (ocidHTMLString's appendString:(strHTML))
 ##############################
 set numLineNo to 1 as integer
