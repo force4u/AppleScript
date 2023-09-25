@@ -51,7 +51,7 @@ else
 end if
 ##############################
 ###ダイアログ
-set strMes to ("住所で検索\r部分一致が必要です\r『駅は不要』は品川駅では品川でも可") as text
+set strMes to ("住所で検索\r部分一致が必要です\r福岡の小倉区は小倉ではNGで小倉❝区❞が必要") as text
 set strQueryText to strReadString as text
 ###前面に
 set strName to (name of current application) as text
@@ -103,8 +103,8 @@ ocidQueryItemArray's addObject:(ocidQueryItem)
 ##計測系
 set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("geosys") value:("tokyo")
 ocidQueryItemArray's addObject:(ocidQueryItem)
-##駅名検索はSTATION ADDRESS 
-set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("series") value:("STATION")
+##駅名検索はSTATION
+set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("series") value:("ADDRESS")
 ocidQueryItemArray's addObject:(ocidQueryItem)
 ##AND検索用?　今回は使わない
 #	set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("constraint") value:("神奈川県")
@@ -165,7 +165,7 @@ repeat with itemCandidate in ocidCandidateArray
 	set strMapURL to ("https://www.navitime.co.jp/maps/aroundResult?lat=" & strLat & "&lon=" & strLong & "&type=station&radius=2000")
 	set strLINK1 to "<a href=\"" & strMapURL & "\" target=\"_blank\">Navitime Map</a>"
 	###リンク２
-	set strMapURL to ("https://map.yahoo.co.jp/place?lat=" & strLat & "&lon=" & strLong & "&zoom=15&maptype=trainRoutes")
+	set strMapURL to ("https://map.yahoo.co.jp/place?lat=" & strLat & "&lon=" & strLong & "&zoom=15&maptype=twoTones")
 	set strLINK2 to "<a href=\"" & strMapURL & "\" target=\"_blank\">Yahoo Map</a>"
 	###リンク３
 	set strMapURL to ("https://maps.gsi.go.jp/vector/#15/" & strLat & "/" & strLong & "/&ls=vstd&disp=1&d=l")
@@ -175,7 +175,7 @@ repeat with itemCandidate in ocidCandidateArray
 	set strLINK4 to "<a href=\"" & strMapURL & "\" target=\"_blank\">Jma Map</a>"
 	###リンク５
 	set strEncAdd to doTextEncode(strAdd)
-	set strMapURL to ("http://maps.apple.com/?ll=" & strLat & "," & strLong & "&z=10&t=r&q=" & strEncAdd & "")
+	set strMapURL to ("http://maps.apple.com/?ll=" & strLat & "," & strLong & "&z=10&t=d&q=" & strEncAdd & "")
 	set strLINK5 to "<a href=\"" & strMapURL & "\" target=\"_blank\">Apple Map</a>"
 	###HTMLにして
 	set strHTML to ("<tr><th title=\"連番\"  scope=\"row\">" & numLineNo & "</th><td title=\"地名\"><b>" & strAdd & "</b></td><td title=\"リンク１\">" & strLINK1 & "</td><td title=\"リンク２\">" & strLINK2 & "</td><td title=\"リンク３\">" & strLINK3 & "</td><td title=\"リンク４\">" & strLINK4 & "</td><td title=\"リンク５\">" & strLINK5 & "</td><td title=\"iLvl\">" & striLvl & "</td></tr>") as text
