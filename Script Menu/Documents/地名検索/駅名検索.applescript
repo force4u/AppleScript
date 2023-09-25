@@ -2,20 +2,20 @@
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #
 (*
-ƒVƒ“ƒvƒ‹ ƒWƒIƒR[ƒfƒBƒ“ƒO 
-“Œ‹‘åŠw‹óŠÔî•ñ‰ÈŠwŒ¤‹†‚ÌAPI‚ğ—˜—p‚µ‚Ä‚¢‚Ü‚·
+ã‚·ãƒ³ãƒ—ãƒ« ã‚¸ã‚ªã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚° 
+æ±äº¬å¤§å­¦ç©ºé–“æƒ…å ±ç§‘å­¦ç ”ç©¶ã®APIã‚’åˆ©ç”¨ã—ã¦ã„ã¾ã™
 https://geocode.csis.u-tokyo.ac.jp/ 
-¦ˆÈ‰º‚Ìî•ñ‚ªûW‚³‚ê‚Ü‚·
-IPƒAƒhƒŒƒX
-ƒAƒNƒZƒX
-•ÏŠ·‚µ‚½ƒŒƒR[ƒh”
-•ÏŠ·‚É¬Œ÷‚µ‚½ƒŒƒR[ƒh”
-•ÏŠ·‚É—v‚µ‚½ˆ—ŠÔ
+â€»ä»¥ä¸‹ã®æƒ…å ±ãŒåé›†ã•ã‚Œã¾ã™
+IPã‚¢ãƒ‰ãƒ¬ã‚¹
+ã‚¢ã‚¯ã‚»ã‚¹æ™‚åˆ»
+å¤‰æ›ã—ãŸãƒ¬ã‚³ãƒ¼ãƒ‰æ•°
+å¤‰æ›ã«æˆåŠŸã—ãŸãƒ¬ã‚³ãƒ¼ãƒ‰æ•°
+å¤‰æ›ã«è¦ã—ãŸå‡¦ç†æ™‚é–“
 *)
 #
 # com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
-##©•ªŠÂ‹«‚ªos12‚È‚Ì‚Å2.8‚É‚µ‚Ä‚¢‚é‚¾‚¯‚Å‚·
+##è‡ªåˆ†ç’°å¢ƒãŒos12ãªã®ã§2.8ã«ã—ã¦ã„ã‚‹ã ã‘ã§ã™
 use AppleScript version "2.8"
 use framework "Foundation"
 use framework "AppKit"
@@ -27,33 +27,33 @@ property refNSNotFound : a reference to 9.22337203685477E+18 + 5807
 
 
 #############################
-### ƒNƒŠƒbƒvƒ{[ƒh‚Ì’†gæ‚èo‚µ
-###‰Šú‰»
+### ã‚¯ãƒªãƒƒãƒ—ãƒœãƒ¼ãƒ‰ã®ä¸­èº«å–ã‚Šå‡ºã—
+###åˆæœŸåŒ–
 set ocidPasteboard to refMe's NSPasteboard's generalPasteboard()
 set ocidPastBoardTypeArray to ocidPasteboard's types
-###ƒeƒLƒXƒg‚ª‚ ‚ê‚Î
+###ãƒ†ã‚­ã‚¹ãƒˆãŒã‚ã‚Œã°
 set boolContain to ocidPastBoardTypeArray's containsObject:"public.utf8-plain-text"
 if boolContain = true then
-	###’l‚ğŠi”[‚·‚é
+	###å€¤ã‚’æ ¼ç´ã™ã‚‹
 	tell application "Finder"
 		set strReadString to (the clipboard as text) as text
 	end tell
-	###Finder‚ÅƒGƒ‰[‚µ‚½‚ç
+	###Finderã§ã‚¨ãƒ©ãƒ¼ã—ãŸã‚‰
 else
 	set boolContain to ocidPastBoardTypeArray's containsObject:"NSStringPboardType"
 	if boolContain = true then
 		set ocidReadString to ocidPasteboard's readObjectsForClasses:({refMe's NSString}) options:(missing value)
 		set strReadString to ocidReadString as text
 	else
-		log "ƒeƒLƒXƒg‚È‚µ"
+		log "ãƒ†ã‚­ã‚¹ãƒˆãªã—"
 		set strReadString to "" as text
 	end if
 end if
 ##############################
-###ƒ_ƒCƒAƒƒO
-set strMes to ("ZŠ‚ÅŒŸõ€r•”•ªˆê’v‚ª•K—v‚Å‚·€rw‰w‚Í•s—vx‚Í•iì‰w‚Å‚Í•iì‚Å‚à‰Â") as text
+###ãƒ€ã‚¤ã‚¢ãƒ­ã‚°
+set strMes to ("ä½æ‰€ã§æ¤œç´¢\réƒ¨åˆ†ä¸€è‡´ãŒå¿…è¦ã§ã™\rã€é§…ã¯ä¸è¦ã€ã¯å“å·é§…ã§ã¯å“å·ã§ã‚‚å¯") as text
 set strQueryText to strReadString as text
-###‘O–Ê‚É
+###å‰é¢ã«
 set strName to (name of current application) as text
 if strName is "osascript" then
 	tell application "Finder" to activate
@@ -62,52 +62,52 @@ else
 end if
 set aliasIconPath to POSIX file "/System/Applications/Maps.app/Contents/Resources/AppIcon.icns" as alias
 try
-	set recordResult to (display dialog strMes with title "ZŠ’n–¼ŒŸõ" default answer strQueryText buttons {"OK", "ƒLƒƒƒ“ƒZƒ‹"} default button "OK" with icon aliasIconPath giving up after 20 without hidden answer) as record
+	set recordResult to (display dialog strMes with title "ä½æ‰€åœ°åæ¤œç´¢" default answer strQueryText buttons {"OK", "ã‚­ãƒ£ãƒ³ã‚»ãƒ«"} default button "OK" with icon aliasIconPath giving up after 20 without hidden answer) as record
 	if "OK" is equal to (button returned of recordResult) then
 		set strReturnedText to (text returned of recordResult) as text
 	else if (gave up of recordResult) is true then
-		return "ŠÔØ‚ê‚Å‚·"
+		return "æ™‚é–“åˆ‡ã‚Œã§ã™"
 	else
-		return "ƒLƒƒƒ“ƒZƒ‹"
+		return "ã‚­ãƒ£ãƒ³ã‚»ãƒ«"
 	end if
 on error
-	log "ƒGƒ‰[‚µ‚Ü‚µ‚½"
+	log "ã‚¨ãƒ©ãƒ¼ã—ã¾ã—ãŸ"
 	return
 end try
 ##############################
-###–ß‚è’l®Œ`
+###æˆ»ã‚Šå€¤æ•´å½¢
 set ocidResponseText to (refMe's NSString's stringWithString:(strReturnedText))
-###ƒ^ƒu‚Æ‰üs‚ğœ‹‚µ‚Ä‚¨‚­
+###ã‚¿ãƒ–ã¨æ”¹è¡Œã‚’é™¤å»ã—ã¦ãŠã
 set ocidTextM to refMe's NSMutableString's alloc()'s initWithCapacity:(0)
 ocidTextM's appendString:(ocidResponseText)
-##‰üsœ‹
-set ocidTextM to ocidTextM's stringByReplacingOccurrencesOfString:("€n") withString:("")
-set ocidTextM to ocidTextM's stringByReplacingOccurrencesOfString:("€r") withString:("")
-##ƒ^ƒuœ‹
-set ocidTextM to ocidTextM's stringByReplacingOccurrencesOfString:("€t") withString:("")
+##æ”¹è¡Œé™¤å»
+set ocidTextM to ocidTextM's stringByReplacingOccurrencesOfString:("\n") withString:("")
+set ocidTextM to ocidTextM's stringByReplacingOccurrencesOfString:("\r") withString:("")
+##ã‚¿ãƒ–é™¤å»
+set ocidTextM to ocidTextM's stringByReplacingOccurrencesOfString:("\t") withString:("")
 
 ##############################
 ##
 set strBaseURL to ("https://geocode.csis.u-tokyo.ac.jp/cgi-bin/simple_geocode.cgi") as text
 set ocidURL to refMe's NSURL's alloc()'s initWithString:(strBaseURL)
-##ƒRƒ“ƒ|[ƒlƒ“ƒg‰Šú‰»
+##ã‚³ãƒ³ãƒãƒ¼ãƒãƒ³ãƒˆåˆæœŸåŒ–
 set ocidComponents to refMe's NSURLComponents's componentsWithURL:(ocidURL) resolvingAgainstBaseURL:true
-##ƒNƒGƒŠ[Ši”[—pArray
+##ã‚¯ã‚¨ãƒªãƒ¼æ ¼ç´ç”¨Array
 set ocidQueryItemArray to refMe's NSMutableArray's alloc()'s initWithCapacity:0
-##ŒŸõŒê‹å
+##æ¤œç´¢èªå¥
 set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("addr") value:(ocidTextM)
 ocidQueryItemArray's addObject:(ocidQueryItem)
-##ƒR[ƒh
+##ã‚³ãƒ¼ãƒ‰
 set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("charset") value:("UTF8")
 ocidQueryItemArray's addObject:(ocidQueryItem)
-##Œv‘ªŒn
+##è¨ˆæ¸¬ç³»
 set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("geosys") value:("tokyo")
 ocidQueryItemArray's addObject:(ocidQueryItem)
-##‰w–¼ŒŸõ‚ÍSTATION ADDRESS 
+##é§…åæ¤œç´¢ã¯STATION ADDRESS 
 set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("series") value:("STATION")
 ocidQueryItemArray's addObject:(ocidQueryItem)
-##ANDŒŸõ—p?@¡‰ñ‚Íg‚í‚È‚¢
-#	set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("constraint") value:("_“ŞìŒ§")
+##ANDæ¤œç´¢ç”¨?ã€€ä»Šå›ã¯ä½¿ã‚ãªã„
+#	set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("constraint") value:("ç¥å¥ˆå·çœŒ")
 #	ocidQueryItemArray's addObject:(ocidQueryItem)
 ##
 ocidComponents's setQueryItems:(ocidQueryItemArray)
@@ -116,21 +116,21 @@ set ocidAPIURL to ocidComponents's |URL|
 log ocidAPIURL's absoluteString() as text
 
 ########################################
-##HTML Šî–{\‘¢
-###ƒXƒ^ƒCƒ‹
+##HTML åŸºæœ¬æ§‹é€ 
+###ã‚¹ã‚¿ã‚¤ãƒ«
 set strStylle to "<style>#bordertable {padding: 10px;width: 100%;margin: 0;border-collapse: collapse;border-spacing: 0;word-wrap: break-word;} #bordertable table { width: 80%;margin: 0px;padding: 0px;border: 0px;border-spacing:0px;border-collapse: collapse;} #bordertable caption { font-weight: 900;} #bordertable thead { font-weight: 600;border-spacing:0px;} #bordertable td {border: solid 1px #666666;padding: 5px;margin: 0px;word-wrap: break-word;border-spacing:0px;} #bordertable tr {border: solid 1px #666666;padding: 0px;margin: 0px;border-spacing:0px;} #bordertable th {border: solid 1px #666666;padding: 0px;margin: 0px;border-spacing:0px;}</style>"
-###ƒwƒbƒ_[•”
-set strHead to "<!DOCTYPE html><html lang=€"en€"><head><meta charset=€"utf-8€"><title>[ŒŸõŒê‹å]" & ocidTextM & "</title>" & strStylle & "</head><body>"
-###ÅŒã
+###ãƒ˜ãƒƒãƒ€ãƒ¼éƒ¨
+set strHead to "<!DOCTYPE html><html lang=\"en\"><head><meta charset=\"utf-8\"><title>[æ¤œç´¢èªå¥]" & ocidTextM & "</title>" & strStylle & "</head><body>"
+###æœ€å¾Œ
 set strHtmlEndBody to "</body></html>"
-###HTML‘‚«o‚µ—p‚ÌƒeƒLƒXƒg‰Šú‰»
+###HTMLæ›¸ãå‡ºã—ç”¨ã®ãƒ†ã‚­ã‚¹ãƒˆåˆæœŸåŒ–
 set ocidHTMLString to refMe's NSMutableString's alloc()'s initWithCapacity:0
 ####
 (ocidHTMLString's appendString:strHead)
 
 
 ##############################
-set recordiLvl to {|1|:"“s“¹•{Œ§", |2|:"ŒSEx’¡EU‹»‹Ç", |3|:"s’¬‘ºE“Á•Ê‹æ", |4|:"­—ßs‚Ì‹æ", |5|:"‘åš", |6|:"’š–ÚE¬š", |7|:"ŠX‹æE’n”Ô", |8|:"†E}”Ô", |0|:"ƒŒƒxƒ‹•s–¾", |-1|:"À•W•s–¾"} as record
+set recordiLvl to {|1|:"éƒ½é“åºœçœŒ", |2|:"éƒ¡ãƒ»æ”¯åºãƒ»æŒ¯èˆˆå±€", |3|:"å¸‚ç”ºæ‘ãƒ»ç‰¹åˆ¥åŒº", |4|:"æ”¿ä»¤å¸‚ã®åŒº", |5|:"å¤§å­—", |6|:"ä¸ç›®ãƒ»å°å­—", |7|:"è¡—åŒºãƒ»åœ°ç•ª", |8|:"å·ãƒ»æç•ª", |0|:"ãƒ¬ãƒ™ãƒ«ä¸æ˜", |-1|:"åº§æ¨™ä¸æ˜"} as record
 set ocidiLvlDict to refMe's NSDictionary's alloc()'s initWithDictionary:(recordiLvl)
 ###
 set ocidOption to (refMe's NSXMLDocumentTidyXML)
@@ -147,13 +147,13 @@ set ocidCandidateArray to (item 1 of listCandidateArray)
 set numChild to (count of ocidCandidateArray) as integer
 
 #########
-###ƒe[ƒuƒ‹‚ÌŠJn•”
-set strHTML to ("<div id=€"bordertable€"><table><caption title=€"ƒ^ƒCƒgƒ‹€">ŒŸõŒê‹åF" & ocidTextM & " ŒŸõŒ‹‰Ê:" & numChild & "Œ</caption>") as text
-set strHTML to (strHTML & "<thead title=€"€–Ú–¼Ì€"><tr><th title=€"€–Ú‚P€" scope=€"row€" >˜A”Ô</th><th title=€"€–Ú‚Q€" scope=€"col€">’n–¼</th><th title=€"€–Ú‚R€" scope=€"col€">ƒŠƒ“ƒN‚P</th><th title=€"€–Ú‚S€"  scope=€"col€">ƒŠƒ“ƒN‚Q</th><th title=€"€–Ú‚T€"  scope=€"col€"> >ƒŠƒ“ƒN‚R</th><th title=€"€–Ú‚U€"  scope=€"col€">ƒŠƒ“ƒN‚S</th><th title=€"€–Ú‚U€"  scope=€"col€">ƒŠƒ“ƒN‚T</th><th title=€"€–Ú‚V€"  scope=€"col€">iLvl</th></tr></thead><tbody title=€"ŒŸõŒ‹‰Êˆê——€" >") as text
+###ãƒ†ãƒ¼ãƒ–ãƒ«ã®é–‹å§‹éƒ¨
+set strHTML to ("<div id=\"bordertable\"><table><caption title=\"ã‚¿ã‚¤ãƒˆãƒ«\">æ¤œç´¢èªå¥ï¼š" & ocidTextM & " æ¤œç´¢çµæœ:" & numChild & "ä»¶</caption>") as text
+set strHTML to (strHTML & "<thead title=\"é …ç›®åç§°\"><tr><th title=\"é …ç›®ï¼‘\" scope=\"row\" >é€£ç•ª</th><th title=\"é …ç›®ï¼’\" scope=\"col\">åœ°å</th><th title=\"é …ç›®ï¼“\" scope=\"col\">ãƒªãƒ³ã‚¯ï¼‘</th><th title=\"é …ç›®ï¼”\"  scope=\"col\">ãƒªãƒ³ã‚¯ï¼’</th><th title=\"é …ç›®ï¼•\"  scope=\"col\"> >ãƒªãƒ³ã‚¯ï¼“</th><th title=\"é …ç›®ï¼–\"  scope=\"col\">ãƒªãƒ³ã‚¯ï¼”</th><th title=\"é …ç›®ï¼–\"  scope=\"col\">ãƒªãƒ³ã‚¯ï¼•</th><th title=\"é …ç›®ï¼—\"  scope=\"col\">iLvl</th></tr></thead><tbody title=\"æ¤œç´¢çµæœä¸€è¦§\" >") as text
 (ocidHTMLString's appendString:(strHTML))
 ##############################
 set numLineNo to 1 as integer
-###‘æˆêŠK‘w‚¾‚¯‚Ìq—v‘f
+###ç¬¬ä¸€éšå±¤ã ã‘ã®å­è¦ç´ 
 repeat with itemCandidate in ocidCandidateArray
 	set strAdd to (itemCandidate's elementsForName:("address"))'s stringValue as text
 	set strLat to (itemCandidate's elementsForName:("latitude"))'s stringValue as text
@@ -161,37 +161,37 @@ repeat with itemCandidate in ocidCandidateArray
 	set numiLvl to (itemCandidate's elementsForName:("iLvl"))'s stringValue as text
 	set striLvl to (ocidiLvlDict's valueForKey:(numiLvl)) as text
 	log striLvl
-	###ƒŠƒ“ƒN‚P
+	###ãƒªãƒ³ã‚¯ï¼‘
 	set strMapURL to ("https://www.navitime.co.jp/maps/aroundResult?lat=" & strLat & "&lon=" & strLong & "&type=station&radius=2000")
-	set strLINK1 to "<a href=€"" & strMapURL & "€" target=€"_blank€">Navitime Map</a>"
-	###ƒŠƒ“ƒN‚Q
-	set strMapURL to ("https://map.yahoo.co.jp/place?lat=" & strLat & "&lon=" & strLong & "&zoom=15&maptype=twoTones")
-	set strLINK2 to "<a href=€"" & strMapURL & "€" target=€"_blank€">Yahoo Map</a>"
-	###ƒŠƒ“ƒN‚R
+	set strLINK1 to "<a href=\"" & strMapURL & "\" target=\"_blank\">Navitime Map</a>"
+	###ãƒªãƒ³ã‚¯ï¼’
+	set strMapURL to ("https://map.yahoo.co.jp/place?lat=" & strLat & "&lon=" & strLong & "&zoom=15&maptype=trainRoutes")
+	set strLINK2 to "<a href=\"" & strMapURL & "\" target=\"_blank\">Yahoo Map</a>"
+	###ãƒªãƒ³ã‚¯ï¼“
 	set strMapURL to ("https://maps.gsi.go.jp/vector/#15/" & strLat & "/" & strLong & "/&ls=vstd&disp=1&d=l")
-	set strLINK3 to "<a href=€"" & strMapURL & "€" target=€"_blank€">Gsi vector Map</a>"
-	###ƒŠƒ“ƒN‚S
+	set strLINK3 to "<a href=\"" & strMapURL & "\" target=\"_blank\">Gsi vector Map</a>"
+	###ãƒªãƒ³ã‚¯ï¼”
 	set strMapURL to ("https://www.jma.go.jp/bosai/nowc/#lat:" & strLat & "/lon:" & strLong & "/zoom:15/")
-	set strLINK4 to "<a href=€"" & strMapURL & "€" target=€"_blank€">Jma Map</a>"
-	###ƒŠƒ“ƒN‚T
+	set strLINK4 to "<a href=\"" & strMapURL & "\" target=\"_blank\">Jma Map</a>"
+	###ãƒªãƒ³ã‚¯ï¼•
 	set strEncAdd to doTextEncode(strAdd)
-	set strMapURL to ("http://maps.apple.com/?ll=" & strLat & "," & strLong & "&z=10&t=d&q=" & strEncAdd & "")
-	set strLINK5 to "<a href=€"" & strMapURL & "€" target=€"_blank€">Apple Map</a>"
-	###HTML‚É‚µ‚Ä
-	set strHTML to ("<tr><th title=€"˜A”Ô€"  scope=€"row€">" & numLineNo & "</th><td title=€"’n–¼€"><b>" & strAdd & "</b></td><td title=€"ƒŠƒ“ƒN‚P€">" & strLINK1 & "</td><td title=€"ƒŠƒ“ƒN‚Q€">" & strLINK2 & "</td><td title=€"ƒŠƒ“ƒN‚R€">" & strLINK3 & "</td><td title=€"ƒŠƒ“ƒN‚S€">" & strLINK4 & "</td><td title=€"ƒŠƒ“ƒN‚T€">" & strLINK5 & "</td><td title=€"iLvl€">" & striLvl & "</td></tr>") as text
+	set strMapURL to ("http://maps.apple.com/?ll=" & strLat & "," & strLong & "&z=10&t=r&q=" & strEncAdd & "")
+	set strLINK5 to "<a href=\"" & strMapURL & "\" target=\"_blank\">Apple Map</a>"
+	###HTMLã«ã—ã¦
+	set strHTML to ("<tr><th title=\"é€£ç•ª\"  scope=\"row\">" & numLineNo & "</th><td title=\"åœ°å\"><b>" & strAdd & "</b></td><td title=\"ãƒªãƒ³ã‚¯ï¼‘\">" & strLINK1 & "</td><td title=\"ãƒªãƒ³ã‚¯ï¼’\">" & strLINK2 & "</td><td title=\"ãƒªãƒ³ã‚¯ï¼“\">" & strLINK3 & "</td><td title=\"ãƒªãƒ³ã‚¯ï¼”\">" & strLINK4 & "</td><td title=\"ãƒªãƒ³ã‚¯ï¼•\">" & strLINK5 & "</td><td title=\"iLvl\">" & striLvl & "</td></tr>") as text
 	(ocidHTMLString's appendString:(strHTML))
-	###ƒJƒEƒ“ƒgƒAƒbƒv	
+	###ã‚«ã‚¦ãƒ³ãƒˆã‚¢ãƒƒãƒ—	
 	set numLineNo to numLineNo + 1 as integer
 end repeat
 
 
-set strHTML to ("</tbody><tfoot><tr><th colspan=€"8€" title=€"ƒtƒbƒ^[•\‚ÌI‚í‚è€"  scope=€"row€"><a href=€"https://geocode.csis.u-tokyo.ac.jp/€" target=€"_blank€">ƒVƒ“ƒvƒ‹ ƒWƒIƒR[ƒfƒBƒ“ƒO</a></th></tr></tfoot></table></div>") as text
-####ƒe[ƒuƒ‹‚Ü‚Å‚ğ’Ç‰Á
+set strHTML to ("</tbody><tfoot><tr><th colspan=\"8\" title=\"ãƒ•ãƒƒã‚¿ãƒ¼è¡¨ã®çµ‚ã‚ã‚Š\"  scope=\"row\"><a href=\"https://geocode.csis.u-tokyo.ac.jp/\" target=\"_blank\">ã‚·ãƒ³ãƒ—ãƒ« ã‚¸ã‚ªã‚³ãƒ¼ãƒ‡ã‚£ãƒ³ã‚°</a></th></tr></tfoot></table></div>") as text
+####ãƒ†ãƒ¼ãƒ–ãƒ«ã¾ã§ã‚’è¿½åŠ 
 (ocidHTMLString's appendString:(strHTML))
-####I—¹•”‚ğ’Ç‰Á
+####çµ‚äº†éƒ¨ã‚’è¿½åŠ 
 (ocidHTMLString's appendString:(strHtmlEndBody))
 
-###ƒfƒBƒŒƒNƒgƒŠ
+###ãƒ‡ã‚£ãƒ¬ã‚¯ãƒˆãƒª
 set appFileManager to refMe's NSFileManager's defaultManager()
 set ocidTempDirURL to appFileManager's temporaryDirectory()
 set ocidUUID to refMe's NSUUID's alloc()'s init()
@@ -201,13 +201,13 @@ set ocidAttrDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
 # 777-->511 755-->493 700-->448 766-->502 
 ocidAttrDict's setValue:(511) forKey:(refMe's NSFilePosixPermissions)
 set listBoolMakeDir to appFileManager's createDirectoryAtURL:(ocidSaveDirPathURL) withIntermediateDirectories:true attributes:(ocidAttrDict) |error|:(reference)
-###ƒpƒX
+###ãƒ‘ã‚¹
 
 set strFileName to ((ocidTextM as text) & ".html") as text
 set ocidSaveFilePathURL to ocidSaveDirPathURL's URLByAppendingPathComponent:(strFileName) isDirectory:false
-###ƒtƒ@ƒCƒ‹‚É‘‚«o‚µ
+###ãƒ•ã‚¡ã‚¤ãƒ«ã«æ›¸ãå‡ºã—
 set listDone to ocidHTMLString's writeToURL:(ocidSaveFilePathURL) atomically:(true) encoding:(refMe's NSUTF8StringEncoding) |error|:(reference)
-####ƒeƒLƒXƒgƒGƒfƒBƒ^‚ÅŠJ‚­
+####ãƒ†ã‚­ã‚¹ãƒˆã‚¨ãƒ‡ã‚£ã‚¿ã§é–‹ã
 set aliasFilePath to (ocidSaveFilePathURL's absoluteURL()) as alias
 (*
 tell application "TextEdit"
@@ -224,55 +224,55 @@ end tell
 
 
 ####################################
-###### “ƒGƒ“ƒR[ƒh
+###### ï¼…ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰
 ####################################
 on doUrlEncode(argText)
-	##ƒeƒLƒXƒg
+	##ãƒ†ã‚­ã‚¹ãƒˆ
 	set ocidArgText to refMe's NSString's stringWithString:(argText)
-	##ƒLƒƒƒ‰ƒNƒ^ƒZƒbƒg‚ğw’è
+	##ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚»ãƒƒãƒˆã‚’æŒ‡å®š
 	set ocidChrSet to refMe's NSCharacterSet's URLQueryAllowedCharacterSet
-	##ƒLƒƒƒ‰ƒNƒ^ƒZƒbƒg‚Å•ÏŠ·
+	##ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚»ãƒƒãƒˆã§å¤‰æ›
 	set ocidArgTextEncoded to ocidArgText's stringByAddingPercentEncodingWithAllowedCharacters:(ocidChrSet)
-	##ƒeƒLƒXƒgŒ`®‚ÉŠm’è
+	##ãƒ†ã‚­ã‚¹ãƒˆå½¢å¼ã«ç¢ºå®š
 	set strTextToEncode to ocidArgTextEncoded as text
-	###’l‚ğ–ß‚·
+	###å€¤ã‚’æˆ»ã™
 	return strTextToEncode
 end doUrlEncode
 ####################################
-###### “ƒGƒ“ƒR[ƒh
+###### ï¼…ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰
 ####################################
 on doTextEncode(argText)
-	##ƒeƒLƒXƒg
+	##ãƒ†ã‚­ã‚¹ãƒˆ
 	set ocidArgText to refMe's NSString's stringWithString:(argText)
-	##ƒLƒƒƒ‰ƒNƒ^ƒZƒbƒg‚ğw’è
+	##ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚»ãƒƒãƒˆã‚’æŒ‡å®š
 	set ocidChrSet to refMe's NSCharacterSet's URLQueryAllowedCharacterSet
-	##ƒLƒƒƒ‰ƒNƒ^ƒZƒbƒg‚Å•ÏŠ·
+	##ã‚­ãƒ£ãƒ©ã‚¯ã‚¿ã‚»ãƒƒãƒˆã§å¤‰æ›
 	set ocidArgTextEncoded to ocidArgText's stringByAddingPercentEncodingWithAllowedCharacters:(ocidChrSet)
-	######## ’uŠ·@“ƒGƒ“ƒR[ƒh‚Ì’Ç‰Áˆ—
-	###’uŠ·ƒŒƒR[ƒh
+	######## ç½®æ›ã€€ï¼…ã‚¨ãƒ³ã‚³ãƒ¼ãƒ‰ã®è¿½åŠ å‡¦ç†
+	###ç½®æ›ãƒ¬ã‚³ãƒ¼ãƒ‰
 	set recordPercentMap to {|!|:"%21", |#|:"%23", |$|:"%24", |&|:"%26", |'|:"%27", |(|:"%28", |)|:"%29", |*|:"%2A", |+|:"%2B", |,|:"%2C", |:|:"%3A", |;|:"%3B", |=|:"%3D", |?|:"%3F", |@|:"%40", | |:"%20"} as record
-	###ƒfƒBƒNƒVƒ‡ƒiƒŠ‚É‚µ‚Ä
+	###ãƒ‡ã‚£ã‚¯ã‚·ãƒ§ãƒŠãƒªã«ã—ã¦
 	set ocidPercentMap to refMe's NSDictionary's alloc()'s initWithDictionary:(recordPercentMap)
-	###ƒL[‚Ìˆê——‚ğæ‚èo‚µ‚Ü‚·
+	###ã‚­ãƒ¼ã®ä¸€è¦§ã‚’å–ã‚Šå‡ºã—ã¾ã™
 	set ocidAllKeys to ocidPercentMap's allKeys()
-	###æ‚èo‚µ‚½ƒL[ˆê——‚ğ‡”Ô‚Éˆ—
+	###å–ã‚Šå‡ºã—ãŸã‚­ãƒ¼ä¸€è¦§ã‚’é †ç•ªã«å‡¦ç†
 	repeat with itemAllKey in ocidAllKeys
 		set strItemKey to itemAllKey as text
-		##ƒL[‚Ì’l‚ğæ‚èo‚µ‚Ä
+		##ã‚­ãƒ¼ã®å€¤ã‚’å–ã‚Šå‡ºã—ã¦
 		if strItemKey is "@" then
-			##’uŠ·
+			##ç½®æ›
 			set ocidEncodedText to (ocidArgTextEncoded's stringByReplacingOccurrencesOfString:("@") withString:("%40"))
 		else
 			set ocidMapValue to (ocidPercentMap's valueForKey:(strItemKey))
-			##’uŠ·
+			##ç½®æ›
 			set ocidEncodedText to (ocidArgTextEncoded's stringByReplacingOccurrencesOfString:(strItemKey) withString:(ocidMapValue))
 		end if
 		
-		##Ÿ‚Ì•ÏŠ·‚É”õ‚¦‚é
+		##æ¬¡ã®å¤‰æ›ã«å‚™ãˆã‚‹
 		set ocidArgTextEncoded to ocidEncodedText
 	end repeat
-	##ƒeƒLƒXƒgŒ`®‚ÉŠm’è
+	##ãƒ†ã‚­ã‚¹ãƒˆå½¢å¼ã«ç¢ºå®š
 	set strTextToEncode to ocidEncodedText as text
-	###’l‚ğ–ß‚·
+	###å€¤ã‚’æˆ»ã™
 	return strTextToEncode
 end doTextEncode
