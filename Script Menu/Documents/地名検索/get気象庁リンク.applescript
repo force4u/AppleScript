@@ -193,33 +193,36 @@ set ocidHTMLString to refMe's NSMutableString's alloc()'s initWithCapacity:0
 #########
 ###テーブルの開始部
 set strHTML to ("<div id=\"bordertable\"><table><caption title=\"タイトル\">検索語句：" & strResponse & " 検索結果:" & strValueNO & "件</caption>") as text
-set strHTML to (strHTML & "<thead title=\"項目名称\"><tr><th title=\"項目１\" scope=\"row\" >連番</th><th title=\"項目２\" scope=\"col\"> リンク１ </th><th title=\"項目３\" scope=\"col\">リンク２</th><th title=\"項目４\"  scope=\"col\">リンク３</th><th title=\"項目５\"  scope=\"col\"> リンク４</th><th title=\"項目６\"  scope=\"col\">リンク５</th><th title=\"項目７\"  scope=\"col\">リンク６</th><th title=\"項目８\"  scope=\"col\">リンク７</th></tr></thead><tbody title=\"検索結果一覧\" >") as text
+set strHTML to (strHTML & "<thead title=\"項目名称\"><tr><th title=\"項目１\" scope=\"row\" >連番</th><th title=\"項目２\" scope=\"col\"> リンク１ </th><th title=\"項目３\" scope=\"col\">リンク２</th><th title=\"項目４\"  scope=\"col\">リンク３</th><th title=\"項目５\"  scope=\"col\"> リンク４</th><th title=\"項目６\"  scope=\"col\">リンク５</th><th title=\"項目７\"  scope=\"col\">リンク６</th><th title=\"項目８\"  scope=\"col\">リンク７</th><th title=\"項目９\"  scope=\"col\">リンク８</th></tr></thead><tbody title=\"検索結果一覧\" >") as text
 (ocidHTMLString's appendString:(strHTML))
 ##############################
-###リンク１
+###リンク防災
 set strMapURL to ("https://www.jma.go.jp/bosai/#pattern=default&area_type=class20s&area_code=" & strValueNO & "")
 set strLINK1 to "<a href=\"" & strMapURL & "\" target=\"_blank\">防災情報</a>"
-###リンク２
+###リンク天気予報
 set strMapURL to ("https://www.jma.go.jp/bosai/forecast/#area_type=class20s&area_code=" & strValueNO & "")
 set strLINK2 to "<a href=\"" & strMapURL & "\" target=\"_blank\">天気予報</a>"
-###リンク３
+### 追加　注意報
+set strMapURL to ("https://www.jma.go.jp/bosai/warning/#area_type=class20s&area_code=" & strValueNO & "")
+set strLINK3 to "<a href=\"" & strMapURL & "\" target=\"_blank\">警報注意報</a>"
+###リンクアメダス
 set strMapURL to ("https://www.jma.go.jp/bosai/map.html#contents=amedas&area_type=class20s&area_code=" & strValueNO & "")
-set strLINK3 to "<a href=\"" & strMapURL & "\" target=\"_blank\">アメダス</a>"
-###リンク４
+set strLINK4 to "<a href=\"" & strMapURL & "\" target=\"_blank\">アメダス</a>"
+###リンク雨雲
 set strMapURL to ("https://www.jma.go.jp/bosai/nowc/#area_type:class20s/area_code:" & strValueNO & "/")
-set strLINK4 to "<a href=\"" & strMapURL & "\" target=\"_blank\">雨雲の動き</a>"
-###リンク５
+set strLINK5 to "<a href=\"" & strMapURL & "\" target=\"_blank\">雨雲の動き</a>"
+###リンク早期
 set strMapURL to ("https://www.jma.go.jp/bosai/probability/#area_type=class20s&lang=ja&area_code=" & strValueNO & "")
-set strLINK5 to "<a href=\"" & strMapURL & "\" target=\"_blank\">早期注意情報</a>"
-###リンク６
+set strLINK6 to "<a href=\"" & strMapURL & "\" target=\"_blank\">早期注意情報</a>"
+###リンク津波
 set strMapURL to ("https://www.jma.go.jp/bosai/map.html#contents=tsunami&area_type=class20s&from=bosaitop&area_code=" & strValueNO & "")
-set strLINK6 to "<a href=\"" & strMapURL & "\" target=\"_blank\">津波</a>"
-###リンク７
+set strLINK7 to "<a href=\"" & strMapURL & "\" target=\"_blank\">津波</a>"
+###リンク噴火
 set strMapURL to ("https://www.jma.go.jp/bosai/map.html#contents=volcano&area_type=class20s&from=bosaitop&area_code=" & strValueNO & "")
-set strLINK7 to "<a href=\"" & strMapURL & "\" target=\"_blank\">噴火</a>"
+set strLINK8 to "<a href=\"" & strMapURL & "\" target=\"_blank\">噴火</a>"
 
 ###HTMLにして
-set strHTML to ("<tr><th title=\"連番\"  scope=\"row\">1</th><td title=\"リンク１\"><b>" & strLINK1 & "</b></td><td title=\"リンク２\">" & strLINK2 & "</td><td title=\"リンク３\">" & strLINK3 & "</td><td title=\"リンク４\">" & strLINK4 & "</td><td title=\"リンク５\">" & strLINK5 & "</td><td title=\"リンク６\">" & strLINK6 & "</td><td title=\"リンク７\">" & strLINK7 & "</td></tr>") as text
+set strHTML to ("<tr><th title=\"連番\"  scope=\"row\">1</th><td title=\"リンク１\"><b>" & strLINK1 & "</b></td><td title=\"リンク２\">" & strLINK2 & "</td><td title=\"リンク３\">" & strLINK3 & "</td><td title=\"リンク４\">" & strLINK4 & "</td><td title=\"リンク５\">" & strLINK5 & "</td><td title=\"リンク６\">" & strLINK6 & "</td><td title=\"リンク７\">" & strLINK7 & "</td><td title=\"リンク８\">" & strLINK8 & "</td></tr>") as text
 (ocidHTMLString's appendString:(strHTML))
 set strHTML to ("</tbody><tfoot><tr><th colspan=\"8\" title=\"フッター表の終わり\"  scope=\"row\"><a href=\"https://www.jma.go.jp//\" target=\"_blank\">www.jma.go.jp</a></th></tr></tfoot></table></div>") as text
 ####テーブルまでを追加
