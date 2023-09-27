@@ -13,9 +13,8 @@ property refMe : a reference to current application
 #################################
 ###システム設定起動
 #################################
-tell application id "com.apple.systempreferences"
-	launch
-end tell
+tell application id "com.apple.systempreferences" to activate
+delay 1
 ###起動待ち
 tell application id "com.apple.systempreferences"
 	###起動確認　最大１０秒
@@ -139,7 +138,6 @@ set strAnchorName to item 1 of listAnchorName as text
 ###選んだアンカーで開く
 #################################
 tell application id "com.apple.systempreferences"
-	launch
 	activate
 	reveal anchor strAnchorName of pane id strPaneId
 end tell
@@ -147,7 +145,7 @@ end tell
 ###ダイアログ用に値を用意
 #################################
 ###コピー用のスクリプトテキスト
-set strScript to "#!/usr/bin/env osascript\r----+----1----+----2----+-----3----+----4----+----5----+----6----+----7\r#com.cocolog-nifty.quicktimer.icefloe\r#" & strAnchorName & ":" & strPaneId & "\r----+----1----+----2----+-----3----+----4----+----5----+----6----+----7\ruse AppleScript version \"2.8\"\ruse scripting additions\rtell application id \"com.apple.systempreferences\"\r\tlaunch\r\tactivate\r\treveal anchor \"" & strAnchorName & "\" of pane id \"" & strPaneId & "\"\rend tell\rtell application id \"com.apple.finder\"\r\topen location \"x-apple.systempreferences:" & strPaneId & "?" & strAnchorName & "\"\rend tell\r"
+set strScript to ("#!/usr/bin/env osascript\r----+----1----+----2----+-----3----+----4----+----5----+----6----+----7\r#com.cocolog-nifty.quicktimer.icefloe\r#" & strAnchorName & ":" & strPaneId & "\r# ICON:/System/Library//CoreServices/ManagedClient.app/Contents/PlugIns/ConfigurationProfilesUI.bundle/Contents/Resources/SystemPrefApp.icns\r----+----1----+----2----+-----3----+----4----+----5----+----6----+----7\ruse AppleScript version \"2.8\"\ruse scripting additions\rtell application id \"com.apple.systempreferences\" to activate\rtell application id \"com.apple.systempreferences\"\rreveal anchor \"" & strAnchorName & "\" of pane id \"" & strPaneId & "\"\rend tell\rtell application id \"com.apple.finder\"\ropen location \"x-apple.systempreferences:" & strPaneId & "?" & strAnchorName & "\"\rend tell\r")
 #################################
 ###【３】ダイアログを前面に
 #################################
@@ -160,9 +158,9 @@ else
 	tell current application to activate
 end if
 ###ダイアログ
-set strIconPath to "/System/Library/CoreServices/Finder.app/Contents/Resources/Finder.icns"
+set strIconPath to "/System/Library//CoreServices/ManagedClient.app/Contents/PlugIns/ConfigurationProfilesUI.bundle/Contents/Resources/SystemPrefApp.icns"
 set aliasIconPath to POSIX file strIconPath as alias
-set recordResult to (display dialog "スクリプト戻り値です" with title "スクリプト" default answer strScript buttons {"クリップボードにコピー", "キャンセル", "スクリプトエディタで開く"} default button "スクリプトエディタで開く" cancel button "キャンセル" giving up after 20 with icon aliasIconPath without hidden answer)
+set recordResult to (display dialog "スクリプト戻り値です" with title "【３】スクリプト" default answer strScript buttons {"クリップボードにコピー", "キャンセル", "スクリプトエディタで開く"} default button "スクリプトエディタで開く" cancel button "キャンセル" giving up after 20 with icon aliasIconPath without hidden answer)
 ###クリップボードにコピー
 if button returned of recordResult is "クリップボードにコピー" then
 	set strText to text returned of recordResult as text
