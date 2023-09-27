@@ -5,6 +5,8 @@ com.cocolog-nifty.quicktimer.icefloe
 githubからテンプレートになるmobileconfigをダウンロードして
 値を入れてインストール画面まで
 選んだプリンタでlpadminも実行します
+macos14 20230927
+システム設定の起動をlaunch→activateに変更
 *)
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
@@ -139,7 +141,7 @@ set boolDone to ocidPlistDict's writeToURL:(ocidSaveFilePathURL) atomically:true
 log "【５】" & boolDone
 
 ###【６】登録実行
-tell application id "com.apple.systempreferences" to launch
+tell application id "com.apple.systempreferences" to activate
 tell application id "com.apple.systempreferences"
 	activate
 	reveal anchor "Main" of pane id "com.apple.Profiles-Settings.extension"
