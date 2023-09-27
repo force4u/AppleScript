@@ -7,7 +7,6 @@ use framework "Foundation"
 use framework "AppKit"
 use framework "UniformTypeIdentifiers"
 use scripting additions
-
 property refMe : a reference to current application
 
 #################################
