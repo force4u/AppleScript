@@ -1,5 +1,7 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
+#	macos14 20230927
+#	ƒVƒXƒeƒ€İ’è‚Ì‹N“®‚ğlaunch¨activate‚É•ÏX
 # com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
@@ -12,20 +14,20 @@ property refMe : a reference to current application
 
 set strBundleID to "com.apple.systempreferences" as text
 
-###ã‚·ã‚¹ãƒ†ãƒ è¨­å®šã‚’é–‹ã
+###ƒVƒXƒeƒ€İ’è‚ğŠJ‚­
 set appWorkspace to refMe's NSWorkspace's sharedWorkspace()
 set ocidSystemPreferencesURL to refMe's NSURL's URLWithString:"x-apple.systempreferences:com.apple.BluetoothSettings"
 appWorkspace's openURL:(ocidSystemPreferencesURL)
 
 
-###ã‚·ã‚¹ãƒ†ãƒ è¨­å®šã‚’å‰é¢ã«
+###ƒVƒXƒeƒ€İ’è‚ğ‘O–Ê‚É
 set ocidRunningApplication to refMe's NSRunningApplication
 set ocidAppArray to (ocidRunningApplication's runningApplicationsWithBundleIdentifier:("com.apple.systempreferences"))
 set ocidApp to ocidAppArray's firstObject()
 log ocidApp's |localizedName|() as text
 set boolDone to ocidApp's activateWithOptions:(refMe's NSApplicationActivateIgnoringOtherApps)
 log boolDone
-###ã‚¢ã‚¯ãƒ†ã‚£ãƒ–å¾…ã¡ã€€æœ€å¤§ï¼‘ï¼ç§’
+###ƒAƒNƒeƒBƒu‘Ò‚¿@Å‘å‚P‚O•b
 repeat 10 times
 	set boolActive to ocidApp's active
 	log boolActive as boolean
@@ -36,7 +38,7 @@ repeat 10 times
 		set boolDone to ocidApp's activateWithOptions:(refMe's NSApplicationActivateIgnoringOtherApps)
 	end if
 end repeat
-###ã‚¢ã‚¯ãƒ†ã‚£ãƒ–å¾…ã¡ã€€æœ€å¤§ï¼‘ï¼ç§’
+###ƒAƒNƒeƒBƒu‘Ò‚¿@Å‘å‚P‚O•b
 repeat 10 times
 	tell application id strBundleID
 		set boolFrontMost to frontmost as boolean
