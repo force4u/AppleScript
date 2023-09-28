@@ -1,3 +1,360 @@
+
+<table>
+<caption title="タイトル">PLIST2HTML：prefsmapping.plist.html macOS14追加</caption>
+<thead title="項目名称">
+<tr>
+<th title="項目１" scope="row">連番</th>
+<th title="項目２" scope="col">キーの名前</th>
+<th title="項目３" scope="col">キーの値</th>
+</tr>
+</thead>
+<tbody title="コンテンツ">
+<tr>
+<th title="項番：1" scope="row">1</th>
+<td title="キー：com.apple.preferences.walletについて">com.apple.preferences.wallet</td>
+<td title="キー：com.apple.preferences.walletの値">com.apple.WalletSettingsExtension</td>
+</tr>
+<tr>
+<th title="項番：2" scope="row">2</th>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Accessibility_Shortcutについて">
+com.apple.preference.universalaccess&anchorId=Accessibility_Shortcut</td>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Accessibility_Shortcutの値">
+com.apple.Accessibility-Settings.extension?Accessibility_Shortcut</td>
+</tr>
+<tr>
+<th title="項番：3" scope="row">3</th>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Siriについて">
+com.apple.preference.universalaccess&anchorId=Siri</td>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Siriの値">
+com.apple.Accessibility-Settings.extension?Siri</td>
+</tr>
+<tr>
+<th title="項番：4" scope="row">4</th>
+<td title="キー：com.apple.preference.universalaccess&anchorId=TextToSpeechについて">
+com.apple.preference.universalaccess&anchorId=TextToSpeech</td>
+<td title="キー：com.apple.preference.universalaccess&anchorId=TextToSpeechの値">
+com.apple.Accessibility-Settings.extension?TextToSpeech</td>
+</tr>
+<tr>
+<th title="項番：5" scope="row">5</th>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Seeing_Zoomについて">
+com.apple.preference.universalaccess&anchorId=Seeing_Zoom</td>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Seeing_Zoomの値">
+com.apple.Accessibility-Settings.extension?Seeing_Zoom</td>
+</tr>
+<tr>
+<th title="項番：6" scope="row">6</th>
+<td title="キー：com.apple.preference.trackpadについて">com.apple.preference.trackpad</td>
+<td title="キー：com.apple.preference.trackpadの値">com.apple.Trackpad-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：7" scope="row">7</th>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Seeing_VoiceOverについて">
+com.apple.preference.universalaccess&anchorId=Seeing_VoiceOver</td>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Seeing_VoiceOverの値">
+com.apple.Accessibility-Settings.extension?Seeing_VoiceOver</td>
+</tr>
+<tr>
+<th title="項番：8" scope="row">8</th>
+<td title="キー：com.apple.preference.securityについて">com.apple.preference.security</td>
+<td title="キー：com.apple.preference.securityの値">com.apple.settings.PrivacySecurity.extension</td>
+</tr>
+<tr>
+<th title="項番：9" scope="row">9</th>
+<td title="キー：com.apple.preference.screentimeについて">com.apple.preference.screentime</td>
+<td title="キー：com.apple.preference.screentimeの値">com.apple.Screen-Time-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：10" scope="row">10</th>
+<td title="キー：com.apple.preferences.FamilySharingPrefPaneについて">com.apple.preferences.FamilySharingPrefPane
+</td>
+<td title="キー：com.apple.preferences.FamilySharingPrefPaneの値">com.apple.Family-Settings.extension*Family</td>
+</tr>
+<tr>
+<th title="項番：11" scope="row">11</th>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Media_Descriptionsについて">
+com.apple.preference.universalaccess&anchorId=Media_Descriptions</td>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Media_Descriptionsの値">
+com.apple.Accessibility-Settings.extension?Media_Descriptions</td>
+</tr>
+<tr>
+<th title="項番：12" scope="row">12</th>
+<td title="キー：com.apple.preference.universalaccessについて">com.apple.preference.universalaccess</td>
+<td title="キー：com.apple.preference.universalaccessの値">com.apple.Accessibility-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：13" scope="row">13</th>
+<td title="キー：com.apple.preference.screentime&anchorId=Downtimeについて">
+com.apple.preference.screentime&anchorId=Downtime</td>
+<td title="キー：com.apple.preference.screentime&anchorId=Downtimeの値">
+com.apple.Screen-Time-Settings.extension?path=downtime</td>
+</tr>
+<tr>
+<th title="項番：14" scope="row">14</th>
+<td title="キー：com.apple.preferences.Bluetoothについて">com.apple.preferences.Bluetooth</td>
+<td title="キー：com.apple.preferences.Bluetoothの値">com.apple.BluetoothSettings</td>
+</tr>
+<tr>
+<th title="項番：15" scope="row">15</th>
+<td title="キー：com.apple.preferences.softwareupdateについて">com.apple.preferences.softwareupdate</td>
+<td title="キー：com.apple.preferences.softwareupdateの値">com.apple.Software-Update-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：16" scope="row">16</th>
+<td title="キー：com.apple.preference.desktopscreeneffectについて">com.apple.preference.desktopscreeneffect</td>
+<td title="キー：com.apple.preference.desktopscreeneffectの値">com.apple.Wallpaper-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：17" scope="row">17</th>
+<td title="キー：com.apple.prefs.backupについて">com.apple.prefs.backup</td>
+<td title="キー：com.apple.prefs.backupの値">com.apple.Time-Machine-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：18" scope="row">18</th>
+<td title="キー：com.apple.preference.batteryについて">com.apple.preference.battery</td>
+<td title="キー：com.apple.preference.batteryの値">com.apple.Battery-Settings.extension*BatteryPreferences</td>
+</tr>
+<tr>
+<th title="項番：19" scope="row">19</th>
+<td title="キー：com.apple.preference.networkについて">com.apple.preference.network</td>
+<td title="キー：com.apple.preference.networkの値">com.apple.Network-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：20" scope="row">20</th>
+<td title="キー：com.apple.preference.screentime&anchorId=AlwaysAllowedについて">
+com.apple.preference.screentime&anchorId=AlwaysAllowed</td>
+<td title="キー：com.apple.preference.screentime&anchorId=AlwaysAllowedの値">
+com.apple.Screen-Time-Settings.extension?path=always-allowed</td>
+</tr>
+<tr>
+<th title="項番：21" scope="row">21</th>
+<td title="キー：com.apple.preferences.configurationprofilesについて">com.apple.preferences.configurationprofiles
+</td>
+<td title="キー：com.apple.preferences.configurationprofilesの値">com.apple.Profiles-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：22" scope="row">22</th>
+<td title="キー：com.apple.preference.screentime&anchorId=DailyUsageについて">
+com.apple.preference.screentime&anchorId=DailyUsage</td>
+<td title="キー：com.apple.preference.screentime&anchorId=DailyUsageの値">
+com.apple.Screen-Time-Settings.extension?path=app-usage</td>
+</tr>
+<tr>
+<th title="項番：23" scope="row">23</th>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Mouseについて">
+com.apple.preference.universalaccess&anchorId=Mouse</td>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Mouseの値">
+com.apple.Accessibility-Settings.extension?Mouse</td>
+</tr>
+<tr>
+<th title="項番：24" scope="row">24</th>
+<td title="キー：com.apple.preferences.AppleIDPrefPaneについて">com.apple.preferences.AppleIDPrefPane</td>
+<td title="キー：com.apple.preferences.AppleIDPrefPaneの値">
+com.apple.systempreferences.AppleIDSettings*AppleIDSettings</td>
+</tr>
+<tr>
+<th title="項番：25" scope="row">25</th>
+<td title="キー：com.apple.preferences.extensionsについて">com.apple.preferences.extensions</td>
+<td title="キー：com.apple.preferences.extensionsの値">com.apple.ExtensionsPreferences</td>
+</tr>
+<tr>
+<th title="項番：26" scope="row">26</th>
+<td title="キー：com.apple.preference.notificationsについて">com.apple.preference.notifications</td>
+<td title="キー：com.apple.preference.notificationsの値">com.apple.Notifications-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：27" scope="row">27</th>
+<td title="キー：com.apple.preference.keyboardについて">com.apple.preference.keyboard</td>
+<td title="キー：com.apple.preference.keyboardの値">com.apple.Keyboard-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：28" scope="row">28</th>
+<td title="キー：com.apple.preference.dockについて">com.apple.preference.dock</td>
+<td title="キー：com.apple.preference.dockの値">com.apple.Desktop-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：29" scope="row">29</th>
+<td title="キー：com.apple.preference.digihub.discsについて">com.apple.preference.digihub.discs</td>
+<td title="キー：com.apple.preference.digihub.discsの値">com.apple.CD-DVD-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：30" scope="row">30</th>
+<td title="キー：com.apple.preference.screentime&anchorId=ViewUsageLimitについて">
+com.apple.preference.screentime&anchorId=ViewUsageLimit</td>
+<td title="キー：com.apple.preference.screentime&anchorId=ViewUsageLimitの値">
+com.apple.Screen-Time-Settings.extension?path=app-limits</td>
+</tr>
+<tr>
+<th title="項番：31" scope="row">31</th>
+<td title="キー：com.apple.preference.spotlightについて">com.apple.preference.spotlight</td>
+<td title="キー：com.apple.preference.spotlightの値">com.apple.Siri-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：32" scope="row">32</th>
+<td title="キー：com.apple.preference.screentime&anchorId=ContentAndPrivacyについて">
+com.apple.preference.screentime&anchorId=ContentAndPrivacy</td>
+<td title="キー：com.apple.preference.screentime&anchorId=ContentAndPrivacyの値">
+com.apple.Screen-Time-Settings.extension?path=content-and-privacy</td>
+</tr>
+<tr>
+<th title="項番：33" scope="row">33</th>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Switchについて">
+com.apple.preference.universalaccess&anchorId=Switch</td>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Switchの値">
+com.apple.Accessibility-Settings.extension?Switch</td>
+</tr>
+<tr>
+<th title="項番：34" scope="row">34</th>
+<td title="キー：com.apple.preferences.passwordについて">com.apple.preferences.password</td>
+<td title="キー：com.apple.preferences.passwordの値">com.apple.Touch-ID-Settings.extension*TouchIDPasswordPrefs
+</td>
+</tr>
+<tr>
+<th title="項番：35" scope="row">35</th>
+<td title="キー：com.apple.Localizationについて">com.apple.Localization</td>
+<td title="キー：com.apple.Localizationの値">com.apple.Localization-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：36" scope="row">36</th>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Seeing_Displayについて">
+com.apple.preference.universalaccess&anchorId=Seeing_Display</td>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Seeing_Displayの値">
+com.apple.Accessibility-Settings.extension?Seeing_Display</td>
+</tr>
+<tr>
+<th title="項番：37" scope="row">37</th>
+<td title="キー：com.apple.preference.startupdiskについて">com.apple.preference.startupdisk</td>
+<td title="キー：com.apple.preference.startupdiskの値">com.apple.Startup-Disk-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：38" scope="row">38</th>
+<td title="キー：com.apple.preference.speechについて">com.apple.preference.speech</td>
+<td title="キー：com.apple.preference.speechの値">com.apple.Siri-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：39" scope="row">39</th>
+<td title="キー：com.apple.preference.datetimeについて">com.apple.preference.datetime</td>
+<td title="キー：com.apple.preference.datetimeの値">com.apple.Date-Time-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：40" scope="row">40</th>
+<td title="キー：com.apple.preference.displaysについて">com.apple.preference.displays</td>
+<td title="キー：com.apple.preference.displaysの値">com.apple.Displays-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：41" scope="row">41</th>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Hearingについて">
+com.apple.preference.universalaccess&anchorId=Hearing</td>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Hearingの値">
+com.apple.Accessibility-Settings.extension?Hearing</td>
+</tr>
+<tr>
+<th title="項番：42" scope="row">42</th>
+<td title="キー：com.apple.preference.screentime&anchorId=DailyPickupsについて">
+com.apple.preference.screentime&anchorId=DailyPickups</td>
+<td title="キー：com.apple.preference.screentime&anchorId=DailyPickupsの値">
+com.apple.Screen-Time-Settings.extension?path=pickups</td>
+</tr>
+<tr>
+<th title="項番：43" scope="row">43</th>
+<td title="キー：com.apple.preferences.ClassKitPreferencePaneについて">com.apple.preferences.ClassKitPreferencePane
+</td>
+<td title="キー：com.apple.preferences.ClassKitPreferencePaneの値">com.apple.ClassKit-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：44" scope="row">44</th>
+<td title="キー：com.apple.preference.mouseについて">com.apple.preference.mouse</td>
+<td title="キー：com.apple.preference.mouseの値">com.apple.Mouse-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：45" scope="row">45</th>
+<td title="キー：com.apple.preferences.EnergySaverPrefPaneについて">com.apple.preferences.EnergySaverPrefPane</td>
+<td title="キー：com.apple.preferences.EnergySaverPrefPaneの値">com.apple.Battery-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：46" scope="row">46</th>
+<td title="キー：com.apple.preferences.internetaccountsについて">com.apple.preferences.internetaccounts</td>
+<td title="キー：com.apple.preferences.internetaccountsの値">com.apple.Internet-Accounts-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：47" scope="row">47</th>
+<td title="キー：com.apple.preferences.sharingについて">com.apple.preferences.sharing</td>
+<td title="キー：com.apple.preferences.sharingの値">com.apple.Sharing-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：48" scope="row">48</th>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Captioningについて">
+com.apple.preference.universalaccess&anchorId=Captioning</td>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Captioningの値">
+com.apple.Accessibility-Settings.extension?Captioning</td>
+</tr>
+<tr>
+<th title="項番：49" scope="row">49</th>
+<td title="キー：com.apple.preference.screentime&anchorId=CommunicationLimitについて">
+com.apple.preference.screentime&anchorId=CommunicationLimit</td>
+<td title="キー：com.apple.preference.screentime&anchorId=CommunicationLimitの値">
+com.apple.Screen-Time-Settings.extension?path=communication-limits</td>
+</tr>
+<tr>
+<th title="項番：50" scope="row">50</th>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Dictationについて">
+com.apple.preference.universalaccess&anchorId=Dictation</td>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Dictationの値">
+com.apple.Accessibility-Settings.extension?Dictation</td>
+</tr>
+<tr>
+<th title="項番：51" scope="row">51</th>
+<td title="キー：com.apple.preference.printfaxについて">com.apple.preference.printfax</td>
+<td title="キー：com.apple.preference.printfaxの値">com.apple.Print-Scan-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：52" scope="row">52</th>
+<td title="キー：com.apple.preference.generalについて">com.apple.preference.general</td>
+<td title="キー：com.apple.preference.generalの値">com.apple.Appearance-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：53" scope="row">53</th>
+<td title="キー：com.apple.preference.screentime&anchorId=DailyNotificationsについて">
+com.apple.preference.screentime&anchorId=DailyNotifications</td>
+<td title="キー：com.apple.preference.screentime&anchorId=DailyNotificationsの値">
+com.apple.Screen-Time-Settings.extension?path=notifications</td>
+</tr>
+<tr>
+<th title="項番：54" scope="row">54</th>
+<td title="キー：com.apple.preference.soundについて">com.apple.preference.sound</td>
+<td title="キー：com.apple.preference.soundの値">com.apple.Sound-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：55" scope="row">55</th>
+<td title="キー：com.apple.preferences.usersについて">com.apple.preferences.users</td>
+<td title="キー：com.apple.preferences.usersの値">com.apple.Users-Groups-Settings.extension</td>
+</tr>
+<tr>
+<th title="項番：56" scope="row">56</th>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Keyboardについて">
+com.apple.preference.universalaccess&anchorId=Keyboard</td>
+<td title="キー：com.apple.preference.universalaccess&anchorId=Keyboardの値">
+com.apple.Accessibility-Settings.extension?Keyboard</td>
+</tr>
+<tr>
+<th title="項番：57" scope="row">57</th>
+<td title="キー：com.apple.Passwordsについて">com.apple.Passwords</td>
+<td title="キー：com.apple.Passwordsの値">com.apple.Passwords-Settings.extension</td>
+</tr>
+</tbody>
+<tfoot title="フッター">
+<tr>
+<td title="表の終わりです"></td>
+<td title="フッター">合計57項目</td>
+<td title="表の終わりです "></td>
+</tr>
+</tfoot>
+</table>
+
+
+
+
+
 <div id="bordertable">
 
 <table><caption>com.apple.helpviewer Plist情報：prefsmapping.plist.html</caption>
