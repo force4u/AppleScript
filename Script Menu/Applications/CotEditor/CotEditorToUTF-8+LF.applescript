@@ -106,6 +106,11 @@ on open listAliasFilePath
 					else
 						delay 0.1
 					end if
+					###ターミナルで実行できるように755アクセス権にする
+					set ocidFileAttrDict to (refMe's NSMutableDictionary's alloc()'s initWithCapacity:0)
+					# 777-->511 755-->493 700-->448 766-->502 
+					(ocidFileAttrDict's setValue:(493) forKey:(refMe's NSFilePosixPermissions))
+					set listDone to (appFileManager's setAttributes:(ocidFileAttrDict) ofItemAtPath:(ocidFilePath) |error|:(specifier))
 				end repeat
 			end tell
 		else
