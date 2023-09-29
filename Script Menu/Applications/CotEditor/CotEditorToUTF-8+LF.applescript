@@ -98,18 +98,15 @@ on open listAliasFilePath
 					save
 					close
 					###ウィンドウが閉じるのを待つ
-					(*
-					repeat 5 times
-						set numCnt to (count of every window) as integer
-						if numCnt = 0 then
-							exit repeat
-						else
-							delay 0.2
-						end if
-					end repeat
-					*)
-					delay 0.1
 				end tell
+				repeat 5 times
+					set numCntActvDoc to (count of every window) as integer
+					if numCntActvDoc = 0 then
+						exit repeat
+					else
+						delay 0.1
+					end if
+				end repeat
 			end tell
 		else
 			log "UTIが違えばは処理しない"
