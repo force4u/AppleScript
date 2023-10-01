@@ -46,7 +46,7 @@ else
 end if
 set aliasIconPath to (POSIX file "/System/Library/CoreServices/Tips.app/Contents/Resources/AppIcon.icns") as alias
 set strTitle to ("入力してください") as text
-set strMes to ("【日→英】翻訳します\rSafariで開きます\r") as text
+set strMes to ("【英→日】翻訳します\rSafariで開きます\r") as text
 set recordResult to (display dialog strMes with title strTitle default answer strReadString buttons {"キャンセル", "OK"} default button "OK" cancel button "キャンセル" giving up after 30 with icon aliasIconPath without hidden answer)
 
 if (gave up of recordResult) is true then
