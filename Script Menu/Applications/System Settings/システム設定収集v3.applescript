@@ -128,8 +128,8 @@ tell application "System Settings"
 	log listPaneAnchor
 end tell
 ###【７−１】一般選択時のみアンカーが無い
-if strPaneID is "一般" then
-	set listPaneAnchor to {"Main"}
+if strResponse is "一般" then
+	set listPaneAnchor to {"Main"} as list
 end if
 ############################
 ###【８】ダイアログ　アンカー
