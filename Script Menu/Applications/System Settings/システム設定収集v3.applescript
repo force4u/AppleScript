@@ -120,13 +120,17 @@ log strResponse
 ###【６】戻り値を逆順リストで検索してパネルIDを取得
 set ocidPaneID to ocidReversePaneDict's valueForKey:(strResponse)
 set strPaneID to ocidPaneID as text
-
+log "strPaneID" & strPaneID
 ############################
 ###【７】アンカーの値の取得
 tell application "System Settings"
 	set listPaneAnchor to (name of anchors of pane strResponse) as list
 	log listPaneAnchor
 end tell
+###【７−１】一般選択時のみアンカーが無い
+if strPaneID is "一般" then
+	set listPaneAnchor to {"Main"}
+end if
 ############################
 ###【８】ダイアログ　アンカー
 set strName to (name of current application) as text
