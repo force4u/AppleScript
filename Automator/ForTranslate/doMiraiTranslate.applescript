@@ -83,7 +83,7 @@ ru	ロシア
 			###ウィンドウがなければ
 			if numCntWindow = 0 then
 				###新規でウィンドウを作る
-				make new document with properties {name:strReturnedText}
+				make new document with properties {name:"miraitranslate.com"}
 				tell front window
 					open location strGetURL
 				end tell
