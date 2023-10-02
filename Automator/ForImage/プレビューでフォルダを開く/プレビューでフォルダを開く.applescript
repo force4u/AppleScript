@@ -86,10 +86,10 @@ on run {listFolderPath}
 		###################不要なファイルをゴミ箱に入れちゃう
 		####拡張子取って
 		set ocidExtension to itemFilePathURL's pathExtension()
-		###URLファイル削除
+	
 		if (ocidExtension as text) is "db" then
 			set listResult to (appFileManager's trashItemAtURL:(itemFilePathURL) resultingItemURL:(missing value) |error|:(reference))
-			###webloc削除
+	
 		else
 			####URLをforKeyで取り出し
 			set listResult to (itemFilePathURL's getResourceValue:(reference) forKey:(refMe's NSURLIsRegularFileKey) |error|:(reference))
