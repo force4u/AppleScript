@@ -9,6 +9,17 @@ use scripting additions
 
 property refMe : a reference to current application
 
+##OSのバージョンを取得
+set appFileManager to refMe's NSFileManager's defaultManager()
+set ocidSystemPathArray to (appFileManager's URLsForDirectory:(refMe's NSCoreServiceDirectory) inDomains:(refMe's NSSystemDomainMask))
+set ocidCoreServicePathURL to ocidSystemPathArray's firstObject()
+set ocidPlistFilePathURL to ocidCoreServicePathURL's URLByAppendingPathComponent:("SystemVersion.plist")
+set ocidPlistDict to refMe's NSMutableDictionary's alloc()'s initWithContentsOfURL:(ocidPlistFilePathURL)
+set strOSversion to (ocidPlistDict's valueForKey:("ProductVersion")) as text
+set numOSversion to strOSversion as number
+if numOSversion ≥ 14 then
+	return "OS13までの機能です"
+end if
 
 #######
 ###
