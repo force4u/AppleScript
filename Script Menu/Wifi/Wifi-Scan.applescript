@@ -21,6 +21,16 @@ tell application "Terminal"
 	tell objTabWindows
 		activate
 	end tell
+	activate
+	tell application "System Events"
+		tell process "Terminal"
+			set frontmost to true
+			click menu item "タブを新しいウインドウに移動" of menu 1 of menu bar item "ウインドウ" of menu bar 1
+		end tell
+	end tell
+	
+	
+	
 	tell front window
 		activate
 		set numWidowID to id as integer
@@ -53,17 +63,24 @@ tell application "Terminal"
 	tell objTabWindows
 		activate
 	end tell
+	activate
+	tell application "System Events"
+		tell process "Terminal"
+			set frontmost to true
+			click menu item "タブを新しいウインドウに移動" of menu 1 of menu bar item "ウインドウ" of menu bar 1
+		end tell
+	end tell
 	tell front window
 		activate
 		set numWidowID to id as integer
 	end tell
 	
 	tell window id numWidowID
-		set size to {520, 500}
+		set size to {520, 560}
 		set position to {0, 321}
 		set origin to {0, 80}
-		set frame to {0, 80, 520, 579}
-		set bounds to {0, 321, 520, 820}
+		set frame to {0, 80, 520, 660}
+		set bounds to {0, 321, 520, 890}
 	end tell
 	tell objTabWindows
 		activate
@@ -77,6 +94,8 @@ tell application "Terminal"
 	end tell
 end tell
 
+
+
 ##### airport -I
 set strCommandText to "while x=1; do /System/Library/PrivateFrameworks/Apple80211.framework/Versions/Current/Resources/airport -I | grep CtlRSSI; sleep 0.5; done"
 tell application "Terminal"
@@ -86,7 +105,24 @@ tell application "Terminal"
 	tell objTabWindows
 		activate
 	end tell
-	
+	tell front window
+		activate
+		set numWidowID to id as integer
+	end tell
+	tell window id numWidowID
+		set size to {520, 560}
+		set position to {0, 321}
+		set origin to {0, 80}
+		set frame to {0, 80, 520, 660}
+		set bounds to {0, 321, 520, 890}
+	end tell
+	activate
+	tell application "System Events"
+		tell process "Terminal"
+			set frontmost to true
+			click menu item "タブを新しいウインドウに移動" of menu 1 of menu bar item "ウインドウ" of menu bar 1
+		end tell
+	end tell
 	tell front window
 		activate
 		set numWidowID to id as integer
