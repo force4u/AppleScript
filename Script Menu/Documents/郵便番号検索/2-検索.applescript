@@ -1,7 +1,7 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #
-#
+# V2 都道府県市区町村を追加
 # com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 ##自分環境がos12なので2.8にしているだけです
@@ -13,19 +13,6 @@ use scripting additions
 property refMe : a reference to current application
 property refNSNotFound : a reference to 9.22337203685477E+18 + 5807
 
-
-#############################
-###DBファイルへのパス
-tell application "Finder"
-	set aliasPathToMe to (path to me) as alias
-	set aliasContainerDirPath to (container of aliasPathToMe) as alias
-end tell
-set strContainerDirPath to (POSIX path of aliasContainerDirPath) as text
-set ocidContainerDirPathStr to refMe's NSString's stringWithString:(strContainerDirPath)
-set ocidContainerDirPath to ocidContainerDirPathStr's stringByStandardizingPath()
-set ocidContainerDirPathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidContainerDirPath) isDirectory:true)
-set ocidDBFilePathURL to ocidContainerDirPathURL's URLByAppendingPathComponent:("data/postno.db")
-set strDbFilePathURL to (ocidDBFilePathURL's |path|()) as text
 
 
 #############################
@@ -51,41 +38,47 @@ else
 		set strReadString to "" as text
 	end if
 end if
+
+
+
+#############################
+###DBファイルへのパス
+tell application "Finder"
+	set aliasPathToMe to (path to me) as alias
+	set aliasContainerDirPath to (container of aliasPathToMe) as alias
+end tell
+set strContainerDirPath to (POSIX path of aliasContainerDirPath) as text
+set ocidContainerDirPathStr to refMe's NSString's stringWithString:(strContainerDirPath)
+set ocidContainerDirPath to ocidContainerDirPathStr's stringByStandardizingPath()
+set ocidContainerDirPathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidContainerDirPath) isDirectory:true)
+set ocidDBFilePathURL to ocidContainerDirPathURL's URLByAppendingPathComponent:("data/postno.db")
+set strDbFilePathURL to (ocidDBFilePathURL's |path|()) as text
+
 set strMes to ("住所で検索　一部分でも可\r神奈川とかで指定すると検索結果が多くなります") as text
 set strQueryText to strReadString as text
 
 ##############################
 ###ダイアログ
-tell current application
-	set strName to name as text
-end tell
-####スクリプトメニューから実行したら
+set strName to (name of current application) as text
 if strName is "osascript" then
-	tell application "Finder"
-		activate
-	end tell
+	tell application "Finder" to activate
 else
-	tell current application
-		activate
-	end tell
+	tell current application to activate
 end if
-
 set aliasIconPath to POSIX file "/System/Applications/Calculator.app/Contents/Resources/AppIcon.icns" as alias
 try
 	set recordResult to (display dialog strMes with title "郵便番号検索" default answer strQueryText buttons {"OK", "キャンセル"} default button "OK" with icon aliasIconPath giving up after 20 without hidden answer) as record
+	if "OK" is equal to (button returned of recordResult) then
+		set strReturnedText to (text returned of recordResult) as text
+	else if (gave up of recordResult) is true then
+		return "時間切れです"
+	else
+		return "キャンセル"
+	end if
 on error
 	log "エラーしました"
 	return
 end try
-
-if "OK" is equal to (button returned of recordResult) then
-	set strReturnedText to (text returned of recordResult) as text
-else if (gave up of recordResult) is true then
-	return "時間切れです"
-else
-	return "キャンセル"
-end if
-
 ##############################
 ###戻り値整形
 set ocidResponseText to (refMe's NSString's stringWithString:(strReturnedText))
@@ -122,29 +115,24 @@ if (numMach as integer) = 1 then
 	set strCommandText to ("/usr/bin/sqlite3 \"" & strDbFilePathURL & "\" -tabs \"SELECT COUNT(*)  FROM postalcode WHERE prefecture_kana LIKE '%" & strSearchText & "%' OR city_kana LIKE  '%" & strSearchText & "%' OR town_kana LIKE  '%" & strSearchText & "%';\"") as text
 	log strCommandText
 else
-	set strCommandText to ("/usr/bin/sqlite3 \"" & strDbFilePathURL & "\" -tabs \"SELECT COUNT(*)  FROM postalcode WHERE prefecture LIKE '%" & strSearchText & "%' OR city LIKE  '%" & strSearchText & "%' OR town LIKE  '%" & strSearchText & "%';\"") as text
+	set strCommandText to ("/usr/bin/sqlite3 \"" & strDbFilePathURL & "\" -tabs \"SELECT COUNT(*)  FROM postalcode WHERE prefecture LIKE '%" & strSearchText & "%' OR city LIKE  '%" & strSearchText & "%' OR town LIKE  '%" & strSearchText & "%' OR pref_and_city LIKE  '%" & strSearchText & "%';\"") as text
 	log strCommandText
 end if
+###検索結果の件数
 set numQueryCnt to (do shell script strCommandText) as integer
 ##############################
-###
+###件数が１００超える場合は中止を促す
 if numQueryCnt > 100 then
 	log "検索結果１００件超です"
 	###ダイアログを前面に出す
-	tell current application
-		set strName to name as text
-	end tell
-	####スクリプトメニューから実行したら
+	set strName to (name of current application) as text
 	if strName is "osascript" then
-		tell application "Finder"
-			activate
-		end tell
+		tell application "Finder" to activate
 	else
-		tell current application
-			activate
-		end tell
+		tell current application to activate
 	end if
-	set numMin to (0.03 * numQueryCnt) as integer
+	##１件の処理時間
+	set numMin to (0.01 * numQueryCnt) as integer
 	set strAlertMes to "検索結果１００件超です（" & numQueryCnt & "件）\r継続すると結果表示まで約：" & numMin & "秒かかります" as text
 	try
 		set recordResponse to (display alert ("【選んでください】\r" & strAlertMes) buttons {"継続", "終了"} default button "継続" cancel button "終了" as informational giving up after 10) as record
@@ -158,20 +146,19 @@ if numQueryCnt > 100 then
 else if numQueryCnt = 0 then
 	log "検索結果０件です"
 end if
-
-
+####処理継続の場合はそのまま進む
 if (numMach as integer) = 1 then
 	set strCommandText to ("/usr/bin/sqlite3 \"" & strDbFilePathURL & "\" -tabs \"SELECT * FROM postalcode WHERE prefecture_kana LIKE '%" & strSearchText & "%' OR city_kana LIKE  '%" & strSearchText & "%' OR town_kana LIKE  '%" & strSearchText & "%';\"") as text
 	log strCommandText
 else
-	set strCommandText to ("/usr/bin/sqlite3 \"" & strDbFilePathURL & "\" -tabs \"SELECT * FROM postalcode WHERE prefecture LIKE '%" & strSearchText & "%' OR city LIKE  '%" & strSearchText & "%' OR town LIKE  '%" & strSearchText & "%';\"") as text
+	set strCommandText to ("/usr/bin/sqlite3 \"" & strDbFilePathURL & "\" -tabs \"SELECT * FROM postalcode WHERE prefecture LIKE '%" & strSearchText & "%' OR city LIKE  '%" & strSearchText & "%' OR town LIKE  '%" & strSearchText & "%' OR pref_and_city LIKE  '%" & strSearchText & "%';\"") as text
 	log strCommandText
 end if
 set strResponse to (do shell script strCommandText) as text
 
 
 ########################################
-##
+##コマンドの戻り値を改行でリストに
 set AppleScript's text item delimiters to "\r"
 set listResponse to every text item of strResponse
 set AppleScript's text item delimiters to ""
@@ -194,29 +181,30 @@ set ocidHTMLString to refMe's NSMutableString's alloc()'s initWithCapacity:0
 ###テーブルの開始部
 set strHTML to ("<div id=\"bordertable\"><table><caption title=\"タイトル\">検索結果:" & strReturnedText & "</caption>") as text
 set strHTML to (strHTML & "<thead title=\"項目名称\"><tr><th title=\"項目１\" scope=\"row\" > 連番 </th><th title=\"項目２\" scope=\"col\"> 郵便番号 </th><th title=\"項目３\" scope=\"col\"> 住所 </th><th title=\"項目４\"  scope=\"col\"> 読み </th><th title=\"項目５\"  scope=\"col\">団体コード</th><th title=\"項目６\"  scope=\"col\">リンク</th></tr></thead><tbody title=\"検索結果一覧\" >") as text
+(ocidHTMLString's appendString:(strHTML))
 set numLineNo to 1 as integer
 repeat with itemLine in listResponse
+	###各行タブ区切りなのでタブでリストにする
 	set AppleScript's text item delimiters to "\t"
 	set listLineText to every text item of itemLine
 	set AppleScript's text item delimiters to ""
-	
+	###必要な項目を取得
 	set strCityCode to (item 1 of listLineText) as text
 	set strPostNo to (item 3 of listLineText) as text
 	set strAddText to ((item 7 of listLineText) & (item 8 of listLineText) & (item 9 of listLineText)) as text
 	set strKana to ((item 4 of listLineText) & (item 5 of listLineText) & (item 6 of listLineText)) as text
-	
+	###リンク生成
 	set strLinkURL to ("https://www.post.japanpost.jp/cgi-zip/zipcode.php?zip=" & strPostNo & "")
 	set strMapURL to ("https://www.google.com/maps/search/郵便番号+" & strPostNo & "")
 	set strMapAppURL to ("http://maps.apple.com/?q=郵便番号+" & strPostNo & "")
 	set strLINK to "<a href=\"" & strLinkURL & "\" target=\"_blank\">郵政</a>&nbsp;|&nbsp;<a href=\"" & strMapURL & "\" target=\"_blank\">Google</a>&nbsp;|&nbsp;<a href=\"" & strMapAppURL & "\" target=\"_blank\">Map</a>"
-	
-	set strHTML to (strHTML & "<tr><th title=\"項番１\"  scope=\"row\">" & numLineNo & "</th><td title=\"項目２\"><b>" & strPostNo & "</b></td><td title=\"項目３\">" & strAddText & "</td><td title=\"項目４\"><small>" & strKana & "</small></td><td title=\"項目５\">" & strCityCode & "</td><td title=\"項目６\">" & strLINK & "</td></tr>") as text
-	
+	###HTMLにして
+	set strHTML to ("<tr><th title=\"項番１\"  scope=\"row\">" & numLineNo & "</th><td title=\"項目２\"><b>" & strPostNo & "</b></td><td title=\"項目３\">" & strAddText & "</td><td title=\"項目４\"><small>" & strKana & "</small></td><td title=\"項目５\">" & strCityCode & "</td><td title=\"項目６\">" & strLINK & "</td></tr>") as text
+	(ocidHTMLString's appendString:(strHTML))
 	set numLineNo to numLineNo + 1 as integer
 end repeat
 
-
-set strHTML to (strHTML & "</tbody><tfoot><tr><th colspan=\"6\" title=\"フッター表の終わり\"  scope=\"row\">post.japanpost.jp</th></tr></tfoot></table></div>") as text
+set strHTML to ("</tbody><tfoot><tr><th colspan=\"6\" title=\"フッター表の終わり\"  scope=\"row\">post.japanpost.jp</th></tr></tfoot></table></div>") as text
 ####テーブルまでを追加
 (ocidHTMLString's appendString:(strHTML))
 ####終了部を追加
