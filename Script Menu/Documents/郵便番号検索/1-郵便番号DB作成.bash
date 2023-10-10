@@ -1,4 +1,5 @@
 #!/bin/bash
+# V2 都道府県市区町村を追加
 #com.cocolog-nifty.quicktimer.icefloe
 ##################################################
 ###設定項目　CSVのファイル名
@@ -65,5 +66,19 @@ CREATE TABLE postalcode (code TEXT,old_no TEXT,p_no TEXT,prefecture_kana TEXT,ci
 .import "$STR_IMPORT_FILE_PATH" postalcode
 EOF
 /bin/echo "データインポート終了"
+sleep 2
+/bin/echo "都道府県＋地区町村作成開始"
+/usr/bin/sqlite3 "$STR_DB_FILE_PATH" <<EOF
+ALTER TABLE postalcode ADD COLUMN pref_and_city TEXT;
+EOF
+/bin/echo "都道府県＋地区町村作成開始　OK"
+
+/bin/echo "都道府県＋地区町村　データ結合開始"
+/usr/bin/sqlite3 "$STR_DB_FILE_PATH" <<EOF
+UPDATE postalcode SET pref_and_city = prefecture || city;
+EOF
+/bin/echo "都道府県＋地区町村　データ結合開始 ok"
+
+
 /bin/echo "処理終了しました"
 exit 0
