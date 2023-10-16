@@ -8,6 +8,7 @@ use framework "AppKit"
 use framework "UniformTypeIdentifiers"
 use scripting additions
 property refMe : a reference to current application
+
 property strBundleID : "com.apple.finder.Open-AirDrop" as text
 
 set appSharedWorkspace to refMe's NSWorkspace's sharedWorkspace()
@@ -31,6 +32,18 @@ if ocidAppPathURL = (missing value) then
 	set ocidAppPathURL to refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:true
 end if
 
+set boolDone to appSharedWorkspace's openURL:(ocidAppPathURL)
+if boolDone is false then
+	set aliasAppApth to (ocidAppPathURL's absoluteURL()) as alias
+	tell application "Finder"
+		open location aliasAppApth
+	end tell
+end if
+
+(*
 set ocidOpenConfig to refMe's NSWorkspaceOpenConfiguration's configuration
 (ocidOpenConfig's setActivates:(refMe's NSNumber's numberWithBool:true))
 (appSharedWorkspace's openApplicationAtURL:(ocidAppPathURL) configuration:(ocidOpenConfig) completionHandler:(missing value))
+
+*)
+
