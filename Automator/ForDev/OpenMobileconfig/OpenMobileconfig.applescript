@@ -4,7 +4,7 @@ use scripting additions
 
 on run {argAliasFilePath}
 	tell application "System Settings" to launch
-	--ƒVƒXƒeƒ€ŠÂ‹«İ’è‚ªŠJ‚­‚Ì‚ğ‘Ò‚Â
+	--ã‚·ã‚¹ãƒ†ãƒ ç’°å¢ƒè¨­å®šãŒé–‹ãã®ã‚’å¾…ã¤
 	repeat
 		set doLaunchApp to get running of application "System Settings"
 		if doLaunchApp is false then
@@ -14,7 +14,7 @@ on run {argAliasFilePath}
 		end if
 	end repeat
 	try
-		set strCommandText to "open -b com.apple.systempreferences €"/System/Library/PreferencePanes/Profiles.prefPane€"" as text
+		set strCommandText to "open -b com.apple.systempreferences \"/System/Library/PreferencePanes/Profiles.prefPane\"" as text
 		do shell script strCommandText
 	on error
 		tell application id "com.apple.systempreferences"
@@ -40,7 +40,7 @@ on run {argAliasFilePath}
 	
 	tell application "Finder"
 		set strFilePath to POSIX path of argAliasFilePath
-		set theCmdCom to ("open  €"" & strFilePath & "€" | open €"x-apple.systempreferences:com.apple.preferences.configurationprofiles€"") as text
+		set theCmdCom to ("open  \"" & strFilePath & "\" | open \"x-apple.systempreferences:com.apple.preferences.configurationprofiles\"") as text
 		do shell script theCmdCom
 	end tell
 	
