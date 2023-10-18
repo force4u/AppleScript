@@ -8,7 +8,7 @@
 ##自分環境がos12なので2.8にしているだけです
 use AppleScript version "2.8"
 use framework "Foundation"
-use framework "AppKIt"
+use framework "AppKit"
 use scripting additions
 
 property refMe : a reference to current application
@@ -64,10 +64,16 @@ set aliasIconPath to POSIX file strIconPath as alias
 set recordResult to (display dialog " 戻り値です\rコピーしてメールかメッセージを送ってください" with title "SPHardwareDataType" default answer strOutPutText buttons {"クリップボードにコピー", "キャンセル", "OK"} default button "OK" giving up after 30 with icon aliasIconPath without hidden answer)
 ###クリップボードコピー
 if button returned of recordResult is "クリップボードにコピー" then
-	set strText to text returned of recordResult as text
-	####ペーストボード宣言
-	set appPasteboard to refMe's NSPasteboard's generalPasteboard()
-	set ocidText to (refMe's NSString's stringWithString:(strOutPutText))
-	appPasteboard's clearContents()
-	appPasteboard's setString:(ocidText) forType:(refMe's NSPasteboardTypeString)
+	try
+		set strText to text returned of recordResult as text
+		####ペーストボード宣言
+		set appPasteboard to refMe's NSPasteboard's generalPasteboard()
+		set ocidText to (refMe's NSString's stringWithString:(strText))
+		appPasteboard's clearContents()
+		appPasteboard's setString:(ocidText) forType:(refMe's NSPasteboardTypeString)
+	on error
+		tell application "Finder"
+			set the clipboard to strTitle as text
+		end tell
+	end try
 end if
