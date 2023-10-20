@@ -81,9 +81,15 @@ repeat with itemAliasFilePath in listAliasFilePath
 	set ocidJsonData to item 1 of listJSONSerialization
 	###ディレクトリに格納して
 	set ocidJsonDict to (refMe's NSDictionary's alloc()'s initWithDictionary:(ocidJsonData))
-	###値を取り出す
+	###修正箇所
 	set strWidth to (ocidJsonDict's valueForKeyPath:("frame.width"))
 	set strHeight to (ocidJsonDict's valueForKeyPath:("frame.height"))
+	if strWidth is (missing value) then
+		###値を取り出す
+		set strWidth to (ocidJsonDict's valueForKeyPath:("artboards.frame.width"))
+		set strHeight to (ocidJsonDict's valueForKeyPath:("artboards.frame.height"))
+	end if
+	
 	###新しいファイル名
 	###vectornatorを廃止
 	set strExtensionName to "curve" as text
