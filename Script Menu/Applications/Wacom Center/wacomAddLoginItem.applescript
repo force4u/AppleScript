@@ -16,11 +16,17 @@ set ocidApplicationDirPathURL to ocidURLsArray's firstObject()
 set ocidTabletDriverURL to ocidApplicationDirPathURL's URLByAppendingPathComponent:("Wacom Tablet.localized/.Tablet/TabletDriver.app")
 set ocidWacomTabletDriverURL to ocidApplicationDirPathURL's URLByAppendingPathComponent:("Wacom Tablet.localized/.Tablet/WacomTabletDriver.app")
 set ocidWacomTouchDriverURL to ocidApplicationDirPathURL's URLByAppendingPathComponent:("Wacom Tablet.localized/.Tablet/WacomTouchDriver.app")
+####
+set appFileManager to refMe's NSFileManager's defaultManager()
+set ocidURLsArray to (appFileManager's URLsForDirectory:(refMe's NSLibraryDirectory) inDomains:(refMe's NSLocalDomainMask))
+set ocidLibraryDirPathURL to ocidURLsArray's firstObject()
+set ocidIOManagerURL to ocidLibraryDirPathURL's URLByAppendingPathComponent:("PrivilegedHelperTools/com.wacom.IOManager.app")
 ###
 try
 	set strTabletDriverURL to (ocidTabletDriverURL's |path|()) as text
 	set strWacomTabletDriverURL to (ocidWacomTabletDriverURL's |path|()) as text
 	set strWacomTouchDriverURL to (ocidWacomTouchDriverURL's |path|()) as text
+	set strIOManagerURL to (ocidIOManagerURL's |path|()) as text
 on error
 	return "WACOMのドライバーが正しくインストールされていません"
 end try
@@ -35,6 +41,9 @@ end tell
 
 
 tell application "System Events"
-	make login item at end with properties {name:"WacomTouchDriver.app", path: strWacomTouchDriverURL, class:login item, kind:"アプリケーション", hidden:true}
+	make login item at end with properties {name:"WacomTouchDriver.app", path:strWacomTouchDriverURL, class:login item, kind:"アプリケーション", hidden:true}
 end tell
 
+tell application "System Events"
+	make login item at end with properties {name:"com.wacom.IOManager.app", path:strIOManagerURL, class:login item, kind:"アプリケーション", hidden:true}
+end tell
