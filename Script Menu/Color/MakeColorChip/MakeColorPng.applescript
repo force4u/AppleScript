@@ -209,8 +209,7 @@ set strFileName to (strRGBHEX & ".html") as text
 set ocidHTMLFilePathURL to ocidDownloadsDirPathURL's URLByAppendingPathComponent:(strFileName)
 set listDone to (ocidSaveHTML's writeToURL:(ocidHTMLFilePathURL) atomically:(refMe's NSNumber's numberWithBool:true) encoding:(refMe's NSUTF8StringEncoding) |error|:(reference))
 
-
-###
+###保存先を開く
 set appSharedWorkSpave to refMe's NSWorkspace's sharedWorkspace()
 set boolDone to appSharedWorkSpave's selectFile:(ocidSaveFilePathURL's |path|) inFileViewerRootedAtPath:(ocidDownloadsDirPathURL's |path|)
 

@@ -84,6 +84,7 @@ set ocidHTMLFilePathURL to ocidDownloadsDirPathURL's URLByAppendingPathComponent
 set listDone to (ocidSaveHTML's writeToURL:(ocidHTMLFilePathURL) atomically:(refMe's NSNumber's numberWithBool:true) encoding:(refMe's NSUTF8StringEncoding) |error|:(reference))
 ##################
 ##PDF出力
+##クロームのインストール先URLを取得
 set strBundleID to "com.google.Chrome" as text
 set appSharedWorkspace to refMe's NSWorkspace's sharedWorkspace()
 set appSharedWorkspace to refMe's NSWorkspace's sharedWorkspace()
@@ -106,16 +107,17 @@ if ocidAppPathURL = (missing value) then
 	set strAppPath to strAppPathStr's stringByStandardizingPath()
 	set ocidAppPathURL to refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:true
 end if
-###
-set strFileName to (strRGBHEXenc & ".pdf") as text
+###PDFの保存先パス
+set strFileName to (strRGBHEX & ".pdf") as text
 set ocidPDFFilePathURL to ocidDownloadsDirPathURL's URLByAppendingPathComponent:(strFileName)
 set strPdfFilePathURL to ocidPDFFilePathURL's |path| as text
 set ocidBinPathURL to ocidAppPathURL's URLByAppendingPathComponent:("Contents/MacOS/Google Chrome")
-
 set strBinPath to ocidBinPathURL's |path|() as text
+###コマンド整形
 set strCommandText to ("\"" & strBinPath & "\" --headless --disable-gpu --print-to-pdf=\"" & strPdfFilePathURL & "\"  --print-to-pdf-no-header \"" & strSaveFilePath & "\"") as text
+###コマンド実行
 set strRGBHEX to (do shell script strCommandText) as text
-###
+###保存先を開く
 set appSharedWorkSpave to refMe's NSWorkspace's sharedWorkspace()
 set boolDone to appSharedWorkSpave's selectFile:(ocidSaveFilePathURL's |path|) inFileViewerRootedAtPath:(ocidDownloadsDirPathURL's |path|)
 

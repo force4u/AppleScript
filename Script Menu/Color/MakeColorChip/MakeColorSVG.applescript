@@ -71,15 +71,14 @@ set strHTML to ("<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><title>" & s
 ##埋め込む場合
 #	set strHTML to ("<!DOCTYPE html><html><head><meta charset=\"UTF-8\"><title>" & strRGBHEX & "</title><style>body{background-color: #FFFFF;}</style></head><body>" & strSVG & "</body></html>") as text
 
-##データにして
+##HTML をデータにして
 set ocidSaveHTML to refMe's NSString's stringWithString:(strHTML)
-##保存
+##保存 HTML
 set strFileName to (strRGBHEX & ".html") as text
 set ocidHTMLFilePathURL to ocidDownloadsDirPathURL's URLByAppendingPathComponent:(strFileName)
 set listDone to (ocidSaveHTML's writeToURL:(ocidHTMLFilePathURL) atomically:(refMe's NSNumber's numberWithBool:true) encoding:(refMe's NSUTF8StringEncoding) |error|:(reference))
 
-
-###
+###保存先を開く
 set appSharedWorkSpave to refMe's NSWorkspace's sharedWorkspace()
 set boolDone to appSharedWorkSpave's selectFile:(ocidSaveFilePathURL's |path|) inFileViewerRootedAtPath:(ocidDownloadsDirPathURL's |path|)
 
