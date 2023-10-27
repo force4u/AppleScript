@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+
+		<key>PayloadContent</key>
+		<array>
+
+			<dict>
+				<key>allowGameCenter</key>
+				<false />
+
+				<key>PayloadDisplayName</key>
+				<string>com.apple.applicationaccess.allowGameCenter</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.applicationaccess.90025AD9-4071-4127-8C52-9168DBB311C6</string>
+				<key>PayloadType</key>
+				<string>com.apple.applicationaccess</string>
+				<key>PayloadUUID</key>
+				<string>90025AD9-4071-4127-8C52-9168DBB311C6</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+
+			</dict>
+
+			<dict>
+				<key>restrictGames</key>
+				<true />
+
+				<key>PayloadDisplayName</key>
+				<string>com.apple.iTunes.restrictGames</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.iTunes.17F006C7-0648-49A3-AC4C-68EDAD2952DD</string>
+				<key>PayloadType</key>
+				<string>com.apple.iTunes</string>
+				<key>PayloadUUID</key>
+				<string>17F006C7-0648-49A3-AC4C-68EDAD2952DD</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+
+			</dict>
+
+			<dict>
+				<key>GKFeatureAccountModificationAllowed</key>
+				<false />
+				<key>GKFeatureAddingGameCenterFriendsAllowed</key>
+				<false />
+				<key>GKFeatureGameCenterAllowed</key>
+				<false />
+				<key>GKFeatureMultiplayerGamingAllowed</key>
+				<false />
+
+				<key>PayloadDisplayName</key>
+				<string>com.apple.gamed ゲーム関連を全て停止します</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.gamed.1C3A820C-5A34-4FF4-893D-20ABF702AC67</string>
+				<key>PayloadType</key>
+				<string>com.apple.gamed</string>
+				<key>PayloadUUID</key>
+				<string>1C3A820C-5A34-4FF4-893D-20ABF702AC67</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+			</dict>
+		</array>
+
+		<key>ConsentText</key>
+		<dict>
+			<key>default</key>
+			<string>com.apple.gamed ゲーム関連を全て停止します</string>
+		</dict>
+		<key>PayloadDescription</key>
+		<string>com.apple.gamed を停止します</string>
+		<key>PayloadDisplayName</key>
+		<string>com.apple.gamed</string>
+		<key>PayloadIdentifier</key>
+		<string>com.apple.gamed.A5A72236-91C0-4D5C-BB2A-90B856428C5D</string>
+		<key>PayloadOrganization</key>
+		<string>com.cocolog-nifty.quicktimer</string>
+		<key>PayloadScope</key>
+		<string>System</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>A5A72236-91C0-4D5C-BB2A-90B856428C5D</string>
+		<key>PayloadVersion</key>
+		<integer>1</integer>
+		<key>TargetDeviceType</key>
+		<integer>5</integer>
+	</dict>
+</plist>
