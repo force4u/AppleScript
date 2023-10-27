@@ -1,6 +1,7 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #
+# https://apps.apple.com/us/genre/ios/id36
 # com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
@@ -63,6 +64,7 @@ set ocidJsonData to item 1 of listJSONSerialization
 set ocidJsonDict to refMe's NSDictionary's alloc()'s initWithDictionary:(ocidJsonData)
 set ocidResultsArray to ocidJsonDict's valueForKey:("results")
 set ocidResultsDict to ocidResultsArray's firstObject()
+## 	set listKeys to ocidResultsDict's allKeys()
 set listKeys to {"primaryGenreName", "artworkUrl100", "currency", "sellerUrl", "artworkUrl512", "ipadScreenshotUrls", "fileSizeBytes", "genres", "languageCodesISO2A", "artworkUrl60", "supportedDevices", "trackViewUrl", "description", "bundleId", "version", "artistViewUrl", "userRatingCountForCurrentVersion", "isGameCenterEnabled", "appletvScreenshotUrls", "genreIds", "averageUserRatingForCurrentVersion", "releaseDate", "trackId", "wrapperType", "minimumOsVersion", "formattedPrice", "primaryGenreId", "currentVersionReleaseDate", "userRatingCount", "artistId", "trackContentRating", "artistName", "price", "trackCensoredName", "trackName", "kind", "features", "contentAdvisoryRating", "screenshotUrls", "releaseNotes", "isVppDeviceBasedLicensingEnabled", "sellerName", "averageUserRating", "advisories"} as list
 
 repeat with itemKey in listKeys

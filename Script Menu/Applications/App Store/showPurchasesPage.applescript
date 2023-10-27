@@ -11,16 +11,17 @@ use scripting additions
 
 property refMe : a reference to current application
 
+
 set strBundleID to ("com.apple.AppStore") as text
 ###オープンするURL
 set ocidURLComponents to refMe's NSURLComponents's alloc()'s init()
 ocidURLComponents's setScheme:("macappstore")
-ocidURLComponents's setHost:("showUpdatesPage")
+ocidURLComponents's setHost:("showPurchasesPage")
 ocidURLComponents's setPath:("")
 set ocidURL to (ocidURLComponents's |URL|())
 set strURL to ocidURL's absoluteString() as text
 log strURL
--->(*macappstore://showUpdatesPage*)
+-->(*macappstore://showPurchasesPage*)
 ###起動
 tell application id strBundleID to launch
 ###起動待ち　最大１０秒
