@@ -50,7 +50,7 @@
 		<dict>
 			<key>default</key>
 			<string>日本語の詳しい解説例：スクリプトメニューを有効にします</string>
-			<key>jp</key>
+			<key>ja</key>
 			<string>日本語の詳しい解説例：スクリプトメニューを有効にします</string>
 		</dict>
 		<key>PayloadIdentifier</key>
