@@ -1,1 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
 
+		<key>PayloadContent</key>
+		<array>
+
+			<dict>
+				<key>TMAutomaticTimeOnlyEnabled</key>
+				<true />
+				<key>PayloadDescription</key>
+				<string>デバイスの時計をタイムサーバーにシンクロします</string>
+				<key>PayloadDisplayName</key>
+				<string>com.apple.timed</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.timed.8F02EDDE-D720-463B-9B98-2306868FA41C</string>
+				<key>PayloadType</key>
+				<string>com.apple.timed</string>
+				<key>PayloadUUID</key>
+				<string>8F02EDDE-D720-463B-9B98-2306868FA41C</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+
+			</dict>
+
+
+			<dict>
+				<key>timeServer</key>
+				<string>ntp.nict.jp</string>
+				<key>timeZone</key>
+				<string>Asia/Tokyo</string>
+				<key>TMAutomaticTimeOnlyEnabled</key>
+				<true />
+
+				<key>PayloadDescription</key>
+				<string>MCX設定 タイムサーバーとタイムゾーン</string>
+				<key>PayloadDisplayName</key>
+				<string>com.apple.MCX.timed</string>
+				<key>PayloadIdentifier</key>
+				<string>com.apple.MCX.timed.BCACCB23-B266-4B4D-82A8-7D9599E27D88</string>
+				<key>PayloadOrganization</key>
+				<string>com.cocolog-nifty.quicktimer</string>
+				<key>PayloadType</key>
+				<string>com.apple.MCX</string>
+				<key>PayloadUUID</key>
+				<string>BCACCB23-B266-4B4D-82A8-7D9599E27D88</string>
+				<key>PayloadVersion</key>
+				<integer>20221013</integer>
+
+			</dict>
+		</array>
+		<key>ConsentText</key>
+		<dict>
+			<key>default</key>
+			<string>Do not remove this setting It's a setting about the date and time.</string>
+			<key>ja</key>
+			<string>この設定は削除しないでください 日時に関する設定です</string>
+		</dict>
+		<key>PayloadDescription</key>
+		<string>時間関連の設定です</string>
+		<key>PayloadDisplayName</key>
+		<string>com.apple.MCX.timed</string>
+		<key>PayloadIdentifier</key>
+		<string>com.apple.MCX.timed.42A18049-0CA1-47CE-9967-2E822D378D15</string>
+		<key>PayloadOrganization</key>
+		<string>com.cocolog-nifty.quicktimer</string>
+		<key>PayloadRemovalDisallowed</key>
+		<false />
+		<key>PayloadScope</key>
+		<string>System</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>42A18049-0CA1-47CE-9967-2E822D378D15</string>
+		<key>PayloadVersion</key>
+		<integer>20221013</integer>
+		<key>TargetDeviceType</key>
+		<integer>5</integer>
+	</dict>
+</plist>
