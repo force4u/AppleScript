@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>PayloadDisplayName</key>
+			<string>com.apple.archiveutility</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.archiveutility.4F62960E-C350-4BA3-8E5E-F1036C085576</string>
+			<key>PayloadType</key>
+			<string>com.apple.archiveutility</string>
+			<key>PayloadUUID</key>
+			<string>4F62960E-C350-4BA3-8E5E-F1036C085576</string>
+			<key>PayloadVersion</key>
+			<integer>20231029</integer>
+			<key>archive-format</key>
+			<string>zip</string>
+			<key>archive-info</key>
+			<string>.</string>
+			<key>archive-move-after</key>
+			<string>.</string>
+			<key>archive-reveal-after</key>
+			<true/>
+			<key>dearchive-into</key>
+			<string>.</string>
+			<key>dearchive-move-after</key>
+			<string>~/.Trash</string>
+			<key>dearchive-recursively</key>
+			<true/>
+			<key>dearchive-reveal-after</key>
+			<true/>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>アーカイブユーティリティの設定</string>
+	<key>PayloadDisplayName</key>
+	<string>com.apple.archiveutility</string>
+	<key>PayloadIdentifier</key>
+	<string>com.apple.archiveutility.BBF7779D-4DA6-4701-A256-8714D6114EE1</string>
+	<key>PayloadOrganization</key>
+	<string>com.cocolog-nifty.quicktimer</string>
+	<key>PayloadScope</key>
+	<string>User</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>BBF7779D-4DA6-4701-A256-8714D6114EE1</string>
+	<key>PayloadVersion</key>
+	<integer>20231029</integer>
+	<key>TargetDeviceType</key>
+	<integer>5</integer>
+</dict>
+</plist>
