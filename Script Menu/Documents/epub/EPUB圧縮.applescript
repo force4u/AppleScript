@@ -1,7 +1,6 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #
-# 書き出しからアプリケーションにして利用してください
 # com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
@@ -49,7 +48,7 @@ on open listFolderPath
 		log strCommandText
 		do shell script strCommandText
 		
-		set strCommandText to ("pushd \"" & strDirPath & "\" && '/usr/bin/zip' -rX ../" & strDirName & ".epub mimetype " & (item 1 of listContentsAlias as text) & "/  " & (item 2 of listContentsAlias as text) & "/ ") as text
+		set strCommandText to ("pushd \"" & strDirPath & "\" && '/usr/bin/zip' -rX \"../" & strDirName & ".epub\" mimetype " & (item 1 of listContentsAlias as text) & "/  " & (item 2 of listContentsAlias as text) & "/ ") as text
 		log strCommandText
 		do shell script strCommandText
 		
