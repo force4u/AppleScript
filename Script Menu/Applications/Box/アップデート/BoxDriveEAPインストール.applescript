@@ -11,7 +11,7 @@ use scripting additions
 
 property refMe : a reference to current application
 
-set strURL to "https://cdn07.boxcdn.net/Autoupdate3.json" as text
+set strURL to "https://cdn07.boxcdn.net/Autoupdate4.json" as text
 
 set listUTI to {"com.box.desktop", "com.box.desktop.ui", "com.box.desktop.autoupdater", "com.box.desktop.helper", "com.box.Box-Device-Trust", "com.Box.BoxToolsCustomApps", "com.box.Box-Local-Com-Server", "com.Box.Box-Edit"} as list
 
