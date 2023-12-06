@@ -45,6 +45,11 @@ set AppleScript's text item delimiters to ""
 ########ユーザーサイトフォルダ作成
 repeat with itemLocalUser in listLocalUser
 	set strLocalUser to itemLocalUser as text
+	
+	set strCommandText to "/usr/bin/sudo /bin/chmod 755  \"/Users/" & strLocalUser & "\""
+	do shell script strCommandText
+	
+	
 	set strCommandText to "/usr/bin/sudo /bin/mkdir -p \"/Users/" & strLocalUser & "/Sites\""
 	do shell script strCommandText
 	set strCommandText to "/usr/bin/sudo /usr/bin/touch \"/Users/" & strLocalUser & "/Sites/.localized\""
@@ -59,7 +64,7 @@ repeat with itemLocalUser in listLocalUser
 	set strCommandText to "[[ -e \"/Library/WebServer/Documents/" & strLocalUser & "\" ]] && /bin/echo true  || /bin/echo false"
 	set boolFileExist to (do shell script strCommandText) as boolean
 	if boolFileExist is false then
-		set strCommandText to "/usr/bin/sudo /bin/ln -s \"/Users/" & strLocalUser & "/Sites\" \"/Library/WebServer/Documents/" & strLocalUser & "\""
+		set strCommandText to "/usr/bin/sudo -u www /bin/ln -s \"/Users/" & strLocalUser & "/Sites\" \"/Library/WebServer/Documents/" & strLocalUser & "\""
 		do shell script strCommandText
 	end if
 end repeat
@@ -125,23 +130,17 @@ ocidMutableString's setString:ocidReadFile
 set numCntNSMutableString to ocidMutableString's |length|()
 ###↑文字数全部でレンジにする
 set ocidNsRange to {location:0, |length|:numCntNSMutableString}
-###改行除去
+###置換
 ocidMutableString's replaceOccurrencesOfString:("Options FollowSymLinks Multiviews\n") withString:("Options FollowSymLinks Multiviews Indexes\n") options:(refMe's NSRegularExpressionSearch) range:ocidNsRange
 
-#########################
-###↑文字数を数える
-set numCntNSMutableString to ocidMutableString's |length|()
-###↑文字数全部でレンジにする
-set ocidNsRange to {location:0, |length|:numCntNSMutableString}
-###改行除去
-ocidMutableString's replaceOccurrencesOfString:("#LoadModule userdir_module libexec/apache2/mod_userdir.so") withString:("LoadModule userdir_module libexec/apache2/mod_userdir.so") options:(refMe's NSRegularExpressionSearch) range:ocidNsRange
+
 
 #########################
 ###↑文字数を数える
 set numCntNSMutableString to ocidMutableString's |length|()
 ###↑文字数全部でレンジにする
 set ocidNsRange to {location:0, |length|:numCntNSMutableString}
-###改行除去
+###置換
 ocidMutableString's replaceOccurrencesOfString:("#LoadModule include_module libexec/apache2/mod_include.so") withString:("LoadModule include_module libexec/apache2/mod_include.so") options:(refMe's NSRegularExpressionSearch) range:ocidNsRange
 log ocidMutableString as text
 
@@ -150,39 +149,40 @@ log ocidMutableString as text
 set numCntNSMutableString to ocidMutableString's |length|()
 ###↑文字数全部でレンジにする
 set ocidNsRange to {location:0, |length|:numCntNSMutableString}
-###改行除去
+###置換
 ocidMutableString's replaceOccurrencesOfString:("#ErrorDocument 404 /missing.html") withString:("ErrorDocument 404 /") options:(refMe's NSRegularExpressionSearch) range:ocidNsRange
 log ocidMutableString as text
 
 
-
-
 #########################
 ###↑文字数を数える
 set numCntNSMutableString to ocidMutableString's |length|()
 ###↑文字数全部でレンジにする
 set ocidNsRange to {location:0, |length|:numCntNSMutableString}
-###改行除去
-ocidMutableString's replaceOccurrencesOfString:("#LoadModule rewrite_module libexec/apache2/mod_rewrite.so") withString:("LoadModule rewrite_module libexec/apache2/mod_rewrite.so") options:(refMe's NSRegularExpressionSearch) range:ocidNsRange
-log ocidMutableString as text
-
-#########################
-###↑文字数を数える
-set numCntNSMutableString to ocidMutableString's |length|()
-###↑文字数全部でレンジにする
-set ocidNsRange to {location:0, |length|:numCntNSMutableString}
-###改行除去
+###置換
 ocidMutableString's replaceOccurrencesOfString:("#LoadModule rewrite_module libexec/apache2/mod_rewrite.so") withString:("LoadModule rewrite_module libexec/apache2/mod_rewrite.so") options:(refMe's NSRegularExpressionSearch) range:ocidNsRange
 log ocidMutableString as text
 
 
+
+
 #########################
 ###↑文字数を数える
 set numCntNSMutableString to ocidMutableString's |length|()
 ###↑文字数全部でレンジにする
 set ocidNsRange to {location:0, |length|:numCntNSMutableString}
-###改行除去
+###置換
 ocidMutableString's replaceOccurrencesOfString:("#CustomLog \"/private/var/log/apache2/combined_log\" combined") withString:("#CustomLog \"/private/var/log/apache2/combined_log\" combined") options:(refMe's NSRegularExpressionSearch) range:ocidNsRange
+log ocidMutableString as text
+
+
+#########################
+###↑文字数を数える
+set numCntNSMutableString to ocidMutableString's |length|()
+###↑文字数全部でレンジにする
+set ocidNsRange to {location:0, |length|:numCntNSMutableString}
+###置換
+ocidMutableString's replaceOccurrencesOfString:("#Include /private/etc/apache2/extra/httpd-userdir.conf") withString:("Include /private/etc/apache2/extra/httpd-userdir.conf") options:(refMe's NSRegularExpressionSearch) range:ocidNsRange
 log ocidMutableString as text
 
 
@@ -252,7 +252,7 @@ repeat with objFiles in ocidFileList
 	set numCntNSMutableString to ocidMutableString's |length|()
 	###↑文字数全部でレンジにする
 	set ocidNsRange to {location:0, |length|:numCntNSMutableString}
-	###改行除去
+	###置換
 	(ocidMutableString's replaceOccurrencesOfString:("Options Indexes MultiViews\n") withString:("Options Indexes MultiViews FollowSymLinks\n") options:(refMe's NSRegularExpressionSearch) range:ocidNsRange)
 	
 	#########################
