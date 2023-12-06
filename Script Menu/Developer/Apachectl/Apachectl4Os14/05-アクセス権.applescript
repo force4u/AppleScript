@@ -11,17 +11,21 @@ use scripting additions
 
 ####ローカルサイト
 set strCommandText to "/usr/bin/sudo /bin/chmod 777 \"/Library/WebServer/Documents\""
-do shell script strCommandText 
+do shell script strCommandText
 set strCommandText to "/usr/bin/sudo /usr/bin/chgrp www \"/Library/WebServer/Documents\""
-do shell script strCommandText 
+do shell script strCommandText
+set strCommandText to "pushd \"/Library/WebServer/Documents\" && /usr/bin/sudo /usr/sbin/chown  www /Library/WebServer/Documents/*"
+do shell script strCommandText
+set strCommandText to "pushd \"/Library/WebServer/Documents\" && /usr/bin/sudo /usr/bin/chgrp www /Library/WebServer/Documents/*"
+do shell script strCommandText
 
 ####共有サイトフォルダ作成
 set strCommandText to "/usr/bin/sudo /bin/mkdir -p /Users/Shared/Sites"
-do shell script strCommandText 
+do shell script strCommandText
 set strCommandText to "/usr/bin/sudo /bin/chmod -Rf 755 /Users/Shared/Sites"
-do shell script strCommandText 
+do shell script strCommandText
 set strCommandText to "/usr/bin/sudo /usr/bin/chgrp -Rf www /Users/Shared/Sites"
-do shell script strCommandText 
+do shell script strCommandText
 
 
 ########ローカルユーザー名取得
@@ -34,16 +38,17 @@ set AppleScript's text item delimiters to ""
 repeat with itemLocalUser in listLocalUser
 	set strLocalUser to itemLocalUser as text
 	set strCommandText to "/usr/bin/sudo /bin/mkdir -p \"/Users/" & strLocalUser & "/Sites\""
-	do shell script strCommandText 
+	do shell script strCommandText
 	set strCommandText to "/usr/bin/sudo /usr/bin/touch \"/Users/" & strLocalUser & "/Sites/.localized\""
-	do shell script strCommandText 
+	do shell script strCommandText
 	set strCommandText to "/usr/bin/sudo /usr/sbin/chown -Rf " & strLocalUser & " \"/Users/" & strLocalUser & "/Sites\""
-	do shell script strCommandText 
+	do shell script strCommandText
 	set strCommandText to "/usr/bin/sudo /usr/bin/chgrp -Rf www \"/Users/" & strLocalUser & "/Sites\""
-	do shell script strCommandText 
+	do shell script strCommandText
 	set strCommandText to "/usr/bin/sudo /bin/chmod 755 \"/Users/" & strLocalUser & "/Sites\""
-	do shell script strCommandText 
-	
+	do shell script strCommandText
+	set strCommandText to "/usr/bin/sudo /bin/chmod 755 \"/Users/" & strLocalUser & "\""
+	do shell script strCommandText
 end repeat
 
 
