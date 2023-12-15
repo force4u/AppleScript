@@ -1,6 +1,7 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #　入力した文言でスクリーンセイバーが開始します
+#	初回時のPLISTが無いケースに対応
 #com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
@@ -13,31 +14,51 @@ property refMe : a reference to current application
 set objFileManager to refMe's NSFileManager's defaultManager()
 
 
-set aliasIconPath to POSIX file "/System/Library/CoreServices/ScreenSaverEngine.app/Contents/Resources/AppIcon.icns" as alias
-set strDefaultAnswer to "離席中です<すぐ戻ります" as text
+###選択肢レコード
+set recordTimeInterval to {|１５分後|:0.25, |３０分後|:0.5, |４５分後|:0.75, |１時間後|:1, |１時間半後|:1.5, |２時間後|:2} as record
+###DICTからallKeyでリストにする
+set ocidTimeIntervalDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
+ocidTimeIntervalDict's setDictionary:(recordTimeInterval)
+set ocidAllKeys to ocidTimeIntervalDict's allKeys()
+set ocidSortedArray to ocidAllKeys's sortedArrayUsingSelector:("localizedStandardCompare:")
+set listAllKeys to ocidSortedArray as list
+
+##############################
+###ダイアログを前面に出す
+tell current application
+	set strName to name as text
+end tell
+###スクリプトメニューから実行したら
+if strName is "osascript" then
+	tell application "Finder" to activate
+else
+	tell current application to activate
+end if
+###
+set strTitle to "戻る時間" as text
+set strPrompt to "『HH時mm分ごろ戻ります』になります" as text
 try
-	set recordResponse to (display dialog "スクリーンセイバーに表示する文字列" with title "入力してください" default answer strDefaultAnswer buttons {"OK", "キャンセル"} default button "OK" cancel button "キャンセル" with icon aliasIconPath giving up after 30 without hidden answer)
-	
+	set listResponse to (choose from list listAllKeys with title strTitle with prompt strPrompt default items (item 5 of listAllKeys) OK button name "OK" cancel button name "キャンセル" without multiple selections allowed and empty selection allowed) as list
 on error
 	log "エラーしました"
 	return "エラーしました"
-	error number -128
+	error "エラーしました" number -200
 end try
-if true is equal to (gave up of recordResponse) then
-	return "時間切れですやりなおしてください"
-	error number -128
-end if
-if "OK" is equal to (button returned of recordResponse) then
-	set strResponse to (text returned of recordResponse) as text
+if listResponse = {} then
+	return "何も選択していない"
+else if (item 1 of listResponse) is false then
+	return "キャンセルしました"
 else
-	log "エラーしました"
-	return "エラーしました"
-	error number -128
+	set strValue to (ocidTimeIntervalDict's valueForKey:(item 1 of listResponse)) as text
 end if
-
+set numValue to strValue as number
+set intIntervalSec to ((60 * 60) * numValue) as integer
+####ここがメッセージになります
+set strResponse to doGetIntervalDate({"離席中HH時mm分ごろ戻ります", intIntervalSec})
 #####################################
 #####デバイスID取得から処理開始
 #####################################
+
 set strDeviceUUID to doGetDeviceUUID() as text
 
 #####################################
@@ -117,7 +138,7 @@ set boolDone to ocidPlistDict's writeToURL:(ocidPlistFilePathURL) atomically:tru
 log boolDone
 
 #####################################
-######メッセージの変更
+######com.apple.ScreenSaver.Computer-Nameのパス
 #####################################
 set strPlistSubPath to "Containers/com.apple.ScreenSaver.Computer-Name/Data/Library/Preferences/ByHost/com.apple.ScreenSaver.Computer-Name." & strDeviceUUID & ".plist" as text
 
@@ -127,20 +148,42 @@ set strPlistSubPath to "Containers/com.apple.ScreenSaver.Computer-Name/Data/Libr
 set ocidPathArray to (objFileManager's URLsForDirectory:(refMe's NSLibraryDirectory) inDomains:(refMe's NSUserDomainMask))
 set ocidUserLibraryPathURL to ocidPathArray's objectAtIndex:0
 set ocidFilePathURL to ocidUserLibraryPathURL's URLByAppendingPathComponent:(strPlistSubPath) isDirectory:false
+#####################################
+######ファイルの有無確認
+#####################################
+set ocidFilePath to ocidFilePathURL's |path|()
+set boolFileExists to appFileManager's fileExistsAtPath:(ocidFilePath) isDirectory:(false)
+if boolFileExists = true then
+	log "Plistは存在するので処理を継続"
+else if boolFileExists = false then
+	log "Plistが存在しないのでエラー新規作成する"
+	##ByHostフォルダをまずは作成
+	set ocidContainerDirPathURL to ocidFilePathURL's URLByDeletingLastPathComponent()
+	set appFileManager to refMe's NSFileManager's defaultManager()
+	set ocidAttrDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
+	# 777-->511 755-->493 700-->448 766-->502 
+	ocidAttrDict's setValue:(493) forKey:(refMe's NSFilePosixPermissions)
+	set listBoolMakeDir to appFileManager's createDirectoryAtURL:(ocidContainerDirPathURL) withIntermediateDirectories:true attributes:(ocidAttrDict) |error|:(reference)
+end if
 
 #####################################
 ######plist読み込み
 #####################################
-set ocidPlistDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
 set listResults to refMe's NSMutableDictionary's dictionaryWithContentsOfURL:ocidFilePathURL |error|:(reference)
-set ocidPlistDict to item 1 of listResults
-
+set ocidReadDict to item 1 of listResults
 #####################################
 ######　値の変更 -->スクリーンセーバーのメッセージ
 #####################################
-ocidPlistDict's setValue:strResponse forKeyPath:"MESSAGE"
-
+set ocidPlistDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
+if (ocidPlistDict = (missing value)) then
+	log "Plist新規作成"
+	ocidPlistDict's setValue:strResponse forKey:"MESSAGE"
+else
+	ocidPlistDict's setDictionary:(ocidReadDict)
+	ocidPlistDict's setValue:strResponse forKey:"MESSAGE"
+end if
 log ocidPlistDict as record
+
 #####################################
 ######　保存
 #####################################
@@ -155,8 +198,6 @@ set strCommandText to "/usr/bin/killall cfprefsd" as text
 do shell script strCommandText
 #####反映待ち
 delay 2
-
-
 #####################################
 ### スクリーンセーバースタート macOS14対応
 #####################################
@@ -178,6 +219,7 @@ on error
 		end tell
 	end try
 end try
+
 
 
 
@@ -255,3 +297,37 @@ to doGetDeviceUUID()
 	return ocidDeviceUUID
 	
 end doGetDeviceUUID
+
+
+
+
+
+
+
+################################
+#### X秒後= argIntervalSec の時間
+################################
+to doGetIntervalDate({argDateFormat, argIntervalSec})
+	set strDateFormat to argDateFormat as text
+	set intIntervalSec to argIntervalSec as integer
+	####日付情報の取得
+	set ocidDate to current application's NSDate's |date|()
+	####インターバル指定
+	set ocidIntervalDate to ocidDate's dateByAddingTimeInterval:(intIntervalSec)
+	###日付のフォーマットを定義
+	set ocidFormatterJP to current application's NSDateFormatter's alloc()'s init()
+	###日本のカレンダー
+	set ocidCalendarJP to current application's NSCalendar's alloc()'s initWithCalendarIdentifier:(current application's NSCalendarIdentifierJapanese)
+	###東京タイムゾーン
+	set ocidTimezoneJP to current application's NSTimeZone's alloc()'s initWithName:("Asia/Tokyo")
+	###日本語
+	set ocidLocaleJP to current application's NSLocale's alloc()'s initWithLocaleIdentifier:("ja_JP_POSIX")
+	ocidFormatterJP's setTimeZone:(ocidTimezoneJP)
+	ocidFormatterJP's setLocale:(ocidLocaleJP)
+	ocidFormatterJP's setCalendar:(ocidCalendarJP)
+	ocidFormatterJP's setDateFormat:("Gyy")
+	ocidFormatterJP's setDateFormat:(strDateFormat)
+	set ocidDateAndTime to ocidFormatterJP's stringFromDate:(ocidIntervalDate)
+	set strDateAndTime to ocidDateAndTime as text
+	return strDateAndTime
+end doGetIntervalDate
