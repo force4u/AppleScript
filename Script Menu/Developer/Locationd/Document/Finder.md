@@ -1,4 +1,4 @@
-<style>table { border-collapse:  collapse;table-layout: fixed;} th,td {border: solid 1px; }th{font-weight: bold;}</style><div class="CSS CLASS">
+
 <table  class="CSS CLASS">
 <caption>キャプションテキスト</caption>
 <thead>
