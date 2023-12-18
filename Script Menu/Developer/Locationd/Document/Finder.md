@@ -1,6 +1,6 @@
 
 <table  class="CSS CLASS">
-<caption>キャプションテキスト</caption>
+<caption>InfoPlist</caption>
 <thead>
 <tr>
 <th title="R1C1">＼</th><th title="R1C2">ar</th><th title="R1C3">ca</th><th title="R1C4">cs</th><th title="R1C5">da</th><th title="R1C6">de</th><th title="R1C7">el</th><th title="R1C8">en</th><th title="R1C9">en_AU</th><th title="R1C10">en_GB</th><th title="R1C11">es</th><th title="R1C12">es_419</th><th title="R1C13">fi</th><th title="R1C14">fr</th><th title="R1C15">fr_CA</th><th title="R1C16">he</th><th title="R1C17">hi</th><th title="R1C18">hr</th><th title="R1C19">hu</th><th title="R1C20">id</th><th title="R1C21">it</th><th title="R1C22">ja</th><th title="R1C23">ko</th><th title="R1C24">ms</th><th title="R1C25">nl</th><th title="R1C26">no</th><th title="R1C27">pl</th><th title="R1C28">pt_BR</th><th title="R1C29">pt_PT</th><th title="R1C30">ro</th><th title="R1C31">ru</th><th title="R1C32">sk</th><th title="R1C33">sv</th><th title="R1C34">th</th><th title="R1C35">tr</th><th title="R1C36">uk</th><th title="R1C37">vi</th><th title="R1C38">zh_CN</th><th title="R1C39">zh_HK</th><th title="R1C40" scope="col">zh_TW</th>
