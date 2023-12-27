@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CompatibleVersion</key>
+	<integer>1</integer>
+	<key>RawQuery</key>
+	<string>(true) &amp;&amp; ((((kMDItemKind = "PostScript*"cdw) &amp;&amp; ((kMDItemKind = "Type*"cdw) &amp;&amp; ((kMDItemKind = "1*"cdw) &amp;&amp; ((kMDItemKind = "outline*"cdw) &amp;&amp; (kMDItemKind = "font*"cdw)))))))</string>
+	<key>RawQueryDict</key>
+	<dict>
+		<key>FinderFilesOnly</key>
+		<true/>
+		<key>RawQuery</key>
+		<string>(true) &amp;&amp; ((((kMDItemKind = "PostScript*"cdw) &amp;&amp; ((kMDItemKind = "Type*"cdw) &amp;&amp; ((kMDItemKind = "1*"cdw) &amp;&amp; ((kMDItemKind = "outline*"cdw) &amp;&amp; (kMDItemKind = "font*"cdw)))))))</string>
+		<key>SearchScopes</key>
+		<array>
+			<string>kMDQueryScopeComputer</string>
+		</array>
+		<key>UserFilesOnly</key>
+		<true/>
+	</dict>
+	<key>SearchCriteria</key>
+	<dict>
+		<key>AnyAttributeContains</key>
+		<string></string>
+		<key>CurrentFolderPath</key>
+		<array>
+			<string>/Users</string>
+		</array>
+		<key>FXCriteriaSlices</key>
+		<array>
+			<dict>
+				<key>criteria</key>
+				<array>
+					<string>kMDItemKind</string>
+					<integer>300</integer>
+					<integer>417</integer>
+					<integer>104</integer>
+				</array>
+				<key>displayValues</key>
+				<array>
+					<string>Kind</string>
+					<string>is</string>
+					<string>other</string>
+					<string>PostScript Type 1 outline font</string>
+				</array>
+				<key>rowType</key>
+				<integer>0</integer>
+				<key>subrows</key>
+				<array/>
+			</dict>
+		</array>
+		<key>FXScope</key>
+		<integer>1396925814</integer>
+		<key>FXScopeArrayOfPaths</key>
+		<array>
+			<string>kMDQueryScopeComputer</string>
+		</array>
+	</dict>
+</dict>
+</plist>
