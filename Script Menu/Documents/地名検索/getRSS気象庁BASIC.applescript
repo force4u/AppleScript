@@ -1,6 +1,8 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #
+# 気象庁のXMLを受信してHTMLにして出力します
+# https://xml.kishou.go.jp/xmlpull.html
 #
 # com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
@@ -11,11 +13,64 @@ use scripting additions
 
 property refMe : a reference to current application
 
+
+
 ### 【１】RSSのURL
-set strBaseURL to ("https://www.data.jma.go.jp/developer/xml/feed/extra.xml") as text
+############################
+set ocidXmlKishouDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:(0)
+#長期（定時）
+set strBaseURL to ("https://www.data.jma.go.jp/developer/xml/feed/regular_l.xml") as text
+ocidXmlKishouDict's setValue:(strBaseURL) forKey:("長期（定時）")
+#長期（随時）
+set strBaseURL to ("https://www.data.jma.go.jp/developer/xml/feed/extra_l.xml") as text
+ocidXmlKishouDict's setValue:(strBaseURL) forKey:("長期（随時）")
+#長期（地震火山）
+set strBaseURL to ("https://www.data.jma.go.jp/developer/xml/feed/eqvol_l.xml") as text
+ocidXmlKishouDict's setValue:(strBaseURL) forKey:("長期（地震火山）")
+#長期（その他）
+set strBaseURL to ("https://www.data.jma.go.jp/developer/xml/feed/other_l.xml") as text
+ocidXmlKishouDict's setValue:(strBaseURL) forKey:("長期（その他）")
+###########################
+#高頻度（定時）
 set strBaseURL to ("https://www.data.jma.go.jp/developer/xml/feed/regular.xml") as text
+ocidXmlKishouDict's setValue:(strBaseURL) forKey:("高頻度（定時）")
+#高頻度（随時)
+set strBaseURL to ("https://www.data.jma.go.jp/developer/xml/feed/extra.xml") as text
+ocidXmlKishouDict's setValue:(strBaseURL) forKey:("高頻度（随時）")
+#高頻度（その他）
 set strBaseURL to ("https://www.data.jma.go.jp/developer/xml/feed/other.xml") as text
+ocidXmlKishouDict's setValue:(strBaseURL) forKey:("高頻度（その他）")
+#高頻度（地震火山）
 set strBaseURL to ("https://www.data.jma.go.jp/developer/xml/feed/eqvol.xml") as text
+ocidXmlKishouDict's setValue:(strBaseURL) forKey:("高頻度（地震火山）")
+#
+set ocidAllKeys to ocidXmlKishouDict's allKeys()
+set ocidDescriptor to refMe's NSSortDescriptor's sortDescriptorWithKey:("self") ascending:(false) selector:"localizedStandardCompare:"
+set ocidDescriptorArray to refMe's NSArray's arrayWithObject:(ocidDescriptor)
+set ocidSortedArray to ocidAllKeys's sortedArrayUsingDescriptors:(ocidDescriptorArray)
+set listAllKeys to ocidSortedArray as list
+
+###ダイアログ
+set strName to (name of current application) as text
+if strName is "osascript" then
+	tell application "Finder" to activate
+else
+	tell current application to activate
+end if
+try
+	set listResponse to (choose from list listAllKeys with title "選んでください" with prompt "取得するXMLを選んでください" default items (item 1 of listAllKeys) OK button name "OK" cancel button name "キャンセル" without multiple selections allowed and empty selection allowed) as list
+on error
+	log "エラーしました"
+	return "エラーしました"
+end try
+if (item 1 of listResponse) is false then
+	return "キャンセルしました"
+end if
+set strResponse to (item 1 of listResponse) as text
+
+####
+set strBaseURL to (ocidXmlKishouDict's valueForKey:(strResponse))
+
 
 set ocidURL to refMe's NSURL's alloc()'s initWithString:(strBaseURL)
 ### 【２】RSS読み込み
