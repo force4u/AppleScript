@@ -100,9 +100,9 @@ ocidQueryItemArray's addObject:(ocidQueryItem)
 ##コード
 set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("charset") value:("UTF8")
 ocidQueryItemArray's addObject:(ocidQueryItem)
-##計測系
-set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("geosys") value:("tokyo")
-ocidQueryItemArray's addObject:(ocidQueryItem)
+##計測系　エラーになるケースが発生しているので停止
+#	set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("geosys") value:("tokyo")
+#	ocidQueryItemArray's addObject:(ocidQueryItem)
 ##駅名検索はSTATION
 set ocidQueryItem to refMe's NSURLQueryItem's alloc()'s initWithName:("series") value:("ADDRESS")
 ocidQueryItemArray's addObject:(ocidQueryItem)
