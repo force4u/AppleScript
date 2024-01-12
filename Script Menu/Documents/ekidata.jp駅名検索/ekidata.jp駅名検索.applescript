@@ -221,9 +221,12 @@ repeat with itemLine in listResponse
 	###リンク５
 	set strMapURL to ("http://maps.apple.com/?ll=" & strLat & "," & strLong & "")
 	set strLINK5 to "<a href=\"" & strMapURL & "\" target=\"_blank\">Apple Map</a>"
-	##
+	##リンク６
+	set strMapURL to ("https://www.google.com/maps/@" & strLat & "," & strLong & ",21z")
+	set strLINK6 to "<a href=\"" & strMapURL & "\" target=\"_blank\">Google Map</a>"
 	
-	set strLINK to "" & strLINK1 & "&nbsp;|&nbsp;" & strLINK2 & "&nbsp;|&nbsp;" & strLINK3 & "&nbsp;|&nbsp;" & strLINK4 & "&nbsp;|&nbsp;" & strLINK5 & ""
+	
+	set strLINK to "" & strLINK1 & "&nbsp;|&nbsp;" & strLINK2 & "&nbsp;|&nbsp;" & strLINK3 & "&nbsp;|&nbsp;" & strLINK4 & "&nbsp;|&nbsp;" & strLINK5 & "&nbsp;|&nbsp;" & strLINK6 &  ""
 	###HTMLにして
 	set strHTML to ("<tr><th title=\"項番１\"  scope=\"row\">" & numLineNo & "</th><td title=\"項目２\"><b>" & strPostNO & "</b></td><td title=\"項目３\">" & strLineName & "</td><td title=\"項目４\">" & strAddText & "</td><td title=\"項目５\">" & strLINK & "</td></tr>") as text
 	(ocidHTMLString's appendString:(strHTML))
