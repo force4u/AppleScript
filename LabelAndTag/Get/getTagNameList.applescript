@@ -1,10 +1,6 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #
-#
-#	
-#
-#
 #com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
@@ -25,7 +21,12 @@ set ocidPlistFilePathURL to ocidLibraryDirURL's URLByAppendingPathComponent:("Pr
 ####PLIST
 set ocidPlistDict to refMe's NSMutableDictionary's alloc()'s initWithContentsOfURL:(ocidPlistFilePathURL)
 set ocidViewDict to ocidPlistDict's objectForKey:"ViewSettingsDictionary"
-set ocidKeyArray to ocidViewDict's allKeys()
+if ocidViewDict = (missing value) then
+	return "ビューセッティングがありません"
+else
+	set ocidKeyArray to ocidViewDict's allKeys()
+end if
+
 ###リスト生成
 set listTagName to {} as list
 ###キーの数だけ繰り返し
