@@ -5,13 +5,13 @@
 		<key>CompatibleVersion</key>
 		<integer>1</integer>
 		<key>RawQuery</key>
-		<string>(_kMDItemFinderLabel = STR_LABEL_NO)</string>
+		<string>STR_RAWQUERY_VALUE</string>
 		<key>RawQueryDict</key>
 		<dict>
 			<key>FinderFilesOnly</key>
 			<true/>
 			<key>RawQuery</key>
-			<string>(_kMDItemFinderLabel = STR_LABEL_NO)</string>
+			<string>STR_RAWQUERY_VALUE</string>
 			<key>SearchScopes</key>
 			<array>
 				<string>kMDQueryScopeComputer</string>
@@ -347,7 +347,7 @@
 				<key>ShowStatusBar</key>
 				<true/>
 				<key>ShowTabView</key>
-				<true/>
+				<false/>
 				<key>ShowToolbar</key>
 				<true/>
 				<key>WindowBounds</key>
