@@ -46,13 +46,13 @@ log listPaperSizePt as list
 set intWidthPt to (item 1 of listPaperSizePt) as integer
 set intHeightPt to (item 2 of listPaperSizePt) as integer
 #
-set numVar to 25.4 as number
-set numWidthMM to ((intWidthPt / 72) * numVar) as number
-set numHeightMM to ((intHeightPt / 72) * numVar) as number
+#	set numVar to 25.4 as number
+#	set numWidthMM to ((intWidthPt / 72) * numVar) as number
+#	set numHeightMM to ((intHeightPt / 72) * numVar) as number
 ##
 
 #####キーノートで新規書類を作成する
 tell application "Keynote"
 	activate
-	set objNewDocument to (make new document with properties {name:"" & strResponse & "", height:"" & numHeightMM & "", width:"" & numWidthMM & "", slide numbers showing:true})
+	set objNewDocument to (make new document with properties {name:"" & strResponse & "", height:"" & intHeightPt & "", width:"" & intWidthPt & "", slide numbers showing:true, document theme:theme id "Application/21_BasicWhite/Standard"})
 end tell
