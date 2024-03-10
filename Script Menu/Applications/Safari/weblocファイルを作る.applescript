@@ -11,10 +11,10 @@ property refMe : a reference to current application
 
 #########################
 tell application "Safari"
-	set numCntWindow to (count of every window) as integer
+	set numCntWindow to (count of every document) as integer
 end tell
 ###Safariのウィンドウが無いならダイアログを出す
-if numCntWindow ≤ 1 then
+if numCntWindow = 0 then
 	##デフォルトクリップボードから
 	set ocidPasteboard to refMe's NSPasteboard's generalPasteboard()
 	set ocidPasteboardArray to ocidPasteboard's readObjectsForClasses:({refMe's NSString}) options:(missing value)
@@ -69,11 +69,9 @@ if numCntWindow ≤ 1 then
 else
 	tell application "Safari"
 		####タイトル　と　URLを取得
-		every document
-		set numWindowID to id of front window
-		tell window id numWindowID
-			set objCurrentTab to current tab
-			tell objCurrentTab
+		
+		tell front window
+			tell current tab
 				set strURL to URL
 				set strName to name
 			end tell
@@ -147,14 +145,15 @@ set boolDone to ocidShortCutFileString's writeToURL:(ocidUrlFilePathURL) atomica
 #########################
 ####保存先を開く
 tell application "Finder"
-	set aliasSaveFile to (file strWeblocFileName of folder aliasSaveDirPathURL) as alias
+	
 	set refNewWindow to make new Finder window
 	tell refNewWindow
 		set position to {10, 30}
 		set bounds to {10, 30, 720, 480}
 	end tell
 	set target of refNewWindow to aliasSaveDirPathURL
-	set selection to aliasSaveFile
+	#	set aliasSaveFile to (file strWeblocFileName of folder aliasSaveDirPathURL) as alias
+	set selection to aliasSaveDirPathURL
 end tell
 
 #########################

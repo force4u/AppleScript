@@ -13,7 +13,7 @@ property refMe : a reference to current application
 set strBundleID to "com.apple.Safari" as text
 
 tell application "Safari"
-	set numCntWindow to (count of every window) as integer
+	set numCntWindow to (count of every document) as integer
 	if numCntWindow = 0 then
 		return "ウィンドウがありません"
 	end if

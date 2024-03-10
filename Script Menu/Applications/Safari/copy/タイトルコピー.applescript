@@ -14,6 +14,13 @@ set strBundleID to "com.apple.Safari" as text
 
 ###全面のタブのURLを取得して
 tell application "Safari"
+	set numCntWindow to (count of every document) as integer
+	if numCntWindow = 0 then
+		return "ウィンドウがありません"
+	end if
+end tell
+
+tell application "Safari"
 	set numID to id of front window
 	set objTab to current tab of window id numID
 	
