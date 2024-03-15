@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<opml version="1.0">
+	<head>
+		<title>QuickTimerのOPML</title>
+	</head>
+	<body>
+		<outline type="rss" text="NHK RSS" title="NHK RSS">
+			<outline type="rss" text="経済" title="経済" xmlUrl="https://www.nhk.or.jp/rss/news/cat5.xml" htmlUrl="https://www3.nhk.or.jp/news/"></outline>
+			<outline type="rss" text="文化" title="文化" xmlUrl="https://www.nhk.or.jp/rss/news/cat2.xml" htmlUrl="https://www3.nhk.or.jp/news/"></outline>
+			<outline type="rss" text="政治" title="政治" xmlUrl="https://www.nhk.or.jp/rss/news/cat4.xml" htmlUrl="https://www3.nhk.or.jp/news/"></outline>
+			<outline type="rss" text="スポーツ" title="スポーツ" xmlUrl="https://www.nhk.or.jp/rss/news/cat7.xml" htmlUrl="https://www3.nhk.or.jp/news/"></outline>
+			<outline type="rss" text="社会" title="社会" xmlUrl="https://www.nhk.or.jp/rss/news/cat1.xml" htmlUrl="https://www3.nhk.or.jp/news/"></outline>
+			<outline type="rss" text="LIVE" title="LIVE" xmlUrl="https://www.nhk.or.jp/rss/news/cat-live.xml" htmlUrl="https://www3.nhk.or.jp/news/"></outline>
+			<outline type="rss" text="科学" title="科学" xmlUrl="https://www.nhk.or.jp/rss/news/cat3.xml" htmlUrl="https://www3.nhk.or.jp/news/"></outline>
+			<outline type="rss" text="主要" title="主要" xmlUrl="https://www.nhk.or.jp/rss/news/cat0.xml" htmlUrl="https://www3.nhk.or.jp/news/"></outline>
+			<outline type="rss" text="国際" title="国際" xmlUrl="https://www.nhk.or.jp/rss/news/cat6.xml" htmlUrl="https://www3.nhk.or.jp/news/"></outline>
+			<outline type="rss" text="BLOG" title="BLOG" xmlUrl="https://www.nhk.or.jp/blog-blog/last20.xml" htmlUrl="https://www.nhk.or.jp/blog-blog/"></outline>
+		</outline>
+	</body>
+</opml>

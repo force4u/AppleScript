@@ -1,0 +1,2812 @@
+{
+"YahooNewsTopics": [
+		{
+			"name": "主要",
+			"url": "/rss/topics/top-picks.xml"
+		},
+		{
+			"name": "国内",
+			"url": "/rss/topics/domestic.xml"
+		},
+		{
+			"name": "国際",
+			"url": "/rss/topics/world.xml"
+		},
+		{
+			"name": "経済",
+			"url": "/rss/topics/business.xml"
+		},
+		{
+			"name": "エンタメ",
+			"url": "/rss/topics/entertainment.xml"
+		},
+		{
+			"name": "スポーツ",
+			"url": "/rss/topics/sports.xml"
+		},
+		{
+			"name": "IT",
+			"url": "/rss/topics/it.xml"
+		},
+		{
+			"name": "科学",
+			"url": "/rss/topics/science.xml"
+		},
+		{
+			"name": "地域",
+			"url": "/rss/topics/local.xml"
+		}
+	],
+	"YahooNewsCategory": [
+		{
+			"name": "国内",
+			"url": "/rss/categories/domestic.xml"
+		},
+		{
+			"name": "国際",
+			"url": "/rss/categories/world.xml"
+		},
+		{
+			"name": "経済",
+			"url": "/rss/categories/business.xml"
+		},
+		{
+			"name": "エンタメ",
+			"url": "/rss/categories/entertainment.xml"
+		},
+		{
+			"name": "スポーツ",
+			"url": "/rss/categories/sports.xml"
+		},
+		{
+			"name": "IT",
+			"url": "/rss/categories/it.xml"
+		},
+		{
+			"name": "科学",
+			"url": "/rss/categories/science.xml"
+		},
+		{
+			"name": "ライフ",
+			"url": "/rss/categories/life.xml"
+		},
+		{
+			"name": "地域",
+			"url": "/rss/categories/local.xml"
+		}
+	],
+	"YahooNewsMedia": [
+		{
+			"name": "25ansウエディング",
+			"url": "/rss/media/vingtcinqw/all.xml"
+		},
+		{
+			"name": "25ans（ヴァンサンカン）",
+			"url": "/rss/media/vingtcinq/all.xml"
+		},
+		{
+			"name": "2.5ジゲン！！",
+			"url": "/rss/media/ntgjigen/all.xml"
+		},
+		{
+			"name": "36Kr Japan",
+			"url": "/rss/media/krjapan/all.xml"
+		},
+		{
+			"name": "47NEWS",
+			"url": "/rss/media/yonnana/all.xml"
+		},
+		{
+			"name": "4years.",
+			"url": "/rss/media/fyears/all.xml"
+		},
+		{
+			"name": "8760 by postseven",
+			"url": "/rss/media/hnrm/all.xml"
+		},
+		{
+			"name": "ABA青森朝日放送",
+			"url": "/rss/media/aba/all.xml"
+		},
+		{
+			"name": "ABCニュース",
+			"url": "/rss/media/asahibc/all.xml"
+		},
+		{
+			"name": "ABEMA TIMES",
+			"url": "/rss/media/abema/all.xml"
+		},
+		{
+			"name": "abn長野朝日放送",
+			"url": "/rss/media/abn/all.xml"
+		},
+		{
+			"name": "ABS秋田放送",
+			"url": "/rss/media/absakita/all.xml"
+		},
+		{
+			"name": "AERA dot.",
+			"url": "/rss/media/sasahi/all.xml"
+		},
+		{
+			"name": "AERA STYLE MAGAZINE",
+			"url": "/rss/media/asmasahi/all.xml"
+		},
+		{
+			"name": "AKIBA PC Hotline!",
+			"url": "/rss/media/impahw/all.xml"
+		},
+		{
+			"name": "ALBA TV",
+			"url": "/rss/media/golfnettv/all.xml"
+		},
+		{
+			"name": "All About",
+			"url": "/rss/media/nallabout/all.xml"
+		},
+		{
+			"name": "ALL REVIEWS",
+			"url": "/rss/media/allreview/all.xml"
+		},
+		{
+			"name": "AMP［アンプ］",
+			"url": "/rss/media/ampreview/all.xml"
+		},
+		{
+			"name": "ananweb",
+			"url": "/rss/media/ananweb/all.xml"
+		},
+		{
+			"name": "AP通信",
+			"url": "/rss/media/aptsushinv/all.xml"
+		},
+		{
+			"name": "ＡＴＶ青森テレビ",
+			"url": "/rss/media/atv/all.xml"
+		},
+		{
+			"name": "AUTO BILD JAPAN Web",
+			"url": "/rss/media/autobild/all.xml"
+		},
+		{
+			"name": "AUTOCAR JAPAN",
+			"url": "/rss/media/autocar/all.xml"
+		},
+		{
+			"name": "Auto Messe Web",
+			"url": "/rss/media/amweb/all.xml"
+		},
+		{
+			"name": "Aviation Wire",
+			"url": "/rss/media/awire/all.xml"
+		},
+		{
+			"name": "AV Watch",
+			"url": "/rss/media/impavw/all.xml"
+		},
+		{
+			"name": "BARKS",
+			"url": "/rss/media/bark/all.xml"
+		},
+		{
+			"name": "Baseball Geeks",
+			"url": "/rss/media/geeksv/all.xml"
+		},
+		{
+			"name": "BASKET COUNT",
+			"url": "/rss/media/basket/all.xml"
+		},
+		{
+			"name": "BBC News",
+			"url": "/rss/media/bbc/all.xml"
+		},
+		{
+			"name": "BBCびわ湖放送",
+			"url": "/rss/media/bbcbiwakov/all.xml"
+		},
+		{
+			"name": "BBM Sports",
+			"url": "/rss/media/bbmv/all.xml"
+		},
+		{
+			"name": "BCN",
+			"url": "/rss/media/bcn/all.xml"
+		},
+		{
+			"name": "Bezzy",
+			"url": "/rss/media/bezzy/all.xml"
+		},
+		{
+			"name": "Billboard JAPAN",
+			"url": "/rss/media/exp/all.xml"
+		},
+		{
+			"name": "Book Bang",
+			"url": "/rss/media/bookbang/all.xml"
+		},
+		{
+			"name": "BOOKSTAND",
+			"url": "/rss/media/webhon/all.xml"
+		},
+		{
+			"name": "BRAVO MOUNTAIN",
+			"url": "/rss/media/bravom/all.xml"
+		},
+		{
+			"name": "ＢＳＮ新潟放送",
+			"url": "/rss/media/ohbsn/all.xml"
+		},
+		{
+			"name": "BSS山陰放送",
+			"url": "/rss/media/bss/all.xml"
+		},
+		{
+			"name": "BUSINESS INSIDER JAPAN",
+			"url": "/rss/media/binsider/all.xml"
+		},
+		{
+			"name": "BuzzFeed Japan",
+			"url": "/rss/media/bfj/all.xml"
+		},
+		{
+			"name": "CanCam.jp",
+			"url": "/rss/media/cancam/all.xml"
+		},
+		{
+			"name": "CAPA CAMERA WEB",
+			"url": "/rss/media/capa/all.xml"
+		},
+		{
+			"name": "carview！",
+			"url": "/rss/media/carv/all.xml"
+		},
+		{
+			"name": "Car Watch",
+			"url": "/rss/media/impcaw/all.xml"
+		},
+		{
+			"name": "Casa BRUTUS.com",
+			"url": "/rss/media/casabrutus/all.xml"
+		},
+		{
+			"name": "CBCテレビ",
+			"url": "/rss/media/cbc/all.xml"
+		},
+		{
+			"name": "CGWORLD.jp",
+			"url": "/rss/media/cgworld/all.xml"
+		},
+		{
+			"name": "CHANTO WEB",
+			"url": "/rss/media/chanto/all.xml"
+		},
+		{
+			"name": "CHUKYO TV SPORTS",
+			"url": "/rss/media/ctvg/all.xml"
+		},
+		{
+			"name": "cinemacafe.net",
+			"url": "/rss/media/cine/all.xml"
+		},
+		{
+			"name": "CINEMORE",
+			"url": "/rss/media/cinemore/all.xml"
+		},
+		{
+			"name": "CINRA",
+			"url": "/rss/media/cinranet/all.xml"
+		},
+		{
+			"name": "CNA秋田ケーブルテレビ",
+			"url": "/rss/media/cnaakita/all.xml"
+		},
+		{
+			"name": "CNET Japan",
+			"url": "/rss/media/cnetj/all.xml"
+		},
+		{
+			"name": "CNN.co.jp",
+			"url": "/rss/media/cnn/all.xml"
+		},
+		{
+			"name": "CoCoKARAnext",
+			"url": "/rss/media/cocokara/all.xml"
+		},
+		{
+			"name": "CoinDesk JAPAN",
+			"url": "/rss/media/coindesk/all.xml"
+		},
+		{
+			"name": "CREA WEB",
+			"url": "/rss/media/creaweb/all.xml"
+		},
+		{
+			"name": "Daiichi-TV（静岡第一テレビ）",
+			"url": "/rss/media/sdt/all.xml"
+		},
+		{
+			"name": "dancyu",
+			"url": "/rss/media/dancyu/all.xml"
+		},
+		{
+			"name": "DAZN News",
+			"url": "/rss/media/dazn/all.xml"
+		},
+		{
+			"name": "DIAMOND ハーバード・ビジネス・レビュー",
+			"url": "/rss/media/dhbrn/all.xml"
+		},
+		{
+			"name": "DIGIDAY［日本版］",
+			"url": "/rss/media/digiday/all.xml"
+		},
+		{
+			"name": "eat愛媛朝日テレビ",
+			"url": "/rss/media/eat/all.xml"
+		},
+		{
+			"name": "EDN Japan",
+			"url": "/rss/media/it_edn/all.xml"
+		},
+		{
+			"name": "EE Times Japan",
+			"url": "/rss/media/it_eetimes/all.xml"
+		},
+		{
+			"name": "e!Golf",
+			"url": "/rss/media/egolf/all.xml"
+		},
+		{
+			"name": "ELLE DIGITAL",
+			"url": "/rss/media/elleonline/all.xml"
+		},
+		{
+			"name": "ELLEgirl",
+			"url": "/rss/media/ellegirl/all.xml"
+		},
+		{
+			"name": "ENCOUNT",
+			"url": "/rss/media/encount/all.xml"
+		},
+		{
+			"name": "ENGINE WEB",
+			"url": "/rss/media/engine/all.xml"
+		},
+		{
+			"name": "ESSE-online",
+			"url": "/rss/media/esse/all.xml"
+		},
+		{
+			"name": "E-TALENTBANK",
+			"url": "/rss/media/etalent/all.xml"
+		},
+		{
+			"name": "FASHION BOX",
+			"url": "/rss/media/fbox/all.xml"
+		},
+		{
+			"name": "FASHIONSNAP",
+			"url": "/rss/media/fashions/all.xml"
+		},
+		{
+			"name": "FASHION TECH NEWS",
+			"url": "/rss/media/fashiontn/all.xml"
+		},
+		{
+			"name": "Fav-Log by ITmedia",
+			"url": "/rss/media/it_favlog/all.xml"
+		},
+		{
+			"name": "FBC 福井放送",
+			"url": "/rss/media/fbc/all.xml"
+		},
+		{
+			"name": "FBS福岡放送",
+			"url": "/rss/media/fbsnews/all.xml"
+		},
+		{
+			"name": "FINDERS",
+			"url": "/rss/media/finders/all.xml"
+		},
+		{
+			"name": "FINEBOYS Online",
+			"url": "/rss/media/fineboys/all.xml"
+		},
+		{
+			"name": "FINEPLAY",
+			"url": "/rss/media/fineplayv/all.xml"
+		},
+		{
+			"name": "FITNESS LOVE",
+			"url": "/rss/media/fitlove/all.xml"
+		},
+		{
+			"name": "FNNプライムオンライン",
+			"url": "/rss/media/fnnprimev/all.xml"
+		},
+		{
+			"name": "footballista",
+			"url": "/rss/media/fballista/all.xml"
+		},
+		{
+			"name": "FOOTBALL ZONE",
+			"url": "/rss/media/soccermzw/all.xml"
+		},
+		{
+			"name": "Forbes JAPAN",
+			"url": "/rss/media/forbes/all.xml"
+		},
+		{
+			"name": "FORZA STYLE",
+			"url": "/rss/media/forza/all.xml"
+		},
+		{
+			"name": "FRIDAY",
+			"url": "/rss/media/friday/all.xml"
+		},
+		{
+			"name": "Full-Count",
+			"url": "/rss/media/fullcount/all.xml"
+		},
+		{
+			"name": "FUNQ",
+			"url": "/rss/media/eipub/all.xml"
+		},
+		{
+			"name": "Game Spark",
+			"url": "/rss/media/gamespav/all.xml"
+		},
+		{
+			"name": "GAME Watch",
+			"url": "/rss/media/impgmw/all.xml"
+		},
+		{
+			"name": "GetNavi web",
+			"url": "/rss/media/getnavi/all.xml"
+		},
+		{
+			"name": "GINGER",
+			"url": "/rss/media/gingerweb/all.xml"
+		},
+		{
+			"name": "GINZA",
+			"url": "/rss/media/ginza/all.xml"
+		},
+		{
+			"name": "GISELe",
+			"url": "/rss/media/gisele/all.xml"
+		},
+		{
+			"name": "GLOBE＋",
+			"url": "/rss/media/globeplus/all.xml"
+		},
+		{
+			"name": "GLOBIS知見録",
+			"url": "/rss/media/globisv/all.xml"
+		},
+		{
+			"name": "GOAL",
+			"url": "/rss/media/goal/all.xml"
+		},
+		{
+			"name": "GOETHE",
+			"url": "/rss/media/goethe/all.xml"
+		},
+		{
+			"name": "GQ JAPAN",
+			"url": "/rss/media/gqjapan/all.xml"
+		},
+		{
+			"name": "HAB北陸朝日放送",
+			"url": "/rss/media/hab/all.xml"
+		},
+		{
+			"name": "Hanako Web",
+			"url": "/rss/media/hanako/all.xml"
+		},
+		{
+			"name": "Harper’s BAZAAR（ハーパーズ バザー）",
+			"url": "/rss/media/bazaar/all.xml"
+		},
+		{
+			"name": "HBCニュース北海道",
+			"url": "/rss/media/hbcv/all.xml"
+		},
+		{
+			"name": "Hello，Coaching！",
+			"url": "/rss/media/biz_coacha/all.xml"
+		},
+		{
+			"name": "Hint-Pot",
+			"url": "/rss/media/hintpot/all.xml"
+		},
+		{
+			"name": "HOBBY Watch",
+			"url": "/rss/media/imphbw/all.xml"
+		},
+		{
+			"name": "HOME広島ホームテレビ",
+			"url": "/rss/media/hometvv/all.xml"
+		},
+		{
+			"name": "HOMINIS（ホミニス）",
+			"url": "/rss/media/hominis/all.xml"
+		},
+		{
+			"name": "HTB北海道ニュース",
+			"url": "/rss/media/htbv/all.xml"
+		},
+		{
+			"name": "IAT岩手朝日テレビ",
+			"url": "/rss/media/iat/all.xml"
+		},
+		{
+			"name": "IBC岩手放送",
+			"url": "/rss/media/ibciwatev/all.xml"
+		},
+		{
+			"name": "IGN JAPAN",
+			"url": "/rss/media/ignjapan/all.xml"
+		},
+		{
+			"name": "IMA ONLINE",
+			"url": "/rss/media/imaonline/all.xml"
+		},
+		{
+			"name": "Impress Watch",
+			"url": "/rss/media/impress/all.xml"
+		},
+		{
+			"name": "INTERNET Watch",
+			"url": "/rss/media/impiw/all.xml"
+		},
+		{
+			"name": "ITmedia Mobile",
+			"url": "/rss/media/zdn_m/all.xml"
+		},
+		{
+			"name": "ITmedia NEWS",
+			"url": "/rss/media/zdn_n/all.xml"
+		},
+		{
+			"name": "ITmedia PC USER",
+			"url": "/rss/media/zdn_pc/all.xml"
+		},
+		{
+			"name": "ITmedia エンタープライズ",
+			"url": "/rss/media/zdn_ep/all.xml"
+		},
+		{
+			"name": "ITmedia ビジネスオンライン",
+			"url": "/rss/media/zdn_mkt/all.xml"
+		},
+		{
+			"name": "ITmedia マーケティング",
+			"url": "/rss/media/biz_it_mk/all.xml"
+		},
+		{
+			"name": "JBpress",
+			"url": "/rss/media/jbpressz/all.xml"
+		},
+		{
+			"name": "J-CASTニュース",
+			"url": "/rss/media/jct/all.xml"
+		},
+		{
+			"name": "JobPicks",
+			"url": "/rss/media/newspicksn/all.xml"
+		},
+		{
+			"name": "JRT四国放送",
+			"url": "/rss/media/jrt/all.xml"
+		},
+		{
+			"name": "J SPORTS",
+			"url": "/rss/media/jsportsv/all.xml"
+		},
+		{
+			"name": "J-WAVE NEWS",
+			"url": "/rss/media/jwave/all.xml"
+		},
+		{
+			"name": "KAB熊本朝日放送",
+			"url": "/rss/media/kab/all.xml"
+		},
+		{
+			"name": "KAI-YOU.net",
+			"url": "/rss/media/kaiyou/all.xml"
+		},
+		{
+			"name": "KBS京都（京都放送）",
+			"url": "/rss/media/kbs/all.xml"
+		},
+		{
+			"name": "KFB福島放送",
+			"url": "/rss/media/kfb/all.xml"
+		},
+		{
+			"name": "khb東日本放送",
+			"url": "/rss/media/khbv/all.xml"
+		},
+		{
+			"name": "KKB鹿児島放送",
+			"url": "/rss/media/kkbv/all.xml"
+		},
+		{
+			"name": "ＫＫＴ熊本県民テレビ",
+			"url": "/rss/media/kkt/all.xml"
+		},
+		{
+			"name": "ＫＲＹ山口放送",
+			"url": "/rss/media/kry/all.xml"
+		},
+		{
+			"name": "KSB瀬戸内海放送",
+			"url": "/rss/media/ksbv/all.xml"
+		},
+		{
+			"name": "Kstyle",
+			"url": "/rss/media/kstylens/all.xml"
+		},
+		{
+			"name": "KTNテレビ長崎",
+			"url": "/rss/media/ktn/all.xml"
+		},
+		{
+			"name": "kufura",
+			"url": "/rss/media/kufura/all.xml"
+		},
+		{
+			"name": "KURU KURA（くるくら）",
+			"url": "/rss/media/parkblog/all.xml"
+		},
+		{
+			"name": "ＫＹＴ鹿児島読売テレビ",
+			"url": "/rss/media/kytnews/all.xml"
+		},
+		{
+			"name": "LASISA",
+			"url": "/rss/media/lasisa/all.xml"
+		},
+		{
+			"name": "LEE",
+			"url": "/rss/media/lee/all.xml"
+		},
+		{
+			"name": "LEON.JP",
+			"url": "/rss/media/leon/all.xml"
+		},
+		{
+			"name": "LIMO",
+			"url": "/rss/media/toushin/all.xml"
+		},
+		{
+			"name": "LINE NEWS",
+			"url": "/rss/media/linenews/all.xml"
+		},
+		{
+			"name": "Lmaga.jp",
+			"url": "/rss/media/lmaga/all.xml"
+		},
+		{
+			"name": "m3.com",
+			"url": "/rss/media/mthree/all.xml"
+		},
+		{
+			"name": "MAQUIA　ONLINE",
+			"url": "/rss/media/maquia/all.xml"
+		},
+		{
+			"name": "Marisol",
+			"url": "/rss/media/marisol/all.xml"
+		},
+		{
+			"name": "MBC南日本放送",
+			"url": "/rss/media/mbcnews/all.xml"
+		},
+		{
+			"name": "MBSニュース",
+			"url": "/rss/media/mbsnews/all.xml"
+		},
+		{
+			"name": "Medical DOC",
+			"url": "/rss/media/medicald/all.xml"
+		},
+		{
+			"name": "Medical Note",
+			"url": "/rss/media/medical/all.xml"
+		},
+		{
+			"name": "MEGABRASIL",
+			"url": "/rss/media/mbrasiln/all.xml"
+		},
+		{
+			"name": "Meiji.net",
+			"url": "/rss/media/meijinet/all.xml"
+		},
+		{
+			"name": "MEN’S CLUB",
+			"url": "/rss/media/mensplus/all.xml"
+		},
+		{
+			"name": "MEN’S NON-NO WEB",
+			"url": "/rss/media/mensnonno/all.xml"
+		},
+		{
+			"name": "Merkmal",
+			"url": "/rss/media/merkmal/all.xml"
+		},
+		{
+			"name": "MINKEITV",
+			"url": "/rss/media/minkeiv/all.xml"
+		},
+		{
+			"name": "MLB.jp",
+			"url": "/rss/media/mlb/all.xml"
+		},
+		{
+			"name": "MONEY PLUS",
+			"url": "/rss/media/moneyplus/all.xml"
+		},
+		{
+			"name": "MONOist",
+			"url": "/rss/media/it_monoist/all.xml"
+		},
+		{
+			"name": "MonoMax Web",
+			"url": "/rss/media/monomax/all.xml"
+		},
+		{
+			"name": "MORE",
+			"url": "/rss/media/dmore/all.xml"
+		},
+		{
+			"name": "MotorFan",
+			"url": "/rss/media/motorfan/all.xml"
+		},
+		{
+			"name": "motorsport.com 日本版",
+			"url": "/rss/media/msportcom/all.xml"
+		},
+		{
+			"name": "MOVIE WALKER PRESS",
+			"url": "/rss/media/mvwalk/all.xml"
+		},
+		{
+			"name": "MRO北陸放送",
+			"url": "/rss/media/mrov/all.xml"
+		},
+		{
+			"name": "MRT宮崎放送",
+			"url": "/rss/media/mrt/all.xml"
+		},
+		{
+			"name": "MusicVoice",
+			"url": "/rss/media/musicv/all.xml"
+		},
+		{
+			"name": "NBA Rakuten",
+			"url": "/rss/media/nrakuten/all.xml"
+		},
+		{
+			"name": "NBC長崎放送",
+			"url": "/rss/media/nbcv/all.xml"
+		},
+		{
+			"name": "NBS長野放送",
+			"url": "/rss/media/nbstv/all.xml"
+		},
+		{
+			"name": "NET ViVi",
+			"url": "/rss/media/netvivi/all.xml"
+		},
+		{
+			"name": "NEWSつくば",
+			"url": "/rss/media/newstkb/all.xml"
+		},
+		{
+			"name": "NEWSポストセブン",
+			"url": "/rss/media/pseven/all.xml"
+		},
+		{
+			"name": "NFL公式サイト日本語版",
+			"url": "/rss/media/nfljapan/all.xml"
+		},
+		{
+			"name": "nippon.com",
+			"url": "/rss/media/nipponcom/all.xml"
+		},
+		{
+			"name": "nobico（のびこ）",
+			"url": "/rss/media/phpfamily/all.xml"
+		},
+		{
+			"name": "non-no Web",
+			"url": "/rss/media/nonno/all.xml"
+		},
+		{
+			"name": "Nosweb.jp",
+			"url": "/rss/media/nosweb/all.xml"
+		},
+		{
+			"name": "NRI研究員の時事解説",
+			"url": "/rss/media/nrin/all.xml"
+		},
+		{
+			"name": "ＮＳＴ新潟総合テレビ",
+			"url": "/rss/media/nsttv/all.xml"
+		},
+		{
+			"name": "Number Web",
+			"url": "/rss/media/number/all.xml"
+		},
+		{
+			"name": "Numero TOKYO",
+			"url": "/rss/media/numero/all.xml"
+		},
+		{
+			"name": "ＯＡＢ大分朝日放送",
+			"url": "/rss/media/oabv/all.xml"
+		},
+		{
+			"name": "OBS大分放送",
+			"url": "/rss/media/obsnews/all.xml"
+		},
+		{
+			"name": "OCEANS",
+			"url": "/rss/media/oceans/all.xml"
+		},
+		{
+			"name": "octane.jp",
+			"url": "/rss/media/octane/all.xml"
+		},
+		{
+			"name": "OHK岡山放送",
+			"url": "/rss/media/ohk/all.xml"
+		},
+		{
+			"name": "OKMusic",
+			"url": "/rss/media/okm/all.xml"
+		},
+		{
+			"name": "OneNews",
+			"url": "/rss/media/onenews/all.xml"
+		},
+		{
+			"name": "otocoto",
+			"url": "/rss/media/otocoto/all.xml"
+		},
+		{
+			"name": "OTOKOMAE",
+			"url": "/rss/media/otokomae/all.xml"
+		},
+		{
+			"name": "OTONA SALONE",
+			"url": "/rss/media/otonas/all.xml"
+		},
+		{
+			"name": "OurAge",
+			"url": "/rss/media/ourage/all.xml"
+		},
+		{
+			"name": "PC Watch",
+			"url": "/rss/media/imppcw/all.xml"
+		},
+		{
+			"name": "Pen Online",
+			"url": "/rss/media/penonline/all.xml"
+		},
+		{
+			"name": "PHILE WEB",
+			"url": "/rss/media/phileweb/all.xml"
+		},
+		{
+			"name": "PHPオンライン",
+			"url": "/rss/media/php_s/all.xml"
+		},
+		{
+			"name": "POPEYE Web",
+			"url": "/rss/media/popeye/all.xml"
+		},
+		{
+			"name": "QJWeb クイック・ジャパン ウェブ",
+			"url": "/rss/media/qjweb/all.xml"
+		},
+		{
+			"name": "Rallys",
+			"url": "/rss/media/rallysv/all.xml"
+		},
+		{
+			"name": "RBC琉球放送",
+			"url": "/rss/media/rbc/all.xml"
+		},
+		{
+			"name": "RCC中国放送",
+			"url": "/rss/media/rccv/all.xml"
+		},
+		{
+			"name": "REAL SPORTS",
+			"url": "/rss/media/realspo/all.xml"
+		},
+		{
+			"name": "Reライフ.net",
+			"url": "/rss/media/relifenet/all.xml"
+		},
+		{
+			"name": "RKB毎日放送",
+			"url": "/rss/media/rkbv/all.xml"
+		},
+		{
+			"name": "RKC高知放送",
+			"url": "/rss/media/rkckochi/all.xml"
+		},
+		{
+			"name": "RKK熊本放送",
+			"url": "/rss/media/rkk/all.xml"
+		},
+		{
+			"name": "Rolling Stone Japan",
+			"url": "/rss/media/rolling/all.xml"
+		},
+		{
+			"name": "RONSPO",
+			"url": "/rss/media/ronspo/all.xml"
+		},
+		{
+			"name": "RSK山陽放送",
+			"url": "/rss/media/rsk/all.xml"
+		},
+		{
+			"name": "Safari Online",
+			"url": "/rss/media/safariweb/all.xml"
+		},
+		{
+			"name": "SAL",
+			"url": "/rss/media/fsal/all.xml"
+		},
+		{
+			"name": "ＳＢＣ信越放送",
+			"url": "/rss/media/sbc/all.xml"
+		},
+		{
+			"name": "ScanNetSecurity",
+			"url": "/rss/media/scan/all.xml"
+		},
+		{
+			"name": "S Cawaii! WEB",
+			"url": "/rss/media/scawaii/all.xml"
+		},
+		{
+			"name": "Science Portal",
+			"url": "/rss/media/sportal/all.xml"
+		},
+		{
+			"name": "sippo",
+			"url": "/rss/media/sippo/all.xml"
+		},
+		{
+			"name": "SOCCER DIGEST Web",
+			"url": "/rss/media/sdigestw/all.xml"
+		},
+		{
+			"name": "sorae 宇宙へのポータルサイト",
+			"url": "/rss/media/sorae_jp/all.xml"
+		},
+		{
+			"name": "SPAIA AI競馬",
+			"url": "/rss/media/spaia/all.xml"
+		},
+		{
+			"name": "SPOTV news",
+			"url": "/rss/media/spotvnews/all.xml"
+		},
+		{
+			"name": "SPUR.JP",
+			"url": "/rss/media/spur/all.xml"
+		},
+		{
+			"name": "STVニュース北海道",
+			"url": "/rss/media/stv/all.xml"
+		},
+		{
+			"name": "SUUMOジャーナル",
+			"url": "/rss/media/suumoj/all.xml"
+		},
+		{
+			"name": "Tarzan Web",
+			"url": "/rss/media/tarzanweb/all.xml"
+		},
+		{
+			"name": "tbc東北放送",
+			"url": "/rss/media/tbcv/all.xml"
+		},
+		{
+			"name": "TechTargetジャパン",
+			"url": "/rss/media/zdn_tt/all.xml"
+		},
+		{
+			"name": "telling，",
+			"url": "/rss/media/telling/all.xml"
+		},
+		{
+			"name": "tenki.jp",
+			"url": "/rss/media/tenki/all.xml"
+		},
+		{
+			"name": "tennis365.net",
+			"url": "/rss/media/tennisnet/all.xml"
+		},
+		{
+			"name": "Tennis Classic",
+			"url": "/rss/media/tennisc/all.xml"
+		},
+		{
+			"name": "TeNYテレビ新潟",
+			"url": "/rss/media/teny/all.xml"
+		},
+		{
+			"name": "THE21オンライン",
+			"url": "/rss/media/php_t/all.xml"
+		},
+		{
+			"name": "THE ANSWER",
+			"url": "/rss/media/theanswer/all.xml"
+		},
+		{
+			"name": "THE DIGEST",
+			"url": "/rss/media/thedigest/all.xml"
+		},
+		{
+			"name": "THE EV TIMES",
+			"url": "/rss/media/evtimes/all.xml"
+		},
+		{
+			"name": "THE GOLD ONLINE（ゴールドオンライン）",
+			"url": "/rss/media/gonline/all.xml"
+		},
+		{
+			"name": "The Hollywood Reporter Japan",
+			"url": "/rss/media/thrjapan/all.xml"
+		},
+		{
+			"name": "The News Lens Japan",
+			"url": "/rss/media/newslens/all.xml"
+		},
+		{
+			"name": "THE NIKKEI MAGAZINE",
+			"url": "/rss/media/nikkeisty/all.xml"
+		},
+		{
+			"name": "theWORLD（ザ・ワールドWeb）",
+			"url": "/rss/media/theworldw/all.xml"
+		},
+		{
+			"name": "T JAPAN web",
+			"url": "/rss/media/tjapan/all.xml"
+		},
+		{
+			"name": "TKUテレビ熊本",
+			"url": "/rss/media/tku/all.xml"
+		},
+		{
+			"name": "TNCテレビ西日本",
+			"url": "/rss/media/tncv/all.xml"
+		},
+		{
+			"name": "Tokyo Art Beat",
+			"url": "/rss/media/tartbeat/all.xml"
+		},
+		{
+			"name": "TOKYO FM＋",
+			"url": "/rss/media/tokyofm/all.xml"
+		},
+		{
+			"name": "TOKYO HEADLINE WEB",
+			"url": "/rss/media/theadline/all.xml"
+		},
+		{
+			"name": "TOKYO MX",
+			"url": "/rss/media/tokyomxv/all.xml"
+		},
+		{
+			"name": "TOSテレビ大分",
+			"url": "/rss/media/tos/all.xml"
+		},
+		{
+			"name": "TSCテレビせとうち",
+			"url": "/rss/media/tsc/all.xml"
+		},
+		{
+			"name": "TSKさんいん中央テレビ",
+			"url": "/rss/media/tsk/all.xml"
+		},
+		{
+			"name": "TUFテレビユー福島",
+			"url": "/rss/media/tuf/all.xml"
+		},
+		{
+			"name": "tvkニュース（テレビ神奈川）",
+			"url": "/rss/media/tvkv/all.xml"
+		},
+		{
+			"name": "TV LIFE web",
+			"url": "/rss/media/tvlife/all.xml"
+		},
+		{
+			"name": "ｔｙｓテレビ山口",
+			"url": "/rss/media/tysv/all.xml"
+		},
+		{
+			"name": "UchuBiz",
+			"url": "/rss/media/uchubiz/all.xml"
+		},
+		{
+			"name": "ufu.",
+			"url": "/rss/media/ufu/all.xml"
+		},
+		{
+			"name": "UTYテレビ山梨",
+			"url": "/rss/media/utyv/all.xml"
+		},
+		{
+			"name": "UX新潟テレビ21",
+			"url": "/rss/media/niigatatvv/all.xml"
+		},
+		{
+			"name": "VAGUE",
+			"url": "/rss/media/vague/all.xml"
+		},
+		{
+			"name": "VICTORY",
+			"url": "/rss/media/victory/all.xml"
+		},
+		{
+			"name": "VITUP!",
+			"url": "/rss/media/vitup/all.xml"
+		},
+		{
+			"name": "VOCE",
+			"url": "/rss/media/voce/all.xml"
+		},
+		{
+			"name": "VOGUE JAPAN",
+			"url": "/rss/media/vogue/all.xml"
+		},
+		{
+			"name": "WANI BOOKS NewsCrunch",
+			"url": "/rss/media/ncwani/all.xml"
+		},
+		{
+			"name": "WATCHNAVI Salon",
+			"url": "/rss/media/watchnavi/all.xml"
+		},
+		{
+			"name": "WEB CARTOP",
+			"url": "/rss/media/wcartop/all.xml"
+		},
+		{
+			"name": "webCG",
+			"url": "/rss/media/webcg/all.xml"
+		},
+		{
+			"name": "Web eclat",
+			"url": "/rss/media/eclat/all.xml"
+		},
+		{
+			"name": "Webikeプラス",
+			"url": "/rss/media/wbikeplus/all.xml"
+		},
+		{
+			"name": "WEB UOMO",
+			"url": "/rss/media/webuomo/all.xml"
+		},
+		{
+			"name": "WEB Voice",
+			"url": "/rss/media/voice/all.xml"
+		},
+		{
+			"name": "webオートバイ",
+			"url": "/rss/media/autoby/all.xml"
+		},
+		{
+			"name": "WEBザテレビジョン",
+			"url": "/rss/media/the_tv/all.xml"
+		},
+		{
+			"name": "webスポルティーバ",
+			"url": "/rss/media/sportiva/all.xml"
+		},
+		{
+			"name": "Web担当者Forum",
+			"url": "/rss/media/webtan/all.xml"
+		},
+		{
+			"name": "Web東奥",
+			"url": "/rss/media/webtoo/all.xml"
+		},
+		{
+			"name": "webマガジン mi-mollet",
+			"url": "/rss/media/mimollet/all.xml"
+		},
+		{
+			"name": "Webマガジン コロカル",
+			"url": "/rss/media/colocal/all.xml"
+		},
+		{
+			"name": "Webモーターマガジン",
+			"url": "/rss/media/mmagazine/all.xml"
+		},
+		{
+			"name": "WEBヤングマシン",
+			"url": "/rss/media/webym/all.xml"
+		},
+		{
+			"name": "WEB歴史街道",
+			"url": "/rss/media/php_r/all.xml"
+		},
+		{
+			"name": "Wedge（ウェッジ）",
+			"url": "/rss/media/wedge/all.xml"
+		},
+		{
+			"name": "WIRED.jp",
+			"url": "/rss/media/wired/all.xml"
+		},
+		{
+			"name": "withnews",
+			"url": "/rss/media/withnews/all.xml"
+		},
+		{
+			"name": "with online",
+			"url": "/rss/media/withonline/all.xml"
+		},
+		{
+			"name": "WWDJAPAN.com",
+			"url": "/rss/media/wwdjapan/all.xml"
+		},
+		{
+			"name": "yab山口朝日放送",
+			"url": "/rss/media/yabv/all.xml"
+		},
+		{
+			"name": "Yahoo! JAPAN SDGs",
+			"url": "/rss/media/yjsdgs/all.xml"
+		},
+		{
+			"name": "Yahoo! JAPAN クリエイターズプログラム",
+			"url": "/rss/media/ycreatp/all.xml"
+		},
+		{
+			"name": "Yahoo!ニュース オリジナル RED Chair",
+			"url": "/rss/media/redchair/all.xml"
+		},
+		{
+			"name": "Yahoo!ニュース オリジナル THE PAGE",
+			"url": "/rss/media/wordleaf/all.xml"
+		},
+		{
+			"name": "YBC山形放送",
+			"url": "/rss/media/ybc/all.xml"
+		},
+		{
+			"name": "YBS山梨放送",
+			"url": "/rss/media/ybs/all.xml"
+		},
+		{
+			"name": "YTS山形テレビ",
+			"url": "/rss/media/yts/all.xml"
+		},
+		{
+			"name": "ZDNET Japan",
+			"url": "/rss/media/zdnet/all.xml"
+		},
+		{
+			"name": "あいテレビ",
+			"url": "/rss/media/itv/all.xml"
+		},
+		{
+			"name": "青森放送",
+			"url": "/rss/media/rab/all.xml"
+		},
+		{
+			"name": "秋田朝日放送",
+			"url": "/rss/media/aab/all.xml"
+		},
+		{
+			"name": "秋田テレビ",
+			"url": "/rss/media/akt/all.xml"
+		},
+		{
+			"name": "朝日新聞EduA",
+			"url": "/rss/media/edua/all.xml"
+		},
+		{
+			"name": "朝日新聞 SDGs ACTION！",
+			"url": "/rss/media/asahisdgs/all.xml"
+		},
+		{
+			"name": "朝日新聞デジタルマガジン＆［and］",
+			"url": "/rss/media/asahiand/all.xml"
+		},
+		{
+			"name": "アジアプレス・ネットワーク",
+			"url": "/rss/media/asiap/all.xml"
+		},
+		{
+			"name": "アスキー",
+			"url": "/rss/media/ascii/all.xml"
+		},
+		{
+			"name": "アスリートマガジンWEB",
+			"url": "/rss/media/hathlete/all.xml"
+		},
+		{
+			"name": "あたらしい経済",
+			"url": "/rss/media/neweco/all.xml"
+		},
+		{
+			"name": "＠BAILA",
+			"url": "/rss/media/baila/all.xml"
+		},
+		{
+			"name": "＠ＤＩＭＥ",
+			"url": "/rss/media/dime/all.xml"
+		},
+		{
+			"name": "＠IT",
+			"url": "/rss/media/zdn_ait/all.xml"
+		},
+		{
+			"name": "あなたの静岡新聞",
+			"url": "/rss/media/at_s/all.xml"
+		},
+		{
+			"name": "アニメ！アニメ！",
+			"url": "/rss/media/anmanmv/all.xml"
+		},
+		{
+			"name": "アニメージュプラス",
+			"url": "/rss/media/animage/all.xml"
+		},
+		{
+			"name": "アフロ",
+			"url": "/rss/media/storyfulv/all.xml"
+		},
+		{
+			"name": "奄美新聞",
+			"url": "/rss/media/amami/all.xml"
+		},
+		{
+			"name": "＆GP",
+			"url": "/rss/media/andgp/all.xml"
+		},
+		{
+			"name": "石川テレビ",
+			"url": "/rss/media/ishikawa/all.xml"
+		},
+		{
+			"name": "伊豆新聞",
+			"url": "/rss/media/izunp/all.xml"
+		},
+		{
+			"name": "伊勢新聞",
+			"url": "/rss/media/isenp/all.xml"
+		},
+		{
+			"name": "いぬのきもち WEB MAGAZINE",
+			"url": "/rss/media/inumag/all.xml"
+		},
+		{
+			"name": "茨城新聞クロスアイ",
+			"url": "/rss/media/ibaraki/all.xml"
+		},
+		{
+			"name": "医療介護ＣＢニュース",
+			"url": "/rss/media/cbn/all.xml"
+		},
+		{
+			"name": "岩手日日新聞社",
+			"url": "/rss/media/iwanichi/all.xml"
+		},
+		{
+			"name": "岩手日報",
+			"url": "/rss/media/iwatenpv/all.xml"
+		},
+		{
+			"name": "岩手めんこいテレビ",
+			"url": "/rss/media/nmit/all.xml"
+		},
+		{
+			"name": "インサイド",
+			"url": "/rss/media/isd/all.xml"
+		},
+		{
+			"name": "イージースポーツ",
+			"url": "/rss/media/elevenspo/all.xml"
+		},
+		{
+			"name": "イーファイト",
+			"url": "/rss/media/gbr/all.xml"
+		},
+		{
+			"name": "ウィメンズヘルス",
+			"url": "/rss/media/womensh/all.xml"
+		},
+		{
+			"name": "ウェザーニュース",
+			"url": "/rss/media/weather/all.xml"
+		},
+		{
+			"name": "ウェザーマップ",
+			"url": "/rss/media/wmap/all.xml"
+		},
+		{
+			"name": "ウエルスアドバイザー",
+			"url": "/rss/media/biz_mos/all.xml"
+		},
+		{
+			"name": "ウォーカープラス",
+			"url": "/rss/media/tkwalk/all.xml"
+		},
+		{
+			"name": "ウオッチライフニュース",
+			"url": "/rss/media/watchlife/all.xml"
+		},
+		{
+			"name": "宇部日報",
+			"url": "/rss/media/ubenippo/all.xml"
+		},
+		{
+			"name": "馬トク報知",
+			"url": "/rss/media/umatokuh/all.xml"
+		},
+		{
+			"name": "映画.com",
+			"url": "/rss/media/eiga/all.xml"
+		},
+		{
+			"name": "映画ナタリー",
+			"url": "/rss/media/nataliee/all.xml"
+		},
+		{
+			"name": "愛媛新聞ONLINE",
+			"url": "/rss/media/ehime/all.xml"
+		},
+		{
+			"name": "エルザ",
+			"url": "/rss/media/eltha/all.xml"
+		},
+		{
+			"name": "エンタメNEXT",
+			"url": "/rss/media/entame/all.xml"
+		},
+		{
+			"name": "エンタメOVO",
+			"url": "/rss/media/tvfan/all.xml"
+		},
+		{
+			"name": "大分合同新聞",
+			"url": "/rss/media/mjikenbo/all.xml"
+		},
+		{
+			"name": "沖縄タイムス",
+			"url": "/rss/media/okinawat/all.xml"
+		},
+		{
+			"name": "沖縄テレビOTV",
+			"url": "/rss/media/otv/all.xml"
+		},
+		{
+			"name": "沖縄ニュースQAB",
+			"url": "/rss/media/qab/all.xml"
+		},
+		{
+			"name": "オタク総研",
+			"url": "/rss/media/otakulab/all.xml"
+		},
+		{
+			"name": "男の隠れ家デジタル",
+			"url": "/rss/media/kkrgd/all.xml"
+		},
+		{
+			"name": "おとなの週末",
+			"url": "/rss/media/matomeshi/all.xml"
+		},
+		{
+			"name": "オトナンサー",
+			"url": "/rss/media/otonans/all.xml"
+		},
+		{
+			"name": "オリコン",
+			"url": "/rss/media/oric/all.xml"
+		},
+		{
+			"name": "オルタナ",
+			"url": "/rss/media/alterna/all.xml"
+		},
+		{
+			"name": "お笑いナタリー",
+			"url": "/rss/media/natalieo/all.xml"
+		},
+		{
+			"name": "音楽と人",
+			"url": "/rss/media/ongakuto/all.xml"
+		},
+		{
+			"name": "音楽ナタリー",
+			"url": "/rss/media/natalien/all.xml"
+		},
+		{
+			"name": "オートスポーツweb",
+			"url": "/rss/media/rcg/all.xml"
+		},
+		{
+			"name": "オーヴォ",
+			"url": "/rss/media/ovo/all.xml"
+		},
+		{
+			"name": "介護ポストセブン",
+			"url": "/rss/media/kpseven/all.xml"
+		},
+		{
+			"name": "会社四季報オンライン",
+			"url": "/rss/media/shikihos/all.xml"
+		},
+		{
+			"name": "鹿児島ニュースＫＴＳ",
+			"url": "/rss/media/kts/all.xml"
+		},
+		{
+			"name": "家庭画報.com",
+			"url": "/rss/media/kateigaho/all.xml"
+		},
+		{
+			"name": "家電 Watch",
+			"url": "/rss/media/impkdw/all.xml"
+		},
+		{
+			"name": "カナロコ by 神奈川新聞",
+			"url": "/rss/media/kana/all.xml"
+		},
+		{
+			"name": "韓国TVドラマガイドONLINE",
+			"url": "/rss/media/ktvguide/all.xml"
+		},
+		{
+			"name": "関西テレビ",
+			"url": "/rss/media/kantele/all.xml"
+		},
+		{
+			"name": "感染症・予防接種ナビ",
+			"url": "/rss/media/kansensho/all.xml"
+		},
+		{
+			"name": "カンパラプレス",
+			"url": "/rss/media/kanpara/all.xml"
+		},
+		{
+			"name": "北日本新聞",
+			"url": "/rss/media/kitanihon/all.xml"
+		},
+		{
+			"name": "北日本放送",
+			"url": "/rss/media/knb/all.xml"
+		},
+		{
+			"name": "キネマ旬報WEB",
+			"url": "/rss/media/kinejun/all.xml"
+		},
+		{
+			"name": "九州朝日放送",
+			"url": "/rss/media/kbcv/all.xml"
+		},
+		{
+			"name": "教育新聞",
+			"url": "/rss/media/kyobun/all.xml"
+		},
+		{
+			"name": "教育とICT Online",
+			"url": "/rss/media/kyoikuict/all.xml"
+		},
+		{
+			"name": "教員養成セミナー",
+			"url": "/rss/media/kyousemi/all.xml"
+		},
+		{
+			"name": "京都新聞",
+			"url": "/rss/media/kyt/all.xml"
+		},
+		{
+			"name": "共同通信",
+			"url": "/rss/media/kyodonews/all.xml"
+		},
+		{
+			"name": "ギズモード・ジャパン",
+			"url": "/rss/media/giz/all.xml"
+		},
+		{
+			"name": "岐阜新聞Ｗｅｂ",
+			"url": "/rss/media/gifuweb/all.xml"
+		},
+		{
+			"name": "ぎふチャンDIGITAL",
+			"url": "/rss/media/gifuchan/all.xml"
+		},
+		{
+			"name": "クウネル・サロン",
+			"url": "/rss/media/kunel/all.xml"
+		},
+		{
+			"name": "釧路新聞電子版",
+			"url": "/rss/media/kushironw/all.xml"
+		},
+		{
+			"name": "熊本日日新聞",
+			"url": "/rss/media/kumanichi/all.xml"
+		},
+		{
+			"name": "クラウド Watch",
+			"url": "/rss/media/impclw/all.xml"
+		},
+		{
+			"name": "クランクイン！",
+			"url": "/rss/media/crankinn/all.xml"
+		},
+		{
+			"name": "くるまのニュース",
+			"url": "/rss/media/kurumans/all.xml"
+		},
+		{
+			"name": "クロワッサンオンライン",
+			"url": "/rss/media/crssntv/all.xml"
+		},
+		{
+			"name": "クーリエ・ジャポン",
+			"url": "/rss/media/courrier/all.xml"
+		},
+		{
+			"name": "グルメ Watch",
+			"url": "/rss/media/impgrw/all.xml"
+		},
+		{
+			"name": "群馬テレビ",
+			"url": "/rss/media/gtv/all.xml"
+		},
+		{
+			"name": "競馬のおはなし",
+			"url": "/rss/media/keibana/all.xml"
+		},
+		{
+			"name": "競馬ラボ",
+			"url": "/rss/media/keibalab/all.xml"
+		},
+		{
+			"name": "健康産業新聞",
+			"url": "/rss/media/kenkoshin/all.xml"
+		},
+		{
+			"name": "健康産業速報",
+			"url": "/rss/media/kenkosoku/all.xml"
+		},
+		{
+			"name": "ケータイ Watch",
+			"url": "/rss/media/impktw/all.xml"
+		},
+		{
+			"name": "ゲキサカ",
+			"url": "/rss/media/gekisaka/all.xml"
+		},
+		{
+			"name": "月刊糖尿病ライフ さかえ",
+			"url": "/rss/media/sakae/all.xml"
+		},
+		{
+			"name": "月刊バスケットボール",
+			"url": "/rss/media/nbpvbball/all.xml"
+		},
+		{
+			"name": "月刊バレーボール",
+			"url": "/rss/media/getsuv/all.xml"
+		},
+		{
+			"name": "月刊陸上競技",
+			"url": "/rss/media/getsuriku/all.xml"
+		},
+		{
+			"name": "現代ビジネス",
+			"url": "/rss/media/gendaibiz/all.xml"
+		},
+		{
+			"name": "高校サッカードットコム",
+			"url": "/rss/media/kksoccer/all.xml"
+		},
+		{
+			"name": "高校生新聞オンライン",
+			"url": "/rss/media/koukousei/all.xml"
+		},
+		{
+			"name": "高校野球ドットコム",
+			"url": "/rss/media/hbnippon/all.xml"
+		},
+		{
+			"name": "好書好日",
+			"url": "/rss/media/bookasahi/all.xml"
+		},
+		{
+			"name": "講談社　JOSEISHI.NET",
+			"url": "/rss/media/kjn/all.xml"
+		},
+		{
+			"name": "高知さんさんテレビ",
+			"url": "/rss/media/newskss/all.xml"
+		},
+		{
+			"name": "コスモポリタン",
+			"url": "/rss/media/cosmopoli/all.xml"
+		},
+		{
+			"name": "こどもとIT",
+			"url": "/rss/media/impkitw/all.xml"
+		},
+		{
+			"name": "コミックナタリー",
+			"url": "/rss/media/nataliec/all.xml"
+		},
+		{
+			"name": "ゴルフ総合サイト ALBA Net",
+			"url": "/rss/media/alba/all.xml"
+		},
+		{
+			"name": "ゴルフダイジェスト・オンライン（GDO）",
+			"url": "/rss/media/gdo/all.xml"
+		},
+		{
+			"name": "ゴルフネットワーク",
+			"url": "/rss/media/golfnw/all.xml"
+		},
+		{
+			"name": "ゴング格闘技",
+			"url": "/rss/media/gkakutogi/all.xml"
+		},
+		{
+			"name": "埼玉新聞",
+			"url": "/rss/media/saitama/all.xml"
+		},
+		{
+			"name": "佐賀新聞",
+			"url": "/rss/media/saga/all.xml"
+		},
+		{
+			"name": "佐賀ニュース サガテレビ",
+			"url": "/rss/media/sagatv/all.xml"
+		},
+		{
+			"name": "さくらんぼテレビ",
+			"url": "/rss/media/sakuranbo/all.xml"
+		},
+		{
+			"name": "サッカーキング",
+			"url": "/rss/media/soccerk/all.xml"
+		},
+		{
+			"name": "サッカー批評Web",
+			"url": "/rss/media/soccerh/all.xml"
+		},
+		{
+			"name": "サッカーマガジンWeb",
+			"url": "/rss/media/soccerm/all.xml"
+		},
+		{
+			"name": "サライ.jp",
+			"url": "/rss/media/seraijp/all.xml"
+		},
+		{
+			"name": "山陰中央新報",
+			"url": "/rss/media/saninchuo/all.xml"
+		},
+		{
+			"name": "産経新聞",
+			"url": "/rss/media/san/all.xml"
+		},
+		{
+			"name": "サンケイスポーツ",
+			"url": "/rss/media/sanspo/all.xml"
+		},
+		{
+			"name": "サンテレビ",
+			"url": "/rss/media/suntvv/all.xml"
+		},
+		{
+			"name": "山陽新聞デジタル",
+			"url": "/rss/media/sanyo/all.xml"
+		},
+		{
+			"name": "ザ・プレーヤーズ・トリビューン ジャパン",
+			"url": "/rss/media/tptj/all.xml"
+		},
+		{
+			"name": "シェアーズカフェ・オンライン",
+			"url": "/rss/media/scafe/all.xml"
+		},
+		{
+			"name": "静岡朝日テレビ",
+			"url": "/rss/media/satvv/all.xml"
+		},
+		{
+			"name": "静岡放送（SBS）",
+			"url": "/rss/media/sbsv/all.xml"
+		},
+		{
+			"name": "信濃毎日新聞デジタル",
+			"url": "/rss/media/shinmai/all.xml"
+		},
+		{
+			"name": "シネマトゥデイ",
+			"url": "/rss/media/flix/all.xml"
+		},
+		{
+			"name": "市民タイムスWEB",
+			"url": "/rss/media/shimint/all.xml"
+		},
+		{
+			"name": "下野新聞SOON",
+			"url": "/rss/media/soon/all.xml"
+		},
+		{
+			"name": "集英社オンライン",
+			"url": "/rss/media/shueisha/all.xml"
+		},
+		{
+			"name": "週刊SPA!",
+			"url": "/rss/media/sspa/all.xml"
+		},
+		{
+			"name": "週刊大阪日日新聞",
+			"url": "/rss/media/osknichi/all.xml"
+		},
+		{
+			"name": "週刊金曜日",
+			"url": "/rss/media/kinyobi/all.xml"
+		},
+		{
+			"name": "週刊ベースボールONLINE",
+			"url": "/rss/media/baseballo/all.xml"
+		},
+		{
+			"name": "就職ジャーナル",
+			"url": "/rss/media/sjournal/all.xml"
+		},
+		{
+			"name": "週プレNEWS",
+			"url": "/rss/media/playboyz/all.xml"
+		},
+		{
+			"name": "週刊女性PRIME",
+			"url": "/rss/media/jprime/all.xml"
+		},
+		{
+			"name": "食品産業新聞社ニュースWEB",
+			"url": "/rss/media/ssnp/all.xml"
+		},
+		{
+			"name": "食品新聞",
+			"url": "/rss/media/shokuhin/all.xml"
+		},
+		{
+			"name": "食楽web",
+			"url": "/rss/media/syokuraku/all.xml"
+		},
+		{
+			"name": "新R25",
+			"url": "/rss/media/srnijugo/all.xml"
+		},
+		{
+			"name": "新潮社 フォーサイト",
+			"url": "/rss/media/fsight/all.xml"
+		},
+		{
+			"name": "上毛新聞",
+			"url": "/rss/media/jomo/all.xml"
+		},
+		{
+			"name": "女子SPA！",
+			"url": "/rss/media/jspa/all.xml"
+		},
+		{
+			"name": "ステージナタリー",
+			"url": "/rss/media/natalies/all.xml"
+		},
+		{
+			"name": "スポチュニティコラム",
+			"url": "/rss/media/spport/all.xml"
+		},
+		{
+			"name": "スポニチアネックス",
+			"url": "/rss/media/spnannex/all.xml"
+		},
+		{
+			"name": "スポーツナビ",
+			"url": "/rss/media/spnaviv/all.xml"
+		},
+		{
+			"name": "スポーツ報知",
+			"url": "/rss/media/sph/all.xml"
+		},
+		{
+			"name": "スポーティングニュース",
+			"url": "/rss/media/sporting/all.xml"
+		},
+		{
+			"name": "スマートジャパン",
+			"url": "/rss/media/biz_it_sj/all.xml"
+		},
+		{
+			"name": "スマートモビリティJP",
+			"url": "/rss/media/smamobijp/all.xml"
+		},
+		{
+			"name": "政治山",
+			"url": "/rss/media/seijiyama/all.xml"
+		},
+		{
+			"name": "選挙ドットコム",
+			"url": "/rss/media/senkyocom/all.xml"
+		},
+		{
+			"name": "仙台放送",
+			"url": "/rss/media/oxv/all.xml"
+		},
+		{
+			"name": "税理士ドットコム",
+			"url": "/rss/media/zeiricom/all.xml"
+		},
+		{
+			"name": "相続会議",
+			"url": "/rss/media/souzoku/all.xml"
+		},
+		{
+			"name": "ソトラバ",
+			"url": "/rss/media/sotolover/all.xml"
+		},
+		{
+			"name": "ソーシャル・イノベーション・ニュース",
+			"url": "/rss/media/socialinv/all.xml"
+		},
+		{
+			"name": "卓球王国",
+			"url": "/rss/media/worldtt/all.xml"
+		},
+		{
+			"name": "食べログマガジン",
+			"url": "/rss/media/tabelog/all.xml"
+		},
+		{
+			"name": "たまひよONLINE",
+			"url": "/rss/media/tamahiyo/all.xml"
+		},
+		{
+			"name": "丹波新聞",
+			"url": "/rss/media/tanba/all.xml"
+		},
+		{
+			"name": "ダイヤモンド・オンライン",
+			"url": "/rss/media/diamond/all.xml"
+		},
+		{
+			"name": "ダイヤモンド教育ラボ",
+			"url": "/rss/media/deducate/all.xml"
+		},
+		{
+			"name": "ダイヤモンド・ザイ",
+			"url": "/rss/media/dzai/all.xml"
+		},
+		{
+			"name": "ダイヤモンド不動産研究所",
+			"url": "/rss/media/diamondf/all.xml"
+		},
+		{
+			"name": "ダ・ヴィンチWeb",
+			"url": "/rss/media/davincin/all.xml"
+		},
+		{
+			"name": "チケットぴあ",
+			"url": "/rss/media/pia/all.xml"
+		},
+		{
+			"name": "チバテレ",
+			"url": "/rss/media/chibatele/all.xml"
+		},
+		{
+			"name": "ちばとぴ！ニュース",
+			"url": "/rss/media/chibach/all.xml"
+		},
+		{
+			"name": "千葉日報オンライン",
+			"url": "/rss/media/chibatopi/all.xml"
+		},
+		{
+			"name": "中央公論",
+			"url": "/rss/media/chuokou/all.xml"
+		},
+		{
+			"name": "中央社フォーカス台湾",
+			"url": "/rss/media/ftaiwan/all.xml"
+		},
+		{
+			"name": "中央日報日本語版",
+			"url": "/rss/media/cnippou/all.xml"
+		},
+		{
+			"name": "中海テレビ放送",
+			"url": "/rss/media/chukaiv/all.xml"
+		},
+		{
+			"name": "中京テレビＮＥＷＳ",
+			"url": "/rss/media/ctv/all.xml"
+		},
+		{
+			"name": "中国新聞デジタル",
+			"url": "/rss/media/chugoku/all.xml"
+		},
+		{
+			"name": "中日スポーツ",
+			"url": "/rss/media/chuspo/all.xml"
+		},
+		{
+			"name": "中部経済新聞",
+			"url": "/rss/media/chukei/all.xml"
+		},
+		{
+			"name": "チューリップテレビ",
+			"url": "/rss/media/tuliptv/all.xml"
+		},
+		{
+			"name": "超WORLDサッカー！",
+			"url": "/rss/media/usoccer/all.xml"
+		},
+		{
+			"name": "超！アニメディア",
+			"url": "/rss/media/choani/all.xml"
+		},
+		{
+			"name": "朝鮮日報日本語版",
+			"url": "/rss/media/chosun/all.xml"
+		},
+		{
+			"name": "ツギノジダイ",
+			"url": "/rss/media/tsugino/all.xml"
+		},
+		{
+			"name": "創",
+			"url": "/rss/media/tsukuru/all.xml"
+		},
+		{
+			"name": "津山朝日新聞",
+			"url": "/rss/media/tsuyamanp/all.xml"
+		},
+		{
+			"name": "釣りビジョン マガジン",
+			"url": "/rss/media/fvision/all.xml"
+		},
+		{
+			"name": "帝国データバンク",
+			"url": "/rss/media/teikokudb/all.xml"
+		},
+		{
+			"name": "テクノエッジ",
+			"url": "/rss/media/technoed/all.xml"
+		},
+		{
+			"name": "鉄鋼新聞",
+			"url": "/rss/media/tekkou/all.xml"
+		},
+		{
+			"name": "鉄道コム",
+			"url": "/rss/media/tetsucom/all.xml"
+		},
+		{
+			"name": "テニスマガジンONLINE",
+			"url": "/rss/media/tennismagv/all.xml"
+		},
+		{
+			"name": "テレQ（TVQ九州放送）",
+			"url": "/rss/media/tvq/all.xml"
+		},
+		{
+			"name": "テレ朝POST",
+			"url": "/rss/media/asapostv/all.xml"
+		},
+		{
+			"name": "テレ玉",
+			"url": "/rss/media/teletama/all.xml"
+		},
+		{
+			"name": "テレ東BIZ",
+			"url": "/rss/media/tvtnews/all.xml"
+		},
+		{
+			"name": "テレ東プラス",
+			"url": "/rss/media/tvtplus/all.xml"
+		},
+		{
+			"name": "テレビ愛知",
+			"url": "/rss/media/tvaichi/all.xml"
+		},
+		{
+			"name": "テレビ朝日系（ANN）",
+			"url": "/rss/media/ann/all.xml"
+		},
+		{
+			"name": "テレビ岩手ニュース",
+			"url": "/rss/media/tvi/all.xml"
+		},
+		{
+			"name": "テレビ愛媛",
+			"url": "/rss/media/ebc/all.xml"
+		},
+		{
+			"name": "テレビ大阪ニュース",
+			"url": "/rss/media/tvosaka/all.xml"
+		},
+		{
+			"name": "テレビ金沢",
+			"url": "/rss/media/ktk/all.xml"
+		},
+		{
+			"name": "テレビ高知",
+			"url": "/rss/media/kutv/all.xml"
+		},
+		{
+			"name": "テレビ静岡NEWS",
+			"url": "/rss/media/sut/all.xml"
+		},
+		{
+			"name": "テレビ信州",
+			"url": "/rss/media/tsb/all.xml"
+		},
+		{
+			"name": "テレビ新広島",
+			"url": "/rss/media/tssv/all.xml"
+		},
+		{
+			"name": "テレビ東京スポーツ",
+			"url": "/rss/media/tvtokyos/all.xml"
+		},
+		{
+			"name": "テレビ北海道",
+			"url": "/rss/media/tvh/all.xml"
+		},
+		{
+			"name": "テレビユー山形",
+			"url": "/rss/media/tuy/all.xml"
+		},
+		{
+			"name": "テレビ和歌山",
+			"url": "/rss/media/wakayamav/all.xml"
+		},
+		{
+			"name": "デイリー新潮",
+			"url": "/rss/media/shincho/all.xml"
+		},
+		{
+			"name": "デジカメ Watch",
+			"url": "/rss/media/impdcw/all.xml"
+		},
+		{
+			"name": "デビュー",
+			"url": "/rss/media/devi/all.xml"
+		},
+		{
+			"name": "電波新聞デジタル",
+			"url": "/rss/media/dempad/all.xml"
+		},
+		{
+			"name": "電ファミニコゲーマー",
+			"url": "/rss/media/denfami/all.xml"
+		},
+		{
+			"name": "デーリー東北新聞社",
+			"url": "/rss/media/dtohoku/all.xml"
+		},
+		{
+			"name": "東海テレビ",
+			"url": "/rss/media/tokai/all.xml"
+		},
+		{
+			"name": "東京商工リサーチ",
+			"url": "/rss/media/biz_shoko/all.xml"
+		},
+		{
+			"name": "東京バーゲンマニア",
+			"url": "/rss/media/tkybgmnv/all.xml"
+		},
+		{
+			"name": "東スポWEB",
+			"url": "/rss/media/tospoweb/all.xml"
+		},
+		{
+			"name": "東スポ競馬",
+			"url": "/rss/media/tspkeiba/all.xml"
+		},
+		{
+			"name": "東洋経済education×ICT",
+			"url": "/rss/media/toyoedu/all.xml"
+		},
+		{
+			"name": "東洋経済オンライン",
+			"url": "/rss/media/toyo/all.xml"
+		},
+		{
+			"name": "十勝毎日新聞　電子版",
+			"url": "/rss/media/kachimai/all.xml"
+		},
+		{
+			"name": "徳島新聞",
+			"url": "/rss/media/tokushimav/all.xml"
+		},
+		{
+			"name": "とちぎテレビ",
+			"url": "/rss/media/tochitele/all.xml"
+		},
+		{
+			"name": "苫小牧民報",
+			"url": "/rss/media/tomamin/all.xml"
+		},
+		{
+			"name": "富山テレビ",
+			"url": "/rss/media/bbt/all.xml"
+		},
+		{
+			"name": "トラベル Watch",
+			"url": "/rss/media/imptrw/all.xml"
+		},
+		{
+			"name": "トラベルボイス",
+			"url": "/rss/media/travelv/all.xml"
+		},
+		{
+			"name": "道新スポーツ",
+			"url": "/rss/media/dospo/all.xml"
+		},
+		{
+			"name": "ドライバーWeb",
+			"url": "/rss/media/driverweb/all.xml"
+		},
+		{
+			"name": "なかまぁる",
+			"url": "/rss/media/nakamaaru/all.xml"
+		},
+		{
+			"name": "長崎国際テレビ",
+			"url": "/rss/media/nib/all.xml"
+		},
+		{
+			"name": "長崎新聞",
+			"url": "/rss/media/nagasaki/all.xml"
+		},
+		{
+			"name": "長崎文化放送",
+			"url": "/rss/media/ncctv/all.xml"
+		},
+		{
+			"name": "長野日報",
+			"url": "/rss/media/naganonp/all.xml"
+		},
+		{
+			"name": "ナショナル ジオグラフィック日本版",
+			"url": "/rss/media/nknatiogeo/all.xml"
+		},
+		{
+			"name": "奈良新聞デジタル",
+			"url": "/rss/media/naranp/all.xml"
+		},
+		{
+			"name": "奈良テレビ放送",
+			"url": "/rss/media/tvn/all.xml"
+		},
+		{
+			"name": "南海日日新聞",
+			"url": "/rss/media/nankainn/all.xml"
+		},
+		{
+			"name": "南海放送",
+			"url": "/rss/media/rnb/all.xml"
+		},
+		{
+			"name": "西スポWEB OTTO！",
+			"url": "/rss/media/nishispo/all.xml"
+		},
+		{
+			"name": "西スポレースサイト",
+			"url": "/rss/media/rnishispo/all.xml"
+		},
+		{
+			"name": "西日本新聞",
+			"url": "/rss/media/nishinp/all.xml"
+		},
+		{
+			"name": "日刊ゲンダイDIGITAL",
+			"url": "/rss/media/nkgendai/all.xml"
+		},
+		{
+			"name": "日刊工業新聞電子版",
+			"url": "/rss/media/nkogyo/all.xml"
+		},
+		{
+			"name": "日刊産業新聞",
+			"url": "/rss/media/sangyo/all.xml"
+		},
+		{
+			"name": "日刊新周南",
+			"url": "/rss/media/sshunan/all.xml"
+		},
+		{
+			"name": "日刊自動車新聞",
+			"url": "/rss/media/netdenjd/all.xml"
+		},
+		{
+			"name": "日刊スポーツ",
+			"url": "/rss/media/nksports/all.xml"
+		},
+		{
+			"name": "日経BizGate",
+			"url": "/rss/media/nkbizgate/all.xml"
+		},
+		{
+			"name": "日経xwoman",
+			"url": "/rss/media/woman/all.xml"
+		},
+		{
+			"name": "日経クロストレンド",
+			"url": "/rss/media/nkctrend/all.xml"
+		},
+		{
+			"name": "日経グッデイ",
+			"url": "/rss/media/gooday/all.xml"
+		},
+		{
+			"name": "日経ビジネス",
+			"url": "/rss/media/business/all.xml"
+		},
+		{
+			"name": "ニッポン放送",
+			"url": "/rss/media/nshaberu/all.xml"
+		},
+		{
+			"name": "日本海新聞",
+			"url": "/rss/media/nihonkai/all.xml"
+		},
+		{
+			"name": "日本海事新聞",
+			"url": "/rss/media/tjmd/all.xml"
+		},
+		{
+			"name": "日本海テレビ",
+			"url": "/rss/media/nkt/all.xml"
+		},
+		{
+			"name": "日本食糧新聞",
+			"url": "/rss/media/nissyoku/all.xml"
+		},
+		{
+			"name": "日本農業新聞",
+			"url": "/rss/media/agrinews/all.xml"
+		},
+		{
+			"name": "日本の人事部",
+			"url": "/rss/media/biz_jinji/all.xml"
+		},
+		{
+			"name": "日本ファクトチェックセンター",
+			"url": "/rss/media/jfactc/all.xml"
+		},
+		{
+			"name": "ニュースイッチ",
+			"url": "/rss/media/newswitch/all.xml"
+		},
+		{
+			"name": "ニュースソクラ",
+			"url": "/rss/media/socra/all.xml"
+		},
+		{
+			"name": "ニューズウィーク日本版",
+			"url": "/rss/media/newsweek/all.xml"
+		},
+		{
+			"name": "ねこのきもち WEB MAGAZINE",
+			"url": "/rss/media/nekomag/all.xml"
+		},
+		{
+			"name": "ネットショップ担当者フォーラム",
+			"url": "/rss/media/netshop/all.xml"
+		},
+		{
+			"name": "ねとらぼ",
+			"url": "/rss/media/it_nlab/all.xml"
+		},
+		{
+			"name": "乗りものニュース",
+			"url": "/rss/media/norimono/all.xml"
+		},
+		{
+			"name": "函館新聞デジタル",
+			"url": "/rss/media/hakoshin/all.xml"
+		},
+		{
+			"name": "ハフポスト日本版",
+			"url": "/rss/media/huffpost/all.xml"
+		},
+		{
+			"name": "ハルメク365",
+			"url": "/rss/media/halmek/all.xml"
+		},
+		{
+			"name": "ハンギョレ新聞",
+			"url": "/rss/media/hankyoreh/all.xml"
+		},
+		{
+			"name": "バイクのニュース",
+			"url": "/rss/media/bikeno/all.xml"
+		},
+		{
+			"name": "バスケットボールキング",
+			"url": "/rss/media/bballk/all.xml"
+		},
+		{
+			"name": "バスケットボールスピリッツ",
+			"url": "/rss/media/bbspirits/all.xml"
+		},
+		{
+			"name": "バトル・ニュース",
+			"url": "/rss/media/battlen/all.xml"
+		},
+		{
+			"name": "バド×スピ！／バドミントン・マガジン",
+			"url": "/rss/media/badspi/all.xml"
+		},
+		{
+			"name": "バレーボールマガジン",
+			"url": "/rss/media/vbm/all.xml"
+		},
+		{
+			"name": "広島テレビ　ニュース",
+			"url": "/rss/media/htv/all.xml"
+		},
+		{
+			"name": "ビジネス＋IT",
+			"url": "/rss/media/biz_plus/all.xml"
+		},
+		{
+			"name": "美術手帖",
+			"url": "/rss/media/btecho/all.xml"
+		},
+		{
+			"name": "美的.com",
+			"url": "/rss/media/biteki/all.xml"
+		},
+		{
+			"name": "ビデオニュース・ドットコム",
+			"url": "/rss/media/videonewsv/all.xml"
+		},
+		{
+			"name": "ぴあ",
+			"url": "/rss/media/piaeigat/all.xml"
+		},
+		{
+			"name": "ファイナンシャルフィールド",
+			"url": "/rss/media/ffield/all.xml"
+		},
+		{
+			"name": "ファンファン福岡",
+			"url": "/rss/media/fanfun/all.xml"
+		},
+		{
+			"name": "フィガロジャポン",
+			"url": "/rss/media/figaro/all.xml"
+		},
+		{
+			"name": "福井新聞ＯＮＬＩＮＥ",
+			"url": "/rss/media/fukui/all.xml"
+		},
+		{
+			"name": "福井テレビ",
+			"url": "/rss/media/ftb/all.xml"
+		},
+		{
+			"name": "福祉新聞",
+			"url": "/rss/media/fukushi/all.xml"
+		},
+		{
+			"name": "福島中央テレビ",
+			"url": "/rss/media/fct/all.xml"
+		},
+		{
+			"name": "福島テレビ",
+			"url": "/rss/media/ftv/all.xml"
+		},
+		{
+			"name": "福島民報",
+			"url": "/rss/media/fminpo/all.xml"
+		},
+		{
+			"name": "福島民友新聞",
+			"url": "/rss/media/minyu/all.xml"
+		},
+		{
+			"name": "フジテレビュー！！",
+			"url": "/rss/media/fujitv/all.xml"
+		},
+		{
+			"name": "婦人画報",
+			"url": "/rss/media/fujingaho/all.xml"
+		},
+		{
+			"name": "婦人公論.jp",
+			"url": "/rss/media/fujinjp/all.xml"
+		},
+		{
+			"name": "双葉社 THE CHANGE",
+			"url": "/rss/media/fchange/all.xml"
+		},
+		{
+			"name": "ふたまん＋",
+			"url": "/rss/media/futaman/all.xml"
+		},
+		{
+			"name": "フットボールチャンネル",
+			"url": "/rss/media/footballc/all.xml"
+		},
+		{
+			"name": "ブラジル日報",
+			"url": "/rss/media/nikkey/all.xml"
+		},
+		{
+			"name": "文春オンライン",
+			"url": "/rss/media/bunshun/all.xml"
+		},
+		{
+			"name": "プレジデントオンライン",
+			"url": "/rss/media/president/all.xml"
+		},
+		{
+			"name": "プロレスTODAY",
+			"url": "/rss/media/proresut/all.xml"
+		},
+		{
+			"name": "ベストカーWeb",
+			"url": "/rss/media/bestcar/all.xml"
+		},
+		{
+			"name": "ベネッセ教育情報",
+			"url": "/rss/media/benesseks/all.xml"
+		},
+		{
+			"name": "弁護士JPニュース",
+			"url": "/rss/media/bengojp/all.xml"
+		},
+		{
+			"name": "弁護士ドットコムニュース",
+			"url": "/rss/media/bengocom/all.xml"
+		},
+		{
+			"name": "ベースボールキング",
+			"url": "/rss/media/baseballk/all.xml"
+		},
+		{
+			"name": "ベースボールチャンネル",
+			"url": "/rss/media/baseballc/all.xml"
+		},
+		{
+			"name": "報道写真ギャラリーBEHIND",
+			"url": "/rss/media/behindp/all.xml"
+		},
+		{
+			"name": "北陸新幹線で行こう！　北陸・信越観光ナビ",
+			"url": "/rss/media/hokuriku/all.xml"
+		},
+		{
+			"name": "北海道新聞",
+			"url": "/rss/media/doshin/all.xml"
+		},
+		{
+			"name": "北海道ニュースUHB",
+			"url": "/rss/media/hokkaibun/all.xml"
+		},
+		{
+			"name": "北國新聞社",
+			"url": "/rss/media/hokkoku/all.xml"
+		},
+		{
+			"name": "房日新聞",
+			"url": "/rss/media/bonichi/all.xml"
+		},
+		{
+			"name": "マイナビ子育て",
+			"url": "/rss/media/kosodate/all.xml"
+		},
+		{
+			"name": "マイナビニュース",
+			"url": "/rss/media/mynavin/all.xml"
+		},
+		{
+			"name": "マカオ新聞",
+			"url": "/rss/media/macau/all.xml"
+		},
+		{
+			"name": "マグミクス",
+			"url": "/rss/media/magmix/all.xml"
+		},
+		{
+			"name": "窓の杜",
+			"url": "/rss/media/impwfw/all.xml"
+		},
+		{
+			"name": "マネーの達人",
+			"url": "/rss/media/manetatsun/all.xml"
+		},
+		{
+			"name": "マネーポストWEB",
+			"url": "/rss/media/moneypost/all.xml"
+		},
+		{
+			"name": "三重テレビ放送",
+			"url": "/rss/media/mietvv/all.xml"
+		},
+		{
+			"name": "みなと新聞",
+			"url": "/rss/media/minatos/all.xml"
+		},
+		{
+			"name": "南信州新聞",
+			"url": "/rss/media/mssnw/all.xml"
+		},
+		{
+			"name": "南日本新聞",
+			"url": "/rss/media/minami/all.xml"
+		},
+		{
+			"name": "ミヤギテレビ",
+			"url": "/rss/media/mmt/all.xml"
+		},
+		{
+			"name": "宮古毎日新聞",
+			"url": "/rss/media/miyako/all.xml"
+		},
+		{
+			"name": "宮崎日日新聞",
+			"url": "/rss/media/miyazaki/all.xml"
+		},
+		{
+			"name": "宮崎ニュースUMK",
+			"url": "/rss/media/umk/all.xml"
+		},
+		{
+			"name": "みんかぶマガジン",
+			"url": "/rss/media/minkabu/all.xml"
+		},
+		{
+			"name": "みんなの経済新聞ネットワーク",
+			"url": "/rss/media/minkei/all.xml"
+		},
+		{
+			"name": "みんなのゴルフダイジェスト",
+			"url": "/rss/media/minnagolf/all.xml"
+		},
+		{
+			"name": "みんなの趣味の園芸",
+			"url": "/rss/media/shumien/all.xml"
+		},
+		{
+			"name": "メ〜テレ（名古屋テレビ）",
+			"url": "/rss/media/nbn/all.xml"
+		},
+		{
+			"name": "モダンリビング",
+			"url": "/rss/media/mliving/all.xml"
+		},
+		{
+			"name": "モデルプレス",
+			"url": "/rss/media/mdpr/all.xml"
+		},
+		{
+			"name": "モーサイ",
+			"url": "/rss/media/mcyclist/all.xml"
+		},
+		{
+			"name": "八重山日報",
+			"url": "/rss/media/yaeyamanp/all.xml"
+		},
+		{
+			"name": "山形新聞",
+			"url": "/rss/media/yamagatan/all.xml"
+		},
+		{
+			"name": "山口新聞 電子版",
+			"url": "/rss/media/ymgcnw/all.xml"
+		},
+		{
+			"name": "山と溪谷オンライン",
+			"url": "/rss/media/yamakei/all.xml"
+		},
+		{
+			"name": "夕刊フジ",
+			"url": "/rss/media/ykf/all.xml"
+		},
+		{
+			"name": "夕刊三重",
+			"url": "/rss/media/yomotto/all.xml"
+		},
+		{
+			"name": "優馬",
+			"url": "/rss/media/umakeiba/all.xml"
+		},
+		{
+			"name": "ヨガジャーナルオンライン",
+			"url": "/rss/media/yogajol/all.xml"
+		},
+		{
+			"name": "読売テレビ",
+			"url": "/rss/media/ytv/all.xml"
+		},
+		{
+			"name": "ライフハッカー・ジャパン",
+			"url": "/rss/media/biz_lifeh/all.xml"
+		},
+		{
+			"name": "ラグビーリパブリック（ラグビーマガジン）",
+			"url": "/rss/media/rugbyrp/all.xml"
+		},
+		{
+			"name": "ラジトピ　ラジオ関西トピックス",
+			"url": "/rss/media/raditopi/all.xml"
+		},
+		{
+			"name": "リアルサウンド",
+			"url": "/rss/media/realsound/all.xml"
+		},
+		{
+			"name": "リセマム",
+			"url": "/rss/media/resemom/all.xml"
+		},
+		{
+			"name": "両丹日日新聞",
+			"url": "/rss/media/rtn/all.xml"
+		},
+		{
+			"name": "旅行読売",
+			"url": "/rss/media/ryokoyom/all.xml"
+		},
+		{
+			"name": "ルアマガ＋",
+			"url": "/rss/media/tsuriplus/all.xml"
+		},
+		{
+			"name": "歴史人",
+			"url": "/rss/media/rekishin/all.xml"
+		},
+		{
+			"name": "レスキューナウニュース",
+			"url": "/rss/media/rescuenow/all.xml"
+		},
+		{
+			"name": "レスポンス",
+			"url": "/rss/media/rps/all.xml"
+		},
+		{
+			"name": "レタスクラブ",
+			"url": "/rss/media/lettucec/all.xml"
+		},
+		{
+			"name": "聯合ニュース",
+			"url": "/rss/media/yonh/all.xml"
+		},
+		{
+			"name": "ロケーションジャパン",
+			"url": "/rss/media/locationj/all.xml"
+		},
+		{
+			"name": "ワールドジェットスポーツマガジン",
+			"url": "/rss/media/wjsm/all.xml"
+		}
+	]
+}
