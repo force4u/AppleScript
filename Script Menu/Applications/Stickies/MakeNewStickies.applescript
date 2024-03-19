@@ -76,7 +76,7 @@ set numCntArray to (count of ocidPlistArray) as integer
 #追加するDICT＝新しいステっキーズのデータ
 set ocidAddDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
 #数値系 前後関係のINDEX
-set numSetValue to (numCntArray) as integer
+set numSetValue to (numCntArray + 1) as integer
 ocidAddDict's setValue:(numSetValue) forKey:("ZOrder")
 #開いているのが１　閉じているのが０
 set numSetValue to (0) as integer
