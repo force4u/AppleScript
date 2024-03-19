@@ -1,8 +1,13 @@
 #!/usr/bin/env osascript
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 #　
-#　新規でステっキーズを生成します　色や文言はカスタマイズして利用してください
 #com.cocolog-nifty.quicktimer.icefloe
+#　新規でステッキーズを生成します　色や文言はカスタマイズして利用してください
+(*
+v2 ZOrderの値を修正した
+
+
+*)
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 ##自分環境がos12なので2.8にしているだけです
 use AppleScript version "2.8"
@@ -17,8 +22,9 @@ tell application id "com.apple.Stickies"
 	quit
 end tell
 delay 0.5
-#アトリビュートテキストを生成する
+#表示するテキスト
 set strSetValue to ("新しいステッキーズ") as text
+#アトリビュートテキストを生成する
 set ocidAttarString to refMe's NSMutableAttributedString's alloc()'s initWithString:(strSetValue)
 #セットするDICT
 set ocidAttrDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
@@ -69,11 +75,13 @@ set ocidPlistArray to refMe's NSMutableArray's alloc()'s initWithContentsOfURL:(
 set numCntArray to (count of ocidPlistArray) as integer
 #追加するDICT＝新しいステっキーズのデータ
 set ocidAddDict to refMe's NSMutableDictionary's alloc()'s initWithCapacity:0
-#数値系
-set numSetValue to (numCntArray + 1) as integer
+#数値系 前後関係のINDEX
+set numSetValue to (numCntArray) as integer
 ocidAddDict's setValue:(numSetValue) forKey:("ZOrder")
+#開いているのが１　閉じているのが０
 set numSetValue to (0) as integer
 ocidAddDict's setValue:(numSetValue) forKey:("ExpandFrameY")
+#日本語スペルチェックは無いのでデフォルト値
 set numSetValue to (8455) as integer
 ocidAddDict's setValue:(numSetValue) forKey:("SpellCheckingTypes")
 #テキスト系
