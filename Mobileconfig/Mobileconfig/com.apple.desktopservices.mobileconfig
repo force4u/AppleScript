@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>ConsentText</key>
+	<dict>
+		<key>default</key>
+		<string>com.apple.ManagedClient.preferences 初期設定 (default)
+この設定は削除しないでください
+			</string>
+		<key>en</key>
+		<string>com.apple.ManagedClient.preferences Preferences (en)
+Please do not delete this setting.
+			</string>
+		<key>ja</key>
+		<string>com.apple.ManagedClient.preferences 初期設定 (ja)
+この設定は削除しないでください
+			</string>
+	</dict>
+	<key>HasRemovalPasscode</key>
+	<false/>
+	<key>PayloadContent</key>
+	<array>
+		<dict>
+			<key>DSDontWriteNetworkStores</key>
+			<true/>
+			<key>DSDontWriteUSBStores</key>
+			<true/>
+			<key>PayloadDescription</key>
+			<string>com.apple.desktopservices</string>
+			<key>PayloadDisplayName</key>
+			<string>com.apple.desktopservices</string>
+			<key>PayloadIdentifier</key>
+			<string>com.apple.desktopservices.701B0A7A-9EA0-427F-85AD-0AB29376FA8B</string>
+			<key>PayloadType</key>
+			<string>com.apple.desktopservices</string>
+			<key>PayloadUUID</key>
+			<string>701B0A7A-9EA0-427F-85AD-0AB29376FA8B</string>
+			<key>PayloadVersion</key>
+			<integer>20240412</integer>
+		</dict>
+	</array>
+	<key>PayloadDescription</key>
+	<string>com.apple.desktopservices
+Version: 20240412
+UUID: BCA242A1-5229-458E-B17D-D163F18219DE</string>
+	<key>PayloadDisplayName</key>
+	<string>com.apple.desktopservices</string>
+	<key>PayloadIdentifier</key>
+	<string>com.apple.desktopservices.BCA242A1-5229-458E-B17D-D163F18219DE</string>
+	<key>PayloadOrganization</key>
+	<string>com.cocolog-nifty.quicktimer</string>
+	<key>PayloadRemovalDisallowed</key>
+	<false/>
+	<key>PayloadScope</key>
+	<string>User</string>
+	<key>PayloadType</key>
+	<string>Configuration</string>
+	<key>PayloadUUID</key>
+	<string>BCA242A1-5229-458E-B17D-D163F18219DE</string>
+	<key>PayloadVersion</key>
+	<integer>20240412</integer>
+	<key>TargetDeviceType</key>
+	<integer>0</integer>
+</dict>
+</plist>
