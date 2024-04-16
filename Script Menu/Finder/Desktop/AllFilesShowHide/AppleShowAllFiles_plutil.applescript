@@ -8,16 +8,28 @@ Finderに不可視ファイルを表示するか？を切り替えます
 # com.cocolog-nifty.quicktimer.icefloe
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 
+##############################################
+## ファイルパス関連
+##############################################
+####preferences folderまでのパス
+set strPlistFileName to "com.apple.finder.plist" as text
 
+set aliasPreferencesDir to (path to preferences folder from user domain) as alias
+tell application "Finder"
+	set alisPrefFilePath to (file strPlistFileName of folder aliasPreferencesDir) as alias
+end tell
+####ファイル名と繋げてUNIXパスにする
+set strPlistPath to (POSIX path of alisPrefFilePath) as text
 ##############################################
 ## まずは今の設定を読み込む
 ##############################################
 try
-	set boolCreateDesktop to (do shell script "defaults read  com.apple.finder AppleShowAllFiles") as integer
+	set boolResponse to (do shell script "/usr/bin/plutil -extract AppleShowAllFiles raw -expect bool   \"" & strPlistPath & "\"") as boolean
 on error
 	###値が無い場合はFalseの0を入れておく
-	set boolCreateDesktop to 0 as integer
+	set boolResponse to true as boolean
 end try
+
 ##############################################
 ## 今の設定内容と逆のことを実行する
 ##############################################
@@ -30,35 +42,44 @@ else
 end if
 set aliasIconPath to POSIX file "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/FinderIcon.icns" as alias
 
-if boolCreateDesktop = 1 then
+if boolResponse is true then
 	display dialog "不可視ファイルを隠します" with icon aliasIconPath
-	
-else if boolCreateDesktop = 0 then
+else if boolResponse is false then
 	display dialog "不可視ファイルを表示します" with icon aliasIconPath
-	
 end if
 ##############################################
 ## 今と逆の設定をする
 ##############################################
 --> true １なら 
-if boolCreateDesktop = 1 then
+if boolResponse is true then
 	--->0=FALSEに変える
 	try
-		do shell script "defaults write  com.apple.finder AppleShowAllFiles -bool false"
+		do shell script "/usr/bin/plutil -replace AppleShowAllFiles -bool false  \"" & strPlistPath & "\""
 	on error
-		log "falseに変更できませんでした"
+		return "falseに変更できませんでした"
 	end try
-else if boolCreateDesktop = 0 then
+else if boolResponse is false then
 	--->0なら--> 1=trueに変更する
 	try
-		do shell script "defaults write  com.apple.finder AppleShowAllFiles -bool true"
+		do shell script "/usr/bin/plutil -replace AppleShowAllFiles -bool true  \"" & strPlistPath & "\""
 	on error
-		log "trueに変更できませんでした"
+		return "trueに変更できませんでした"
 	end try
 end if
 
+##############################################
+## 設定チェック
+##############################################
+try
+	set boolResponse to (do shell script "/usr/bin/plutil -extract AppleShowAllFiles raw -expect bool   \"" & strPlistPath & "\"") as boolean
+	log "値を:" & boolResponse & "に変更しました"
+on error
+	log "処理がエラーで終了しました"
+end try
 
 do shell script "/usr/bin/killall cfprefsd"
 delay 1
 ---ファインダーを再起動して表示を確定
 do shell script "/usr/bin/killall Finder"
+
+
