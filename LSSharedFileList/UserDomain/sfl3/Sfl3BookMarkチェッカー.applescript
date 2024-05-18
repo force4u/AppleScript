@@ -42,21 +42,39 @@ set strFilePath to POSIX path of aliasFilePath
 set ocidFilePathStr to refMe's NSString's stringWithString:(strFilePath)
 set ocidFilePath to ocidFilePathStr's stringByStandardizingPath()
 set ocidSfl3FilePathURL to (refMe's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:false)
-
-
+##SFL3専用　他ファイルは排除
+set strExtensionName to ocidSfl3FilePathURL's pathExtension() as text
+if strExtensionName is not "sfl3" then
+	return "sfl3専用です"
+end if
 #######################################
 ##NSdataに読み込み　Keyを解凍する
 #######################################
 ###【１】NSDataに読み込む
 set ocidOption to (refMe's NSDataReadingMappedIfSafe)
-set listReadData to refMe's NSData's dataWithContentsOfURL:(ocidSfl3FilePathURL) options:(ocidOption) |error|:(reference)
-set ocidPlistData to (item 1 of listReadData)
+set listResponse to refMe's NSData's dataWithContentsOfURL:(ocidSfl3FilePathURL) options:(ocidOption) |error|:(reference)
+if (item 2 of listResponse) = (missing value) then
+	log "正常処理"
+	set ocidPlistData to (item 1 of listResponse)
+else if (item 2 of listResponse) ≠ (missing value) then
+	log (item 2 of listResponse)'s code() as text
+	log (item 2 of listResponse)'s localizedDescription() as text
+	return "NSDATAでエラーしました"
+end if
 ###【２】NSKeyedUnarchiverで解凍してDictに
 #macOS13まで
 #set ocidArchveDict to (refMe's NSKeyedUnarchiver's unarchiveObjectWithData:(ocidPlistData))
 #macOS14から
-set listReadUnarchiver to (refMe's NSKeyedUnarchiver's unarchivedObjectOfClass:((refMe's NSObject)'s class) fromData:(ocidPlistData) |error|:(reference))
-set ocidArchveDict to (item 1 of listReadUnarchiver)
+set listResponse to (refMe's NSKeyedUnarchiver's unarchivedObjectOfClass:((refMe's NSObject)'s class) fromData:(ocidPlistData) |error|:(reference))
+if (item 2 of listResponse) = (missing value) then
+	log "正常処理"
+	set ocidArchveDict to (item 1 of listResponse)
+else if (item 2 of listResponse) ≠ (missing value) then
+	log (item 2 of listResponse)'s code() as text
+	log (item 2 of listResponse)'s localizedDescription() as text
+	return "NSKeyedUnarchiverでエラーしました"
+end if
+
 ###【２】可変Dictにセット
 set ocidReplaceDict to (refMe's NSMutableDictionary's alloc()'s initWithCapacity:0)
 (ocidReplaceDict's setDictionary:ocidArchveDict)
@@ -67,22 +85,36 @@ set ocidAllKeysArray to ocidReplaceDict's allKeys()
 #######################################
 ###【３】items のArrayを取り出して
 set ocidItemsArray to (ocidReplaceDict's objectForKey:("items"))
+##ダイアログに渡すためのテキスト
 set ocidSaveString to refMe's NSMutableString's alloc()'s initWithCapacity:0
-
+#リストの数だけ繰り返し
 repeat with itemArray in ocidItemsArray
 	set ocidBookMarkData to (itemArray's objectForKey:("Bookmark"))
-	set listResponse to (refMe's NSURL's URLByResolvingBookmarkData:(ocidBookMarkData) options:(refMe's NSURLBookmarkResolutionWithoutUI) relativeToURL:(missing value) bookmarkDataIsStale:(missing value) |error|:(reference))
-	set ocidBookMarkURL to (item 1 of listResponse)
-	if ocidBookMarkURL /= (missing value) then
-	set strSetValue to ocidBookMarkURL's absoluteString() as text
-	(ocidSaveString's appendString:(strSetValue))
-	(ocidSaveString's appendString:("\n"))
+	#ブックマークの参照先を取得
+	set ocidOption to (refMe's NSURLBookmarkResolutionWithoutUI)
+	set listResponse to (refMe's NSURL's URLByResolvingBookmarkData:(ocidBookMarkData) options:(ocidOption) relativeToURL:(missing value) bookmarkDataIsStale:(true) |error|:(reference))
+	if (item 2 of listResponse) = (missing value) then
+		log "正常処理"
+		set ocidBookMarkURL to (item 1 of listResponse)
+		if ocidBookMarkURL ≠ (missing value) then
+			##URLパスを
+			set strSetValue to ocidBookMarkURL's absoluteString() as text
+			##ダイアログへ渡すテキストに追加していく
+			(ocidSaveString's appendString:(strSetValue))
+			(ocidSaveString's appendString:("\n"))
+		end if
+	else if (item 2 of listResponse) ≠ (missing value) then
+		log (item 2 of listResponse)'s code() as text
+		log (item 2 of listResponse)'s localizedDescription() as text
+		log "NSKeyedUnarchiverでエラーしました"
 	end if
+	
+	
 end repeat
 #######################################
 ###　戻り値
 #######################################
-set aliasIconPath to POSIX file "/System/Applications/Calculator.app/Contents/Resources/AppIcon.icns" as alias
+set aliasIconPath to POSIX file "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/FinderIcon.icns" as alias
 
 tell current application
 	set strName to name as text
@@ -99,12 +131,21 @@ else
 end if
 set strMes to ("BookMarkエイリアスの戻り値です") as text
 try
-	set recordResult to (display dialog strMes with title strMes default answer (ocidSaveString as text) buttons {"クリップボードにコピー", "キャンセル", "OK"} default button "OK" cancel button "キャンセル" giving up after 20 with icon aliasIconPath without hidden answer) as record
+	set recordResult to (display dialog strMes with title strMes default answer (ocidSaveString as text) buttons {"クリップボードにコピー", "終了", "再実行"} default button "再実行" cancel button "終了" giving up after 20 with icon aliasIconPath without hidden answer) as record
 on error
-	log "エラーしました"
+	return "キャンセルかエラーしました"
 end try
 if (gave up of recordResult) is true then
 	return "時間切れです"
+end if
+##############################
+#####自分自身を再実行
+##############################
+if button returned of recordResult is "再実行" then
+	tell application "Finder"
+		set aliasPathToMe to (path to me) as alias
+	end tell
+	run script aliasPathToMe with parameters "再実行"
 end if
 ##############################
 #####値のコピー
