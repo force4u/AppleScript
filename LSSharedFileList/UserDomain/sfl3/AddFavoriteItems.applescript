@@ -8,6 +8,9 @@ nwnode://domain-AirDrop
 等
 一部個別のスキームがあります
 SFL3 os14対応版
+
+こちらの記事を参考にした
+https://eclecticlight.co/2024/05/18/how-to-decode-a-bookmark-in-a-property-list/
 *)
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 use AppleScript version "2.8"
