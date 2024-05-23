@@ -42,7 +42,10 @@ set ocidTime to ocidCalendar's dateFromComponents:(ocidDateComponents)
 ###日付時間の書式設定
 set ocidDateFormatter to refMe's NSDateFormatter's alloc()'s init()
 (ocidDateFormatter's setLocale:(refMe's NSLocale's localeWithLocaleIdentifier:"en_US"))
+##一般的なフォーマット
 (ocidDateFormatter's setDateFormat:"HH:mm:ss.SSS")
+##DaVinci Resolve式のカンマ区切り
+#(ocidDateFormatter's setDateFormat:"HH:mm:ss,SSS")
 ########################
 ##ダイアログ
 ########################
