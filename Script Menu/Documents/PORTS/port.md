@@ -1,7 +1,7 @@
 # 表のタイトル表のタイトル表のタイトル
 
 |Port|Protocols|Status|Description|
-|:---:|:---:|:---:|---:|
+|:---:|:---:|:---:|:---|
 |0|TCP,UDP |Official|Reserved; do not use (but is a permissible source port value if the sending process does not expect messages in response) |
 |1|TCP,UDP |Official|TCPMUX (TCP port service multiplexer) |
 |5|TCP,UDP |Official|RJE (Remote Job Entry) |
