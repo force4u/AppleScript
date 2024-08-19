@@ -1,0 +1,642 @@
+# 表のタイトル表のタイトル表のタイトル
+
+|Port|Protocols|Status|Description|
+|:---:|:---:|:---:|:---:|
+|0|TCP,UDP |Official|Reserved; do not use (but is a permissible source port value if the sending process does not expect messages in response) |
+|1|TCP,UDP |Official|TCPMUX (TCP port service multiplexer) |
+|5|TCP,UDP |Official|RJE (Remote Job Entry) |
+|7|TCP,UDP |Official|ECHO protocol |
+|9|TCP,UDP |Official|DISCARD protocol |
+|11|TCP,UDP |Official|SYSTAT protocol |
+|13|TCP,UDP |Official|DAYTIME protocol |
+|15|TCP,UDP |Official|NETSTAT protocol |
+|17|TCP,UDP |Official|QOTD (Quote of the Day) protocol |
+|18|TCP,UDP |Official|Message Send Protocol (MSP) |
+|19|TCP,UDP |Official|CHARGEN (Character Generator) protocol |
+|20|TCP |Official|FTP - data port |
+|21|TCP |Official|FTP - control (command) port |
+|22|TCP,UDP |Official|SSH (Secure Shell) - used for secure logins, file transfers (scp, sftp) and port forwarding |
+|23|TCP,UDP |Official|TELNET protocol - unencrypted text communications |
+|25|TCP,UDP |Official|SMTP - used for e-mail routing between mailservers E-mails |
+|26|TCP,UDP |Unofficial|RSFTP - A simple FTP-like protocol |
+|35|TCP,UDP |Official|Any private printer server protocol |
+|35|TCP,UDP |Unofficial|QMS Magicolor 2 printer server protocol |
+|37|TCP,UDP |Official|TIME protocol |
+|39|TCP,UDP |Official|Resource Location Protocol[1] (RLP) - used for determining the location of higher level services from hosts on a network |
+|41|TCP,UDP |Official|Graphics |
+|42|TCP,UDP |Official|nameserver, ARPA Host Name Server Protocol |
+|42|TCP,UDP |Unofficial|WINS |
+|43|TCP |Official|WHOIS protocol |
+|49|TCP,UDP |Official|TACACS Login Host protocol |
+|52|TCP,UDP |Official|XNS (Xerox Network Services) Time Protocol |
+|53|TCP,UDP |Official|DNS (Domain Name Server) |
+|54|TCP,UDP |Official|XNS (Xerox Network Services) Clearinghouse |
+|56|TCP,UDP |Official|XNS (Xerox Network Services) Authentication |
+|56|TCP,UDP |Unofficial|RAP (Route Access Protocol)[2] |
+|57|TCP |Unofficial|MTP, Mail Transfer Protocol |
+|58|TCP,UDP |Official|XNS (Xerox Network Services) Mail |
+|67|UDP |Official|BOOTP (BootStrap Protocol) server; also used by DHCP (Dynamic Host Configuration Protocol) |
+|68|UDP |Official|BOOTP client; also used by DHCP |
+|69|UDP |Official|TFTP (Trivial File Transfer Protocol) |
+|70|TCP |Official|Gopher protocol |
+|79|TCP |Official|Finger protocol |
+|80|TCP |Official|HTTP (HyperText Transfer Protocol), default web server port |
+|81|TCP |Unofficial|Torpark - Onion routing ORport |
+|82|UDP |Unofficial|Torpark - Control Port |
+|83|TCP |Official|MIT ML Device |
+|88|TCP |Official|Kerberos - authenticating agent |
+|90|TCP,UDP |Official|dnsix (DoD Network Security for Information Exchange) Securit Attribute Token Map |
+|90|TCP,UDP |Unofficial|Pointcast |
+|101|TCP |Official|NIC host name |
+|102|TCP |Official|ISO-TSAP (Transport Service Access Point) Class 0 protocol[3] |
+|107|TCP |Official|Remote TELNET Service[4] protocol |
+|109|TCP |Official|POP2, Post Office Protocol, version 2 |
+|110|TCP |Official|POP3, Post Office Protocol, version 3 |
+|111|TCP,UDP |Official|Sun Remote Procedure Call protocol |
+|113|TCP |Official|ident - old server identification system, still used by IRC servers to identify its users |
+|115|TCP |Official|SFTP, Simple File Transfer Protocol |
+|117|TCP |Official|UUCP Path Service |
+|118|TCP,UDP |Official|SQL (Structured Query Language) Services |
+|119|TCP |Official|NNTP (Network News Transfer Protocol) - used for retrieving newsgroups messages |
+|123|UDP |Official|NTP (Network Time Protocol) - used for time synchronization |
+|135|TCP,UDP |Official|DCE endpoint resolution |
+|135|TCP,UDP |Unofficial|Microsoft EPMAP (End Point Mapper), also known as DCE/RPC Locator service[5], used to to remotely manage services including DHCP server, DNS server and WINS |
+|137|TCP,UDP |Official|NetBIOS NetBIOS Name Service |
+|138|TCP,UDP |Official|NetBIOS NetBIOS Datagram Service |
+|139|TCP,UDP |Official|NetBIOS NetBIOS Session Service |
+|143|TCP,UDP |Official|IMAP4 (Internet Message Access Protocol 4) - used for retrieving E-mails |
+|152|TCP,UDP |Official|Background File Transfer Program (BFTP)[6] |
+|153|TCP,UDP |Official|SGMP, Simple Gateway Monitoring Protocol |
+|156|TCP,UDP |Official|SQL Service |
+|158|TCP,UDP |Unofficial|DMSP, Distributed Mail Service Protocol |
+|161|TCP,UDP |Official|SNMP (Simple Network Management Protocol) |
+|162|TCP,UDP |Official|SNMPTRAP |
+|170|TCP |Official|Print-srv, Network PostScript |
+|179|TCP |Official|BGP (Border Gateway Protocol) |
+|194|TCP |Official|IRC (Internet Relay Chat) |
+|201|TCP,UDP |Official|AppleTalk Routing Maintenance |
+|209|TCP,UDP |Official|The Quick Mail Transfer Protocol |
+|213|TCP,UDP |Official|IPX |
+|218|TCP,UDP |Official|MPP, Message Posting Protocol |
+|220|TCP,UDP |Official|IMAP, Interactive Mail Access Protocol, version 3 |
+|259|TCP,UDP |Official|ESRO, Efficient Short Remote Operations |
+|264|TCP,UDP |Official|BGMP, Border Gateway Multicast Protocol |
+|311|TCP |Official|AppleShare Admin-Tool, Workgroup-Manager-Tool |
+|308|TCP |Official|Novastor Online Backup |
+|318|TCP,UDP |Official|PKIX TSP, Time Stamp Protocol |
+|323|TCP,UDP |Unofficial|IMMP, Internet Message Mapping Protocol |
+|366|TCP,UDP |Official|ODMR, On-Demand Mail Relay |
+|369|TCP,UDP |Official|Rpc2portmap |
+|371|TCP,UDP |Official|ClearCase albd |
+|383|TCP,UDP |Official|HP data alarm manager |
+|384|TCP,UDP |Official|A Remote Network Server System |
+|387|TCP,UDP |Official|AURP, AppleTalk Update-based Routing Protocol |
+|389|TCP,UDP |Official|LDAP (Lightweight Directory Access Protocol) |
+|401|TCP,UDP |Official|UPS Uninterruptible Power Supply |
+|411|TCP |Unofficial|Direct Connect Hub port |
+|412|TCP |Unofficial|Direct Connect Client-To-Client port |
+|427|TCP,UDP |Official|SLP (Service Location Protocol) |
+|443|TCP |Official|HTTPS - HTTP Protocol over TLS/SSL (encrypted transmission) |
+|444|TCP,UDP |Official|SNPP, Simple Network Paging Protocol |
+|445|TCP |Official|Microsoft-DS Active Directory, Windows shares |
+|445|UDP |Official|Microsoft-DS SMB file sharing |
+|464|TCP,UDP |Official|Kerberos Change/Set password |
+|465|TCP |Unofficial|Cisco protocol |
+|465|TCP |Unofficial|SMTP over SSL |
+|475|TCP |Official|tcpnethaspsrv (Hasp services, TCP/IP version) |
+|497|TCP |Official|dantz backup service |
+|500|UDP |Official|ISAKMP, IKE-Internet Key Exchange |
+|502|TCP,UDP |Unofficial|Modbus, Protocol |
+|512|TCP |Official|exec, Remote Process Execution |
+|512|UDP |Official|comsat, together with biff |
+|513|TCP |Official|Login |
+|513|UDP |Official|Who |
+|514|TCP |Official|rsh protocol - used to execute non-interactive commandline commands on a remote system |
+|514|UDP |Official|syslog protocol - used for system logging |
+|515|TCP |Official|Line Printer Daemon protocol - used in LPD printer servers |
+|517|UDP |Official|Talk |
+|518|UDP |Official|NTalk |
+|520|TCP |Official|efs, extended file name server |
+|520|UDP |Official|Routing - RIP |
+|524|TCP,UDP |Official|NCP (NetWare Core Protocol) is used for a variety things such as access to primary NetWare server resources, Time Synchronization, etc. |
+|525|UDP |Official|Timed, Timeserver |
+|530|TCP,UDP |Official|RPC |
+|531|TCP,UDP |Unofficial|AOL Instant Messenger, IRC |
+|532|TCP |Official|netnews |
+|533|UDP |Official|netwall, For Emergency Broadcasts |
+|540|TCP |Official|UUCP (Unix-to-Unix Copy Protocol) |
+|542|TCP,UDP |Official|commerce (Commerce Applications) |
+|543|TCP |Official|klogin, Kerberos login |
+|544|TCP |Official|kshell, Kerberos Remote shell |
+|546|TCP,UDP |Official|DHCPv6 client |
+|547|TCP,UDP |Official|DHCPv6 server |
+|548|TCP |Official|AFP (Apple Filing Protocol) |
+|550|UDP |Official|new-rwho, new-who |
+|554|TCP,UDP |Official|RTSP (Real Time Streaming Protocol) |
+|556|TCP |Official|Remotefs, RFS, rfs_server |
+|560|UDP |Official|rmonitor, Remote Monitor |
+|561|UDP |Official|monitor |
+|563|TCP,UDP |Official|NNTP protocol over TLS/SSL (NNTPS) |
+|587|TCP |Official|email message submission (SMTP) (RFC 2476) |
+|591|TCP |Official|FileMaker 6.0 (and later) Web Sharing (HTTP Alternate, also see port 80) |
+|593|TCP,UDP |Official|HTTP RPC Ep Map, Remote procedure call over Hypertext Transfer Protocol, often used by Distributed Component Object Model services and Microsoft Exchange Server |
+|604|TCP |Official|TUNNEL profile[7], a protocol for BEEP peers to form an application layer tunnel |
+|631|TCP,UDP |Official|IPP (Internet Printing Protocol) |
+|636|TCP,UDP |Official|LDAP over SSL (encrypted transmission, also known as LDAPS) |
+|639|TCP,UDP |Official|MSDP, Multicast Source Discovery Protocol |
+|646|TCP |Official|LDP, Label Distribution Protocol, a routing protocol used in MPLS networks |
+|647|TCP |Official|DHCP Failover protocol[8] |
+|648|TCP |Official|RRP (Registry Registrar Protocol)[9] |
+|652|TCP |Unofficial|DTCP, Dynamic Tunnel Configuration Protocol |
+|654|TCP |Official|AODV (Ad-hoc On-demand Distance Vector) |
+|655|TCP |Official|IEEE MMS (IEEE Media Management System)[10][11] |
+|665|TCP |Unofficial|sun-dr, Remote Dynamic Reconfiguration |
+|666|UDP |Official|Doom, First online first-person shooter |
+|674|TCP |Official|ACAP (Application Configuration Access Protocol) |
+|691|TCP |Official|MS Exchange Routing |
+|692|TCP |Official|Hyperwave-ISP |
+|694|UDP |Unofficial|Linux-HA High availability Heartbeat port |
+|695|TCP |Official|IEEE-MMS-SSL (IEEE Media Management System over SSL)[12] |
+|698|UDP |Official|OLSR (Optimized Link State Routing) |
+|699|TCP |Official|Access Network |
+|700|TCP |Official|EPP (Extensible Provisioning Protocol), a protocol for communication between domain name registries and registrars |
+|701|TCP |Official|LMP (Link Management Protocol (Internet))[13], a protocol that runs between a pair of nodes and is used to manage traffic engineering (TE) links |
+|702|TCP |Official|IRIS[14][15] (Internet Registry Information Service) over BEEP (Blocks Extensible Exchange Protocol)[16] |
+|706|TCP |Official|SILC, Secure Internet Live Conferencing |
+|711|TCP |Official|Cisco TDP, Tag Distribution Protocol[17][18][19] - being replaced by the MPLS Label Distribution Protocol[20] |
+|712|TCP |Official|TBRPF, Topology Broadcast based on Reverse-Path Forwarding routing protocol |
+|712|UDP |Unofficial|Promise RAID Controller |
+|720|TCP |Unofficial|SMQP, Simple Message Queue Protocol |
+|749|TCP,UDP |Official|kerberos-adm, Kerberos administration |
+|750|TCP |Official|rfile |
+|750|UDP |Official|loadav |
+|750|UDP |Official|kerberos-iv, Kerberos version IV |
+|751|TCP,UDP |Official|pump |
+|751|TCP,UDP |Unofficial|kerberos_master, Kerberos authentication |
+|752|TCP |Official|qrh |
+|752|UDP |Official|qrh |
+|752|UDP |Unofficial|userreg_server, Kerberos Password (kpasswd) server |
+|753|TCP |Official|Reverse Routing Header (rrh)[21] |
+|753|UDP |Official|Reverse Routing Header (rrh) |
+|753|UDP |Unofficial|passwd_server, Kerberos userreg server |
+|754|TCP |Official|tell send |
+|754|TCP |Unofficial|krb5_prop, Kerberos v5 slave propagation |
+|754|UDP |Official|tell send |
+|760|TCP,UDP |Official|ns |
+|760|TCP,UDP |Unofficial|krbupdate [kreg], Kerberos registration |
+|782|TCP |Unofficial|Conserver serial-console management server |
+|829|TCP |Unofficial|CMP (Certificate Management Protocol) |
+|860|TCP |Official|iSCSI |
+|873|TCP |Official|rsync file synchronisation protocol default port |
+|888|tcp |Unofficial|cddbp, CD DataBase (CDDB) protocol (CDDBP) - unassigned but widespread use |
+|901|TCP |Unofficial|Samba Web Administration Tool (SWAT) |
+|902|TCP |Unofficial|VMware Server Console[22] |
+|904|TCP |Unofficial|VMware Server Alternate (if 902 is in use - i.e. SUSE linux) |
+|911|TCP |Unofficial|Network Console on Acid (NCA) - local tty redirection over OpenSSH |
+|981|TCP |Unofficial|SofaWare Technologies Remote HTTPS management for firewall devices running embedded Checkpoint Firewall-1 software |
+|989|TCP,UDP |Official|FTP Protocol (data) over TLS/SSL |
+|990|TCP,UDP |Official|FTP Protocol (control) over TLS/SSL |
+|991|TCP,UDP |Official|NAS (Netnews Administration System) |
+|992|TCP,UDP |Official|TELNET protocol over TLS/SSL |
+|993|TCP |Official|IMAP4 over SSL (encrypted transmission) |
+|995|TCP |Official|POP3 over SSL (encrypted transmission) |
+|1023|TCP,UDP |Official|IANA Reserved |
+|1024|tcp,udp |Official|IANA Reserved |
+|1025|tcp |Unofficial|NFS-or-IIS |
+|1026|tcp |Unofficial|Often utilized by Microsoft DCOM services |
+|1029|tcp |Unofficial|Often utilized by Microsoft DCOM services |
+|1058|tcp,udp |Official|nim, IBM AIX Network Installation Manager (NIM) |
+|1059|tcp,udp |Official|nimreg, IBM AIX Network Installation Manager (NIM) |
+|1080|tcp |Official|SOCKS proxy |
+|1098|tcp,udp |Official|rmiactivation, RMI Activation |
+|1099|tcp,udp |Official|rmiregistry, RMI Registry |
+|1109||Official|IANA Reserved |
+|1109|tcp |Unofficial|Kerberos Post Office Protocol (KPOP) |
+|1140|tcp,udp |Official|AutoNOC Network Operations protocol |
+|1167|udp |Unofficial|phone, conference calling |
+|1176|tcp |Official|Perceptive Automation Indigo Home automation server |
+|1182|tcp,udp |Official|AcceleNet Intelligent Transfer Protocol |
+|1194|tcp,udp |Official|OpenVPN |
+|1198|tcp,udp |Official|The cajo project Free dynamic transparent distributed computing in Java |
+|1200|tcp |Official|scol, protocol used by SCOL 3D virtual worlds server to answer world name resolution client request[23] |
+|1200|udp |Official|scol, protocol used by SCOL 3D virtual worlds server to answer world name resolution client request |
+|1200|udp |Unofficial|Steam Friends Applet |
+|1214|tcp |Official|Kazaa |
+|1223|tcp,udp |Official|TGP, TrulyGlobal Protocol, also known as "The Gur Protocol" (named for Gur Kimchi of TrulyGlobal) |
+|1241|tcp,udp |Official|Nessus Security Scanner |
+|1248|tcp |Unofficial|NSClient/NSClient++/NC_Net (Nagios) |
+|1270|tcp,udp |Official|Microsoft System Center Operations Manager (SCOM) (formerly Microsoft Operations Manager (MOM)) agent |
+|1311|tcp |Unofficial|Dell Open Manage Https Port |
+|1313|tcp |Unofficial|Xbiim (Canvii server) Port |
+|1337|tcp |Unofficial|WASTE Encrypted File Sharing Program |
+|1352|tcp |Official|IBM Lotus Notes/Domino Remote Procedure Call (RPC) protocol |
+|1387|tcp,udp |Official|cadsi-lm, LMS International (formerly Computer Aided Design Software, Inc. (CADSI)) LM |
+|1414|tcp |Official|IBM WebSphere MQ (formerly known as MQSeries) default |
+|1431|tcp |Official|Reverse Gossip Transport Protocol (RGTP), used to access a General-purpose Reverse-Ordered Gossip Gathering System (GROGGS) bulletin board, such as that implemented on the Cambridge University's Phoenix system |
+|1433|tcp,udp |Official|Microsoft SQL Server database management system Server |
+|1434|tcp,udp |Official|Microsoft SQL Server database management system Monitor |
+|1494|tcp |Official|Citrix XenApp Independent Computing Architecture (ICA) thin client protocol |
+|1512|tcp,udp |Official|Microsoft Windows Internet Name Service (WINS) |
+|1521|tcp |Official|nCube License Manager |
+|1521|tcp |Unofficial|Oracle database default listener, in future releases official port 2483 |
+|1524|tcp,udp |Official|ingreslock, ingres |
+|1526|tcp |Unofficial|Oracle database common alternative for listener |
+|1533|tcp |Official|IBM Sametime IM - Virtual Places Chat |
+|1547|tcp,udp |Official|Laplink |
+|1550||Unofficial|Gadu-Gadu (Direct Client-to-Client) |
+|1581|udp |Official|MIL STD 2045-47001 VMF |
+|1589|udp |Unofficial|Cisco VQP (VLAN Query Protocol) / VMPS |
+|1645|tcp,udp |Unofficial|radius, RADIUS authentication protocol (default for Cisco and Juniper Networks RADIUS servers) |
+|1646|tcp,udp |Unofficial|radacct, RADIUS accounting protocol (default for Cisco and Juniper Networks RADIUS servers) |
+|1627||Unofficial|iSketch |
+|1677|tcp,udp |Official|Novell GroupWise clients in client/server access mode |
+|1701|udp |Official|L2f, Layer 2 Forwarding Protocol & L2p, Layer 2 Tunneling Protocol |
+|1716|tcp |Unofficial|America's Army Massively multiplayer online role-playing game (MMORPG) default game port |
+|1723|tcp,udp |Official|Microsoft PPTP VPN |
+|1725|udp |Unofficial|Valve Steam Client |
+|1755|tcp,udp |Official|Microsoft Media Services (MMS, ms-streaming) |
+|1761|tcp,udp |Official|cft-0 |
+|1761|tcp |Unofficial|Novell Zenworks Remote Control utility |
+|1762-1768|tcp,udp |Official|cft-1 to cft-7 |
+|1812|tcp,udp |Official|radius, RADIUS authentication protocol |
+|1813|tcp,udp |Official|radacct, RADIUS accounting protocol |
+|1863|tcp |Official|MSNP (Microsoft Notification Protocol), used by the .NET Messenger Service and a number of Instant Messaging clients |
+|1900|udp |Official|Microsoft SSDP Enables discovery of UPnP devices |
+|1935|tcp |Official|Adobe Macromedia Flash Real Time Messaging Protocol (RTMP) "plain" protocol |
+|1970|tcp,udp |Official|Danware NetOp Remote Control |
+|1971|tcp,udp |Official|Danware NetOp School |
+|1972|tcp,udp |Official|InterSystems Caché |
+|1975-77|udp |Official|Cisco TCO (Documentation) |
+|1984|tcp |Official|Big Brother - network monitoring tool |
+|1985|udp |Official|Cisco HSRP |
+|1994|tcp,udp |Official|Cisco STUN-SDLC (Serial Tunneling - Synchronous Data Link Control) protocol |
+|1998|tcp,udp |Official|Cisco X.25 over TCP (XOT) service |
+|2000|tcp,udp |Official|Cisco SCCP (Skinny) |
+|2002|tcp |Unofficial|Secure Access Control Server (ACS) for Windows |
+|2030||Unofficial|Oracle Services for Microsoft Transaction Server |
+|2031|tcp,udp |Official|mobrien-chat - Mike O'Brien <mike@mobrien.com> November 2004 |
+|2049|udp |Official|nfs, NFS Server |
+|2049|udp |Official|shilp |
+|2053|udp |Official|lot105-ds-upd Lot105 DSuper Updates |
+|2053|tcp |Official|lot105-ds-upd Lot105 DSuper Updates |
+|2053|tcp |Unofficial|knetd Kerberos de-multiplexor |
+|2056|udp |Unofficial|Civilization 4 multiplayer |
+|2073|tcp,udp |Official|DataReel Database |
+|2074|tcp,udp |Official|Vertel VMF SA (i.e. App.. SpeakFreely) |
+|2082|tcp |Official|Infowave Mobility Server |
+|2082|tcp |Unofficial|CPanel, default port |
+|2083|tcp |Official|Secure Radius Service (radsec) |
+|2083|tcp |Unofficial|CPanel default SSL port |
+|2086|tcp |Official|GNUnet |
+|2086|tcp |Unofficial|WebHost Manager default port |
+|2087|tcp |Unofficial|WebHost Manager default SSL port |
+|2095|tcp |Unofficial|CPanel default webmail port |
+|2096|tcp |Unofficial|CPanel default SSL webmail port |
+|2102|tcp,udp |Official|zephyr-srv Project Athena Zephyr Notification Service server |
+|2103|tcp,udp |Official|zephyr-clt Project Athena Zephyr Notification Service serv-hm connection |
+|2104|tcp,udp |Official|zephyr-hm Project Athena Zephyr Notification Service hostmanager |
+|2105|tcp,udp |Official|IBM MiniPay |
+|2105|tcp,udp |Unofficial|eklogin Kerberos encrypted remote login (rlogin) |
+|2105|tcp,udp |Unofficial|zephyr-hm-srv Project Athena Zephyr Notification Service hm-serv connection (should use port 2102) |
+|2161|tcp |Official|APC Agent |
+|2181|tcp,udp |Official|EForward-document transport system |
+|2190|udp |Unofficial|TiVoConnect Beacon |
+|2200|udp |Unofficial|Tuxanci game server |
+|2219|tcp,udp |Official|NetIQ NCAP Protocol |
+|2220|tcp,udp |Official|NetIQ End2End |
+|2222|tcp |Unofficial|DirectAdmin's default port |
+|2222|udp |Unofficial|Microsoft Office OS X antipiracy network monitor [1] |
+|2301|tcp |Unofficial|HP System Management Redirect to port 2381 |
+|2302|udp |Unofficial|ArmA multiplayer (default for game) |
+|2302|udp |Unofficial|Halo: Combat Evolved multiplayer |
+|2303|udp |Unofficial|ArmA multiplayer (default for server reporting) (default port for game +1) |
+|2305|udp |Unofficial|ArmA multiplayer (default for VoN) (default port for game +3) |
+|2369|tcp |Unofficial|Default port for BMC Software CONTROL-M/Server - Configuration Agent port number - though often changed during installation |
+|2370|tcp |Unofficial|Default port for BMC Software CONTROL-M/Server - Port utilized to allow the CONTROL-M/Enterprise Manager to connect to the CONTROL-M/Server - though often changed during installation |
+|2381|tcp |Unofficial|HP Insight Manager default port for webserver |
+|2404|tcp |Official|IEC 60870-5-104, used to send electric power telecontrol messages between two systems via directly connected data circuits |
+|2427|udp |Official|Cisco MGCP |
+|2447|tcp,udp |Official|ovwdb - OpenView Network Node Manager (NNM) daemon |
+|2483|tcp,udp |Official|Oracle database listening port for unsecure client connections to the listener, replaces port 1521 |
+|2484|tcp,udp |Official|Oracle database listening port for SSL client connections to the listener |
+|2546|tcp,udp |Unofficial|Vytal Vault - Data Protection Services |
+|2593|tcp,udp |Unofficial|RunUO - Ultima Online server |
+|2598|tcp |Unofficial|new ICA - when Session Reliability is enabled, TCP port 2598 replaces port 1494 |
+|2612|tcp,udp |Official|QPasa from MQSoftware |
+|2710|tcp |Unofficial|XBT Bittorrent Tracker |
+|2710|udp |Unofficial|XBT Bittorrent Tracker experimental UDP tracker extension |
+|2710|tcp |Unofficial|Knuddels.de |
+|2735|tcp,udp |Official|NetIQ Monitor Console |
+|2809|tcp |Official|corbaloc:iiop URL, per the CORBA 3.0.3 specification |
+|2809|tcp |Unofficial|IBM WebSphere Application Server (WAS) Bootstrap/rmi default port |
+|2809|udp |Official|corbaloc:iiop URL, per the CORBA 3.0.3 specification. |
+|2944|udp |Unofficial|Megaco Text H.248 |
+|2945|udp |Unofficial|Megaco Binary (ASN.1) H.248 |
+|2948|tcp,udp |Official|WAP-push Multimedia Messaging Service (MMS) |
+|2949|tcp,udp |Official|WAP-pushsecure Multimedia Messaging Service (MMS) |
+|2967|tcp |Unofficial|Symantec AntiVirus Corporate Edition |
+|3000|tcp |Unofficial|Miralix License server |
+|3000|udp |Unofficial|Distributed Interactive Simulation (DIS), modifiable default port |
+|3001|tcp |Unofficial|Miralix Phone Monitor |
+|3002|tcp |Unofficial|Miralix CSTA |
+|3003|tcp |Unofficial|Miralix GreenBox API |
+|3004|tcp |Unofficial|Miralix InfoLink |
+|3006|tcp |Unofficial|Miralix SMS Client Connector |
+|3007|tcp |Unofficial|Miralix OM Server |
+|3025|tcp |Unofficial|netpd.org |
+|3050|tcp,udp |Official|gds_db (Interbase/Firebird) |
+|3074|tcp,udp |Official|Xbox Live |
+|3128|tcp |Unofficial|HTTP used by web caches and the default port for the Squid cache |
+|3260|tcp,udp |Official|iSCSI target |
+|3268|tcp,udp |Official|msft-gc, Microsoft Global Catalog (LDAP service which contains data from Active Directory forests) |
+|3269|tcp,udp |Official|msft-gc-ssl, Microsoft Global Catalog over SSL (similar to port 3268, LDAP over SSL) |
+|3283|tcp |Unofficial|Apple Remote Desktop |
+|3300|tcp |Unofficial|TripleA game server |
+|3305|tcp,udp |Official|odette-ftp, Odette File Transfer Protocol (OFTP) |
+|3306|tcp,udp |Official|MySQL Database system |
+|3333|tcp |Unofficial|Network Caller ID server |
+|3386|tcp,udp |Official|GTP' 3GPP GSM/UMTS CDR logging protocol |
+|3389|tcp |Unofficial|Microsoft Terminal Server (RDP) officially registered as Windows Based Terminal (WBT) |
+|3396|tcp,udp |Official|Novell NDPS Printer Agent |
+|3689|tcp,udp |Official|DAAP Digital Audio Access Protocol used by Apple’s iTunes |
+|3690|tcp,udp |Official|Subversion version control system |
+|3702|tcp,udp |Official|Web Services Dynamic Discovery (WS-Discovery), used by various components of Windows Vista |
+|3724|tcp,udp |Official|World of Warcraft Online gaming MMORPG |
+|3784|tcp,udp |Unofficial|Ventrilo VoIP program used by Ventrilo |
+|3785|udp |Unofficial|Ventrilo VoIP program used by Ventrilo |
+|3868 tcp ||Official|Diameter base protocol |
+|3872|tcp |Unofficial|Oracle Management Remote Agent |
+|3899|tcp |Unofficial|Remote Administrator |
+|3900|tcp |Official|Unidata UDT OS udt_os |
+|3945|tcp,udp |Official|EMCADS server service port, a Giritech product used by G/On |
+|4000|tcp,udp |Unofficial|Diablo II game |
+|4007|tcp |Unofficial|PrintBuzzer printer monitoring socket server |
+|4089|tcp,udp |Official|OpenCORE Remote Control Service |
+|4093|tcp,udp |Official|PxPlus Client server interface ProvideX |
+|4096|tcp,udp |Official|Bridge-Relay Element ASCOM |
+|4100||Unofficial|WatchGuard Authentication Applet - default port |
+|4111|tcp,udp |Official|Xgrid |
+|4111|tcp |Unofficial|Microsoft Office SharePoint Portal Server - default administration port |
+|4125|tcp |Unofficial|Remote Web Workplace - default administration port |
+|4226|tcp,udp |Unofficial|Aleph One (computer game) |
+|4224|tcp |Unofficial|Cisco CDP Cisco discovery Protocol |
+|4569|udp |Unofficial|Inter-Asterisk eXchange |
+|4662|tcp,udp |Official|OrbitNet Message Service |
+|4662|tcp |Unofficial|port often used by eMule |
+|4664|tcp |Unofficial|Google Desktop Search |
+|4672|udp |Unofficial|eMule - port often used |
+|4747|tcp |Unofficial|Apprentice |
+|4750|tcp |Unofficial|BladeLogic Agent |
+|4894|tcp,udp |Official|LysKOM Protocol A |
+|4899|tcp,udp |Official|Radmin remote administration tool (program sometimes used as a Trojan horse) |
+|5000|tcp |Official|commplex-main |
+|5000|tcp |Unofficial|UPnP - Windows network device interoperability |
+|5000|tcp,udp |Unofficial|VTun - VPN Software |
+|5001|tcp,udp |Unofficial|Iperf (Tool for measuring TCP and UDP bandwidth performance) |
+|5001|tcp |Unofficial|Slingbox and Slingplayer |
+|5003|tcp,udp |Official|FileMaker Filemaker Pro |
+|5004|tcp,udp |Official|RTP (Real-time Transport Protocol) media data |
+|5005|tcp,udp |Official|RTP (Real-time Transport Protocol) control protocol |
+|5031|tcp,udp |Unofficial|AVM CAPI-over-TCP (ISDN over Ethernet tunneling) |
+|5050|tcp |Unofficial|Yahoo! Messenger |
+|5051|tcp |Official|ita-agent Symantec Intruder Alert |
+|5060|tcp,udp |Official|Session Initiation Protocol (SIP) |
+|5061|tcp |Official|Session Initiation Protocol (SIP) over TLS |
+|5093|udp |Unofficial|SPSS License Administrator (SPSS) |
+|5104|tcp |Unofficial|IBM NetCOOL / IMPACT HTTP Service |
+|5106|tcp |Unofficial|A-Talk Common connection |
+|5107|tcp |Unofficial|A-Talk Remote server connection |
+|5110|tcp |Unofficial|ProRat Server |
+|5121|tcp |Unofficial|Neverwinter Nights |
+|5176|tcp |Unofficial|ConsoleWorks default UI interface |
+|5190|tcp |Official|ICQ and AOL Instant Messenger |
+|5222|tcp,udp |Official|XMPP/Jabber|Google Talk - client connection |
+|5223|tcp |Unofficial|XMPP/Jabber - default port for SSL Client Connection |
+|5269|tcp,udp |Official|XMPP/Jabber - server connection |
+|5351|tcp,udp |Official|NAT Port Mapping Protocol - client-requested configuration for inbound connections through network address translators |
+|5353|tcp,udp |Official|mDNS - multicastDNS |
+|5355|udp,tcp |Official|LLMNR - Link-Local Multicast Name Resolution, allows hosts to perform name resolution for hosts on the same local link (only provided by Windows Vista and Server 2008) |
+|5402|tcp,udp |Official|mftp, Stratacache OmniCast content delivery system MFTP file sharing protocol |
+|5405|tcp,udp |Official|NetSupport |
+|5421|tcp,udp |Official|Net Support 2 |
+|5432|tcp,udp |Official|PostgreSQL database system |
+|5445|udp |Unofficial|Cisco Unified Video Advantage |
+|5495|tcp |Unofficial|Applix TM1 Admin server |
+|5498|tcp |Unofficial|Hotline tracker server connection |
+|5499|udp |Unofficial|Hotline tracker server discovery |
+|5500|tcp |Unofficial|VNC remote desktop protocol - for incoming listening viewer, Hotline control connection |
+|5501|tcp |Unofficial|Hotline file transfer connection |
+|5517|tcp |Unofficial|Setiqueue Proxy server client for SETI@Home project |
+|5555|tcp |Unofficial|Freeciv multiplay port for versions up to 2.0, Hewlett Packard Data Protector, SAP |
+|5556|tcp,udp |Official|Freeciv multiplay port |
+|5631|tcp,udp |Official|pcANYWHEREdata, Symantec pcAnywhere |
+|5632|tcp,udp |Official|pcANYWHEREstat, Symantec pcAnywhere |
+|5666|tcp |Unofficial|NRPE (Nagios) |
+|5667|tcp |Unofficial|NSCA (Nagios) |
+|5800|tcp |Unofficial|VNC remote desktop protocol - for use over HTTP |
+|5814|tcp,udp |Official|Hewlett-Packard Support Automation (HP OpenView Self-Healing Services) |
+|5900|tcp,udp |Official|VNC remote desktop protocol (used by ARD) |
+|6000|tcp |Official|X11 - used between an X client and server over the network |
+|6001|udp |Official|X11 - used between an X client and server over the network |
+|6005|tcp |Unofficial|Default port for BMC Software CONTROL-M/Server - Socket Port number used for communication between CONTROL-M processes - though often changed during installation |
+|6050|tcp |Unofficial|Brightstor Arcserve Backup |
+|6051|tcp |Unofficial|Brightstor Arcserve Backup |
+|6100|tcp |Unofficial|Vizrt System |
+|6110|tcp,udp |Official|softcm HP SoftBench CM |
+|6111|tcp,udp |Official|spc HP SoftBench Sub-Process Control |
+|6112|tcp,udp |Official|dtspcd - a network daemon that accepts requests from clients to execute commands and launch applications remotely |
+|6112|tcp |Unofficial|Blizzard's Battle.net gaming service, ArenaNet gaming service |
+|6129|tcp |Unofficial|Dameware Remote Control |
+|6257|udp |Unofficial|WinMX (see also 6699) |
+|6346|tcp,udp |Official|gnutella-svc, default Gnutella port (FrostWire, Limewire, Shareaza, etc.) |
+|6347|tcp,udp |Official|gnutella-rtr, alternative Gnutella port |
+|6444|tcp,udp |Official|Sun Grid Engine - Qmaster Service |
+|6445|tcp,udp |Official|Sun Grid Engine - Execution Service |
+|6502|tcp,udp |Unofficial|Danware Data NetOp Remote Control |
+|6522|tcp |Unofficial|Gobby (and other libobby-based software) |
+|6543|udp |Unofficial|Jetnet - default port that the Paradigm Research & Development Jetnet protocol communicates on |
+|6566|tcp |Unofficial|SANE (Scanner Access Now Easy) - SANE network scanner daemon |
+|6600|tcp |Unofficial|Music Playing Daemon (MPD) |
+|6619|tcp,udp |Official|odette-ftps, Odette File Transfer Protocol (OFTP) over TLS/SSL |
+|6665-6669|tcp |Official|Internet Relay Chat |
+|6679|tcp |Unofficial|IRC SSL (Secure Internet Relay Chat) - port often used |
+|6697|tcp |Unofficial|IRC SSL (Secure Internet Relay Chat) - port often used |
+|6699|tcp |Unofficial|WinMX (see also 6257) |
+|6771|udp |Unofficial|Polycom server broadcast |
+|6881-6887|tcp,udp |Unofficial|BitTorrent part of full range of ports used most often |
+|6888|tcp,udp |Official|MUSE |
+|6888|tcp,udp |Unofficial|BitTorrent part of full range of ports used most often |
+|6889-6890|tcp,udp |Unofficial|BitTorrent part of full range of ports used most often |
+|6891-6900|tcp,udp |Unofficial|BitTorrent part of full range of ports used most often |
+|6891-6900|tcp,udp |Unofficial|Windows Live Messenger (File transfer) |
+|6901|tcp,udp |Unofficial|Windows Live Messenger (Voice) |
+|6901|tcp,udp |Unofficial|BitTorrent part of full range of ports used most often |
+|6902-6968|tcp,udp |Unofficial|BitTorrent part of full range of ports used most often |
+|6969|tcp,udp |Official|acmsoda |
+|6969|tcp |Unofficial|BitTorrent tracker port |
+|6970-6999|tcp,udp |Unofficial|BitTorrent part of full range of ports used most often |
+|7000|tcp |Unofficial|Default port for Azureus's built in HTTPS Bittorrent Tracker |
+|7001|tcp |Unofficial|Default port for BEA WebLogic Server's HTTP server - though often changed during installation |
+|7002|tcp |Unofficial|Default port for BEA WebLogic Server's HTTPS server - though often changed during installation |
+|7005|tcp,udp |Unofficial|Default port for BMC Software CONTROL-M/Server and CONTROL-M/Agent's - Agent to Server port though often changed during installation |
+|7006|tcp,udp |Unofficial|Default port for BMC Software CONTROL-M/Server and CONTROL-M/Agent's - Server to Agent port though often changed during installation |
+|7010|tcp |Unofficial|Default port for Cisco AON AMC (AON Management Console) [2] |
+|7025|tcp |Unofficial|Zimbra - lmtp [mailbox] - local mail delivery |
+|7047|tcp |Unofficial|Zimbra - conversion server |
+|7133|tcp |Unofficial|Enemy Territory: Quake Wars |
+|7171|tcp |Unofficial|Tibia |
+|7306|tcp |Unofficial|Zimbra - mysql [mailbox] |
+|7307|tcp |Unofficial|Zimbra - mysql [logger] - logger |
+|7312|udp |Unofficial|Sibelius License Server port |
+|7670|tcp |Unofficial|BrettspielWelt BSW Boardgame Portal |
+|7777|tcp |Unofficial|Default port used by Windows backdoor program tini.exe |
+|8000|tcp,udp |Official|iRDMI - often mistakenly used instead of port 8080 |
+|8000|tcp |Unofficial|Common port used for internet radio streams such as those using SHOUTcast |
+|8002|tcp |Unofficial|Cisco Systems Unified Call Manager Intercluster Port |
+|8008|tcp |Official|HTTP Alternate |
+|8008|tcp |Unofficial|IBM HTTP Server default administration port |
+|8010|tcp |Unofficial|XMPP/Jabber File transfers |
+|8074|tcp |Unofficial|Gadu-Gadu |
+|8080|tcp |Official|HTTP Alternate (http_alt) - commonly used for web proxy and caching server, or for running a web server as a non-root user |
+|8080|tcp |Unofficial|Apache Tomcat |
+|8086|tcp |Unofficial|HELM Web Host Automation Windows Control Panel |
+|8086|tcp |Unofficial|Kaspersky AV Control Center TCP Port |
+|8087|tcp |Unofficial|Hosting Accelerator Control Panel |
+|8087|udp |Unofficial|Kaspersky AV Control Center UDP Port |
+|8090|tcp |Unofficial|Another HTTP Alternate (http_alt_alt) - used as an alternative to port 8080 |
+|8118|tcp |Official|Privoxy web proxy - advertisements-filtering web proxy |
+|8087|tcp |Unofficial|SW Soft Plesk Control Panel |
+|8200|tcp |Unofficial|GoToMyPC |
+|8220|tcp |Unofficial|Bloomberg |
+|8222||Unofficial|VMware Server Management User Interface (insecure web interface)[24]. See also, port 8333 |
+|8291|tcp |Unofficial|Winbox - Default port on a MikroTik RouterOS for a Windows application used to administer MikroTik RouterOS |
+|8294|tcp |Unofficial|Bloomberg |
+|8333||Unofficial|VMware Server Management User Interface (secure web interface)[25]. See also, port 8222 |
+|8400|tcp,udp |Official|cvp, Commvault Unified Data Management |
+|8443|tcp |Unofficial|SW Soft Plesk Control Panel |
+|8500|tcp |Unofficial|ColdFusion Macromedia/Adobe ColdFusion default Webserver port |
+|8501|udp |Unofficial|Duke Nukem 3D - Default Online Port |
+|8767|udp |Unofficial|TeamSpeak - Default UDP Port |
+|8880|udp |Official|cddbp-alt, CD DataBase (CDDB) protocol (CDDBP) - alternate |
+|8880|tcp |Official|cddbp-alt, CD DataBase (CDDB) protocol (CDDBP) - alternate |
+|8880|tcp |Unofficial|WebSphere Application Server SOAP connector default port |
+|8881|tcp |Unofficial|Atlasz Informatics Research Ltd Secure Application Server |
+|8882|tcp |Unofficial|Atlasz Informatics Research Ltd Secure Application Server |
+|8888|tcp,udp |Official|NewsEDGE server |
+|8888|tcp |Unofficial|Sun Answerbook dwhttpd server (deprecated by docs.sun.com) |
+|8888|tcp |Unofficial|GNUmp3d HTTP music streaming and web interface port |
+|8888|tcp |Unofficial|LoLo Catcher HTTP web interface port (www.optiform.com) |
+|9000|tcp |Unofficial|Buffalo LinkSystem web access |
+|9000|tcp |Unofficial|DBGp |
+|9000|udp |Unofficial|UDPCast |
+|9001||Unofficial|cisco-xremote router configuration |
+|9001||Unofficial|Tor network default port |
+|9001|tcp |Unofficial|DBGp Proxy |
+|9009|tcp,udp |Official|Pichat Server - Peer to peer chat software |
+|9043|tcp |Unofficial|WebSphere Application Server Administration Console secure port |
+|9060|tcp |Unofficial|WebSphere Application Server Administration Console |
+|9080|udp |Official|glrpc, Groove Collaboration software GLRPC port |
+|9080|tcp |Official|glrpc, Groove Collaboration software GLRPC port |
+|9080|tcp |Unofficial|WebSphere Application Server Http Transport (port 1) default |
+|9090|tcp |Unofficial|Openfire Administration Console |
+|9100|tcp |Official|Jetdirect HP Print Services |
+|9110|udp |Unofficial|SSMP Message protocol |
+|9101||Official|Bacula Director |
+|9102||Official|Bacula File Daemon |
+|9103||Official|Bacula Storage Daemon |
+|9119|tcp,udp |Official|MXit Instant Messenger |
+|9418|tcp,udp |Official|git, Git pack transfer service |
+|9535|tcp |Official|mngsuite, LANDesk Management Suite Remote Control |
+|9535|tcp |Unofficial|BBOS001, IBM Websphere Application Server (WAS) High Avail Mgr Com Port |
+|9443|tcp |Unofficial|WebSphere Application Server Http Transport (port 2) default |
+|9535|udp |Official|mngsuite, LANDesk Management Suite Remote Control |
+|9800|tcp,udp |Official|WebDAV Source Port |
+|9800||Unofficial|WebCT e-learning portal |
+|9999||Unofficial|Hydranode - edonkey2000 TELNET control port |
+|9999||Unofficial|Urchin Web Analytics |
+|10000||Unofficial|Webmin - web based Linux admin tool |
+|10000||Unofficial|BackupExec |
+|10008|tcp,udp |Official|Octopus Multiplexer, primary port for the CROMP protocol, which provides a platform-independent means for communication of objects across a network |
+|10017||Unofficial|AIX,NeXT, HPUX - rexd daemon control port |
+|10024|tcp |Unofficial|Zimbra - smtp [mta] - to amavis from postfix |
+|10025|tcp |Unofficial|Ximbra - smtp [mta] - back to postfix from amavis |
+|10050|tcp,udp |Official|Zabbix-Agent |
+|10051|tcp,udp |Official|Zabbix-Trapper |
+|10113|tcp,udp |Official|NetIQ Endpoint |
+|10114|tcp,udp |Official|NetIQ Qcheck |
+|10115|tcp,udp |Official|NetIQEndpoint |
+|10116|tcp,udp |Official|NetIQ VoIP Assessor |
+|10200|tcp |Unofficial|FRISK Software International's fpscand virus scanning daemon for Unix platforms [3] |
+|10200-10204|tcp |Unofficial|FRISK Software International's f-protd virus scanning daemon for Unix platforms [4] |
+|10308||Unofficial|Lock-on: Modarn Air Combat |
+|10480||Unofficial|SWAT 4 Dedicated Server |
+|11211||Unofficial|memcached |
+|11235||Unofficial|Savage:Battle for Newerth Server Hosting |
+|11294||Unofficial|Blood Quest Online Server |
+|11371||Official|OpenPGP HTTP Keyserver |
+|11576||Unofficial|IPStor Server management communication |
+|12035|udp |Unofficial|Linden Lab viewer to sim |
+|12345||Unofficial|NetBus - remote administration tool (often Trojan horse). Also used by NetBuster. Little Fighter 2 (TCP). |
+|12975|tcp |Unofficial|LogMeIn Hamachi (VPN tunnel software; also port 32976) - used to connect to Mediation Server (bibi.hamachi.cc); will attempt to use SSL (TCP port 443) if both 12975 & 32976 fail to connect |
+|13000-13050|udp |Unofficial|Linden Lab viewer to sim |
+|13720|tcp,udp |Official|Symantec NetBackup - bprd (formerly VERITAS) |
+|13721|tcp,udp |Official|Symantec NetBackup - bpdbm (formerly VERITAS) |
+|13724|tcp,udp |Official|Symantec Network Utility - vnetd (formerly VERITAS) |
+|13782|tcp,udp |Official|Symantec NetBackup - bpcd (formerly VERITAS) |
+|13783|tcp,udp |Official|Symantec VOPIED protocol (formerly VERITAS) |
+|13785|tcp,udp |Official|Symantec NetBackup Database - nbdb (formerly VERITAS) |
+|13786|tcp,udp |Official|Symantec nomdb (formerly VERITAS) |
+|14567|udp |Unofficial|Battlefield 1942 and mods |
+|15000|tcp |Unofficial|psyBNC |
+|15000|tcp |Unofficial|Wesnoth |
+|15000|tcp |Official|hydap, Hypack Hydrographic Software Packages Data Acquisition |
+|15000|udp |Official|hydap, Hypack Hydrographic Software Packages Data Acquisition |
+|15567|udp |Unofficial|Battlefield Vietnam and mods |
+|15345|tcp,udp |Official|XPilot Contact Port |
+|16000|tcp |Unofficial|shroudBNC |
+|16080|tcp |Unofficial|Mac OS X Server performance cache for HTTP[26] |
+|16384|udp |Unofficial|Iron Mountain Digital - online backup |
+|16567|udp |Unofficial|Battlefield 2 and mods |
+|19226|tcp |Unofficial|Panda Software AdminSecure Communication Agent |
+|19638|tcp |Unofficial|Ensim Control Panel |
+|19813|tcp |Unofficial|4D database Client Server Communication |
+|20000||Official|DNP (Distributed Network Protocol), a protocol used in SCADA systems between communicating RTU's and IED's |
+|20000||Unofficial|Usermin, web based user tool |
+|20720|tcp |Unofficial|Symantec i3 Web GUI server |
+|22347|tcp,udp |Official|WibuKey, default port used for communications between the WibuKey Network Server and the WibuKey run-time client for the WIBU-SYSTEMS AG Software protection system |
+|22350|tcp,udp |Official|CodeMeter, default port used for communications with the CodeMeter Server for the WIBU-SYSTEMS AG Software protection system |
+|24554|tcp,udp |Official|BINKP, Fidonet mail transfers over TCP/IP |
+|24800||Unofficial|Synergy: keyboard/mouse sharing software |
+|24842||Unofficial|StepMania: Online: Dance Dance Revolution Simulator |
+|25999|tcp |Unofficial|Xfire |
+|26000|tcp,udp |Official|id Software's Quake server |
+|26000|tcp |Unofficial|CCP's EVE Online Online gaming MMORPG |
+|27000|udp |Unofficial|(through 27006) id Software's QuakeWorld master server |
+|27010||Unofficial|Half-Life and its mods, such as Counter-Strike |
+|27015||Unofficial|Half-Life and its mods, such as Counter-Strike |
+|27374||Unofficial|Sub7's default port. Most script kiddies do not change the default port. |
+|27500|udp |Unofficial|(through 27900) id Software's QuakeWorld |
+|27888|udp |Unofficial|Kaillera server |
+|27900||Unofficial|(through 27901) Nintendo Wi-Fi Connection |
+|27901|udp |Unofficial|(through 27910) id Software's Quake II master server |
+|27960|udp |Unofficial|(through 27969) Activision's Enemy Territory and id Software's Quake III Arena and Quake III and some ioquake3 derived games |
+|28910||Unofficial|Nintendo Wi-Fi Connection |
+|28960||Unofficial|Call of Duty 2 Common Call of Duty 2 port - (PC Version) |
+|29900||Unofficial|(through 29901) Nintendo Wi-Fi Connection |
+|29920||Unofficial|Nintendo Wi-Fi Connection |
+|30000||Unofficial|Pokemon Netbattle |
+|30564|tcp |Unofficial|Multiplicity: keyboard/mouse/clipboard sharing software |
+|31337|tcp |Unofficial|Back Orifice - remote administration tool (often Trojan horse) |
+|31337|tcp |Unofficial|xc0r3 - xc0r3 security antivir port |
+|31415||Unofficial|ThoughtSignal - Server Communication Service (often Informational) |
+|31456-31458|tcp |Unofficial|TetriNET ports (in order: IRC, game, and spectating) |
+|32245|tcp |Unofficial|MMTSG-mutualed over MMT (encrypted transmission) |
+|32976|tcp |Unofficial|LogMeIn Hamachi (VPN tunnel software; also port 12975) - used to connect to Mediation Server (bibi.hamachi.cc); will attempt to use SSL (TCP port 443) if both 12975 & 32976 fail to connect |
+|33434|tcp,upd |Official|traceroute |
+|34443||Unofficial|Linksys PSUS4 print server |
+|37777|tcp |Unofficial|Digital Video Recorder hardware |
+|36963||Unofficial|Counter Strike 2D multiplayer port (2D clone of popular CounterStrike computer game) |
+|40000|tcp,upd |Official|SafetyNET p Real-time Industrial Ethernet protocol |
+|43594-43595|tcp |Unofficial|RuneScape |
+|47808|tcp,upd |Official|BACnet Building Automation and Control Networks |
+|49151||Official|IANA Reserved |
