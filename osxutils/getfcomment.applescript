@@ -11,6 +11,7 @@ on run (argFilePath)
 	end if
 	set strFilePath to argFilePath as text
 	set ocidFilePathStr to current application's NSString's stringWithString:(strFilePath)
+	set ocidFilePathStr to (ocidFilePathStr's stringByReplacingOccurrencesOfString:("\\ ") withString:(" "))
 	set ocidFilePath to ocidFilePathStr's stringByStandardizingPath()
 	set ocidFilePathURL to (current application's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:false)
 	set strFilePath to ocidFilePath as text

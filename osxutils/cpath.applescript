@@ -18,6 +18,8 @@ on run (argOption)
 	else
 		set strFilePath to argOption as text
 		set ocidFilePath to current application's NSString's stringWithString:(strFilePath)
+		set ocidFilePath to (ocidFilePath's stringByReplacingOccurrencesOfString:("\\ ") withString:(" "))
+		set ocidFilePath to ocidFilePath's stringByStandardizingPath()
 		set appPasteboard to current application's NSPasteboard's generalPasteboard()
 		appPasteboard's clearContents()
 		appPasteboard's setString:(ocidFilePath) forType:(current application's NSPasteboardTypeString)

@@ -14,6 +14,7 @@ on run (argFilePathAndNo)
 	else if (count of argFilePathAndNo) = 1 then
 		set argFilePath to argFilePathAndNo as text
 		set ocidFilePathStr to current application's NSString's stringWithString:(argFilePath)
+	set ocidFilePathStr to (ocidFilePathStr's stringByReplacingOccurrencesOfString:("\\ ") withString:(" "))
 		set ocidFilePath to ocidFilePathStr's stringByStandardizingPath()
 		set ocidFilePathURL to (current application's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:false)
 		set listResult to ocidFilePathURL's getResourceValue:(reference) forKey:(current application's NSURLLabelNumberKey) |error|:(reference)
@@ -27,21 +28,21 @@ on run (argFilePathAndNo)
 		end if
 		
 	else if (count of argFilePathAndNo) = 2 then
-		#ARGをリストに分割
 		set {argFilePath, argNo} to argFilePathAndNo
 		set strNo to argNo as text
 		set ocidNoString to current application's NSString's stringWithString:(strNo)
-		set ocidDemSet to current application's NSCharacterSet's characterSetWithCharactersInString:("01234567")
-		set ocidCharSet to ocidDemSet's invertedSet()
+		set ocidCharSet to current application's NSCharacterSet's characterSetWithCharactersInString:("01234567")
 		set ocidOption to (current application's NSLiteralSearch)
 		set ocidRange to ocidNoString's rangeOfCharacterFromSet:(ocidCharSet) options:(ocidOption)
 		set ocidLocation to ocidRange's location() as text
-		if ocidLocation ≠ "9.223372036855E+18" then
+		if ocidLocation  = "9.223372036855E+18" then
+		log doPrintHelp()
 			return "設定値以外の値があったの中止"
 		else
 			set numNo to strNo as integer
 		end if
 		set ocidFilePathStr to current application's NSString's stringWithString:(argFilePath)
+    set ocidFilePathStr to (ocidFilePathStr's stringByReplacingOccurrencesOfString:("\\ ") withString:(" "))
 		set ocidFilePath to ocidFilePathStr's stringByStandardizingPath()
 		set ocidFilePathURL to (current application's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:false)
 		#

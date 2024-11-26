@@ -12,6 +12,7 @@ on run (argFilePath)
 	set appFileManager to current application's NSFileManager's defaultManager()
 	set strFilePath to argFilePath as text
 	set ocidFilePathStr to current application's NSString's stringWithString:(strFilePath)
+	set ocidFilePathStr to (ocidFilePathStr's stringByReplacingOccurrencesOfString:("\\ ") withString:(" "))
 	set ocidFilePath to ocidFilePathStr's stringByStandardizingPath()
 	set ocidFilePathURL to current application's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:(false)
 	set ocidFileName to ocidFilePathURL's lastPathComponent()

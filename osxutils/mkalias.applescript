@@ -26,11 +26,13 @@ set appFileManager to current application's NSFileManager's defaultManager()
 
 ##元ファイル
 set ocidFilePathStr to current application's NSString's stringWithString:(strFilePath)
+set ocidFilePathStr to (ocidFilePathStr's stringByReplacingOccurrencesOfString:("\\ ") withString:(" "))
 set ocidFilePath to ocidFilePathStr's stringByStandardizingPath()
 set ocidFilePathURL to (current application's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:false)
 
 ##エイリアス作成先
 set ocidDistFilePathStr to current application's NSString's stringWithString:(strDistFilePath)
+set ocidDistFilePathStr to (ocidDistFilePathStr's stringByReplacingOccurrencesOfString:("\\ ") withString:(" "))
 set ocidDistFilePath to ocidDistFilePathStr's stringByStandardizingPath()
 set ocidDistFilePathURL to (current application's NSURL's alloc()'s initFileURLWithPath:(ocidDistFilePath) isDirectory:false)
 
