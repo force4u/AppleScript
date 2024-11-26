@@ -8,6 +8,9 @@ on run (argKeyWord)
 	if (argKeyWord as text) is "-h" then
 		log doPrintHelp()
 		return
+else 	if (argKeyWord as text) is "" then
+		log doPrintHelp()
+		return
 	end if
 	if (item 1 of argKeyWord) is "-i" then
 		set strSetHost to ("images.google.com") as text
