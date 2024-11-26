@@ -22,6 +22,7 @@ return
 	#####
 	set strFilePath to argFilePath as text
 	set ocidFilePathStr to current application's NSString's stringWithString:(strFilePath)
+	set ocidFilePathStr to (ocidFilePathStr's stringByReplacingOccurrencesOfString:("\\ ") withString:(" "))
 	set ocidFilePath to ocidFilePathStr's stringByStandardizingPath()
 	#今の拡張子を取る 追加がいい場合は取る
 	set ocidBaseFilePath to ocidFilePath's stringByDeletingPathExtension()
