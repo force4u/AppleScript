@@ -11,12 +11,19 @@ on run (argFilePath)
 		log doPrintHelp()
 		return 0
 	end if
+
+	set strFilePath to argFilePath as text
 	set appFileManager to current application's NSFileManager's defaultManager()
-	set strFilePath to (POSIX path of argFilePath) as text
 	set ocidFilePathStr to current application's NSString's stringWithString:(strFilePath)
 	set ocidFilePath to ocidFilePathStr's stringByStandardizingPath()
 	set ocidFilePathURL to (current application's NSURL's alloc()'s initFileURLWithPath:(ocidFilePath) isDirectory:false)
 	set ocidFileName to ocidFilePathURL's lastPathComponent()
+	#
+	set listResponse to ocidFilePathURL's getResourceValue:(reference) forKey:(current application's NSURLIsDirectoryKey) |error|:(reference)
+	set ocidIsDir to (item 2 of listResponse) as boolean
+	if ocidIsDir is true then
+		return "フォルダは対象外です"
+	end if
 	#
 	set listResponse to ocidFilePathURL's getResourceValue:(reference) forKey:(current application's NSURLContentTypeKey) |error|:(reference)
 	set ocidUTType to (item 2 of listResponse)
