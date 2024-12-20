@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+	<dict>
+		<key>PayloadContent</key>
+		<array>
+			<dict>
+				<key>AppleLanguages</key>
+				<array>
+					<string>it-IT</string>
+					<string>en-US</string>
+					<string>ja-JP</string>
+					<string>en-JP</string>
+				</array>
+				<key>PayloadDisplayName</key>
+				<string>Global Preferences</string>
+				<key>PayloadIdentifier</key>
+				<string>.GlobalPreferences.8B81B388-C0B9-47D1-8F1D-7CC685C68F77</string>
+				<key>PayloadType</key>
+				<string>.GlobalPreferences</string>
+				<key>PayloadUUID</key>
+				<string>8B81B388-C0B9-47D1-8F1D-7CC685C68F77</string>
+				<key>PayloadVersion</key>
+				<integer>1</integer>
+			</dict>
+		</array>
+		<key>PayloadDescription</key>
+		<string>AppleLanguages to it-IT</string>
+		<key>PayloadDisplayName</key>
+		<string>GlobalPreferences.AppleLanguages</string>
+		<key>PayloadIdentifier</key>
+		<string>com.apple.GlobalPreferences.CFCB4CCD-0BA1-4EC1-8C32-4CE6B191BA57</string>
+		<key>PayloadOrganization</key>
+		<string>com.cocolog-nifty.quicktimer</string>
+		<key>PayloadScope</key>
+		<string>User</string>
+		<key>PayloadType</key>
+		<string>Configuration</string>
+		<key>PayloadUUID</key>
+		<string>CFCB4CCD-0BA1-4EC1-8C32-4CE6B191BA57</string>
+		<key>PayloadVersion</key>
+		<integer>1</integer>
+		<key>TargetDeviceType</key>
+		<integer>5</integer>
+	</dict>
+</plist>
