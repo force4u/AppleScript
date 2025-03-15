@@ -1,0 +1,83 @@
+<html>
+<head>
+	<link rel="stylesheet" href="css/flipclock.css">
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/flipclock.js"></script>
+</head>
+
+<body>
+<style>.flip-clock-label{display:none}</style>
+	<div style="display: flex; gap: 10px;  justify-content: center;	align-items: center;">
+		<span style="text-align: right; font-family:'Hiragino Kaku Gothic Pro','BIZ UDPゴシック', '游ゴシック体', 'Noto Sans JP', 'Meiryo', sans-serif; font-weight: bold; font-size: 24pt; color: #333;">再開は</span>
+		<div class="clock_s" style="margin:2em;display: flex;justify-content: center;	align-items: center;width: 360px;">
+		</div>
+		<span style="text-align: left;font-family:'Hiragino Kaku Gothic Pro','BIZ UDPゴシック', '游ゴシック体', 'Noto Sans JP', 'Meiryo', sans-serif; font-weight: bold; font-size: 12pt; color: #333;">を予定しています<br>それまでに<br>お戻りください</span>
+	</div>
+	</div>
+	<div style="display: flex; gap: 10px;  justify-content: center;	align-items: center;">
+		<span style="text-align: right;font-family:'Hiragino Kaku Gothic Pro','BIZ UDPゴシック', '游ゴシック体', 'Noto Sans JP', 'Meiryo', sans-serif; font-weight: bold; font-size: 24pt; color: #333;">この後</span>
+		<div class="clock_m" style="margin:2em;display: flex;justify-content: center;	align-items: center;width: 360px;">
+		</div>
+		<span style="text-align: left;font-family:'Hiragino Kaku Gothic Pro','BIZ UDPゴシック', '游ゴシック体', 'Noto Sans JP', 'Meiryo', sans-serif; font-weight: bold; font-size: 14pt; color: #333;">後に再開します</span>
+	</div>
+	<hr>
+	<div style="display: flex; gap: 10px;  justify-content: center;	align-items: center;">
+		<span style="text-align: right; font-family:'Hiragino Kaku Gothic Pro','BIZ UDPゴシック', '游ゴシック体', 'Noto Sans JP', 'Meiryo', sans-serif; font-weight: bold; font-size: 24pt; color: #333;">時刻は</span>
+		<div class="clock_t" style="margin:2em;display: flex;justify-content: center;	align-items: center;width: 360px;">
+		</div>
+		<span style="text-align: left;font-family:'Hiragino Kaku Gothic Pro','BIZ UDPゴシック', '游ゴシック体', 'Noto Sans JP', 'Meiryo', sans-serif; font-weight: bold; font-size: 24pt; color: #333;">です</span>
+	</div>
+
+	<script type="text/javascript">
+var numAfterSec = 120;
+		var clock_t;
+		$(document).ready(function () {
+			var clock_t;
+			clock_t = $('.clock_t').FlipClock({
+				clockFace: 'TwelveHourClock',
+				showSeconds: false
+			});
+		});
+
+		var clock_m;
+		$(document).ready(function () {
+			var clock_m;
+			clock_m = $('.clock_m').FlipClock({
+				clockFace: 'MinuteCounter',
+				autoStart: false,
+				callbacks: {
+					stop: function () {
+						$('.message').html('時間になりました')
+					}
+				}
+			});
+			clock_m.setTime(numAfterSec);
+			clock_m.setCountdown(true);
+			clock_m.start();
+		});
+
+		var clock_s;
+		$(document).ready(function () {
+			var clock_s;
+			clock_s = $('.clock_s').FlipClock({
+				clockFace: 'MinuteCounter',
+				autoStart: false,
+				callbacks: {
+					stop: function () {
+						$('.message').html('時間になりました')
+					}
+				}
+			});
+			var dateNew = new Date();
+			var numCurrentH = dateNew.getHours();
+			var numCurrentM = dateNew.getMinutes();
+			var numAfterSec = 60;
+			var numSetTime = (numCurrentH * 60) + (numCurrentM ) + Math.ceil(numAfterSec /60)+1;
+			clock_s.setTime(numSetTime);
+			clock_s.setCountdown(true);
+
+			clock_s.stop();
+		});
+	</script>
+</body>
+</html>
