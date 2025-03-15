@@ -71,8 +71,7 @@ var numAfterSec = 99999;
 			var dateNew = new Date();
 			var numCurrentH = dateNew.getHours();
 			var numCurrentM = dateNew.getMinutes();
-			var numAfterSec = 60;
-			var numSetTime = (numCurrentH * 60) + (numCurrentM ) + Math.ceil(numAfterSec /60)+1;
+			var numSetTime = (numCurrentH * 60) + (numCurrentM ) + Math.ceil(numAfterSec /60) + 1;
 			clock_s.setTime(numSetTime);
 			clock_s.setCountdown(true);
 
