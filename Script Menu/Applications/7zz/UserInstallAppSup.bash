@@ -1,6 +1,6 @@
 #!/bin/bash
 #com.cocolog-nifty.quicktimer.icefloe
-#ユーザード ~/binにインストールする
+#ユーザード ~/Library/Application Support　にインストールする
 #7zバージョン2501版
 
 ###ダウンロードURL
@@ -29,13 +29,13 @@ USER_TEMP_DIR=$(/usr/bin/mktemp -d)
 ############################################################
 ############################################################
 ###BIN
-/bin/mkdir -p "/Users/$CONSOLE_USER/bin/"
+/bin/mkdir -p "/Users/$CONSOLE_USER/Library/Application Support"
 for ((numTimes = 1; numTimes <= 3; numTimes++)); do
 	sleep 1
-	/bin/mkdir -p "/Users/$CONSOLE_USER/bin/7zip"
-	/usr/bin/touch "/Users/$CONSOLE_USER/bin/7zip"
-	/usr/sbin/chown "$CONSOLE_USER" "/Users/$CONSOLE_USER/bin/7zip"
-	/bin/chmod 700 "/Users/$CONSOLE_USER/bin"
+	/bin/mkdir -p "/Users/$CONSOLE_USER/Library/Application Support/7zip"
+	/usr/bin/touch "/Users/$CONSOLE_USER/Library/Application Support/7zip"
+	/usr/sbin/chown "$CONSOLE_USER" "/Users/$CONSOLE_USER/Library/Application Support/7zip"
+	/bin/chmod 700 "/Users/$CONSOLE_USER/Library/Application Support"
 done
 
 ###ファイル名を取得
@@ -62,12 +62,12 @@ fi
 sleep 2
 ###旧バージョンをゴミ箱に
 USER_TRASH_DIR=$(/usr/bin/mktemp -d "$HOME/.Trash/7ZZ.XXXXXXXX")
-/bin/mv "/Users/$CONSOLE_USER/bin/7zip/7zz" "$USER_TRASH_DIR"
+/bin/mv "/Users/$CONSOLE_USER/Library/Application Support/7zip/7zz" "$USER_TRASH_DIR"
 
 ####移動
-/usr/bin/ditto "$USER_TEMP_DIR/7zip" "/Users/$CONSOLE_USER/bin/7zip"
+/usr/bin/ditto "$USER_TEMP_DIR/7zip" "/Users/$CONSOLE_USER/Library/Application Support/7zip"
 ####終了
 /bin/echo "インストール終了:" "$CONSOLE_USER"
 ###保存先を開く
-/usr/bin/open "/Users/$CONSOLE_USER/bin/7zip"
+/usr/bin/open "/Users/$CONSOLE_USER/Library/Application Support/7zip"
 exit 0
