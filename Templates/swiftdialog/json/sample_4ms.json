@@ -55,7 +55,7 @@
 	"alignment": "alignment",
 	"listfonts": false,
 	"messagealignment": "messagealignment",
-	"messagefont": "name=Helvetica-W4,size=36",
+	"messagefont": "name=Helvetica,size=36",
 	"version": false,
 	"bannerheight": "72",
 	"alwaysreturninput": false,
