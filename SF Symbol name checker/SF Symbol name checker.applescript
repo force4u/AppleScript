@@ -36,8 +36,8 @@ use scripting additions
 
 set strChkSymbolName to ("apple.logo") as text
 set boolChkOK to doChkSymbolName(strChkSymbolName)
-if boolChkOK is false then
-	log "Chk NG: " & strChkSymbolName & ""
+if boolChkOK is true then
+	log "Chk OK: " & strChkSymbolName & ""
 end if
 
 set strChkSymbolName to ("apple.xxxx") as text
