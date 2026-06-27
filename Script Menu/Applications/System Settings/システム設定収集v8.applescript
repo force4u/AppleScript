@@ -1,4 +1,5 @@
 #!/usr/bin/env osascript
+#coding: utf-8
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
 (*
 システム設定オープン用のスクリプト作成補助 
@@ -12,7 +13,7 @@ v7.1.1 １ケ所間違い修正
 v7.1.2 macOS26でアンカーが無い場合の対応でtryと保存ファイル名に修正を入れた
 v7.1.3 macOS26でSYSTEMUISERVERがよくないみたいなのでUIの呼び出しをSystem Eventsに戻した
 v8 『一般』の呼称をマルチリンガル対応した
-
+v8.1 System Eventsを明示的に終了させるようにした
 
 com.cocolog-nifty.quicktimer.icefloe *)
 ----+----1----+----2----+-----3----+----4----+----5----+----6----+----7
@@ -24,7 +25,7 @@ use scripting additions
 
 property refMe : a reference to current application
 
-set strBundleID to "com.apple.systempreferences" as text
+set strBundleID to ("com.apple.systempreferences") as text
 
 ############################
 #【１】システム設定の起動を確定させる
@@ -61,7 +62,7 @@ else
 	#起動待ち
 	tell application id strBundleID
 		#起動確認　最大１０秒
-		repeat 10 times
+		repeat 20 times
 			activate
 			set boolFrontMost to frontmost as boolean
 			log boolFrontMost
@@ -99,7 +100,7 @@ set strCopy to (ocidMsgDict's objectForKey:("157.title")) as text
 tell application id "com.apple.systempreferences"
 	set listPanelID to (id of every pane) as list
 end tell
-
+log listPanelID as list
 
 ############################
 ###【A】正順レコード
@@ -140,10 +141,17 @@ set listAllValueArray to ocidSortedKey as list
 try
 	tell application "System Events"
 		activate
-		set listResponse to (choose from list listAllValueArray with title strChoose with prompt (strSelection & "\r" & strGoToPane) default items (item 1 of listAllValueArray) OK button name strOK cancel button name strCancel without multiple selections allowed and empty selection allowed) as list
+		set listResponse to (choose from list listAllValueArray with title strChoose with prompt (strSelection & return & strGoToPane) default items (item 1 of listAllValueArray) OK button name strOK cancel button name strCancel without multiple selections allowed and empty selection allowed) as list
 	end tell
 on error strErrMes number numErrNo
-	tell application "System Events" to quit
+	try
+		with timeout of 3 seconds
+			tell application "System Events" to quit
+		end timeout
+	on error strErrMes number numErrNo
+		log "Quit System Events" & strErrMes & numErrNo
+		return false
+	end try
 	log strErrMes & numErrNo
 	return false
 end try
@@ -220,10 +228,17 @@ end if
 try
 	tell application "System Events"
 		activate
-		set listResponse to (choose from list listPaneAnchor with title strChoose with prompt (strSelection & "\r" & strGoToPane) default items (item 1 of listPaneAnchor) OK button name strOK cancel button name strCancel without multiple selections allowed and empty selection allowed) as list
+		set listResponse to (choose from list listPaneAnchor with title strChoose with prompt (strSelection & return & strGoToPane) default items (item 1 of listPaneAnchor) OK button name strOK cancel button name strCancel without multiple selections allowed and empty selection allowed) as list
 	end tell
 on error strErrMes number numErrNo
-	tell application "System Events" to quit
+	try
+		with timeout of 3 seconds
+			tell application "System Events" to quit
+		end timeout
+	on error strErrMes number numErrNo
+		log "Quit System Events" & strErrMes & numErrNo
+		return false
+	end try
 	log strErrMes & numErrNo
 	return false
 end try
@@ -233,7 +248,14 @@ else
 	set strPaneAnchor to (item 1 of listResponse) as text
 end if
 log strPaneAnchor
-tell application "System Events" to quit
+try
+	with timeout of 3 seconds
+		tell application "System Events" to quit
+	end timeout
+on error strErrMes number numErrNo
+	log "Quit System Events" & strErrMes & numErrNo
+	return false
+end try
 
 ############################
 ###【９】URLにする
@@ -363,7 +385,14 @@ if button returned of recordResult is strStoreScript then
 	###スクリプトをテキストで保存
 	set ocidScript to refMe's NSString's stringWithString:(strScript)
 	##改行はLFで
-	set ocidLFScript to ocidScript's stringByReplacingOccurrencesOfString:("\n") withString:("\n")
+	set strLF to ("" & linefeed & "") as text
+	set strCR to ("" & return & "") as text
+	set strCRLF to ("" & return & linefeed & "") as text
+	set strTab to ("" & tab & "") as text
+	set ocidScript to ocidScript's stringByReplacingOccurrencesOfString:(strCRLF) withString:(strLF)
+	set ocidScript to ocidScript's stringByReplacingOccurrencesOfString:(strCR) withString:(strLF)
+	set ocidScript to ocidScript's stringByReplacingOccurrencesOfString:(strLF & strLF) withString:(strLF)
+	set ocidLFScript to ocidScript's stringByReplacingOccurrencesOfString:(strTab) withString:("")
 	#	set ocidEnc to (refMe's NSUTF16LittleEndianStringEncoding)
 	#	ターミナルからの実行を配慮してUTF8に
 	set ocidEnc to (refMe's NSUTF8StringEncoding)
